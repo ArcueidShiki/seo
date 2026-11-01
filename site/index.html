@@ -18,7 +18,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
  {"@type":"WebSite","name":"SEO Handbook","url":"{{SITE_URL}}/","inLanguage":"zh-CN"},
- {"@type":"Organization","name":"SEO Handbook","url":"{{SITE_URL}}/","sameAs":["https://github.com/ArcueidShiki/seo-handbook"]}
+ {"@type":"Organization","name":"SEO Handbook","url":"{{SITE_URL}}/","sameAs":["https://github.com/ArcueidShiki/seo"]}
 ]}
 </script>
 <style>
@@ -64,11 +64,11 @@ footer{color:var(--muted);font-size:14px;margin-top:40px}
   <ol class="hb">{{HANDBOOK_NAV}}</ol>
 
   <h2>用 auditor 审计你自己的网站</h2>
-  <pre>git clone https://github.com/ArcueidShiki/seo-handbook && cd seo-handbook && npm ci
+  <pre>git clone https://github.com/ArcueidShiki/seo && cd seo && npm ci
 node auditor/audit.mjs --url https://你的网站/ --name mysite --keyword "你的主关键词"
 # 输出 reports/mysite.json：逐条 pass/fail + Lighthouse + 搜索结果片段预览</pre>
 
-  <footer>开源仓库：<a href="https://github.com/ArcueidShiki/seo-handbook">github.com/ArcueidShiki/seo-handbook</a> · 知识来源见手册各章末尾 · 最后构建 {{UPDATED}}</footer>
+  <footer>开源仓库：<a href="https://github.com/ArcueidShiki/seo">github.com/ArcueidShiki/seo</a> · 知识来源见手册各章末尾 · 最后构建 {{UPDATED}}</footer>
 </main>
 </body>
 </html>

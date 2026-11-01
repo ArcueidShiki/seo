@@ -49,7 +49,7 @@ async function get(u, method = 'GET') {
 
 // ---------- crawl ----------
 const browser = await chromium.launch();
-const ctx = await browser.newContext({ userAgent: 'Mozilla/5.0 (compatible; seo-handbook-auditor/1.0; +https://github.com/ArcueidShiki/seo-handbook)' });
+const ctx = await browser.newContext({ userAgent: 'Mozilla/5.0 (compatible; seo-handbook-auditor/1.0; +https://github.com/ArcueidShiki/seo)' });
 const pages = [];
 const queue = [START.href];
 const seen = new Set();
@@ -98,7 +98,7 @@ function perPage(id, fn, { only } = {}) {
   for (const p of okPages) {
     if (only && !only(p)) continue;
     const r = fn(p, cheerio.load(p.raw), cheerio.load(p.rendered));
-    if (r !== true) fails.push(`${new URL(p.url).pathname}: ${r}`);
+    if (r !== true) fails.push(`/${new URL(p.url).pathname.slice(START.pathname.length)}: ${r}`);
   }
   return fails;
 }
@@ -177,7 +177,7 @@ okPages.forEach(p => {
   const $ = cheerio.load(p.rendered);
   $('a[href]').each((_, a) => {
     const l = toLocal($(a).attr('href'));
-    if (isInternal(l)) { const u = new URL(l); if (u.search || /[A-Z_]/.test(u.pathname) || /\.html?$/.test(u.pathname) && !/index\.html$/.test(u.pathname)) badUrls.add(u.pathname + u.search); }
+    if (isInternal(l)) { const u = new URL(l); if (u.search || /[A-Z_]/.test(u.pathname) || /\.html?$/.test(u.pathname) && !/index\.html$/.test(u.pathname)) badUrls.add('/' + u.pathname.slice(START.pathname.length) + u.search); }
   });
 });
 add('tech-clean-urls', badUrls.size ? 'fail' : 'pass', badUrls.size ? `non-clean internal URLs: ${[...badUrls].slice(0, 5).join(', ')}` : 'internal URLs are lowercase, hyphenated, no query strings');
@@ -250,7 +250,7 @@ report('img-dimensions', perPage('img-dimensions', (p, $, R) => {
   return missing ? `${missing} <img> without width/height (layout shift)` : true;
 }), 'every image declares width/height');
 const heavy = okPages.flatMap(p => p.imgs).filter(i => i.size > 200 * 1024 || /png|jpeg/.test(i.type) && i.size > 100 * 1024);
-add('img-optimized', heavy.length ? 'fail' : 'pass', heavy.length ? heavy.map(i => `${new URL(i.url).pathname} ${(i.size / 1024).toFixed(0)}KB ${i.type}`).slice(0, 4).join(' | ') : 'all images ≤200KB, modern formats');
+add('img-optimized', heavy.length ? 'fail' : 'pass', heavy.length ? heavy.map(i => `${new URL(i.url).pathname.replace(START.pathname, '/')} ${(i.size / 1024).toFixed(0)}KB ${i.type}`).slice(0, 4).join(' | ') : 'all images ≤200KB, modern formats');
 
 // links & content
 report('links-internal', perPage('links-internal', (p, $, R) => {

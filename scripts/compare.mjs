@@ -135,7 +135,7 @@ ${rows}
 <li><b>提交 sitemap：</b>在 GSC 里提交 <code>{{SITE_URL}}/sitemap.xml</code>（两个 demo 的 URL 都在里面）。</li>
 <li><b>请求编入索引：</b>用"网址检查"分别检查 <code>{{SITE_URL}}/demos/before/</code> 和 <code>{{SITE_URL}}/demos/after/</code>，点"请求编入索引"。在"查看已抓取的网页 → 屏幕截图/HTML"里可以直接看到：Demo A 抓到的 HTML 几乎是空的。</li>
 <li><b>Bing：</b>在 Bing Webmaster Tools 用"从 GSC 导入"一键添加；Bing 的数据也会供给 ChatGPT 搜索等 AI 产品。</li>
-<li><b>记录：</b>第 3、7、14、28 天分别搜索目标查询（用无痕窗口，地区设为 US），并查看 GSC → 效果 → 查询，把展示次数、点击、平均排名记录到下表。也可以用 <code>site:arcueidshiki.github.io/seo-handbook/demos</code> 查看收录了哪些页面。</li>
+<li><b>记录：</b>第 3、7、14、28 天分别搜索目标查询（用无痕窗口，地区设为 US），并查看 GSC → 效果 → 查询，把展示次数、点击、平均排名记录到下表。也可以用 <code>site:${new URL(A.publicUrl).host}${new URL(A.publicUrl).pathname.replace(/after\/$/, '')}</code> 查看收录了哪些页面。</li>
 </ol>
 <table><thead><tr><th>日期</th><th>查询</th><th>Demo A 是否收录 / 排名</th><th>Demo B 是否收录 / 排名</th><th>GSC 展示 / 点击（A｜B）</th></tr></thead><tbody>
 <tr><td>D+3</td><td>${esc(KW)}</td><td></td><td></td><td></td></tr><tr><td>D+7</td><td>${esc(KW)}</td><td></td><td></td><td></td></tr><tr><td>D+14</td><td>${esc(KW)}</td><td></td><td></td><td></td></tr><tr><td>D+28</td><td>${esc(KW)}</td><td></td><td></td><td></td></tr>

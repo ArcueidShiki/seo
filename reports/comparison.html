@@ -40,7 +40,7 @@ code{background:#eef0f4;padding:1px 5px;border-radius:4px}
 <body><main>
 <nav class="top"><a href="{{PATH}}/">← SEO Handbook</a><a href="{{PATH}}/tool/">Checklist 工具</a><a href="{{PATH}}/demos/before/">Demo A（优化前）</a><a href="{{PATH}}/demos/after/">Demo B（优化后）</a></nav>
 <h1>同一个产品，SEO 优化前 vs 优化后</h1>
-<p>两个 demo 是同一个虚构产品（仓位计算器），部署在同一个域名下，所以域名权重、主机和外链都相同，唯一的变量是页面本身的 SEO 实现。Demo A 是常见的"AI 生成单页应用"写法，Demo B 按本仓库的 checklist 逐条实现。下面的结果全部由 <code>auditor/audit.mjs</code> 在云端用 Chromium + Lighthouse 实测得出，生成于 2026-11-01 04:48 UTC。</p>
+<p>两个 demo 是同一个虚构产品（仓位计算器），部署在同一个域名下，所以域名权重、主机和外链都相同，唯一的变量是页面本身的 SEO 实现。Demo A 是常见的"AI 生成单页应用"写法，Demo B 按本仓库的 checklist 逐条实现。下面的结果全部由 <code>auditor/audit.mjs</code> 在云端用 Chromium + Lighthouse 实测得出，生成于 2026-11-01 05:16 UTC。</p>
 
 <div class="kpis">
   <div class="kpi"><div class="v"><span class="bad">8</span> → <span class="good">100</span></div><div class="l">Checklist 自动审计得分 / 100</div></div>
@@ -53,7 +53,7 @@ code{background:#eef0f4;padding:1px 5px;border-radius:4px}
 <p>根据两个站的 HTML 推算 Google 最可能生成的结果片段（标题和描述来自页面标签；Google 有时会改写，但缺标签时一定会自己从正文里拼）。</p>
 <div class="grid2"><div class="serp">
     <div class="serp-label">Demo A · 优化前</div>
-    <div class="serp-site"><span class="fav ">🌐</span><div><div class="sn">arcueidshiki.github.io</div><div class="su">arcueidshiki.github.io/seo-handbook/demos/before/</div></div></div>
+    <div class="serp-site"><span class="fav ">🌐</span><div><div class="sn">arcueidshiki.github.io</div><div class="su">arcueidshiki.github.io/seo/demos/before/</div></div></div>
     <div class="st">Home</div>
     <div class="sd">(no meta description — Google picks page text) vexlora Vexlora Calc acct risk in sl GO Our tool helps traders. For more info click here . © vexlora</div>
     <div class="srich"><em>无结构化数据 → 无富结果资格</em><span class="og no">社交分享卡片 ✗</span></div>
@@ -67,62 +67,62 @@ code{background:#eef0f4;padding:1px 5px;border-radius:4px}
 
 <h2>2. 速度与 Core Web Vitals（Lighthouse 移动端实验室数据）</h2>
 <table><thead><tr><th>指标</th><th>Demo A 优化前</th><th>Demo B 优化后</th></tr></thead><tbody>
-<tr><td>Lighthouse 性能 Performance</td><td>64</td><td>100</td></tr><tr><td>Lighthouse SEO</td><td>73</td><td>100</td></tr><tr><td>Lighthouse 无障碍 Accessibility</td><td>51</td><td>100</td></tr><tr><td>Lighthouse 最佳实践 Best Practices</td><td>96</td><td>100</td></tr><tr><td>LCP 最大内容绘制 (≤2.5s)</td><td>18.1 s</td><td>1.3 s</td></tr><tr><td>TBT 总阻塞时间 (≤200ms)</td><td>0 ms</td><td>9 ms</td></tr><tr><td>CLS 累计布局偏移 (≤0.1)</td><td>0</td><td>0</td></tr><tr><td>页面总大小</td><td>3361 KB</td><td>47 KB</td></tr>
+<tr><td>Lighthouse 性能 Performance</td><td>64</td><td>100</td></tr><tr><td>Lighthouse SEO</td><td>73</td><td>100</td></tr><tr><td>Lighthouse 无障碍 Accessibility</td><td>51</td><td>100</td></tr><tr><td>Lighthouse 最佳实践 Best Practices</td><td>96</td><td>100</td></tr><tr><td>LCP 最大内容绘制 (≤2.5s)</td><td>18.1 s</td><td>1.4 s</td></tr><tr><td>TBT 总阻塞时间 (≤200ms)</td><td>0 ms</td><td>21 ms</td></tr><tr><td>CLS 累计布局偏移 (≤0.1)</td><td>0</td><td>0</td></tr><tr><td>页面总大小</td><td>3361 KB</td><td>47 KB</td></tr>
 </tbody></table>
 <p>Demo A 未通过的 Lighthouse SEO 审计项：Document does not have a meta description、Links do not have descriptive text、Image elements do not have `[alt]` attributes</p>
 
 <h2>3. 逐条对照 checklist（39 条可自动检测的条目）</h2>
 <table><thead><tr><th style="width:110px">类别</th><th style="width:250px">Checklist 条目</th><th>Demo A 优化前</th><th>Demo B 优化后</th></tr></thead><tbody>
 <tr><td>网站结构与内链</td><td><b>URL 干净：小写、连字符、无参数、有层级</b><div class="id">tech-clean-urls</div></td>
-  <td class="st-fail">❌ 未通过<div class="d">non-clean internal URLs: /seo-handbook/demos/before/page.html?id=2&amp;ref=home</div></td>
+  <td class="st-fail">❌ 未通过<div class="d">non-clean internal URLs: /page.html?id=2&amp;ref=home</div></td>
   <td class="st-pass">✅ 通过<div class="d">internal URLs are lowercase, hyphenated, no query strings</div></td></tr>
 <tr><td>网站结构与内链</td><td><b>每个页面至少有 2 个指向其他页面的内链，没有孤立页面</b><div class="id">links-internal</div></td>
-  <td class="st-fail">❌ 未通过<div class="d">/seo-handbook/demos/before/: only 1 internal links to other pages | /seo-handbook/demos/before/page.html: only 1 internal links to other pages | /seo-handbook/demos/before/index.html: only 1 internal links to other pages</div></td>
+  <td class="st-fail">❌ 未通过<div class="d">/: only 1 internal links to other pages | /page.html: only 1 internal links to other pages | /index.html: only 1 internal links to other pages</div></td>
   <td class="st-pass">✅ 通过<div class="d">every page links to ≥2 other internal pages</div></td></tr>
 <tr><td>网站结构与内链</td><td><b>锚文本有描述性，不用&quot;点击这里&quot;</b><div class="id">links-anchor-text</div></td>
-  <td class="st-fail">❌ 未通过<div class="d">/seo-handbook/demos/before/: generic anchors: click here | /seo-handbook/demos/before/page.html: generic anchors: click here | /seo-handbook/demos/before/index.html: generic anchors: click here</div></td>
+  <td class="st-fail">❌ 未通过<div class="d">/: generic anchors: click here | /page.html: generic anchors: click here | /index.html: generic anchors: click here</div></td>
   <td class="st-pass">✅ 通过<div class="d">no &quot;click here&quot;-style anchor text</div></td></tr>
 <tr><td>页面标签 On-page</td><td><b>每个页面有独立、含关键词的 &lt;title&gt;</b><div class="id">onpage-title</div></td>
-  <td class="st-fail">❌ 未通过<div class="d">/seo-handbook/demos/before/: generic title &quot;Home&quot; | /seo-handbook/demos/before/page.html: generic title &quot;Home&quot; | /seo-handbook/demos/before/index.html: generic title &quot;Home&quot;</div></td>
+  <td class="st-fail">❌ 未通过<div class="d">/: generic title &quot;Home&quot; | /page.html: generic title &quot;Home&quot; | /index.html: generic title &quot;Home&quot;</div></td>
   <td class="st-pass">✅ 通过<div class="d">all 4 pages have unique-looking 15–65 char titles</div></td></tr>
 <tr><td>页面标签 On-page</td><td><b>全站没有重复的 title</b><div class="id">onpage-title-unique</div></td>
   <td class="st-fail">❌ 未通过<div class="d">duplicate titles: Home</div></td>
   <td class="st-pass">✅ 通过<div class="d">no duplicate titles</div></td></tr>
 <tr><td>页面标签 On-page</td><td><b>每个页面有 meta description</b><div class="id">onpage-meta-description</div></td>
-  <td class="st-fail">❌ 未通过<div class="d">/seo-handbook/demos/before/: missing meta description | /seo-handbook/demos/before/page.html: missing meta description | /seo-handbook/demos/before/index.html: missing meta description</div></td>
+  <td class="st-fail">❌ 未通过<div class="d">/: missing meta description | /page.html: missing meta description | /index.html: missing meta description</div></td>
   <td class="st-pass">✅ 通过<div class="d">every indexable page has a 50–165 char meta description</div></td></tr>
 <tr><td>页面标签 On-page</td><td><b>每页恰好 1 个 H1，且在服务端 HTML 中</b><div class="id">onpage-h1</div></td>
-  <td class="st-fail">❌ 未通过<div class="d">/seo-handbook/demos/before/: 0 &lt;h1&gt; in server HTML (want exactly 1) | /seo-handbook/demos/before/page.html: 0 &lt;h1&gt; in server HTML (want exactly 1) | /seo-handbook/demos/before/index.html: 0 &lt;h1&gt; in server HTML (want exactly 1)</div></td>
+  <td class="st-fail">❌ 未通过<div class="d">/: 0 &lt;h1&gt; in server HTML (want exactly 1) | /page.html: 0 &lt;h1&gt; in server HTML (want exactly 1) | /index.html: 0 &lt;h1&gt; in server HTML (want exactly 1)</div></td>
   <td class="st-pass">✅ 通过<div class="d">exactly one H1 in the server-rendered HTML of every page</div></td></tr>
 <tr><td>页面标签 On-page</td><td><b>标题层级 H1→H2→H3 不跳级</b><div class="id">onpage-heading-hierarchy</div></td>
-  <td class="st-fail">❌ 未通过<div class="d">/seo-handbook/demos/before/: no headings at all | /seo-handbook/demos/before/page.html: no headings at all | /seo-handbook/demos/before/index.html: no headings at all</div></td>
+  <td class="st-fail">❌ 未通过<div class="d">/: no headings at all | /page.html: no headings at all | /index.html: no headings at all</div></td>
   <td class="st-pass">✅ 通过<div class="d">headings never skip a level</div></td></tr>
 <tr><td>页面标签 On-page</td><td><b>主关键词出现在 title、H1、description、首段、URL</b><div class="id">onpage-keyword-placement</div></td>
   <td class="st-fail">❌ 未通过<div class="d">&quot;vexlora position size calculator&quot; missing from: title, h1, description, first100words</div></td>
   <td class="st-pass">✅ 通过<div class="d">&quot;vexlora position size calculator&quot; appears in title, H1, description and opening text</div></td></tr>
 <tr><td>页面标签 On-page</td><td><b>Open Graph 社交卡片（og:title / description / image / url）</b><div class="id">social-open-graph</div></td>
-  <td class="st-fail">❌ 未通过<div class="d">/seo-handbook/demos/before/: missing og:title, og:description, og:image, og:url | /seo-handbook/demos/before/page.html: missing og:title, og:description, og:image, og:url | /seo-handbook/demos/before/index.html: missing og:title, og:description, og:image, og:url</div></td>
+  <td class="st-fail">❌ 未通过<div class="d">/: missing og:title, og:description, og:image, og:url | /page.html: missing og:title, og:description, og:image, og:url | /index.html: missing og:title, og:description, og:image, og:url</div></td>
   <td class="st-pass">✅ 通过<div class="d">og:title / og:description / og:image / og:url on every page</div></td></tr>
 <tr><td>页面标签 On-page</td><td><b>Twitter / X card 标签</b><div class="id">social-twitter-card</div></td>
-  <td class="st-fail">❌ 未通过<div class="d">/seo-handbook/demos/before/: no twitter:card | /seo-handbook/demos/before/page.html: no twitter:card | /seo-handbook/demos/before/index.html: no twitter:card</div></td>
+  <td class="st-fail">❌ 未通过<div class="d">/: no twitter:card | /page.html: no twitter:card | /index.html: no twitter:card</div></td>
   <td class="st-pass">✅ 通过<div class="d">twitter:card on every page</div></td></tr>
 <tr><td>页面标签 On-page</td><td><b>所有图片有描述性 alt</b><div class="id">img-alt</div></td>
-  <td class="st-fail">❌ 未通过<div class="d">/seo-handbook/demos/before/: 1 &lt;img&gt; without alt | /seo-handbook/demos/before/index.html: 1 &lt;img&gt; without alt</div></td>
+  <td class="st-fail">❌ 未通过<div class="d">/: 1 &lt;img&gt; without alt | /index.html: 1 &lt;img&gt; without alt</div></td>
   <td class="st-pass">✅ 通过<div class="d">every image has descriptive alt text</div></td></tr>
 <tr><td>技术 SEO</td><td><b>&lt;html lang&gt; 声明页面语言</b><div class="id">tech-html-lang</div></td>
-  <td class="st-fail">❌ 未通过<div class="d">/seo-handbook/demos/before/: no &lt;html lang&gt; | /seo-handbook/demos/before/page.html: no &lt;html lang&gt; | /seo-handbook/demos/before/index.html: no &lt;html lang&gt;</div></td>
+  <td class="st-fail">❌ 未通过<div class="d">/: no &lt;html lang&gt; | /page.html: no &lt;html lang&gt; | /index.html: no &lt;html lang&gt;</div></td>
   <td class="st-pass">✅ 通过<div class="d">every page declares &lt;html lang&gt;</div></td></tr>
 <tr><td>技术 SEO</td><td><b>移动端 viewport 与响应式布局</b><div class="id">tech-viewport</div></td>
-  <td class="st-fail">❌ 未通过<div class="d">/seo-handbook/demos/before/: no responsive viewport meta | /seo-handbook/demos/before/page.html: no responsive viewport meta | /seo-handbook/demos/before/index.html: no responsive viewport meta</div></td>
+  <td class="st-fail">❌ 未通过<div class="d">/: no responsive viewport meta | /page.html: no responsive viewport meta | /index.html: no responsive viewport meta</div></td>
   <td class="st-pass">✅ 通过<div class="d">responsive viewport on every page</div></td></tr>
 <tr><td>技术 SEO</td><td><b>每个可索引页面有自引用的绝对 canonical</b><div class="id">tech-canonical</div></td>
-  <td class="st-fail">❌ 未通过<div class="d">/seo-handbook/demos/before/: no canonical | /seo-handbook/demos/before/page.html: no canonical | /seo-handbook/demos/before/index.html: no canonical</div></td>
+  <td class="st-fail">❌ 未通过<div class="d">/: no canonical | /page.html: no canonical | /index.html: no canonical</div></td>
   <td class="st-pass">✅ 通过<div class="d">every indexable page has an absolute, self-referencing canonical</div></td></tr>
 <tr><td>技术 SEO</td><td><b>重要页面没有误加 noindex</b><div class="id">tech-indexable</div></td>
   <td class="st-pass">✅ 通过<div class="d">no important page carries noindex</div></td>
   <td class="st-pass">✅ 通过<div class="d">no important page carries noindex</div></td></tr>
 <tr><td>技术 SEO</td><td><b>正文在不执行 JS 的 HTML 中就存在（SSR / SSG）</b><div class="id">tech-ssr-content</div></td>
-  <td class="st-fail">❌ 未通过<div class="d">/seo-handbook/demos/before/: only 1 words in HTML before JavaScript runs (rendered: 11) | /seo-handbook/demos/before/page.html: only 11 words in HTML before JavaScript runs (rendered: 11) | /seo-handbook/demos/before/index.html: only 1 words in HTML before JavaScript runs (rendered: 11)</div></td>
+  <td class="st-fail">❌ 未通过<div class="d">/: only 1 words in HTML before JavaScript runs (rendered: 11) | /page.html: only 11 words in HTML before JavaScript runs (rendered: 11) | /index.html: only 1 words in HTML before JavaScript runs (rendered: 11)</div></td>
   <td class="st-pass">✅ 通过<div class="d">main content is present in the HTML without JavaScript (SSR/SSG)</div></td></tr>
 <tr><td>技术 SEO</td><td><b>robots.txt 允许抓取并声明 Sitemap</b><div class="id">tech-robots-txt</div></td>
   <td class="st-fail">❌ 未通过<div class="d">robots.txt returned HTTP 404</div></td>
@@ -137,17 +137,17 @@ code{background:#eef0f4;padding:1px 5px;border-radius:4px}
   <td class="st-fail">❌ 未通过<div class="d">no &lt;link rel=&quot;icon&quot;&gt; (browser tab + Google result icon)</div></td>
   <td class="st-pass">✅ 通过<div class="d">favicon declared</div></td></tr>
 <tr><td>速度与体验</td><td><b>图片声明 width / height，避免布局偏移（CLS）</b><div class="id">img-dimensions</div></td>
-  <td class="st-fail">❌ 未通过<div class="d">/seo-handbook/demos/before/: 1 &lt;img&gt; without width/height (layout shift) | /seo-handbook/demos/before/index.html: 1 &lt;img&gt; without width/height (layout shift)</div></td>
+  <td class="st-fail">❌ 未通过<div class="d">/: 1 &lt;img&gt; without width/height (layout shift) | /index.html: 1 &lt;img&gt; without width/height (layout shift)</div></td>
   <td class="st-pass">✅ 通过<div class="d">every image declares width/height</div></td></tr>
 <tr><td>速度与体验</td><td><b>图片压缩并使用 WebP / AVIF，首屏外懒加载</b><div class="id">img-optimized</div></td>
-  <td class="st-fail">❌ 未通过<div class="d">/seo-handbook/demos/before/hero.png 3356KB image/png | /seo-handbook/demos/before/hero.png 3356KB image/png</div></td>
+  <td class="st-fail">❌ 未通过<div class="d">/hero.png 3356KB image/png | /hero.png 3356KB image/png</div></td>
   <td class="st-pass">✅ 通过<div class="d">all images ≤200KB, modern formats</div></td></tr>
 <tr><td>速度与体验</td><td><b>Lighthouse 移动端：性能 ≥90，SEO / 无障碍 / 最佳实践 ≥90</b><div class="id">perf-lighthouse</div></td>
   <td class="st-warn">⚠️ 部分<div class="d">mobile Lighthouse performance 64, SEO 73, accessibility 51, best practices 96</div></td>
   <td class="st-pass">✅ 通过<div class="d">mobile Lighthouse performance 100, SEO 100, accessibility 100, best practices 100</div></td></tr>
 <tr><td>速度与体验</td><td><b>Core Web Vitals 达标：LCP ≤2.5s · INP ≤200ms · CLS ≤0.1</b><div class="id">perf-core-web-vitals</div></td>
   <td class="st-fail">❌ 未通过<div class="d">lab LCP 18.1s (≤2.5s), CLS 0 (≤0.1), TBT 0ms (≤200ms; proxy for INP)</div></td>
-  <td class="st-pass">✅ 通过<div class="d">lab LCP 1.3s (≤2.5s), CLS 0 (≤0.1), TBT 9ms (≤200ms; proxy for INP)</div></td></tr>
+  <td class="st-pass">✅ 通过<div class="d">lab LCP 1.4s (≤2.5s), CLS 0 (≤0.1), TBT 21ms (≤200ms; proxy for INP)</div></td></tr>
 <tr><td>速度与体验</td><td><b>首页总传输体积 ≤1MB</b><div class="id">perf-page-weight</div></td>
   <td class="st-fail">❌ 未通过<div class="d">homepage transfers 3361 KB (budget ≤1000 KB)</div></td>
   <td class="st-pass">✅ 通过<div class="d">homepage transfers 47 KB (budget ≤1000 KB)</div></td></tr>
@@ -164,7 +164,7 @@ code{background:#eef0f4;padding:1px 5px;border-radius:4px}
   <td class="st-fail">❌ 未通过<div class="d">no About page and/or no visible dates/authorship</div></td>
   <td class="st-pass">✅ 通过<div class="d">About page + visible updated dates found</div></td></tr>
 <tr><td>SERP 富结果与点击率</td><td><b>JSON-LD 结构化数据合法且与页面内容一致</b><div class="id">serp-structured-data</div></td>
-  <td class="st-fail">❌ 未通过<div class="d">/seo-handbook/demos/before/: no JSON-LD | /seo-handbook/demos/before/page.html: no JSON-LD | /seo-handbook/demos/before/index.html: no JSON-LD</div></td>
+  <td class="st-fail">❌ 未通过<div class="d">/: no JSON-LD | /page.html: no JSON-LD | /index.html: no JSON-LD</div></td>
   <td class="st-pass">✅ 通过<div class="d">valid JSON-LD on every page; types: Organization, WebSite, WebApplication, Offer, BreadcrumbList, ListItem, FAQPage, Question, Answer, Article, ImageObject, AboutPage</div></td></tr>
 <tr><td>SERP 富结果与点击率</td><td><b>BreadcrumbList 面包屑</b><div class="id">serp-breadcrumbs</div></td>
   <td class="st-fail">❌ 未通过<div class="d">no BreadcrumbList schema</div></td>
@@ -212,7 +212,7 @@ code{background:#eef0f4;padding:1px 5px;border-radius:4px}
 <li><b>提交 sitemap：</b>在 GSC 里提交 <code>{{SITE_URL}}/sitemap.xml</code>（两个 demo 的 URL 都在里面）。</li>
 <li><b>请求编入索引：</b>用"网址检查"分别检查 <code>{{SITE_URL}}/demos/before/</code> 和 <code>{{SITE_URL}}/demos/after/</code>，点"请求编入索引"。在"查看已抓取的网页 → 屏幕截图/HTML"里可以直接看到：Demo A 抓到的 HTML 几乎是空的。</li>
 <li><b>Bing：</b>在 Bing Webmaster Tools 用"从 GSC 导入"一键添加；Bing 的数据也会供给 ChatGPT 搜索等 AI 产品。</li>
-<li><b>记录：</b>第 3、7、14、28 天分别搜索目标查询（用无痕窗口，地区设为 US），并查看 GSC → 效果 → 查询，把展示次数、点击、平均排名记录到下表。也可以用 <code>site:arcueidshiki.github.io/seo-handbook/demos</code> 查看收录了哪些页面。</li>
+<li><b>记录：</b>第 3、7、14、28 天分别搜索目标查询（用无痕窗口，地区设为 US），并查看 GSC → 效果 → 查询，把展示次数、点击、平均排名记录到下表。也可以用 <code>site:arcueidshiki.github.io/seo/demos/</code> 查看收录了哪些页面。</li>
 </ol>
 <table><thead><tr><th>日期</th><th>查询</th><th>Demo A 是否收录 / 排名</th><th>Demo B 是否收录 / 排名</th><th>GSC 展示 / 点击（A｜B）</th></tr></thead><tbody>
 <tr><td>D+3</td><td>vexlora position size calculator</td><td></td><td></td><td></td></tr><tr><td>D+7</td><td>vexlora position size calculator</td><td></td><td></td><td></td></tr><tr><td>D+14</td><td>vexlora position size calculator</td><td></td><td></td><td></td></tr><tr><td>D+28</td><td>vexlora position size calculator</td><td></td><td></td><td></td></tr>

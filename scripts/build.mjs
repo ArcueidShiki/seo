@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Builds the publishable site into _site/.
 //
-//   SITE_URL=https://arcueidshiki.github.io/seo-handbook node scripts/build.mjs [--relative]
+//   SITE_URL=https://arcueidshiki.github.io/seo node scripts/build.mjs [--relative]
 //
 // Optional env:
 //   GSC_VERIFICATION   Google Search Console HTML-tag token  -> <meta name="google-site-verification">
@@ -16,7 +16,7 @@ import { marked } from 'marked';
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const RELATIVE_FLAG = process.argv.includes('--relative');
 const OUT = path.join(root, RELATIVE_FLAG ? '_preview' : '_site');
-const SITE_URL = (process.env.SITE_URL || 'https://arcueidshiki.github.io/seo-handbook').replace(/\/$/, '');
+const SITE_URL = (process.env.SITE_URL || 'https://arcueidshiki.github.io/seo').replace(/\/$/, '');
 const PREFIX = new URL(SITE_URL).pathname.replace(/\/$/, '');
 const RELATIVE = process.argv.includes('--relative');
 const today = new Date();

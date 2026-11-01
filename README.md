@@ -20,7 +20,7 @@ zip 包里的 `_preview/` 是已构建好的站点（相对链接），直接用
 ```bash
 npm ci                     # 需要 Node 22+；审计依赖 Playwright Chromium（npx playwright install chromium）
 npm run all                # checklist → 图片 → 构建 → 本地服务器 → 审计两个 demo → 生成报告 → 重新构建
-npm run serve              # 打开 http://localhost:8080/seo-handbook/
+npm run serve              # 打开 http://localhost:8080/seo/
 ```
 
 ### 审计你自己的网站
@@ -47,6 +47,7 @@ auditor 能自动判断 39 条（🤖 标记）：title / description / H1 / 关
 
 ## 部署（GitHub Pages）
 
+0. **仓库必须是 public**：GitHub 免费账号的私有仓库不能开 Pages（需要 GitHub Pro），而且 Google 也需要能公开访问。
 1. 推送到 `main`，`.github/workflows/pages.yml` 会构建并发布到 `gh-pages` 分支。
 2. 一次性设置：**Settings → Pages → Source: Deploy from a branch → `gh-pages` / root**。
 3. 可选的仓库变量（**Settings → Secrets and variables → Actions → Variables**）：
@@ -54,7 +55,7 @@ auditor 能自动判断 39 条（🤖 标记）：title / description / H1 / 关
    - `BING_VERIFICATION`：Bing Webmaster 验证 token
    - `GA_ID`：GA4 衡量 ID（只注入 Demo B）
    - `PLAUSIBLE_DOMAIN`
-4. 部署后在 GSC 提交 `https://arcueidshiki.github.io/seo-handbook/sitemap.xml`，并对两个 demo 分别"请求编入索引"。实验步骤见报告第 5 节。
+4. 部署后在 GSC 提交 `https://arcueidshiki.github.io/seo/sitemap.xml`，并对两个 demo 分别"请求编入索引"。实验步骤见报告第 5 节。
 5. `.github/workflows/audit.yml`（手动触发）：对线上 demo 重新审计并提交新报告。
 
 ## 目录结构

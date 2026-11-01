@@ -1,9 +1,9 @@
 {
   "name": "after",
-  "url": "http://localhost:8080/seo-handbook/demos/after/",
-  "publicUrl": "https://arcueidshiki.github.io/seo-handbook/demos/after/",
+  "url": "http://localhost:8080/seo/demos/after/",
+  "publicUrl": "https://arcueidshiki.github.io/seo/demos/after/",
   "keyword": "vexlora position size calculator",
-  "date": "2026-11-01T04:48:39.386Z",
+  "date": "2026-11-01T05:16:34.625Z",
   "pagesCrawled": [
     "/",
     "/guide/position-sizing-rules/",
@@ -251,7 +251,7 @@
       "id": "perf-core-web-vitals",
       "title": "Core Web Vitals 达标：LCP ≤2.5s · INP ≤200ms · CLS ≤0.1",
       "status": "pass",
-      "detail": "lab LCP 1.3s (≤2.5s), CLS 0 (≤0.1), TBT 9ms (≤200ms; proxy for INP)"
+      "detail": "lab LCP 1.4s (≤2.5s), CLS 0 (≤0.1), TBT 21ms (≤200ms; proxy for INP)"
     },
     {
       "id": "perf-page-weight",
@@ -266,21 +266,21 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "lcpMs": 1279,
-      "fcpMs": 862,
-      "tbtMs": 9,
+      "lcpMs": 1354,
+      "fcpMs": 911,
+      "tbtMs": 21,
       "cls": 0,
       "totalKB": 47,
       "failedSeoAudits": []
     },
     "desktop": {
-      "performance": 96,
+      "performance": 94,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "lcpMs": 1276,
-      "fcpMs": 847,
-      "tbtMs": 46,
+      "lcpMs": 1308,
+      "fcpMs": 1115,
+      "tbtMs": 4,
       "cls": 0,
       "totalKB": 47,
       "failedSeoAudits": []
@@ -289,7 +289,7 @@
   "serp": {
     "title": "Vexlora Position Size Calculator – Free Risk-Based Tool",
     "description": "Free Vexlora position size calculator: enter account size, risk % and stop-loss to get the exact number of shares to buy. Formula, worked examples and FAQ.",
-    "url": "https://arcueidshiki.github.io/seo-handbook/demos/after/",
+    "url": "https://arcueidshiki.github.io/seo/demos/after/",
     "siteName": "Vexlora",
     "favicon": true,
     "breadcrumbs": true,

@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 // Tiny static server that mimics GitHub Pages: serves _site/ under the SITE_URL path prefix,
 // /dir -> 301 /dir/, /dir/ -> dir/index.html, unknown paths -> 404 status with the root 404.html.
-//   SITE_URL=https://arcueidshiki.github.io/seo-handbook PORT=8080 node scripts/serve.mjs
+//   SITE_URL=https://arcueidshiki.github.io/seo PORT=8080 node scripts/serve.mjs
 import http from 'node:http';
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..', '_site');
-const PREFIX = new URL(process.env.SITE_URL || 'https://arcueidshiki.github.io/seo-handbook').pathname.replace(/\/$/, '');
+const PREFIX = new URL(process.env.SITE_URL || 'https://arcueidshiki.github.io/seo').pathname.replace(/\/$/, '');
 const PORT = +(process.env.PORT || 8080);
 const TYPES = { html: 'text/html; charset=utf-8', css: 'text/css', js: 'text/javascript', json: 'application/json', xml: 'application/xml', txt: 'text/plain; charset=utf-8', svg: 'image/svg+xml', png: 'image/png', webp: 'image/webp', webmanifest: 'application/manifest+json', md: 'text/markdown; charset=utf-8' };
 

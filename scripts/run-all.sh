@@ -2,7 +2,7 @@
 # Full pipeline, run in the cloud workspace / CI: checklist → assets → build → local server → audit both demos → report → rebuild.
 set -euo pipefail
 cd "$(dirname "$0")/.."
-export SITE_URL="${SITE_URL:-https://arcueidshiki.github.io/seo-handbook}"
+export SITE_URL="${SITE_URL:-https://arcueidshiki.github.io/seo}"
 KEYWORD="${KEYWORD:-vexlora position size calculator}"
 PORT="${PORT:-8080}"
 PREFIX="$(node -e "console.log(new URL(process.env.SITE_URL).pathname.replace(/\/$/,''))")"
