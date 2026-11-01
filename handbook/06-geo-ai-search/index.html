@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GEO / AI 搜索优化 – SEO Handbook</title>
+<meta name="description" content="SEO handbook chapter: GEO / AI 搜索优化">
+<link rel="canonical" href="https://ArcueidShiki.github.io/seo/handbook/06-geo-ai-search/">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/seo/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="GEO / AI 搜索优化 – SEO Handbook">
+<meta property="og:description" content="SEO handbook chapter: GEO / AI 搜索优化">
+<meta property="og:url" content="https://ArcueidShiki.github.io/seo/handbook/06-geo-ai-search/">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--brand:#4f46e5;--bg:#fafafa}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.75 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--brand)}
+.top{border-bottom:1px solid var(--line);background:#fff}
+.top div{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;gap:18px;align-items:center}
+.top a{text-decoration:none;color:var(--muted)}.top .brand{font-weight:700;color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:20px;display:grid;grid-template-columns:240px 1fr;gap:32px}
+aside nav{position:sticky;top:16px;display:flex;flex-direction:column;gap:4px;font-size:14px}
+aside a{text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:8px}
+aside a[aria-current]{background:#eef2ff;color:var(--brand);font-weight:600}
+article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 36px;min-width:0}
+article h1{margin-top:0;line-height:1.25}
+article h2{margin-top:2em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
+article table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow:auto}
+article th,article td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+article th{background:#f9fafb}
+article code{background:#f3f4f6;padding:1px 5px;border-radius:4px;font-size:.92em}
+article pre{background:#111827;color:#e5e7eb;padding:14px;border-radius:8px;overflow:auto}
+article pre code{background:none;padding:0}
+article blockquote{margin:1em 0;padding:.5em 1em;border-left:4px solid var(--brand);background:#f5f3ff;color:#374151}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}aside nav{position:static}article{padding:20px}}
+</style>
+</head>
+<body>
+<div class="top"><div><a class="brand" href="/seo/">SEO Handbook</a><a href="/seo/tool/">Checklist 工具</a><a href="/seo/handbook/00-overview/">手册</a><a href="/seo/reports/">Before/After 报告</a></div></div>
+<div class="wrap">
+<aside><nav aria-label="手册目录"><a href="/seo/handbook/00-overview/">总览</a><a href="/seo/handbook/01-keyword-research/">关键词研究与选题</a><a href="/seo/handbook/02-page-structure-and-tags/">页面结构与 SEO 标签</a><a href="/seo/handbook/03-technical-seo-and-infra/">技术 SEO 与基础设施</a><a href="/seo/handbook/04-content-and-eeat/">内容与 E-E-A-T</a><a href="/seo/handbook/05-backlinks/">外链建设</a><a href="/seo/handbook/06-geo-ai-search/" aria-current="page">GEO / AI 搜索优化</a><a href="/seo/handbook/07-launch-and-distribution/">发布与冷启动：推广策略、发布平台与品牌</a><a href="/seo/handbook/08-x-and-reddit/">X（Twitter）与 Reddit 运营</a><a href="/seo/handbook/09-xiaohongshu/">小红书运营全指南</a><a href="/seo/handbook/10-douyin-video-wechat/">抖音、短视频与微信生态</a><a href="/seo/handbook/11-analytics-and-tools/">数据统计与 SEO 工具箱</a><a href="/seo/handbook/12-monetization/">变现：广告、订阅、支付与联盟营销</a><a href="/seo/handbook/13-mindset-and-case-studies/">独立开发者方法论与案例</a><a href="/seo/handbook/99-glossary/">SEO 名词解释</a></nav></aside>
+<article><h1>GEO / AI 搜索优化</h1>
+<blockquote>
+<p>一句话：<strong>GEO（Generative Engine Optimization，也叫 AEO，Answer Engine Optimization）的目标是让 ChatGPT、Perplexity、Claude、Gemini、Google AI Overviews 这类&quot;答案引擎&quot;在回答问题时引用、复用和推荐你的内容和品牌</strong>。本质上是进入模型的&quot;证据池&quot;。优化的单位也在变化：从页面，到知识单元，再到整个主题的语料网络。</p>
+<p>相关 Checklist 条目：<code>geo-answer-first</code>、<code>geo-faq-blocks</code>、<code>geo-llms-txt</code>、<code>geo-ai-crawlers</code>、<code>tech-ssr-content</code>、<code>serp-entity-schema</code>、<code>serp-structured-data</code>、<code>links-external-citation</code>、<code>content-eeat-signals</code>。</p>
+</blockquote>
+<hr>
+<h2>1. SEO 和 GEO 有什么区别</h2>
+<p>用户行为正在变化：以前是搜索之后点结果，现在越来越多人直接问 AI。引擎也不再只给一列链接，而是直接输出一段综合答案。竞争的焦点从&quot;排第几&quot;变成了&quot;<strong>有没有被采纳为答案来源</strong>&quot;。</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>SEO</th>
+<th>GEO</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>目标系统</td>
+<td>传统搜索引擎</td>
+<td>生成式 AI / 答案引擎</td>
+</tr>
+<tr>
+<td>目标</td>
+<td>排名更高</td>
+<td><strong>被引用的概率更高</strong></td>
+</tr>
+<tr>
+<td>优化对象</td>
+<td>单个页面或网站</td>
+<td>全网关于你的所有内容（语料）</td>
+</tr>
+<tr>
+<td>评价方式</td>
+<td>排名、点击</td>
+<td>被引用的频率、品牌和主题的语义关联</td>
+</tr>
+<tr>
+<td>核心问题</td>
+<td>&quot;我排在第几？&quot;</td>
+<td>&quot;模型会不会反复用到我的内容？&quot;</td>
+</tr>
+</tbody></table>
+<p>三个转变：<strong>从页面竞争到知识竞争；从追求曝光到追求被采纳、被信任；从技巧优化到语义理解 + 信任建设。</strong></p>
+<p>GEO 不是用来替代 SEO 的。大多数答案引擎在回答时都会先<strong>检索</strong>网页（Bing、Google 或自家索引），所以 SEO 的基础（可抓取、可索引、内容质量、外链和提及）也是 GEO 的基础。</p>
+<hr>
+<h2>2. AI 搜索的引用路径</h2>
+<pre><code class="language-text">① 允许爬虫  →  ② 被索引  →  ③ 结构清晰、语义明确  →  ④ 被引用
+  AI Bot 能进来吗？  在它的知识库或检索索引里吗？  能被拆成可以复用的知识单元吗？  有足够的权威和信任背书吗？
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>要回答的问题</th>
+<th>怎么检查</th>
+<th>auditor</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>① 抓取</td>
+<td>robots.txt 和 Cloudflare 有没有放行 AI 爬虫？正文是不是在 HTML 源码里？</td>
+<td>看 <code>/robots.txt</code>、Cloudflare 的 Bots 设置；用 <code>curl</code> 看源码里有没有正文</td>
+<td><code>geo-ai-crawlers</code>、<code>tech-ssr-content</code></td>
+</tr>
+<tr>
+<td>② 索引</td>
+<td>页面有没有被 Google / <strong>Bing</strong> 收录？</td>
+<td>GSC、Bing Webmaster；<code>site:</code> 搜索</td>
+<td><code>indexing-gsc</code>、<code>tech-xml-sitemap</code></td>
+</tr>
+<tr>
+<td>③ 理解</td>
+<td>有没有答案先行、问句式小标题、表格、明确的实体？</td>
+<td>人工检查 H2 / H3 大纲；JSON-LD</td>
+<td><code>geo-answer-first</code>、<code>geo-faq-blocks</code>、<code>serp-entity-schema</code></td>
+</tr>
+<tr>
+<td>④ 引用</td>
+<td>有没有第三方提及、讨论、引用？作者和品牌可信吗？</td>
+<td>搜品牌名；看 Reddit / 知乎 / 贴吧 / 目录上的描述</td>
+<td><code>content-eeat-signals</code>、<code>links-external-citation</code></td>
+</tr>
+</tbody></table>
+<p>答案引擎的工作方式大致是三步：<strong>按语义理解意图（不是按关键词匹配）→ 从多个来源检索证据 → 综合成答案</strong>。所以更容易被引用的内容有几个特点：覆盖完整、语义结构清楚、在这个主题上反复出现、不只讲&quot;是什么&quot;，还讲&quot;<strong>为什么</strong>&quot;和&quot;<strong>怎么用</strong>&quot;。</p>
+<hr>
+<h2>3. 内容写法</h2>
+<h3>3.1 答案先行</h3>
+<p>H1 之后的第一段，用 <strong>≤ 80 个词</strong>直接给出定义或结论。auditor 的 <code>geo-answer-first</code> 会检查首页 H1 后的第一段是不是简短的定义句（带&quot;是 / 指 / is / means&quot;这类词）。</p>
+<table>
+<thead>
+<tr>
+<th>❌ 不利于引用</th>
+<th>✅ 利于引用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>在当今快速发展的数字时代，越来越多的企业开始关注数据处理的效率问题……</td>
+<td><strong>银行流水 PDF 转 Excel</strong>，是指把银行导出的 PDF 对账单里的交易表格，按日期、摘要、金额、余额等列原样还原成可以编辑的 Excel 表格。用专门的转换工具通常 1 分钟内就能完成，通用 OCR 则容易出现串行、错列。</td>
+</tr>
+</tbody></table>
+<h3>3.2 把每个核心主题拆成&quot;知识单元&quot;</h3>
+<p>每个关键页面用清楚的 H2 / H3 回答下面这几类问题，每一节都能单独被截取引用：</p>
+<pre><code class="language-markdown">## X 是什么                  ← 1–2 句定义 + 一个具体例子
+## 为什么会出现 / 为什么需要 X  ← 原因、背景、因果关系
+## 怎么做（步骤）              ← &lt;ol&gt;，每一步写一句话 + 截图
+## X vs Y vs Z                 ← 对比表：适用场景、价格、限制
+## 常见错误与误区              ← 用户踩过的坑 + 怎么修
+## 常见问题                    ← 3–6 个问句式标题，第一句给结论   geo-faq-blocks
+</code></pre>
+<h3>3.3 数据与引用</h3>
+<ul>
+<li>给出<strong>具体数字、日期、版本号、价格、限制条件</strong>。模糊的形容词很难被引用。</li>
+<li>引用权威的外部来源（官方文档、标准、研究报告），对应 <code>links-external-citation</code>。</li>
+<li>有原创数据（调研、基准测试、统计）的话，单独发一个页面，方便被其他网站和模型引用。</li>
+<li>写明<strong>作者、发布日期和更新日期</strong>，内容有变化时更新 <code>dateModified</code>。</li>
+<li>系统地整理用户的误区、踩过的坑和解决办法：每个核心主题都写一篇&quot;避坑 / 排错&quot;文章。</li>
+<li>问题清单的来源是 Reddit、评论区、客服工单这些地方的<strong>真实提问</strong>，不是关键词工具。</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>2026 更新</strong>：FAQ 富结果在 Google 上基本已经不再展示（见 <a href="../02-page-structure-and-tags/">02 章</a>），但<strong>问答格式对 AI 引用仍然很有用</strong>：问题是现成的查询，答案是现成的引用片段。FAQ 区块要保留，只是不要指望它带来 SERP 上的折叠问答。</p>
+</blockquote>
+<hr>
+<h2>4. 平台信号：在模型的&quot;语料网络&quot;里出现</h2>
+<p>GEO 优化的不只是你自己的网站，还有<strong>全网关于你的内容</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>信号</th>
+<th>为什么有用</th>
+<th>怎么做</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>真实的讨论语料</strong></td>
+<td>多轮讨论（追问、反驳、澄清）+ 有具体场景的非官方观点，被认为是 LLM 很依赖的语料。原文特别提到了 <strong>Reddit</strong> 和 <strong>百度贴吧</strong></td>
+<td>长期在细分版块里真诚地参与多轮讨论，不是路过留个链接；每月记录有实质内容的回帖数（打法见 <a href="../08-x-and-reddit/">08 章</a>）</td>
+</tr>
+<tr>
+<td><strong>问答社区</strong></td>
+<td>知乎这类长问答在中文模型和百度里权重高</td>
+<td>用第一人称写有经验、有数据的长回答</td>
+</tr>
+<tr>
+<td><strong>多平台、多形式覆盖</strong></td>
+<td>品牌在不同语境里反复出现，能提高它在模型知识网络里的&quot;存在密度&quot;</td>
+<td>每个核心主题至少有：一篇深度文章、一个案例、一篇技术解读、一次第三方媒体或博客提及</td>
+</tr>
+<tr>
+<td><strong>品牌描述一致</strong></td>
+<td>模型需要把&quot;品牌 ↔ 主题&quot;稳定地绑定在一起</td>
+<td>目录、社交简介、文章署名、About 页里的<strong>一句话定位保持一致</strong>，例如&quot;ExampleAI：给电商运营用的 AI 海报生成器&quot;</td>
+</tr>
+<tr>
+<td><strong>目录和对比文里有你</strong></td>
+<td>被归到正确的类目，用户问&quot;best X tool&quot;时才可能被提到</td>
+<td>AI 工具目录、替代品网站、第三方对比文章（见 <a href="../05-backlinks/">05 章</a>）</td>
+</tr>
+</tbody></table>
+<p>原文的判断：Reddit 和贴吧这类&quot;多轮讨论 + 长期垂直话题 + 真实经验&quot;的社区对 GEO 友好；模板化、短平快的内容平台语言同质化、语义被压缩，被引用的价值较低。</p>
+<blockquote>
+<p>⚠️ <strong>2026 更新</strong>：不要为了 GEO 去批量注册账号、刷帖、发软文，或者在讨论区植入雷同的推荐话术。社区会封号，AI 引擎也在降低刷屏式内容的权重。<strong>真诚参与是唯一能长期起作用的做法。</strong></p>
+</blockquote>
+<hr>
+<h2>5. 技术项</h2>
+<h3>5.1 robots.txt：放行哪些 bot</h3>
+<table>
+<thead>
+<tr>
+<th>厂商</th>
+<th>User-agent</th>
+<th>用途</th>
+<th>建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" width="16" height="16" alt=""> <a href="https://openai.com/">OpenAI</a></td>
+<td><code>OAI-SearchBot</code></td>
+<td>ChatGPT 搜索的检索和引用</td>
+<td><strong>放行</strong></td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" width="16" height="16" alt=""> <a href="https://openai.com/">OpenAI</a></td>
+<td><code>ChatGPT-User</code></td>
+<td>用户在对话里让 ChatGPT 打开你的页面</td>
+<td>放行</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" width="16" height="16" alt=""> <a href="https://openai.com/">OpenAI</a></td>
+<td><code>GPTBot</code></td>
+<td>训练数据抓取</td>
+<td>默认放行（帮助模型&quot;记住&quot;品牌）；有不想被训练的内容再考虑拦截</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" width="16" height="16" alt=""> <a href="https://www.anthropic.com/">Anthropic</a></td>
+<td><code>ClaudeBot</code></td>
+<td>训练数据抓取</td>
+<td>默认放行</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" width="16" height="16" alt=""> <a href="https://www.anthropic.com/">Anthropic</a></td>
+<td><code>Claude-SearchBot</code>、<code>Claude-User</code></td>
+<td>搜索检索、用户触发的访问</td>
+<td>放行</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=perplexity.ai&sz=32" width="16" height="16" alt=""> <a href="https://www.perplexity.ai/">Perplexity</a></td>
+<td><code>PerplexityBot</code>、<code>Perplexity-User</code></td>
+<td>索引和用户触发的访问</td>
+<td><strong>放行</strong></td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=google.com&sz=32" width="16" height="16" alt=""> <a href="https://developers.google.com/search">Google</a></td>
+<td><code>Google-Extended</code></td>
+<td>控制内容能否用于 Gemini 训练和 grounding（不是一个独立的爬虫，<strong>不影响 Google 搜索和 AI Overviews</strong>）</td>
+<td>默认放行</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=google.com&sz=32" width="16" height="16" alt=""> <a href="https://developers.google.com/search">Google</a></td>
+<td><code>Googlebot</code></td>
+<td>搜索，也包括 AI Overviews / AI Mode</td>
+<td>必须放行</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=bing.com&sz=32" width="16" height="16" alt=""> <a href="https://www.bing.com/webmasters">Microsoft Bing</a></td>
+<td><code>bingbot</code></td>
+<td>Bing 搜索、Copilot，也间接影响 ChatGPT 搜索</td>
+<td>必须放行</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" width="16" height="16" alt=""> <a href="https://www.apple.com/">Apple</a></td>
+<td><code>Applebot-Extended</code></td>
+<td>控制内容能否用于 Apple 的 AI 训练</td>
+<td>按需</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=commoncrawl.org&sz=32" width="16" height="16" alt=""> <a href="https://commoncrawl.org/">Common Crawl</a></td>
+<td><code>CCBot</code></td>
+<td>公开数据集，很多模型会用</td>
+<td>按需</td>
+</tr>
+</tbody></table>
+<pre><code class="language-text"># 允许 AI 搜索和引用（可以和 03 章的通用规则合并）
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://example.com/sitemap.xml
+</code></pre>
+<blockquote>
+<p>⚠️ <strong>2026 更新（文档之间的冲突）</strong>：《网站加速和防攻击》建议在 Cloudflare 里开启&quot;屏蔽 AI 训练爬虫&quot;，以防爬虫流量拖垮服务器；《GEO》要求&quot;允许 AI Bot 访问&quot;。处理方式：</p>
+<ol>
+<li><strong>营销页、文档、博客对 AI 爬虫全部放行</strong>，这是 GEO 的前提。auditor 只要发现 <code>GPTBot</code>、<code>ClaudeBot</code>、<code>PerplexityBot</code>、<code>Google-Extended</code>、<code>OAI-SearchBot</code> 中有一个被拦截，<code>geo-ai-crawlers</code> 就判失败。</li>
+<li>担心负载的话，<strong>对 <code>/api/</code>、<code>/app/</code>、<code>/dashboard/</code> 做限流或拦截</strong>，而不是全站屏蔽 AI bot。营销页走边缘缓存之后，爬虫流量的成本几乎可以忽略（见 <a href="../03-technical-seo-and-infra/">03 章</a>）。</li>
+<li>去 Cloudflare 后台确认&quot;Block AI bots&quot;和托管 robots.txt 的状态。新接入的域名可能默认就是拦截的。</li>
+</ol>
+</blockquote>
+<h3>5.2 llms.txt</h3>
+<p><code>llms.txt</code> 是 2024 年提出的一个社区提案：在网站根目录放一份 Markdown，告诉 LLM 你的网站是做什么的、最重要的页面有哪些。</p>
+<pre><code class="language-markdown"># ExampleAI
+
+&gt; ExampleAI 是给电商运营用的 AI 海报生成器：输入一句话，批量生成同系列、可商用的海报。
+
+## 产品
+- [AI 海报生成器](https://example.com/): 主工具，免登录可以试 3 张
+- [价格](https://example.com/pricing): 免费版和 Pro 版的区别
+
+## 文档与指南
+- [Instagram 海报尺寸指南](https://example.com/blog/instagram-poster-size): 各平台尺寸对照表
+- [批量生成教程](https://example.com/blog/bulk-poster-generation): 一次生成 50 张的步骤
+
+## 关于
+- [关于我们](https://example.com/about): 团队、联系方式
+</code></pre>
+<p>auditor 的 <code>geo-llms-txt</code> 检查三点：<code>/llms.txt</code> 返回 200、有 <code># </code> 标题、有 <code>[文字](https://…)</code> 形式的链接。</p>
+<blockquote>
+<p>⚠️ <strong>2026 更新</strong>：到目前为止，<strong>还没有主流答案引擎公开确认会读取 llms.txt</strong>（Google 方面表示目前不使用它）。它成本很低、没有坏处，可以加上，但<strong>不要把它当成 GEO 的主要手段</strong>。真正起作用的仍然是可抓取、可索引、结构清晰的内容，以及站外提及。</p>
+</blockquote>
+<h3>5.3 其他技术项</h3>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>为什么</th>
+<th>怎么做</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>SSR / SSG</strong></td>
+<td>大多数 AI 爬虫不执行 JavaScript，纯前端渲染的页面在它们眼里就是空白</td>
+<td>正文直接写在 HTML 源码里（<code>tech-ssr-content</code>）</td>
+</tr>
+<tr>
+<td><strong>Bing 索引</strong></td>
+<td>ChatGPT 搜索、Copilot、DuckDuckGo 等产品都和 Bing 的索引有关联，没被 Bing 收录会少很多被 AI 引用的机会</td>
+<td>验证 Bing Webmaster，提交 sitemap，接入 IndexNow（见 <a href="../03-technical-seo-and-infra/">03 章</a>）</td>
+</tr>
+<tr>
+<td><strong>结构化数据</strong></td>
+<td>给模型一份机器可读的&quot;品牌档案&quot;，说明你是什么类型的产品、怎么收费、品牌和产品之间是什么关系</td>
+<td><code>Organization</code>（name、logo、<code>sameAs</code> 社交账号）+ <code>SoftwareApplication</code>（类目、价格）+ <code>Article.author</code>（<code>serp-entity-schema</code>）</td>
+</tr>
+<tr>
+<td><strong>sitemap + lastmod</strong></td>
+<td>让检索系统知道哪些内容是最新的</td>
+<td><code>&lt;lastmod&gt;</code> 写真实的修改日期</td>
+</tr>
+<tr>
+<td><strong>速度和稳定性</strong></td>
+<td>实时检索时页面超时就不会被用上</td>
+<td>边缘缓存、TTFB 低、不要对爬虫弹验证码挑战</td>
+</tr>
+<tr>
+<td><strong>干净的 URL 和 canonical</strong></td>
+<td>避免同一份内容被分散到多个 URL 上</td>
+<td>见 <a href="../02-page-structure-and-tags/">02 章</a></td>
+</tr>
+</tbody></table>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;ExampleAI&quot;,
+  &quot;url&quot;: &quot;https://example.com/&quot;,
+  &quot;logo&quot;: &quot;https://example.com/logo.png&quot;,
+  &quot;description&quot;: &quot;给电商运营用的 AI 海报生成器&quot;,
+  &quot;sameAs&quot;: [&quot;https://x.com/exampleai&quot;, &quot;https://www.producthunt.com/products/exampleai&quot;, &quot;https://github.com/exampleai&quot;]
+}
+&lt;/script&gt;
+</code></pre>
+<hr>
+<h2>6. 怎么衡量：每月用固定 prompt 测一次</h2>
+<h3>6.1 设计固定的 prompt 集合（10–20 条，每月不变）</h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>示例 prompt</th>
+<th>衡量什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>品类推荐</td>
+<td>&quot;有哪些好用的 AI 海报生成器？&quot; / &quot;best AI poster generator for ecommerce&quot;</td>
+<td><strong>语义关联</strong>：问品类问题时会不会提到你</td>
+</tr>
+<tr>
+<td>问题求解</td>
+<td>&quot;怎么批量做 50 张同系列的促销海报？&quot;</td>
+<td>你的教程会不会被引用</td>
+</tr>
+<tr>
+<td>对比</td>
+<td>&quot;ExampleAI 和 Canva 做电商海报哪个好？&quot;</td>
+<td>对比内容会不会被采纳，描述是否准确</td>
+</tr>
+<tr>
+<td>品牌认知</td>
+<td>&quot;ExampleAI 是什么？怎么收费？&quot;</td>
+<td>模型对你的描述是否准确、是不是最新的</td>
+</tr>
+<tr>
+<td>长尾知识</td>
+<td>&quot;Instagram 海报的标准尺寸是多少？&quot;</td>
+<td>知识型页面有没有被引用</td>
+</tr>
+</tbody></table>
+<h3>6.2 测哪些引擎</h3>
+<ul>
+<li>海外：<strong>ChatGPT</strong>（开启搜索）、<strong>Perplexity</strong>、<strong>Claude</strong>（开启联网搜索）、<strong>Gemini</strong>、<strong>Google AI Overviews / AI Mode</strong>，可以再加上 Copilot。</li>
+<li>中文：可以补充豆包、Kimi、DeepSeek、元宝等国内答案引擎（和百度、贴吧、知乎的语料关系更紧密）。</li>
+<li>测试时用<strong>无痕或未登录</strong>的状态，避免个性化记忆干扰结果；同一条 prompt 可以跑 2–3 次看是否稳定。</li>
+</ul>
+<h3>6.3 记录表模板</h3>
+<table>
+<thead>
+<tr>
+<th>日期</th>
+<th>引擎</th>
+<th>Prompt #</th>
+<th>提到品牌了吗</th>
+<th>引用了我方 URL 吗</th>
+<th>被引用的 URL</th>
+<th>在答案里的位置</th>
+<th>被提到的竞品</th>
+<th>描述准不准</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2026-11-01</td>
+<td>ChatGPT</td>
+<td>P01 品类</td>
+<td>✅</td>
+<td>❌</td>
+<td>—</td>
+<td>第 4 个推荐</td>
+<td>Canva、Adobe Express</td>
+<td>准确</td>
+<td>引用了 Toolify 的 listing</td>
+</tr>
+<tr>
+<td>2026-11-01</td>
+<td>Perplexity</td>
+<td>P02 教程</td>
+<td>✅</td>
+<td>✅</td>
+<td>/blog/bulk-poster-generation</td>
+<td>来源 [2]</td>
+<td>—</td>
+<td>准确</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2026-11-01</td>
+<td>AI Overviews</td>
+<td>P05 尺寸</td>
+<td>❌</td>
+<td>❌</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>引用的是 Reddit 帖子 → 去参与讨论</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>表中内容是示例。</p>
+</blockquote>
+<p><strong>月度指标</strong></p>
+<pre><code class="language-text">提及率   = 提到品牌的回答数 ÷ 测试总数
+引用率   = 引用了我方 URL 的回答数 ÷ 测试总数
+声量份额 = 提到我方的次数 ÷ （我方 + 主要竞品被提到的总次数）
+</code></pre>
+<p><strong>配套的数据来源</strong></p>
+<ul>
+<li>GA4 / Plausible 里按来源看 AI 引荐流量：<code>chatgpt.com</code>、<code>perplexity.ai</code>、<code>gemini.google.com</code>、<code>copilot.microsoft.com</code>、<code>claude.ai</code> 等。ChatGPT 带出去的链接通常会自动加上 <code>utm_source=chatgpt.com</code>。</li>
+<li>GSC 里的品牌词展示趋势：AI 回答里提到品牌之后，用户往往会去搜品牌名。</li>
+<li>每次看到&quot;被引用的是别人的页面&quot;，就记下那个页面有什么你没有的东西（数据、表格、讨论），把它作为下个月的内容任务。</li>
+</ul>
+<hr>
+<h2>7. GEO 30 天行动清单</h2>
+<pre><code class="language-text">第 1 周  技术
+  [ ] robots.txt 放行 AI 搜索和训练 bot；检查 Cloudflare 的 AI bot 设置          geo-ai-crawlers
+  [ ] 营销页、文档、博客改成 SSR/SSG                                              tech-ssr-content
+  [ ] Bing Webmaster 验证 + sitemap + IndexNow
+  [ ] Organization + WebSite + SoftwareApplication JSON-LD，带 sameAs           serp-entity-schema
+  [ ] 发布 /llms.txt                                                            geo-llms-txt
+第 2 周  内容
+  [ ] 首页和核心页面的 H1 下面加一句&quot;答案先行&quot;的定义                               geo-answer-first
+  [ ] 每个核心页面补齐：是什么 / 为什么 / 怎么做 / 对比 / 常见错误 / FAQ            geo-faq-blocks
+  [ ] 每页至少 1 个具体数据点 + 1 个权威外部引用                                   links-external-citation
+第 3 周  站外
+  [ ] 统一全网的一句话品牌定位（目录、社交简介、About 页）
+  [ ] 在 Reddit / 知乎 / 贴吧的细分版块里开始真诚参与（每周至少 3 个有实质内容的回答）
+  [ ] 提交到 AI 工具目录、替代品网站（见 05 章）
+第 4 周  测量
+  [ ] 定下 10–20 条固定 prompt，在 5 个引擎上跑第一轮，填写记录表
+  [ ] GA4 里建 AI 引荐来源的分组；在 GSC 里给品牌词建立基线
+</code></pre>
+<hr>
+<h2>来源</h2>
+<ul>
+<li><a href="https://lownrain.feishu.cn/wiki/L7VTwkIxRitca7kIQNAc4n7nnHg">GEO</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/HFt6wEYNOiVdWSk9pBfc5GaSnwb">网站加速和防攻击</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/GPAqwn5XQiIr0Vk6YYKcN3D9nbf">Schema标签</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/MxfOwgvDHiDeDPkaQ0dcu4cMnIe">网站页面结构设计</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/I8ZCwxbKGioi07keWSIcnhbenRc">E-E-A-T</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Lx9CwNJ0HiiJ4kki1XCcLmhnngr">外链建设策略</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/BIaBw3hHPi5iDykSwEJccVqfn6f">Reddit</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/UOCFw85YSi1pGZkAVj9crK8nnwW">怎么在Reddit发帖不容易被删</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/YGGDwLYhtitfK5kBao0cd4Bsnme">搜索引擎后台提交</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/KnACwgXa7iFmcvkvbdac09CTnVh">站点地图</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/TnMLw8Xe9iF8KWklW9jcMBDGnee">内容优化</a>（独立开发前线｜SEO从0到100）</li>
+</ul>
+</article>
+</div>
+</body>
+</html>

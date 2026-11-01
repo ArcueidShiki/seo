@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Home</title>
+<!-- BEFORE demo: a typical "vibe-coded" single-page app with no SEO work.
+     Deliberate problems (each maps to a checklist item):
+     - generic <title>, no meta description, no lang, no viewport
+     - no canonical, no Open Graph / Twitter card, no JSON-LD
+     - all content injected by JavaScript after a delay (empty HTML for crawlers)
+     - render-blocking script that busy-waits (hurts LCP / TBT)
+     - oversized image without alt / width / height
+     - no headings, "click here" anchors, query-string URLs
+     - no robots.txt, sitemap.xml, llms.txt, favicon or 404 page -->
+<link rel="stylesheet" href="style.css">
+<script src="app.js"></script>
+</head>
+<body>
+<div id="root"><div class="spinner">Loading...</div></div>
+</body>
+</html>

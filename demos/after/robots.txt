@@ -1,0 +1,21 @@
+# Allow all search engines and AI answer engines (GEO)
+User-agent: *
+Allow: /
+
+# AI crawlers explicitly allowed so the site can be cited in ChatGPT / Claude / Perplexity / Gemini answers
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://ArcueidShiki.github.io/seo/demos/after/sitemap.xml

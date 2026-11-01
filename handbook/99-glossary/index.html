@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO 名词解释 – SEO Handbook</title>
+<meta name="description" content="SEO handbook chapter: SEO 名词解释">
+<link rel="canonical" href="https://ArcueidShiki.github.io/seo/handbook/99-glossary/">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/seo/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="SEO 名词解释 – SEO Handbook">
+<meta property="og:description" content="SEO handbook chapter: SEO 名词解释">
+<meta property="og:url" content="https://ArcueidShiki.github.io/seo/handbook/99-glossary/">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--brand:#4f46e5;--bg:#fafafa}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.75 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--brand)}
+.top{border-bottom:1px solid var(--line);background:#fff}
+.top div{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;gap:18px;align-items:center}
+.top a{text-decoration:none;color:var(--muted)}.top .brand{font-weight:700;color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:20px;display:grid;grid-template-columns:240px 1fr;gap:32px}
+aside nav{position:sticky;top:16px;display:flex;flex-direction:column;gap:4px;font-size:14px}
+aside a{text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:8px}
+aside a[aria-current]{background:#eef2ff;color:var(--brand);font-weight:600}
+article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 36px;min-width:0}
+article h1{margin-top:0;line-height:1.25}
+article h2{margin-top:2em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
+article table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow:auto}
+article th,article td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+article th{background:#f9fafb}
+article code{background:#f3f4f6;padding:1px 5px;border-radius:4px;font-size:.92em}
+article pre{background:#111827;color:#e5e7eb;padding:14px;border-radius:8px;overflow:auto}
+article pre code{background:none;padding:0}
+article blockquote{margin:1em 0;padding:.5em 1em;border-left:4px solid var(--brand);background:#f5f3ff;color:#374151}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}aside nav{position:static}article{padding:20px}}
+</style>
+</head>
+<body>
+<div class="top"><div><a class="brand" href="/seo/">SEO Handbook</a><a href="/seo/tool/">Checklist 工具</a><a href="/seo/handbook/00-overview/">手册</a><a href="/seo/reports/">Before/After 报告</a></div></div>
+<div class="wrap">
+<aside><nav aria-label="手册目录"><a href="/seo/handbook/00-overview/">总览</a><a href="/seo/handbook/01-keyword-research/">关键词研究与选题</a><a href="/seo/handbook/02-page-structure-and-tags/">页面结构与 SEO 标签</a><a href="/seo/handbook/03-technical-seo-and-infra/">技术 SEO 与基础设施</a><a href="/seo/handbook/04-content-and-eeat/">内容与 E-E-A-T</a><a href="/seo/handbook/05-backlinks/">外链建设</a><a href="/seo/handbook/06-geo-ai-search/">GEO / AI 搜索优化</a><a href="/seo/handbook/07-launch-and-distribution/">发布与冷启动：推广策略、发布平台与品牌</a><a href="/seo/handbook/08-x-and-reddit/">X（Twitter）与 Reddit 运营</a><a href="/seo/handbook/09-xiaohongshu/">小红书运营全指南</a><a href="/seo/handbook/10-douyin-video-wechat/">抖音、短视频与微信生态</a><a href="/seo/handbook/11-analytics-and-tools/">数据统计与 SEO 工具箱</a><a href="/seo/handbook/12-monetization/">变现：广告、订阅、支付与联盟营销</a><a href="/seo/handbook/13-mindset-and-case-studies/">独立开发者方法论与案例</a><a href="/seo/handbook/99-glossary/" aria-current="page">SEO 名词解释</a></nav></aside>
+<article><h1>SEO 名词解释</h1>
+<blockquote>
+<p>本章合并了原知识库的《SEO 名词解释》（基础、页面、技术、站外、数据 5 张表）和《Ahrefs SEO 名词》（26 条），按主题分组，并补充了 2026 年常用的新术语（AI Overviews、GEO、llms.txt、INP 等）。
+&quot;怎么用 / 正常范围&quot;一栏给出本手册各章采用的经验阈值，是起步参考，不是官方标准。标&quot;补充&quot;的条目不在原文中。</p>
+</blockquote>
+<h2>1. 搜索基础</h2>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>英文</th>
+<th>中文解释</th>
+<th>怎么用 / 正常范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SEO</td>
+<td>Search Engine Optimization</td>
+<td>通过优化网站和内容，在搜索引擎里获得更多自然（非广告）流量</td>
+<td>新站一般要 3–6 个月才见效</td>
+</tr>
+<tr>
+<td>SERP</td>
+<td>Search Engine Results Page</td>
+<td>搜索结果页，包含自然结果、广告、AI 摘要、富结果等</td>
+<td>判断关键词难度时，一定要亲自看一遍前 10 名</td>
+</tr>
+<tr>
+<td>自然流量</td>
+<td>Organic Traffic</td>
+<td>来自非广告搜索结果的访问</td>
+<td>GSC&quot;效果&quot;报告里的点击</td>
+</tr>
+<tr>
+<td>排名</td>
+<td>Ranking</td>
+<td>页面在某个查询下的位置</td>
+<td>排第 1 的点击率约 27.6%，约是第 10 名的 10 倍（原文引用的 Backlinko 数据）</td>
+</tr>
+<tr>
+<td>抓取</td>
+<td>Crawl</td>
+<td>爬虫访问并下载页面</td>
+<td>用 robots.txt 控制，用内链和 sitemap 引导</td>
+</tr>
+<tr>
+<td>爬虫</td>
+<td>Spider / Bot</td>
+<td>自动抓取网页的程序，如 Googlebot、Bingbot</td>
+<td>别让 WAF 误拦；AI 爬虫见第 8 节</td>
+</tr>
+<tr>
+<td>索引 / 收录</td>
+<td>Index</td>
+<td>搜索引擎存储并可以拿来排名的页面集合</td>
+<td>用 GSC 的&quot;网页&quot;报告查看</td>
+</tr>
+<tr>
+<td>抓取预算</td>
+<td>Crawl Budget</td>
+<td>搜索引擎愿意在你的站上花的抓取量</td>
+<td>小站很少受限；大站要减少参数页、重复页、死链</td>
+</tr>
+<tr>
+<td>移动优先索引</td>
+<td>Mobile-first Indexing</td>
+<td>Google 主要以移动版页面来索引和排名</td>
+<td>移动版内容不能比桌面版少</td>
+</tr>
+<tr>
+<td>SERP 功能</td>
+<td>SERP Features</td>
+<td>精选摘要、相关问题（PAA）、图片、视频、AI 摘要等</td>
+<td>功能越多，自然结果的点击越少（看 CPS）</td>
+</tr>
+<tr>
+<td>精选摘要</td>
+<td>Featured Snippet</td>
+<td>结果顶部直接给出答案的摘录框</td>
+<td>段首用 40–60 字直接回答问题，更容易被选中</td>
+</tr>
+<tr>
+<td>相关问题</td>
+<td>People Also Ask (PAA)</td>
+<td>&quot;其他人还问了&quot;的折叠问答</td>
+<td>FAQ 选题的来源</td>
+</tr>
+<tr>
+<td>富结果</td>
+<td>Rich Results</td>
+<td>带星级、价格、面包屑等增强信息的结果</td>
+<td>需要结构化数据，但不保证一定展示</td>
+</tr>
+<tr>
+<td>零点击搜索</td>
+<td>Zero-click Search</td>
+<td>用户在 SERP 上就得到答案，不点击任何结果</td>
+<td>AI 摘要让这一比例上升，品牌曝光本身也有价值</td>
+</tr>
+</tbody></table>
+<h2>2. 关键词与搜索意图</h2>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>英文</th>
+<th>中文解释</th>
+<th>怎么用 / 正常范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>关键词</td>
+<td>Keyword</td>
+<td>用户输入的搜索词</td>
+<td>一个页面锁定一个主题</td>
+</tr>
+<tr>
+<td>种子词</td>
+<td>Seed Keyword</td>
+<td>拓词的起点</td>
+<td>通过下拉词、相关搜索、AI 扩展到约 50 个</td>
+</tr>
+<tr>
+<td>头部词</td>
+<td>Head Term</td>
+<td>搜索量大、竞争激烈的短词</td>
+<td>新站避开</td>
+</tr>
+<tr>
+<td>长尾词</td>
+<td>Long-tail Keyword</td>
+<td>搜索量小、意图明确、转化率高的长词</td>
+<td>独立站的主战场；&quot;10 个小而准的选题胜过 1 个大而泛的&quot;</td>
+</tr>
+<tr>
+<td>搜索意图</td>
+<td>Search Intent</td>
+<td>信息型、导航型、商业调研型、交易型</td>
+<td>页面类型要和 SERP 主流类型一致（工具页、教程、对比）</td>
+</tr>
+<tr>
+<td>搜索量</td>
+<td>Search Volume</td>
+<td>目标国家的月均搜索次数</td>
+<td>起步参考：&gt; 500（Postma 打法）或 ≥ 1000（潜力关键词篇）</td>
+</tr>
+<tr>
+<td>关键词难度</td>
+<td>KD / Keyword Difficulty</td>
+<td>进入前 10 的难度（Ahrefs 主要按前 10 页面的外链计算）</td>
+<td>新站：&lt; 20 最稳，宽松上限 &lt; 50；不同工具的 KD 不能横向比较</td>
+</tr>
+<tr>
+<td>单次点击费用</td>
+<td>CPC / Cost Per Click</td>
+<td>广告主为该词每次点击支付的价格</td>
+<td>用来估算自然流量的价值，见 <a href="../12-monetization/">12</a></td>
+</tr>
+<tr>
+<td>下拉联想词</td>
+<td>Autocomplete</td>
+<td>搜索框自动补全的建议词</td>
+<td>Google、小红书、抖音、微信都适用，代表真实需求</td>
+</tr>
+<tr>
+<td>相关搜索</td>
+<td>Related Searches</td>
+<td>SERP 底部的相关查询</td>
+<td>拓词</td>
+</tr>
+<tr>
+<td>上升查询</td>
+<td>Rising Queries</td>
+<td>Google Trends 里近期增长快的查询</td>
+<td>看 7 天、30 天、90 天的窗口，越新机会越大</td>
+</tr>
+<tr>
+<td>词根法</td>
+<td>Root Word Method</td>
+<td>通用词根（generator、maker、editor、tool、free）+ 主题组合</td>
+<td>在 Trends 里搜词根，看 Rising</td>
+</tr>
+<tr>
+<td>关键词蚕食</td>
+<td>Keyword Cannibalization</td>
+<td>站内多个页面争同一个词，互相稀释</td>
+<td>维护&quot;关键词 → URL&quot;映射表，一个词只对应一个页面</td>
+</tr>
+<tr>
+<td>关键词差距</td>
+<td>Keyword Gap / Content Gap</td>
+<td>竞品有排名而你没有的词</td>
+<td>选题来源</td>
+</tr>
+<tr>
+<td>临门一脚词</td>
+<td>Striking Distance Keywords</td>
+<td>排在 11–30 名、已有展示的词</td>
+<td>优先用内链和补内容推上首页</td>
+</tr>
+</tbody></table>
+<h2>3. 页面与内容</h2>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>英文</th>
+<th>中文解释</th>
+<th>怎么用 / 正常范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标题标签</td>
+<td>Title Tag</td>
+<td><code>&lt;title&gt;</code>，权重最高的页面标签，影响排名和点击率</td>
+<td>30–60 字符，中文 ≤ 30 字；主关键词靠前；全站唯一</td>
+</tr>
+<tr>
+<td>描述</td>
+<td>Meta Description</td>
+<td>SERP 摘要的候选文字，不直接影响排名，影响点击率</td>
+<td>80–155 字符；像广告文案一样写，每页唯一</td>
+</tr>
+<tr>
+<td>关键词标签</td>
+<td>Meta Keywords</td>
+<td>历史遗留标签</td>
+<td>Google 忽略，百度权重很低；可以不写</td>
+</tr>
+<tr>
+<td>TDK</td>
+<td>Title / Description / Keywords</td>
+<td>三者的合称（国内常用说法）</td>
+<td>与 H1、正文、锚文本、Schema 保持一致</td>
+</tr>
+<tr>
+<td>标题层级</td>
+<td>H1–H6</td>
+<td>内容层级</td>
+<td>每页只有一个 H1，且包含主关键词</td>
+</tr>
+<tr>
+<td>URL 结构</td>
+<td>URL Slug</td>
+<td>路径部分</td>
+<td>短、有语义、包含关键词；不要随意修改</td>
+</tr>
+<tr>
+<td>内链</td>
+<td>Internal Link</td>
+<td>站内页面之间的链接，传递权重、引导抓取</td>
+<td>文章链到产品页；用&quot;5 篇文章漏斗&quot;集中权重，见 <a href="../04-content-and-eeat/">04</a></td>
+</tr>
+<tr>
+<td>锚文本</td>
+<td>Anchor Text</td>
+<td>链接上可点击的文字</td>
+<td>内链可以用目标词；外链应以品牌词、自然描述为主</td>
+</tr>
+<tr>
+<td>替代文本</td>
+<td>Alt Text</td>
+<td>图片的文字描述，影响无障碍和图片搜索</td>
+<td>一句话描述图片本身；装饰图用 <code>alt=&quot;&quot;</code></td>
+</tr>
+<tr>
+<td>Open Graph</td>
+<td>OG Tags</td>
+<td>控制链接在社交平台分享时的卡片</td>
+<td>og:image 用 1200×630 的绝对地址</td>
+</tr>
+<tr>
+<td>Twitter 卡片</td>
+<td>Twitter Card</td>
+<td>X 上的分享卡片</td>
+<td><code>summary_large_image</code></td>
+</tr>
+<tr>
+<td>关键词密度</td>
+<td>Keyword Density</td>
+<td>关键词在正文中的占比</td>
+<td>⚠️ 旧规则说 2–8%，已过时；自然出现即可，不要堆砌</td>
+</tr>
+<tr>
+<td>重复内容</td>
+<td>Duplicate Content</td>
+<td>多个 URL 内容相同或相近</td>
+<td>不会直接被惩罚，但会稀释信号；用 canonical 或 301 处理</td>
+</tr>
+<tr>
+<td>薄内容</td>
+<td>Thin Content</td>
+<td>信息量极少、没有独立价值的页面</td>
+<td>合并、补充，或设为 noindex</td>
+</tr>
+<tr>
+<td>主题集群</td>
+<td>Topic Cluster / Pillar Page</td>
+<td>一个支柱页加多篇子文章，互相链接</td>
+<td>建立主题权威</td>
+</tr>
+<tr>
+<td>E-E-A-T</td>
+<td>Experience, Expertise, Authoritativeness, Trustworthiness</td>
+<td>经验、专业、权威、可信。来自 Google 质量评估指南的信任框架，不是单一排名因素</td>
+<td>署名作者、About / Contact 页、一手截图和数据，见 <a href="../04-content-and-eeat/">04</a></td>
+</tr>
+<tr>
+<td>YMYL</td>
+<td>Your Money or Your Life</td>
+<td>涉及钱、健康、法律、安全的内容</td>
+<td>对可信度要求最高；写清风险和免责声明</td>
+</tr>
+<tr>
+<td>有用内容</td>
+<td>Helpful Content</td>
+<td>Google 强调&quot;为人而写&quot;的内容评估方向</td>
+<td>先看内容是否真正解决问题，而不是由谁生成</td>
+</tr>
+<tr>
+<td>程序化 SEO</td>
+<td>Programmatic SEO</td>
+<td>用模板和数据批量生成页面</td>
+<td>⚠️ 每页必须有独立价值，否则会触发&quot;规模化内容滥用&quot;</td>
+</tr>
+</tbody></table>
+<h2>4. 技术 SEO</h2>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>英文</th>
+<th>中文解释</th>
+<th>怎么用 / 正常范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>XML 站点地图</td>
+<td>XML Sitemap</td>
+<td>给爬虫看的 URL 清单，是提示而不是命令</td>
+<td>只放可索引、canonical、返回 200 的 URL；单个文件 ≤ 5 万个 URL、≤ 50MB（未压缩）</td>
+</tr>
+<tr>
+<td>站点地图索引</td>
+<td>Sitemap Index</td>
+<td>多个 sitemap 的索引文件</td>
+<td>按 pages / blog / products 等拆分</td>
+</tr>
+<tr>
+<td>lastmod</td>
+<td>lastmod</td>
+<td>页面最后修改日期</td>
+<td>填真实的修改日期，不要每天全部刷新；changefreq 和 priority 基本被忽略</td>
+</tr>
+<tr>
+<td>robots.txt</td>
+<td>robots.txt</td>
+<td>控制爬虫可以抓取哪些路径</td>
+<td>不要屏蔽重要栏目；在里面声明 Sitemap 地址</td>
+</tr>
+<tr>
+<td>meta robots</td>
+<td>Meta Robots</td>
+<td>页面级的索引和跟随控制</td>
+<td>薄页、工具页用 <code>noindex, follow</code></td>
+</tr>
+<tr>
+<td>规范标签</td>
+<td>Canonical</td>
+<td>声明一组重复页面里的首选 URL，是提示不是指令</td>
+<td>每页都有一个指向自己的绝对地址 canonical；目标页返回 200</td>
+</tr>
+<tr>
+<td>301 重定向</td>
+<td>301 Redirect</td>
+<td>永久跳转，传递权重</td>
+<td>迁移、合并页面、www 和非 www 统一时使用；一跳到位</td>
+</tr>
+<tr>
+<td>302 重定向</td>
+<td>302 Redirect</td>
+<td>临时跳转</td>
+<td>不要用它代替 301</td>
+</tr>
+<tr>
+<td>404 / 软 404</td>
+<td>404 / Soft 404</td>
+<td>页面不存在 / 内容太薄被当作不存在</td>
+<td>内链 404 应为 0；提供自定义 404 页面</td>
+</tr>
+<tr>
+<td>5xx</td>
+<td>Server Error</td>
+<td>服务器错误</td>
+<td>会影响抓取；检查 CDN 和 WAF 是否拦截了爬虫</td>
+</tr>
+<tr>
+<td>重定向链</td>
+<td>Redirect Chain</td>
+<td>多次连续跳转</td>
+<td>内链直接指向最终 URL</td>
+</tr>
+<tr>
+<td>hreflang</td>
+<td>hreflang</td>
+<td>多语言 / 多地区版本的对应关系</td>
+<td>互相指向，并包含 x-default</td>
+</tr>
+<tr>
+<td>HTTPS</td>
+<td>HTTPS</td>
+<td>加密传输，是基础信任信号</td>
+<td>全站 HTTPS，没有混合内容</td>
+</tr>
+<tr>
+<td>TTFB</td>
+<td>Time To First Byte</td>
+<td>首字节时间</td>
+<td>Google 的参考值是 ≤ 0.8 秒；营销页走边缘缓存后，海外访问争取 &lt; 200 毫秒</td>
+</tr>
+<tr>
+<td>核心网页指标</td>
+<td>Core Web Vitals</td>
+<td>LCP、INP、CLS 三项体验指标</td>
+<td>按真实用户第 75 百分位计算</td>
+</tr>
+<tr>
+<td>LCP</td>
+<td>Largest Contentful Paint</td>
+<td>最大内容绘制时间</td>
+<td>≤ 2.5 秒</td>
+</tr>
+<tr>
+<td>INP</td>
+<td>Interaction to Next Paint</td>
+<td>交互到下一次绘制的延迟。<strong>2024 年 3 月取代了 FID</strong></td>
+<td>≤ 200 毫秒</td>
+</tr>
+<tr>
+<td>CLS</td>
+<td>Cumulative Layout Shift</td>
+<td>累计布局偏移</td>
+<td>≤ 0.1；广告位和图片要预留尺寸</td>
+</tr>
+<tr>
+<td>FID</td>
+<td>First Input Delay</td>
+<td>首次输入延迟（已退役）</td>
+<td>2024 年后的资料若还写 FID，说明已过时</td>
+</tr>
+<tr>
+<td>结构化数据</td>
+<td>Structured Data / Schema</td>
+<td>用 Schema.org 词汇向机器描述页面</td>
+<td>首选 JSON-LD；内容必须和页面可见内容一致；不伪造评分</td>
+</tr>
+<tr>
+<td>JSON-LD</td>
+<td>JSON-LD</td>
+<td>Google 推荐的结构化数据格式</td>
+<td>用 Rich Results Test 验证，0 错误</td>
+</tr>
+<tr>
+<td>孤儿页</td>
+<td>Orphan Page</td>
+<td>没有任何内链指向的页面</td>
+<td>补内链，放进 sitemap</td>
+</tr>
+<tr>
+<td>抓取深度</td>
+<td>Crawl Depth</td>
+<td>从首页到达该页需要点几次</td>
+<td>重要页面 ≤ 3 次点击</td>
+</tr>
+<tr>
+<td>服务端渲染</td>
+<td>SSR / SSG</td>
+<td>在服务器端生成 HTML</td>
+<td>核心内容应出现在初始 HTML 里，对爬虫和 AI 爬虫更友好</td>
+</tr>
+<tr>
+<td>IndexNow</td>
+<td>IndexNow</td>
+<td>Bing 等搜索引擎支持的 URL 主动推送协议</td>
+<td>内容更新后立即推送</td>
+</tr>
+</tbody></table>
+<h2>5. 外链与权威度</h2>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>英文</th>
+<th>中文解释</th>
+<th>怎么用 / 正常范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>外链 / 反链</td>
+<td>Backlink</td>
+<td>其他网站指向你的链接</td>
+<td>是第三方的&quot;信任票&quot;</td>
+</tr>
+<tr>
+<td>引用域名</td>
+<td>Referring Domain (RD)</td>
+<td>有多少个不同的域名链接到你</td>
+<td>比外链总数更能反映真实权威</td>
+</tr>
+<tr>
+<td>链接权重</td>
+<td>Link Juice / Link Equity</td>
+<td>通过链接传递的排名信号</td>
+<td>被分摊到页面的所有出链上</td>
+</tr>
+<tr>
+<td>Dofollow</td>
+<td>Dofollow</td>
+<td>默认的链接，传递权重</td>
+<td>DR 增长主要靠这类链接</td>
+</tr>
+<tr>
+<td>Nofollow</td>
+<td>rel=&quot;nofollow&quot;</td>
+<td>声明&quot;不背书&quot;，不传递权重</td>
+<td>仍然有流量和品牌价值；国内大社区和 Reddit 基本都是 nofollow</td>
+</tr>
+<tr>
+<td>UGC / Sponsored</td>
+<td>rel=&quot;ugc&quot; / rel=&quot;sponsored&quot;</td>
+<td>用户生成内容链接 / 付费链接</td>
+<td><strong>付费链接必须标 sponsored</strong></td>
+</tr>
+<tr>
+<td>DA / PA</td>
+<td>Domain / Page Authority</td>
+<td>Moz 的域名 / 页面权威度指标</td>
+<td>和 DR 类似，不同工具不能横向比较</td>
+</tr>
+<tr>
+<td>AS</td>
+<td>Authority Score</td>
+<td>Semrush 的权威度指标</td>
+<td>只是参考，Google 不使用这些第三方指标</td>
+</tr>
+<tr>
+<td>锚文本多样性</td>
+<td>Anchor Diversity</td>
+<td>外链锚文本的分布</td>
+<td>精确匹配关键词的锚文本只占少数</td>
+</tr>
+<tr>
+<td>链接增速</td>
+<td>Link Velocity</td>
+<td>外链增长的速度</td>
+<td>平稳增长；突然暴增看起来不自然</td>
+</tr>
+<tr>
+<td>垃圾链接</td>
+<td>Link Spam / Toxic Links</td>
+<td>操纵排名的低质量链接</td>
+<td>没被人工处罚就不必急着拒绝（disavow）</td>
+</tr>
+<tr>
+<td>PBN</td>
+<td>Private Blog Network</td>
+<td>私有博客网络（黑帽手法）</td>
+<td>不要碰</td>
+</tr>
+<tr>
+<td>客座文章</td>
+<td>Guest Post</td>
+<td>在其他站点投稿并带链接</td>
+<td>先过四道门槛：DR、相关性、真实流量、dofollow</td>
+</tr>
+<tr>
+<td>目录提交</td>
+<td>Directory Submission</td>
+<td>提交到导航站、目录站</td>
+<td>冷启动第 0–1 月的主要外链来源，见 <a href="../05-backlinks/">05</a></td>
+</tr>
+<tr>
+<td>内容转载</td>
+<td>Syndication</td>
+<td>把文章转发到 Medium、Dev.to 等</td>
+<td>先在自己站发布，被收录后再转；转载页的 canonical 指回原文</td>
+</tr>
+<tr>
+<td>品牌提及</td>
+<td>Brand Mention</td>
+<td>提到品牌但没有链接</td>
+<td>仍有价值，尤其对 GEO</td>
+</tr>
+<tr>
+<td>友链</td>
+<td>Friend Links</td>
+<td>站点之间互换链接（国内常见）</td>
+<td>只和相关的优质站点交换</td>
+</tr>
+<tr>
+<td>拒绝链接</td>
+<td>Disavow</td>
+<td>告诉 Google 忽略某些外链</td>
+<td>只在被人工处罚或有明显垃圾外链攻击时使用</td>
+</tr>
+<tr>
+<td>站点声誉滥用</td>
+<td>Site Reputation Abuse</td>
+<td>在高权重站点上寄生发布低质量第三方内容（parasite SEO）</td>
+<td>Google 2024 年起打击的对象</td>
+</tr>
+</tbody></table>
+<h2>6. Ahrefs 指标（26 条）</h2>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>英文</th>
+<th>中文解释</th>
+<th>怎么用 / 正常范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DR</td>
+<td>Domain Rating</td>
+<td>域名级外链强度，0–100 的相对分数</td>
+<td>0–10 新站 / 10–30 小站 / 30–50 做过系统外链建设 / 50–70 细分强站 / 70–90 大媒体 / 90+ 顶级；<strong>独立站做到 20–40 已经很有竞争力</strong></td>
+</tr>
+<tr>
+<td>UR</td>
+<td>URL Rating</td>
+<td>页面级外链强度</td>
+<td>判断单个页面能不能排上去</td>
+</tr>
+<tr>
+<td>RD</td>
+<td>Referring Domains</td>
+<td>引用域名数</td>
+<td>核心过程指标；按月看新增和丢失</td>
+</tr>
+<tr>
+<td>Backlinks</td>
+<td>Backlinks</td>
+<td>外链总数（含同一域名的重复链接）</td>
+<td>不如 RD 有参考价值</td>
+</tr>
+<tr>
+<td>Referring Pages</td>
+<td>Referring Pages</td>
+<td>有链接指向你的页面数</td>
+<td>—</td>
+</tr>
+<tr>
+<td>KD</td>
+<td>Keyword Difficulty</td>
+<td>关键词难度</td>
+<td>新站 &lt; 20 最稳</td>
+</tr>
+<tr>
+<td>Volume</td>
+<td>Search Volume</td>
+<td>目标国家的月均搜索量</td>
+<td>搭配 Clicks 一起看</td>
+</tr>
+<tr>
+<td>Clicks</td>
+<td>Clicks</td>
+<td>估算每月的实际点击</td>
+<td>比搜索量更接近真实流量</td>
+</tr>
+<tr>
+<td>CPS</td>
+<td>Clicks Per Search</td>
+<td>每次搜索平均带来的点击数</td>
+<td>明显 &lt; 1 时，说明广告或 SERP 功能吃掉了点击，降低优先级（推断阈值）。<strong>和营销里的 CPS（按成交付费）不是一回事</strong></td>
+</tr>
+<tr>
+<td>Parent Topic</td>
+<td>Parent Topic</td>
+<td>这个词是否应该由一个更大主题的页面来覆盖</td>
+<td>和目标词不同时，优先在 Parent Topic 页面覆盖，不新开页面</td>
+</tr>
+<tr>
+<td>Organic Traffic</td>
+<td>Organic Traffic</td>
+<td>Ahrefs 估算的自然流量</td>
+<td>判断一个站是否真的有搜索流量；是估算值</td>
+</tr>
+<tr>
+<td>Organic Keywords</td>
+<td>Organic Keywords</td>
+<td>有排名的关键词数</td>
+<td>看站点的覆盖面</td>
+</tr>
+<tr>
+<td>Top Pages</td>
+<td>Top Pages</td>
+<td>自然流量最多的页面</td>
+<td>拆竞品：哪些页面在赚流量</td>
+</tr>
+<tr>
+<td>Top Keywords</td>
+<td>Top Keywords</td>
+<td>带来最多流量的关键词</td>
+<td>找内容缺口</td>
+</tr>
+<tr>
+<td>URL Keywords</td>
+<td>URL Keywords</td>
+<td>单个页面有排名的关键词</td>
+<td>补 FAQ 和段落</td>
+</tr>
+<tr>
+<td>Anchors</td>
+<td>Anchors</td>
+<td>锚文本分布</td>
+<td>检查是否过度优化</td>
+</tr>
+<tr>
+<td>Dofollow Links</td>
+<td>Dofollow Links</td>
+<td>传权重的外链</td>
+<td>链接构成应看起来自然</td>
+</tr>
+<tr>
+<td>Nofollow Links</td>
+<td>Nofollow Links</td>
+<td>不传权重的外链</td>
+<td>有一定比例才正常</td>
+</tr>
+<tr>
+<td>Link Growth</td>
+<td>Link Growth</td>
+<td>外链增长曲线</td>
+<td>检查是否有异常突增</td>
+</tr>
+<tr>
+<td>New Backlinks</td>
+<td>New Backlinks</td>
+<td>新获得的外链</td>
+<td>每月复盘</td>
+</tr>
+<tr>
+<td>Lost Backlinks</td>
+<td>Lost Backlinks</td>
+<td>丢失的外链</td>
+<td>重要链接丢失时尝试找回</td>
+</tr>
+<tr>
+<td>Traffic Potential</td>
+<td>Traffic Potential (TP)</td>
+<td>该话题第 1 名页面能获得的总流量（补充）</td>
+<td>比单个词的搜索量更能反映页面潜力</td>
+</tr>
+<tr>
+<td>Traffic Value</td>
+<td>Traffic Value</td>
+<td>自然流量按 CPC 折算的月价值（补充）</td>
+<td>和&quot;单次访问收益 vs CPC&quot;思路一致</td>
+</tr>
+<tr>
+<td>Content Gap</td>
+<td>Content Gap</td>
+<td>竞品有排名而你没有的词（补充）</td>
+<td>选题来源</td>
+</tr>
+<tr>
+<td>Linked Domains</td>
+<td>Linked Domains</td>
+<td>你的站链接出去的域名数（补充）</td>
+<td>检查出链质量</td>
+</tr>
+<tr>
+<td>Broken Backlinks</td>
+<td>Broken Backlinks</td>
+<td>指向你站内 404 页面的外链（补充）</td>
+<td>用 301 把权重找回来</td>
+</tr>
+</tbody></table>
+<h2>7. 数据分析</h2>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>英文</th>
+<th>中文解释</th>
+<th>怎么用 / 正常范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GSC</td>
+<td>Google Search Console</td>
+<td>Google 官方的站长后台</td>
+<td>查看收录、查询词、点击率、抓取错误、人工处置</td>
+</tr>
+<tr>
+<td>GA4</td>
+<td>Google Analytics 4</td>
+<td>Google 的行为分析工具</td>
+<td>把注册、试用、付费设为 Key events；和 GSC 关联</td>
+</tr>
+<tr>
+<td>展示</td>
+<td>Impressions</td>
+<td>结果在 SERP 上被展示的次数</td>
+<td>展示涨了点击没涨，先查 CTR</td>
+</tr>
+<tr>
+<td>点击</td>
+<td>Clicks</td>
+<td>从 SERP 点进来的次数</td>
+<td>—</td>
+</tr>
+<tr>
+<td>点击率</td>
+<td>CTR</td>
+<td>点击 ÷ 展示</td>
+<td>按排名位置比较；高展示低 CTR 的页面要改 title 和 description；小红书封面以 ≥ 5% 为及格线</td>
+</tr>
+<tr>
+<td>平均排名</td>
+<td>Average Position</td>
+<td>GSC 里的平均位置</td>
+<td>和具体查询一起看，否则没有意义</td>
+</tr>
+<tr>
+<td>查询</td>
+<td>Queries</td>
+<td>用户实际搜索的词</td>
+<td>每月按页面复盘，补充没回答到的问题</td>
+</tr>
+<tr>
+<td>跳出率</td>
+<td>Bounce Rate</td>
+<td>GA4 里指&quot;未互动会话&quot;的占比</td>
+<td>一次性工具重点关注</td>
+</tr>
+<tr>
+<td>互动率</td>
+<td>Engagement Rate</td>
+<td>停留超过 10 秒、发生转化或浏览 ≥ 2 页的会话占比</td>
+<td>与跳出率互补</td>
+</tr>
+<tr>
+<td>停留时长</td>
+<td>Dwell Time</td>
+<td>从 SERP 点进来到返回 SERP 的时间（行业说法，不是 GA 指标）</td>
+<td>内容是否真正解决了问题</td>
+</tr>
+<tr>
+<td>转化</td>
+<td>Conversion / Key Event</td>
+<td>注册、购买等目标行为</td>
+<td>每个渠道单独统计</td>
+</tr>
+<tr>
+<td>UTM</td>
+<td>UTM Parameters</td>
+<td>链接上的来源追踪参数</td>
+<td>社交简介、KOL 链接都要加</td>
+</tr>
+<tr>
+<td>引荐流量</td>
+<td>Referral</td>
+<td>从其他网站点进来的访问</td>
+<td>按发布平台、目录分组看效果</td>
+</tr>
+<tr>
+<td>直接访问</td>
+<td>Direct</td>
+<td>直接输入网址或从书签访问</td>
+<td>工具&quot;被记住&quot;的信号</td>
+</tr>
+<tr>
+<td>品牌词查询</td>
+<td>Branded Query</td>
+<td>包含品牌名的搜索</td>
+<td>权威度和&quot;有兴趣的用户&quot;的代理指标</td>
+</tr>
+<tr>
+<td>留存</td>
+<td>Retention D1 / D7 / D30</td>
+<td>第 1、7、30 天还回来使用的用户比例</td>
+<td>及格线 40% / 20% / 10%</td>
+</tr>
+<tr>
+<td>ROI</td>
+<td>Return on Investment</td>
+<td>投资回报率</td>
+<td>内容、外链、广告都应该算一算</td>
+</tr>
+</tbody></table>
+<h2>8. AI 搜索与 2026 年新术语</h2>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>英文</th>
+<th>中文解释</th>
+<th>怎么用 / 正常范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GEO</td>
+<td>Generative Engine Optimization</td>
+<td>生成式引擎优化：让 ChatGPT、Gemini、Perplexity 等在回答中引用和推荐你的内容</td>
+<td>衡量的是&quot;被引用的频率和语义关联&quot;，而不是排名，见 <a href="../06-geo-ai-search/">06</a></td>
+</tr>
+<tr>
+<td>AEO</td>
+<td>Answer Engine Optimization</td>
+<td>答案引擎优化，含义和 GEO 基本相同</td>
+<td>—</td>
+</tr>
+<tr>
+<td>AI Overviews / AIO</td>
+<td>AI Overviews</td>
+<td>Google 在结果顶部生成的 AI 摘要（前身是 SGE，2024 年 5 月在美国正式上线）</td>
+<td>会分流点击；被摘要引用本身就是曝光。注意 AIO 有时也被用作&quot;AI Optimization&quot;的缩写</td>
+</tr>
+<tr>
+<td>AI Mode</td>
+<td>AI Mode</td>
+<td>Google 搜索里的对话式 AI 搜索模式（2025 年推出）</td>
+<td>数据计入 GSC 的&quot;网页&quot;类型，不能单独拆出来</td>
+</tr>
+<tr>
+<td>证据池</td>
+<td>Evidence Pool</td>
+<td>模型生成答案时检索、引用的来源集合</td>
+<td>GEO 的目标就是进入这个集合</td>
+</tr>
+<tr>
+<td>知识单元</td>
+<td>Knowledge Unit</td>
+<td>能被模型单独拆出来复用的一段完整解释</td>
+<td>用清晰的 H2 / H3 回答&quot;是什么、为什么、怎么用、和 X 比、常见错误&quot;</td>
+</tr>
+<tr>
+<td>实体</td>
+<td>Entity</td>
+<td>搜索引擎和模型能识别的&quot;事物&quot;（品牌、人、产品）</td>
+<td>用 Organization / SoftwareApplication Schema 加 <code>sameAs</code> 关联社交主页</td>
+</tr>
+<tr>
+<td>存在密度</td>
+<td>Presence Density</td>
+<td>品牌在多平台、多形式内容里一致出现的程度</td>
+<td>第三方平台对品牌的描述要保持一致</td>
+</tr>
+<tr>
+<td>AI 爬虫</td>
+<td>AI Crawlers</td>
+<td>如 GPTBot、ClaudeBot、PerplexityBot</td>
+<td>在 robots.txt 和 Cloudflare 的 AI 爬虫设置里，按&quot;是否希望被引用&quot;做取舍</td>
+</tr>
+<tr>
+<td>Google-Extended</td>
+<td>Google-Extended</td>
+<td>控制内容是否用于 Gemini 训练的 robots 标识</td>
+<td>屏蔽它不影响在 Google 搜索（含 AI 摘要）中的展示</td>
+</tr>
+<tr>
+<td>llms.txt</td>
+<td>llms.txt</td>
+<td>放在站点根目录的 Markdown 文件，为大模型列出站点的重要内容（2024 年提出）</td>
+<td>提案标准，主流搜索引擎尚未承诺使用；成本低，可选做</td>
+</tr>
+<tr>
+<td>零点击</td>
+<td>Zero-click</td>
+<td>见第 1 节</td>
+<td>结合品牌词搜索量评估 AI 曝光的价值</td>
+</tr>
+<tr>
+<td>规模化内容滥用</td>
+<td>Scaled Content Abuse</td>
+<td>大规模生成低价值页面来操纵排名（Google 2024 年 3 月起的垃圾政策）</td>
+<td>AI 批量生成的页面必须有独立价值</td>
+</tr>
+</tbody></table>
+<h2>9. 增长与变现</h2>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>英文</th>
+<th>中文解释</th>
+<th>怎么用 / 正常范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CPM</td>
+<td>Cost Per Mille</td>
+<td>每千次展示的广告费用</td>
+<td>广告主视角</td>
+</tr>
+<tr>
+<td>RPM</td>
+<td>Revenue Per Mille</td>
+<td>每千次浏览的广告收入</td>
+<td>月广告收入 ≈ PV ÷ 1000 × RPM</td>
+</tr>
+<tr>
+<td>CPA</td>
+<td>Cost Per Action</td>
+<td>按行动（注册、下载）付费</td>
+<td>KOL 合作的计费方式之一</td>
+</tr>
+<tr>
+<td>CPS（营销）</td>
+<td>Cost Per Sale</td>
+<td>按成交付费，即分佣</td>
+<td>联盟营销、KOL；注意和 Ahrefs 的 CPS 区分</td>
+</tr>
+<tr>
+<td>CAC</td>
+<td>Customer Acquisition Cost</td>
+<td>获取一个付费客户的成本</td>
+<td>应明显低于 LTV</td>
+</tr>
+<tr>
+<td>LTV</td>
+<td>Lifetime Value</td>
+<td>一个客户在整个生命周期带来的收入</td>
+<td>—</td>
+</tr>
+<tr>
+<td>MRR / ARR</td>
+<td>Monthly / Annual Recurring Revenue</td>
+<td>月 / 年经常性收入</td>
+<td>订阅产品的核心指标</td>
+</tr>
+<tr>
+<td>流失率</td>
+<td>Churn</td>
+<td>每期取消订阅的比例</td>
+<td>和留存一起看</td>
+</tr>
+<tr>
+<td>付费率</td>
+<td>Pay Rate / Conversion to Paid</td>
+<td>访客或用户转为付费的比例</td>
+<td>用&quot;单次访问收益 vs CPC&quot;来判断，见 <a href="../12-monetization/">12</a></td>
+</tr>
+<tr>
+<td>MoR</td>
+<td>Merchant of Record</td>
+<td>记录商户：平台作为法律上的卖方，代收代缴各国销售税 / VAT</td>
+<td>Paddle、Lemon Squeezy、PayPro Global、Polar 等</td>
+</tr>
+<tr>
+<td>LTD</td>
+<td>Lifetime Deal</td>
+<td>一次付费、终身使用</td>
+<td>AppSumo；先算长期成本</td>
+</tr>
+<tr>
+<td>联盟营销</td>
+<td>Affiliate</td>
+<td>推荐人按成交拿佣金</td>
+<td>Impact、ShareASale（已并入 Awin）</td>
+</tr>
+<tr>
+<td>KOL / KOC</td>
+<td>Key Opinion Leader / Consumer</td>
+<td>意见领袖 / 关键消费者（小博主、真实用户）</td>
+<td>留存和付费率验证后再投</td>
+</tr>
+<tr>
+<td>UGC</td>
+<td>User Generated Content</td>
+<td>用户生成的内容</td>
+<td>评价、作品、话题挑战</td>
+</tr>
+<tr>
+<td>公域 / 私域</td>
+<td>Public / Private Traffic</td>
+<td>平台分发的流量 / 自己能反复触达的用户（微信、邮件列表）</td>
+<td>公域获客 → 私域转化</td>
+</tr>
+<tr>
+<td>引流钩子</td>
+<td>Lead Magnet</td>
+<td>用免费资源换取联系方式</td>
+<td>注意平台的导流规则</td>
+</tr>
+<tr>
+<td>公开构建</td>
+<td>Build in Public</td>
+<td>公开分享开发进度、数据、失败</td>
+<td>X 上的 #buildinpublic</td>
+</tr>
+<tr>
+<td>发布平台</td>
+<td>Launch Platform</td>
+<td>Product Hunt、Uneed、BetaList 等</td>
+<td>每次大版本都可以再发一次</td>
+</tr>
+<tr>
+<td>Show HN</td>
+<td>Show HN</td>
+<td>Hacker News 上展示&quot;可试用作品&quot;的帖子类型</td>
+<td>标题以 <code>Show HN:</code> 开头；不拉票</td>
+</tr>
+<tr>
+<td>AI 导航站</td>
+<td>AI Directory</td>
+<td>收录 AI 工具的目录站</td>
+<td>付费前先看对方的真实流量</td>
+</tr>
+<tr>
+<td>ASO</td>
+<td>App Store Optimization</td>
+<td>应用商店优化</td>
+<td>副标题放关键词、截图突出卖点、持续积累评论</td>
+</tr>
+</tbody></table>
+<h2>10. 平台运营术语</h2>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>平台</th>
+<th>中文解释</th>
+<th>怎么用 / 正常范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>流量异常（限流）</td>
+<td>小红书</td>
+<td>笔记或账号的分发被限制，官方叫法是&quot;流量异常&quot;</td>
+<td>发布 24 小时后浏览 &lt; 50 时自检，见 <a href="../09-xiaohongshu/">09</a></td>
+</tr>
+<tr>
+<td>掉收录</td>
+<td>小红书</td>
+<td>笔记搜不到</td>
+<td>用另一个账号按完整标题搜索来验证</td>
+</tr>
+<tr>
+<td>下拉联想词</td>
+<td>小红书 / 抖音 / 微信</td>
+<td>搜索框自动补全</td>
+<td>选题和标题关键词的来源</td>
+</tr>
+<tr>
+<td>赛道</td>
+<td>通用</td>
+<td>内容所属的细分领域</td>
+<td>选有搜索量、竞争小、离钱近的</td>
+</tr>
+<tr>
+<td>起号</td>
+<td>通用</td>
+<td>新账号从 0 到有稳定流量的阶段</td>
+<td>前 3 个月每周 ≥ 3 篇</td>
+</tr>
+<tr>
+<td>垂直度</td>
+<td>通用</td>
+<td>账号内容集中在单一主题的程度</td>
+<td>≥ 80% 的内容在同一主题</td>
+</tr>
+<tr>
+<td>种草</td>
+<td>小红书</td>
+<td>通过真实体验激发购买欲</td>
+<td>避免广告腔；商单需报备</td>
+</tr>
+<tr>
+<td>蒲公英</td>
+<td>小红书</td>
+<td>官方的品牌合作平台</td>
+<td>商业合作通过它报备</td>
+</tr>
+<tr>
+<td>完播率</td>
+<td>抖音 / 视频平台</td>
+<td>看完视频的比例</td>
+<td>10 秒视频 ≥ 80%；30 秒视频平均看到 ≥ 25 秒</td>
+</tr>
+<tr>
+<td>流量池</td>
+<td>抖音</td>
+<td>按数据逐级推荐的分发机制</td>
+<td>前 3 秒和完播决定能否晋级</td>
+</tr>
+<tr>
+<td>搜一搜</td>
+<td>微信</td>
+<td>微信内的搜索入口</td>
+<td>小程序名称里要有核心关键词</td>
+</tr>
+<tr>
+<td>Karma</td>
+<td>Reddit</td>
+<td>用户积分</td>
+<td>养号门槛见 <a href="../08-x-and-reddit/">08</a>（≥ 100 再推广，≥ 500 再放链接，以版规为准）</td>
+</tr>
+<tr>
+<td>Shadowban</td>
+<td>Reddit / X</td>
+<td>影子封禁：你自己看得见，别人看不见</td>
+<td>在未登录状态下检查；基本无法恢复</td>
+</tr>
+<tr>
+<td>Subreddit</td>
+<td>Reddit</td>
+<td>子版块</td>
+<td>新号优先 5k–50k 成员的细分版块</td>
+</tr>
+<tr>
+<td>AutoModerator</td>
+<td>Reddit</td>
+<td>版块的自动审核机器人</td>
+<td>低 karma、带链接的帖子容易被它自动删除</td>
+</tr>
+<tr>
+<td>Lists</td>
+<td>X</td>
+<td>自定义关注分组</td>
+<td>按竞品 / KOL / 客户分组来互动</td>
+</tr>
+</tbody></table>
+<h2>11. 常用搜索指令</h2>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>site:</code></td>
+<td>只搜指定站点</td>
+<td><code>site:producthunt.com &quot;Product Name&quot;</code></td>
+</tr>
+<tr>
+<td><code>-site:</code></td>
+<td>排除站点</td>
+<td><code>&quot;example.com&quot; -site:example.com</code>：找对你的提及和外链</td>
+</tr>
+<tr>
+<td><code>&quot;…&quot;</code></td>
+<td>精确匹配</td>
+<td><code>&quot;Product Name&quot; AI tool</code></td>
+</tr>
+<tr>
+<td><code>intitle:</code> / <code>inurl:</code></td>
+<td>限定标题 / URL 中出现的词</td>
+<td><code>intitle:&quot;alternatives&quot; 产品名</code></td>
+</tr>
+<tr>
+<td><code>before:</code> / <code>after:</code></td>
+<td>限定时间（或用&quot;工具 → 时间 → 自定义&quot;）</td>
+<td>回溯竞品冷启动期的提及</td>
+</tr>
+<tr>
+<td><code>link:</code></td>
+<td>旧的反链查询指令</td>
+<td>已不可靠，改用反链工具</td>
+</tr>
+</tbody></table>
+<h2>来源</h2>
+<ul>
+<li><a href="https://lownrain.feishu.cn/wiki/ABWzwVvQTiPWdeknyLeclLdFnTh">SEO名词解释</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/QpsGwfHUkiF08hkLqcxc2lRQnGh">Ahrefs Seo名词</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/DgBWwJfadiRW4fkRltwcg2nBnaf">DR查询</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/QgnEw53QbicKk6kx9ImcteXPn1g">反链查询</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/L7VTwkIxRitca7kIQNAc4n7nnHg">GEO</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/L9viw7hpKipIWukIjJVcqDqMnMe">TDK标签</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/ELffwFhtAiygNtksXDVcFbponub">SEO 中最重要的标签详解：TDK、Alt、Schema 到底怎么影响排名</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/QuOxwc3oBiUHOKktrGbcI9sAnqd">Canonical标签</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Ch3ywS3moiuom8k0ppfcZeiknHb">站点地图的格式</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/I8ZCwxbKGioi07keWSIcnhbenRc">E-E-A-T</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Rn58w7M9iiIwVbkdev7cfJFknAd">SEO关键词研究策略</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/XtlgwkEkmiN0uWkG800cujRvnEe">如何找到有潜力的关键词</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/ZeIWwX2wriiHy1kNxbgcB51En4f">怎么分析一个网站的冷启动外链是什么？</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/HFt6wEYNOiVdWSk9pBfc5GaSnwb">网站加速和防攻击</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Yj5QwQGv4iQ6LmkihUKcUKYsnLe">给新手独立开发者的建议</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Vw3GwcnKuib84pkeyLGcmypGnLg">订阅变现</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/XRQBwJiKZil09skOsiCc6ZXLnjf">影响抖音流量分发的因素</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/CNZZwQogjikAgakVMWDc2dPpn3f">小红书账号限流与检测</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/UOCFw85YSi1pGZkAVj9crK8nnwW">怎么在Reddit发帖不容易被删</a>（独立开发前线｜SEO从0到100）</li>
+</ul>
+</article>
+</div>
+</body>
+</html>

@@ -1,0 +1,312 @@
+{
+  "name": "after",
+  "url": "http://localhost:8080/seo/demos/after/",
+  "publicUrl": "https://arcueidshiki.github.io/seo/demos/after/",
+  "keyword": "vexlora position size calculator",
+  "date": "2026-11-01T05:16:34.625Z",
+  "pagesCrawled": [
+    "/",
+    "/guide/position-sizing-rules/",
+    "/about/",
+    "/zh/"
+  ],
+  "score": 100,
+  "counts": {
+    "pass": 37,
+    "warn": 0,
+    "fail": 0,
+    "manual": 2,
+    "na": 0
+  },
+  "checks": [
+    {
+      "id": "onpage-title",
+      "title": "每个页面有独立、含关键词的 <title>",
+      "status": "pass",
+      "detail": "all 4 pages have unique-looking 15–65 char titles"
+    },
+    {
+      "id": "onpage-title-unique",
+      "title": "全站没有重复的 title",
+      "status": "pass",
+      "detail": "no duplicate titles"
+    },
+    {
+      "id": "onpage-meta-description",
+      "title": "每个页面有 meta description",
+      "status": "pass",
+      "detail": "every indexable page has a 50–165 char meta description"
+    },
+    {
+      "id": "onpage-h1",
+      "title": "每页恰好 1 个 H1，且在服务端 HTML 中",
+      "status": "pass",
+      "detail": "exactly one H1 in the server-rendered HTML of every page"
+    },
+    {
+      "id": "onpage-heading-hierarchy",
+      "title": "标题层级 H1→H2→H3 不跳级",
+      "status": "pass",
+      "detail": "headings never skip a level"
+    },
+    {
+      "id": "onpage-keyword-placement",
+      "title": "主关键词出现在 title、H1、description、首段、URL",
+      "status": "pass",
+      "detail": "\"vexlora position size calculator\" appears in title, H1, description and opening text",
+      "where": {
+        "title": true,
+        "h1": true,
+        "description": true,
+        "first100words": true
+      }
+    },
+    {
+      "id": "tech-html-lang",
+      "title": "<html lang> 声明页面语言",
+      "status": "pass",
+      "detail": "every page declares <html lang>"
+    },
+    {
+      "id": "tech-viewport",
+      "title": "移动端 viewport 与响应式布局",
+      "status": "pass",
+      "detail": "responsive viewport on every page"
+    },
+    {
+      "id": "tech-canonical",
+      "title": "每个可索引页面有自引用的绝对 canonical",
+      "status": "pass",
+      "detail": "every indexable page has an absolute, self-referencing canonical"
+    },
+    {
+      "id": "tech-indexable",
+      "title": "重要页面没有误加 noindex",
+      "status": "pass",
+      "detail": "no important page carries noindex"
+    },
+    {
+      "id": "tech-ssr-content",
+      "title": "正文在不执行 JS 的 HTML 中就存在（SSR / SSG）",
+      "status": "pass",
+      "detail": "main content is present in the HTML without JavaScript (SSR/SSG)"
+    },
+    {
+      "id": "tech-clean-urls",
+      "title": "URL 干净：小写、连字符、无参数、有层级",
+      "status": "pass",
+      "detail": "internal URLs are lowercase, hyphenated, no query strings"
+    },
+    {
+      "id": "tech-robots-txt",
+      "title": "robots.txt 允许抓取并声明 Sitemap",
+      "status": "pass",
+      "detail": "robots.txt present, allows crawling, declares Sitemap"
+    },
+    {
+      "id": "tech-xml-sitemap",
+      "title": "XML sitemap：只含可索引的规范 URL，lastmod 真实",
+      "status": "pass",
+      "detail": "4 URLs, with <lastmod>"
+    },
+    {
+      "id": "tech-hreflang",
+      "title": "多语言页面 hreflang 互相指向并带 x-default",
+      "status": "pass",
+      "detail": "hreflang tags are reciprocal with x-default"
+    },
+    {
+      "id": "tech-404",
+      "title": "不存在的 URL 返回真实 404 状态码，并有引导链接",
+      "status": "pass",
+      "detail": "missing URL returned HTTP 404 with links back into the site"
+    },
+    {
+      "id": "tech-favicon",
+      "title": "favicon（Google 结果里显示的站点图标）",
+      "status": "pass",
+      "detail": "favicon declared"
+    },
+    {
+      "id": "social-open-graph",
+      "title": "Open Graph 社交卡片（og:title / description / image / url）",
+      "status": "pass",
+      "detail": "og:title / og:description / og:image / og:url on every page"
+    },
+    {
+      "id": "social-twitter-card",
+      "title": "Twitter / X card 标签",
+      "status": "pass",
+      "detail": "twitter:card on every page"
+    },
+    {
+      "id": "serp-structured-data",
+      "title": "JSON-LD 结构化数据合法且与页面内容一致",
+      "status": "pass",
+      "detail": "valid JSON-LD on every page; types: Organization, WebSite, WebApplication, Offer, BreadcrumbList, ListItem, FAQPage, Question, Answer, Article, ImageObject, AboutPage"
+    },
+    {
+      "id": "serp-breadcrumbs",
+      "title": "BreadcrumbList 面包屑",
+      "status": "pass",
+      "detail": "BreadcrumbList schema present"
+    },
+    {
+      "id": "serp-entity-schema",
+      "title": "Organization + WebSite 实体（站点名、logo、sameAs）",
+      "status": "pass",
+      "detail": "Organization: true, WebSite: true"
+    },
+    {
+      "id": "img-alt",
+      "title": "所有图片有描述性 alt",
+      "status": "pass",
+      "detail": "every image has descriptive alt text"
+    },
+    {
+      "id": "img-dimensions",
+      "title": "图片声明 width / height，避免布局偏移（CLS）",
+      "status": "pass",
+      "detail": "every image declares width/height"
+    },
+    {
+      "id": "img-optimized",
+      "title": "图片压缩并使用 WebP / AVIF，首屏外懒加载",
+      "status": "pass",
+      "detail": "all images ≤200KB, modern formats"
+    },
+    {
+      "id": "links-internal",
+      "title": "每个页面至少有 2 个指向其他页面的内链，没有孤立页面",
+      "status": "pass",
+      "detail": "every page links to ≥2 other internal pages"
+    },
+    {
+      "id": "links-anchor-text",
+      "title": "锚文本有描述性，不用\"点击这里\"",
+      "status": "pass",
+      "detail": "no \"click here\"-style anchor text"
+    },
+    {
+      "id": "links-external-citation",
+      "title": "引用权威外部来源",
+      "status": "pass",
+      "detail": "cites at least one external authoritative source"
+    },
+    {
+      "id": "content-depth",
+      "title": "核心页面内容足够回答搜索意图（不是薄内容）",
+      "status": "pass",
+      "detail": "525 words of visible main content on the homepage"
+    },
+    {
+      "id": "content-eeat-signals",
+      "title": "E-E-A-T 信号：About 页、作者署名、更新日期、联系方式",
+      "status": "pass",
+      "detail": "About page + visible updated dates found"
+    },
+    {
+      "id": "geo-faq-blocks",
+      "title": "FAQ / 问答式小标题",
+      "status": "pass",
+      "detail": "question-style headings / FAQPage found (easy for AI answers to quote)"
+    },
+    {
+      "id": "geo-answer-first",
+      "title": "答案先行：H1 后第一段直接给出定义 / 结论",
+      "status": "pass",
+      "detail": "opening paragraph answers directly: \"Position size = (account size × risk %) ÷ (entry price − stop-loss price).\n      Enter four numbers below and …\""
+    },
+    {
+      "id": "geo-llms-txt",
+      "title": "根目录提供 /llms.txt",
+      "status": "pass",
+      "detail": "llms.txt present with title and links"
+    },
+    {
+      "id": "geo-ai-crawlers",
+      "title": "robots.txt 没有屏蔽 AI 搜索爬虫",
+      "status": "pass",
+      "detail": "AI crawlers allowed (5 named explicitly)"
+    },
+    {
+      "id": "analytics-installed",
+      "title": "安装网站统计（GA4 / Plausible / Umami / Clarity）",
+      "status": "manual",
+      "detail": "no analytics detected — add GA4 / Plausible / Umami / Clarity ID at build time (needs your account)"
+    },
+    {
+      "id": "indexing-gsc",
+      "title": "验证 Google Search Console 并提交 sitemap",
+      "status": "manual",
+      "detail": "verify the property in Google Search Console (needs your Google account)"
+    },
+    {
+      "id": "perf-lighthouse",
+      "title": "Lighthouse 移动端：性能 ≥90，SEO / 无障碍 / 最佳实践 ≥90",
+      "status": "pass",
+      "detail": "mobile Lighthouse performance 100, SEO 100, accessibility 100, best practices 100"
+    },
+    {
+      "id": "perf-core-web-vitals",
+      "title": "Core Web Vitals 达标：LCP ≤2.5s · INP ≤200ms · CLS ≤0.1",
+      "status": "pass",
+      "detail": "lab LCP 1.4s (≤2.5s), CLS 0 (≤0.1), TBT 21ms (≤200ms; proxy for INP)"
+    },
+    {
+      "id": "perf-page-weight",
+      "title": "首页总传输体积 ≤1MB",
+      "status": "pass",
+      "detail": "homepage transfers 47 KB (budget ≤1000 KB)"
+    }
+  ],
+  "lighthouse": {
+    "mobile": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 1354,
+      "fcpMs": 911,
+      "tbtMs": 21,
+      "cls": 0,
+      "totalKB": 47,
+      "failedSeoAudits": []
+    },
+    "desktop": {
+      "performance": 94,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 1308,
+      "fcpMs": 1115,
+      "tbtMs": 4,
+      "cls": 0,
+      "totalKB": 47,
+      "failedSeoAudits": []
+    }
+  },
+  "serp": {
+    "title": "Vexlora Position Size Calculator – Free Risk-Based Tool",
+    "description": "Free Vexlora position size calculator: enter account size, risk % and stop-loss to get the exact number of shares to buy. Formula, worked examples and FAQ.",
+    "url": "https://arcueidshiki.github.io/seo/demos/after/",
+    "siteName": "Vexlora",
+    "favicon": true,
+    "breadcrumbs": true,
+    "richResultTypes": [
+      "Organization",
+      "WebSite",
+      "WebApplication",
+      "Offer",
+      "BreadcrumbList",
+      "ListItem",
+      "FAQPage",
+      "Question",
+      "Answer",
+      "Article",
+      "ImageObject",
+      "AboutPage"
+    ],
+    "ogImage": true
+  }
+}

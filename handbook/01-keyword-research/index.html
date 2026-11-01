@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>关键词研究与选题 – SEO Handbook</title>
+<meta name="description" content="SEO handbook chapter: 关键词研究与选题">
+<link rel="canonical" href="https://ArcueidShiki.github.io/seo/handbook/01-keyword-research/">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/seo/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="关键词研究与选题 – SEO Handbook">
+<meta property="og:description" content="SEO handbook chapter: 关键词研究与选题">
+<meta property="og:url" content="https://ArcueidShiki.github.io/seo/handbook/01-keyword-research/">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--brand:#4f46e5;--bg:#fafafa}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.75 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--brand)}
+.top{border-bottom:1px solid var(--line);background:#fff}
+.top div{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;gap:18px;align-items:center}
+.top a{text-decoration:none;color:var(--muted)}.top .brand{font-weight:700;color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:20px;display:grid;grid-template-columns:240px 1fr;gap:32px}
+aside nav{position:sticky;top:16px;display:flex;flex-direction:column;gap:4px;font-size:14px}
+aside a{text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:8px}
+aside a[aria-current]{background:#eef2ff;color:var(--brand);font-weight:600}
+article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 36px;min-width:0}
+article h1{margin-top:0;line-height:1.25}
+article h2{margin-top:2em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
+article table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow:auto}
+article th,article td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+article th{background:#f9fafb}
+article code{background:#f3f4f6;padding:1px 5px;border-radius:4px;font-size:.92em}
+article pre{background:#111827;color:#e5e7eb;padding:14px;border-radius:8px;overflow:auto}
+article pre code{background:none;padding:0}
+article blockquote{margin:1em 0;padding:.5em 1em;border-left:4px solid var(--brand);background:#f5f3ff;color:#374151}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}aside nav{position:static}article{padding:20px}}
+</style>
+</head>
+<body>
+<div class="top"><div><a class="brand" href="/seo/">SEO Handbook</a><a href="/seo/tool/">Checklist 工具</a><a href="/seo/handbook/00-overview/">手册</a><a href="/seo/reports/">Before/After 报告</a></div></div>
+<div class="wrap">
+<aside><nav aria-label="手册目录"><a href="/seo/handbook/00-overview/">总览</a><a href="/seo/handbook/01-keyword-research/" aria-current="page">关键词研究与选题</a><a href="/seo/handbook/02-page-structure-and-tags/">页面结构与 SEO 标签</a><a href="/seo/handbook/03-technical-seo-and-infra/">技术 SEO 与基础设施</a><a href="/seo/handbook/04-content-and-eeat/">内容与 E-E-A-T</a><a href="/seo/handbook/05-backlinks/">外链建设</a><a href="/seo/handbook/06-geo-ai-search/">GEO / AI 搜索优化</a><a href="/seo/handbook/07-launch-and-distribution/">发布与冷启动：推广策略、发布平台与品牌</a><a href="/seo/handbook/08-x-and-reddit/">X（Twitter）与 Reddit 运营</a><a href="/seo/handbook/09-xiaohongshu/">小红书运营全指南</a><a href="/seo/handbook/10-douyin-video-wechat/">抖音、短视频与微信生态</a><a href="/seo/handbook/11-analytics-and-tools/">数据统计与 SEO 工具箱</a><a href="/seo/handbook/12-monetization/">变现：广告、订阅、支付与联盟营销</a><a href="/seo/handbook/13-mindset-and-case-studies/">独立开发者方法论与案例</a><a href="/seo/handbook/99-glossary/">SEO 名词解释</a></nav></aside>
+<article><h1>关键词研究与选题</h1>
+<blockquote>
+<p>一句话：<strong>先有搜索需求，再有页面</strong>。Google 给页面排名，不给&quot;网站&quot;排名。所以每个值得做的关键词都应该对应一个专门的页面，页面类型也要和搜索结果页（SERP）上已经在排名的内容对得上。</p>
+<p>相关 Checklist 条目：<code>onpage-keyword-placement</code>（关键词出现在 title / H1 / description / 开头段落）、<code>onpage-title</code>、<code>onpage-h1</code>。其余关键词条目需要在 <a href="../../tool/">Checklist 工具</a> 里人工勾选。</p>
+</blockquote>
+<hr>
+<h2>1. 关键词在增长飞轮里的位置</h2>
+<p>一个好词就是一个新的流量入口。原知识库把它描述成一个循环：</p>
+<pre><code class="language-text">找到词 → 做页面/内容 → 拿到排名 → 进来流量 → 有动力继续优化 → 排名更稳 → 再找下一批词
+</code></pre>
+<p>几个贯穿全书的推论：</p>
+<ul>
+<li><strong>一页一词</strong>：一个页面只服务一个主关键词（加上它的近义词和长尾），避免多个页面争同一个词（关键词内耗 / cannibalization）。</li>
+<li><strong>垂直优先</strong>：在一个细分领域里，核心词和长尾词都比较好找。领域越模糊（比如&quot;AI 文生图&quot;），越难找到能赢的词；领域越具体（比如&quot;AI 婚纱照&quot;），用户画像、需求和付费意愿都更清楚。</li>
+<li><strong>懂行才能发现词</strong>：像 &quot;TTS&quot; 这样的行业缩写，或者某个突然爆火的网页小游戏名，只有长期关注这个领域的人才看得到。方法是持续跟踪同领域网站，拆解它们的流量词。</li>
+<li><strong>做不到第一就继续缩小范围</strong>：流量高度集中在头部，所以宁可在更窄的话题里做到第一，也不要在大词里排第十五（见 <a href="../13-mindset-and-case-studies/">13 章</a>）。</li>
+</ul>
+<hr>
+<h2>2. 选词门槛：几套数字，各管一种场景</h2>
+<p>原知识库里出现了好几套门槛，它们<strong>不矛盾，只是适用阶段不同</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>KD（难度）</th>
+<th>月搜索量</th>
+<th>其他条件</th>
+<th>出处</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>选新产品 / 新站方向</strong>（DR≈0 的全新域名）</td>
+<td><strong>&lt; 20</strong>（约等于进前 10 只需要不到 10 个外链）</td>
+<td><strong>&gt; 500</strong></td>
+<td>相关关键词 <strong>&gt; 100</strong> 个，方便以后扩展页面；搜索量接近 0 的直接放弃（那等于要自己教育市场）</td>
+<td>《通过SEO打造自然增长产品》</td>
+</tr>
+<tr>
+<td><strong>给已有产品定 5 个核心词</strong></td>
+<td><strong>&lt; 50</strong>（理想值）</td>
+<td><strong>≥ 1,000</strong>（理想值）</td>
+<td>和产品高度相关；难度要高低搭配，<strong>至少 1 个词能较快冲进前 3</strong>，用来拿到第一批流量</td>
+<td>《如何找到有潜力的关键词》</td>
+</tr>
+<tr>
+<td><strong>文章 / 长尾选题</strong></td>
+<td>不设硬门槛，看 SERP</td>
+<td>可以很低（几十到几百）</td>
+<td>意图明确、产品能自然出现、Top 3 内容单薄；5 项检查至少 3 项通过（见 <a href="../04-content-and-eeat/">04 章</a>）</td>
+<td>《如何选内容主题》</td>
+</tr>
+<tr>
+<td><strong>已有站点&quot;差一口气&quot;的词</strong></td>
+<td>不看 KD</td>
+<td>有一定曝光</td>
+<td>GSC / Bing 里已经有曝光、平均排名大约 <strong>11–30</strong> 的查询词，最容易推上去</td>
+<td>《如何利用内链优化SEO排名》</td>
+</tr>
+<tr>
+<td><strong>判断词的商业价值</strong></td>
+<td>—</td>
+<td>—</td>
+<td>用关键词的 <strong>CPC</strong> 估算流量价值。例如 CPC $0.5 × 每天 100 次访问 ≈ 每天 $50，如果实际收入达不到这个数，说明付费转化率还要优化</td>
+<td>《给新手独立开发者的建议》</td>
+</tr>
+</tbody></table>
+<p>怎么理解这几个数字：</p>
+<ol>
+<li><strong>KD 主要根据排名页面拥有的外链数量来计算</strong>，所以全新域名要从 KD 很低的词开始。等有了 DR 20–40 的外链基础（见 <a href="../05-backlinks/">05 章</a>），再去碰 KD 30–50 的词。</li>
+<li><strong>不同工具的 KD 和搜索量不能直接比较</strong>。Ahrefs 和 Semrush 的 KD 算法、数据库都不一样，同一份关键词表里要固定用一个工具的数据，换工具时要重新校准。</li>
+<li>Ahrefs 里有一个很有用的字段叫 <strong>Parent Topic</strong>：如果某个候选词的父主题和你已有页面的主词一样，就把它并进已有页面，不要再单独开新页。</li>
+<li>再看一眼 <strong>CPS（每次搜索带来的点击数）</strong>：CPS 很低说明广告、精选摘要或 AI 概览拿走了大部分点击，同样的搜索量实际能分到的流量更少。（&quot;CPS &lt; 1 就降低优先级&quot;是经验判断，原文只给了定义。）</li>
+</ol>
+<blockquote>
+<p>⚠️ <strong>2026 更新</strong>：Google AI Overviews / AI Mode 普及之后，纯定义类、信息类查询（例如 &quot;what is X&quot;）的点击率明显下降。选词时可以给 <strong>任务型、工具型、对比型、场景型</strong> 的词更高权重，因为这类查询的用户仍然需要点进来&quot;把事做完&quot;。信息类内容依然值得写，但主要目的变成了被 AI 引用（见 <a href="../06-geo-ai-search/">06 章</a>）。</p>
+</blockquote>
+<hr>
+<h2>3. 标准工作流：从一个种子词到 5 个核心词</h2>
+<ol>
+<li><p><strong>确定方向种子</strong>：从产品的核心功能出发，例如 <code>text to speech</code>。</p>
+</li>
+<li><p><strong>扩词</strong>：</p>
+<ul>
+<li>Google 搜索框的自动补全、结果页底部的&quot;相关搜索&quot;；</li>
+<li>让 LLM 列出相关词、同义词和用户会问的问题；</li>
+<li>Semrush / Ahrefs 的相关关键词（Related / Matching terms）。</li>
+</ul>
+</li>
+<li><p><strong>三层扩展</strong>（从产品核心往外扩）：</p>
+<table>
+<thead>
+<tr>
+<th>层级</th>
+<th>形式</th>
+<th>例子</th>
+<th>适合做成</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L1 核心词</td>
+<td>产品是什么</td>
+<td><code>ai poster generator</code>、<code>pdf to excel</code>、<code>text to speech online</code></td>
+<td>首页 / 工具页</td>
+</tr>
+<tr>
+<td>L2 场景词</td>
+<td>核心词 + 场景 / 人群 / 平台</td>
+<td><code>ai poster generator for marketing</code>、<code>bank statement pdf to excel</code>、<code>text to speech for youtube</code></td>
+<td>场景落地页、文章</td>
+</tr>
+<tr>
+<td>L3 问题 / 对比 / 教程词</td>
+<td>best…、how to…、X vs Y、…accuracy</td>
+<td><code>best ai poster generator for instagram ads</code>、<code>how to convert bank statement pdf to excel</code></td>
+<td>文章（最适合写内容）</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>竞品反查</strong>（见第 9 节）：拆解同领域网站和流量暴涨网站的流量词。</p>
+</li>
+<li><p><strong>建表</strong>：把大约 50 个候选词放进一张表，补全搜索量、KD、趋势、相关度和数据来源。</p>
+</li>
+<li><p><strong>打分选词</strong>：按第 2 节的门槛选出 <strong>5 个核心词</strong>，其余作为长尾储备。</p>
+</li>
+<li><p><strong>逐个做 Top-10 SERP 分析</strong>（第 6 节），决定能不能做、做成什么页面类型。</p>
+</li>
+<li><p><strong>写进&quot;一页一词&quot;规划表</strong>（第 8 节），然后再开始建页面。</p>
+</li>
+<li><p><strong>持续跟踪</strong>：给核心词设置排名追踪（GSC 效果报告或排名工具），每周记录一次。两天没动静不要放弃，SEO 是以月为单位的工作。</p>
+</li>
+</ol>
+<hr>
+<h2>4. 挖掘上升趋势词：词根法 + Google Trends</h2>
+<p>新词的竞争还没形成，是新站最容易赢的地方。</p>
+<p><strong>词根法</strong>：把通用词根和主题词组合起来。</p>
+<pre><code class="language-text">通用词根：generator / maker / editor / converter / remover / checker / tool / free / online / ai / template
+主题词  ：image / poster / video / pdf / logo / voice / resume ...
+组合示例：ai image editor / ai image generator / free ai image maker / pdf to excel converter
+</code></pre>
+<p><strong>操作步骤</strong></p>
+<ol>
+<li>在 <a href="https://trends.google.com/trends/">Google Trends</a> 里搜索词根本身（比如 <code>generator</code>），切到&quot;相关查询 → <strong>飙升（Rising）</strong>&quot;。</li>
+<li>依次查看 <strong>过去 7 天 / 30 天 / 90 天</strong> 的结果。最近才开始上升的词 = 非常新 = 机会最大。</li>
+<li>每个候选词再看 <strong>12 个月和 5 年</strong> 的曲线：<strong>持平或者稳步上升 → 通过</strong>；一次性尖峰后快速回落 → 大概率是一阵风，放弃（例如当年的指尖陀螺）。</li>
+<li>季节性词（节日、开学季、报税季）要按季节提前 1–2 个月准备页面。</li>
+</ol>
+<p><strong>竞品暴涨法</strong>：在 <a href="https://traffic.cv/">traffic.cv</a> 的流量趋势榜上找最近流量突然增长的网站，再用 Semrush / Similarweb 看它们新进入排名的词。这些词通常是 <strong>新出现的或者比较容易做的热词</strong>。建议每月看一次，记录下来。</p>
+<hr>
+<h2>5. 用基准词估算搜索量</h2>
+<p>Google Trends 只给相对指数，不给绝对搜索量。可以找一个<strong>已知搜索量的基准词</strong>来换算：</p>
+<pre><code class="language-text">估算搜索量(目标词) ≈ 基准词搜索量 × (目标词 Trends 指数 ÷ 基准词 Trends 指数)
+
+例：基准词 &quot;tts&quot; ≈ 280k/月
+    Trends 中 &quot;ai image editor&quot; 的平均指数约为 &quot;tts&quot; 的 1/6
+    → ai image editor ≈ 280k ÷ 6 ≈ 47k/月（Semrush 显示约 50k，两者基本吻合）
+</code></pre>
+<p>注意事项：</p>
+<ul>
+<li>目标词和基准词要放在 <strong>同一次 Trends 对比</strong> 里（最多 5 个词），地区和时间范围也要一致。</li>
+<li>基准词要选含义明确的词，不能是多义词。</li>
+<li><strong>至少交叉验证两个来源</strong>：Trends 换算值、Semrush / Ahrefs 搜索量、Google Keyword Planner 给出的区间（例如 10K–100K）。Keyword Planner 在 Google Ads 里可以免费使用，只给区间，但作为参考已经够用。</li>
+<li>中文市场用 <a href="https://index.baidu.com/">百度指数</a>、360 趋势、头条指数替代 Google Trends。小红书、抖音、微信的搜索框联想词本身就是站内需求清单（见 <a href="../09-xiaohongshu/">09</a>、<a href="../10-douyin-video-wechat/">10 章</a>）。</li>
+</ul>
+<hr>
+<h2>6. Top-10 SERP 分析：七条判断规则</h2>
+<p>数据只能告诉你&quot;有没有人搜&quot;，<strong>能不能做要看实际的搜索结果页</strong>。下面的规则来自原文的总结，再补充了两条（广告密度、能否超越）：</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>看什么</th>
+<th>信号</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>排名网站的构成</td>
+<td>全是大品牌 / 权威站</td>
+<td>新站避开</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>大站和小站、博客混排</td>
+<td>可以做</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>很多不知名的小站</td>
+<td>高质量机会：&quot;垃圾站都能排上去的词，不是难词&quot;</td>
+</tr>
+<tr>
+<td>2</td>
+<td>结果和关键词是否对口</td>
+<td>前 10 里有明显不是为这个词写的页面</td>
+<td>Google 在&quot;凑数&quot;，一个精准对口的页面就能挤进去</td>
+</tr>
+<tr>
+<td>3</td>
+<td>论坛结果</td>
+<td>Reddit / Quora / 论坛出现在前 5</td>
+<td>商业内容供给不足、需求没被满足 → 适合独立站</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Top 3–5 是否专门为这个词而写</td>
+<td>Title 是否完整包含关键词、H1 是否直接命中、目录是否围绕它展开</td>
+<td>如果只是顺带提到、堆砌或者结构散乱 → 你可以写一个更聚焦的页面</td>
+</tr>
+<tr>
+<td>5</td>
+<td>内容是否真正解决问题</td>
+<td>看有没有步骤、对比、场景和明确结论，不看字数</td>
+<td>又长又空的页面能排上来，往往是&quot;老页面 + 外链&quot;撑着，可以超越</td>
+</tr>
+<tr>
+<td>6</td>
+<td>页面类型（意图）</td>
+<td>教程 / 清单为主 vs 工具页 / 落地页为主</td>
+<td>页面类型必须和 SERP 一致（见第 7 节）</td>
+</tr>
+<tr>
+<td>7</td>
+<td>&quot;SEO 农场&quot;特征</td>
+<td>模板化标题（Best XXX in 2025 | Top XX Tools）、结构雷同、没有作者和真实案例</td>
+<td>要么很难，要么是纯 SEO 战场 → 改打更长尾的词</td>
+</tr>
+<tr>
+<td>+</td>
+<td>顶部广告数量</td>
+<td>首页广告很多</td>
+<td>付费竞争激烈，优先选广告少的词</td>
+</tr>
+<tr>
+<td>+</td>
+<td>能否成为第一</td>
+<td>列出你的页面会在哪些方面更好（深度、数据、工具、时效、案例）</td>
+<td>写不出&quot;比现在第一名更好&quot;的理由，就先不写</td>
+</tr>
+</tbody></table>
+<p><strong>案例：<code>ai image editor</code></strong></p>
+<ul>
+<li>前 10 全是工具页，其中很多是大站的内页，但有 3 个是 2023 年以后才上线的新站 → 新站有机会。</li>
+<li>排名靠前的页面体验高度一致：打开就能上传图片，AI 直接编辑。</li>
+<li>可以超越的方向：完全匹配或高度相关的域名；更丰富的页面内容（使用场景、问答、教程、案例、用户评价）；免费可用；<strong>不登录就能用</strong>（降低跳出）；持续积累高 DR 外链。</li>
+</ul>
+<p>把每个词的分析结果写成一行记录（排名站构成 / 对口程度 / 论坛 / 专门页 / 页面类型 / 农场特征 / 结论），先有记录再建页面。</p>
+<hr>
+<h2>7. 搜索意图 → 页面类型</h2>
+<table>
+<thead>
+<tr>
+<th>意图</th>
+<th>典型查询</th>
+<th>SERP 通常长什么样</th>
+<th>你应该做的页面</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>交易 / 工具型</td>
+<td><code>pdf to excel</code>、<code>ai headshot generator</code>、<code>remove watermark</code></td>
+<td>工具首页、落地页</td>
+<td><strong>产品页 / 工具页</strong>（打开即用，首屏就是功能）</td>
+</tr>
+<tr>
+<td>教程型</td>
+<td><code>how to convert bank statement pdf to excel</code></td>
+<td>教程文章、视频</td>
+<td><strong>How-to 文章</strong>，产品作为其中一个步骤出现</td>
+</tr>
+<tr>
+<td>对比 / 选型</td>
+<td><code>best ai poster generator</code>、<code>X vs Y</code>、<code>X alternatives</code></td>
+<td>清单文、对比文</td>
+<td><strong>对比页 / 替代品页</strong>（表格 + 诚实结论）</td>
+</tr>
+<tr>
+<td>问题排查</td>
+<td><code>why X doesn&#39;t work</code>、<code>X not working</code></td>
+<td>论坛、帮助文档</td>
+<td><strong>问题解决型文章</strong>（原因 → 修复步骤）</td>
+</tr>
+<tr>
+<td>场景方案</td>
+<td><code>text to speech for faceless youtube channel</code></td>
+<td>混合</td>
+<td><strong>场景落地页或文章</strong>（&quot;X for 某类人 / 某平台&quot;）</td>
+</tr>
+<tr>
+<td>导航 / 品牌</td>
+<td><code>yourbrand</code>、<code>yourbrand login</code></td>
+<td>官网</td>
+<td>首页、登录页；保证品牌词搜索结果第一位是你自己</td>
+</tr>
+</tbody></table>
+<p>规则很简单：<strong>Top 10 是教程和清单，就别拿产品页去硬拼；Top 10 是工具页，就别只写一篇文章。</strong></p>
+<hr>
+<h2>8. &quot;一页一词&quot;规划表模板</h2>
+<p>复制下面的表格到你的表格工具里，每行对应一个页面：</p>
+<table>
+<thead>
+<tr>
+<th>主关键词</th>
+<th>意图</th>
+<th>月搜索量（来源）</th>
+<th>KD</th>
+<th>趋势</th>
+<th>SERP 结论</th>
+<th>页面类型</th>
+<th>目标 URL</th>
+<th>Parent Topic / 合并到</th>
+<th>次要词</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ai poster generator</td>
+<td>工具</td>
+<td>12k（Semrush）/ 10K–100K（KP）</td>
+<td>38</td>
+<td>平稳上升</td>
+<td>工具页为主，有 2 个新站</td>
+<td>产品页</td>
+<td><code>/</code></td>
+<td>—</td>
+<td>free ai poster maker</td>
+<td>已上线</td>
+</tr>
+<tr>
+<td>instagram poster size</td>
+<td>信息</td>
+<td>1.9k（Ahrefs）</td>
+<td>8</td>
+<td>平稳</td>
+<td>清单 + 论坛，Top 3 很薄</td>
+<td>指南文章</td>
+<td><code>/blog/instagram-poster-size</code></td>
+<td>—</td>
+<td>instagram post dimensions</td>
+<td>写作中</td>
+</tr>
+<tr>
+<td>how to make posters in bulk</td>
+<td>教程</td>
+<td>300（Trends 换算）</td>
+<td>5</td>
+<td>上升</td>
+<td>教程少，论坛多</td>
+<td>How-to</td>
+<td><code>/blog/bulk-poster-generation</code></td>
+<td>—</td>
+<td>batch poster design</td>
+<td>待写</td>
+</tr>
+<tr>
+<td>canva alternative for posters</td>
+<td>对比</td>
+<td>900</td>
+<td>22</td>
+<td>平稳</td>
+<td>清单文为主</td>
+<td>替代品页</td>
+<td><code>/alternatives/canva</code></td>
+<td>—</td>
+<td>canva vs …</td>
+<td>待写</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>表中数字是示例，不是真实数据。</p>
+</blockquote>
+<p>检查要点：</p>
+<ul>
+<li>同一个主关键词只能出现一次（不允许两个页面争同一个词）。</li>
+<li>目标 URL 的 slug 要能反映关键词（见 <a href="../02-page-structure-and-tags/">02 章</a>，对应 <code>tech-clean-urls</code>）。</li>
+<li>每个产品功能至少对应一个&quot;把功能翻译成搜索问题&quot;的页面（第 10 节）。</li>
+</ul>
+<hr>
+<h2>9. 竞品词：alternatives / vs / coupon / free</h2>
+<p>竞品的品牌词也是流量来源，用户在搜这些词的时候往往已经准备好要做选择了。</p>
+<table>
+<thead>
+<tr>
+<th>页面类型</th>
+<th>URL 示例</th>
+<th>内容要点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>替代品页</td>
+<td><code>/alternatives/magnific-ai</code></td>
+<td>用户为什么要找替代品（价格、限制、地区）→ 多个选项的对比表（包括你自己）→ 诚实的推荐结论</td>
+</tr>
+<tr>
+<td>对比页</td>
+<td><code>/compare/x-vs-y</code></td>
+<td>功能 / 价格 / 适合人群的对比表，写清楚各自更适合什么人</td>
+</tr>
+<tr>
+<td>免费 / 优惠页</td>
+<td><code>/blog/free-x-alternatives</code>、<code>/blog/x-coupon</code></td>
+<td>免费额度、开源替代、优惠信息</td>
+</tr>
+<tr>
+<td>趋势长尾</td>
+<td><code>/blog/free-ai-image-upscalers-2026</code></td>
+<td>带年份的盘点，<strong>每年更新</strong>，不要只改标题里的年份</td>
+</tr>
+</tbody></table>
+<p><strong>怎么找竞品词</strong></p>
+<ul>
+<li>用 Semrush / Ahrefs 查同领域 3–5 个网站的 Organic Keywords 和 Top Pages，找出它们有排名而你没有的词（content gap）。</li>
+<li>关注流量正在暴涨的网站（第 4 节），看它们的新增词。</li>
+<li>没有领域积累的话，可以在 <a href="https://whoismaking.money/zh">whoismaking.money</a> 上找公开收入的产品当对标，拆解它们的关键词。</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>2026 更新</strong>：对比页要<strong>写真实信息</strong>，不要贬低竞品，也不要冒用对方商标做落地页标题党。优惠页只写你确实能核实的信息。AI 搜索引擎更愿意引用中立、有对比表、写明&quot;什么情况下不适合用我们&quot;的对比内容（见 <a href="../06-geo-ai-search/">06 章</a>）。</p>
+</blockquote>
+<hr>
+<h2>10. 长尾策略</h2>
+<ol>
+<li><p><strong>10 个精准小题 &gt; 1 个模糊大题</strong>。长尾词搜索量低，但目的明确，转化率更高。</p>
+</li>
+<li><p><strong>把功能翻译成搜索问题</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>产品功能</th>
+<th>用户会搜什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>批量生成</td>
+<td>how to generate posters in bulk</td>
+</tr>
+<tr>
+<td>高清导出</td>
+<td>poster resolution for printing</td>
+</tr>
+<tr>
+<td>多平台尺寸</td>
+<td>instagram poster size guide</td>
+</tr>
+<tr>
+<td>商用授权</td>
+<td>can ai-generated posters be used commercially</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>先吃&quot;差一口气&quot;的词</strong>：从 GSC / Bing Webmaster 导出有曝光、平均排名在 11–30 的查询，挑和产品相关的长尾词，用&quot;5 篇文章法&quot;把它们推上去（见 <a href="../04-content-and-eeat/">04 章</a>）。</p>
+</li>
+<li><p><strong>程序化页面</strong>：工具站可以给每个功能词、格式组合（<code>&lt;format&gt; to &lt;format&gt;</code>）、模板类型各做一个页面，并且根据竞品的关键词缺口持续补充。</p>
+</li>
+<li><p><strong>全平台长尾</strong>：中文用户也会在知乎、B 站、抖音、微信、小红书里搜索。每个平台都用它自己的搜索框联想词做一份长尾清单，在平台内发布原生内容，再把流量引回产品（见 <a href="../09-xiaohongshu/">09</a>、<a href="../10-douyin-video-wechat/">10 章</a>）。</p>
+</li>
+</ol>
+<blockquote>
+<p>⚠️ <strong>2026 更新（程序化 SEO）</strong>：Google 在 2024 年 3 月把&quot;规模化内容滥用（scaled content abuse）&quot;写进了垃圾内容政策。程序化页面只有在<strong>每一页都有独立价值</strong>的时候才安全，比如真实可用的工具、真实数据、独特示例。如果只是把关键词换个位置、套同一个模板批量生成，很可能会被整站降权。</p>
+</blockquote>
+<hr>
+<h2>11. 常见错误</h2>
+<table>
+<thead>
+<tr>
+<th>错误</th>
+<th>后果</th>
+<th>正确做法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>凭灵感选题，不查数据</td>
+<td>写了没人搜</td>
+<td>每个页面都要对应真实查询（工具数据或联想词）</td>
+</tr>
+<tr>
+<td>只看搜索量，不看 SERP</td>
+<td>拿产品页去拼教程 SERP，永远排不上</td>
+<td>先做 Top-10 分析，再决定页面类型</td>
+</tr>
+<tr>
+<td>新站直接打 KD 60+ 的大词</td>
+<td>半年没有任何排名</td>
+<td>新站从 KD &lt; 20 开始，用长尾积累权重</td>
+</tr>
+<tr>
+<td>多个页面争同一个词</td>
+<td>互相分流，排名来回跳</td>
+<td>维护&quot;一页一词&quot;规划表，按 Parent Topic 合并</td>
+</tr>
+<tr>
+<td>追一次性热点</td>
+<td>流量来得快去得也快</td>
+<td>看 5 年趋势，选平稳或上升的词</td>
+</tr>
+<tr>
+<td>两天没排名就放弃</td>
+<td>错过 Google 通常需要的约 3 个月起量期</td>
+<td>至少坚持一个季度，持续补内容和外链</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>12. 工具表</h2>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>用途</th>
+<th>费用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://www.google.com/s2/favicons?domain=trends.google.com&sz=32" width="16" height="16" alt=""> <a href="https://trends.google.com/trends/">Google Trends</a></td>
+<td>上升词、趋势方向、相对搜索量</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=ads.google.com&sz=32" width="16" height="16" alt=""> <a href="https://ads.google.com/home/tools/keyword-planner/">Google Keyword Planner</a></td>
+<td>搜索量区间、发现新词</td>
+<td>免费（需要 Google Ads 账号）</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=search.google.com&sz=32" width="16" height="16" alt=""> <a href="https://search.google.com/search-console/about">Google Search Console</a></td>
+<td>自己网站已有曝光的查询、&quot;差一口气&quot;的词</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=bing.com&sz=32" width="16" height="16" alt=""> <a href="https://www.bing.com/webmasters">Bing Webmaster Tools</a></td>
+<td>同上（Bing 数据）+ 关键词研究</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=semrush.com&sz=32" width="16" height="16" alt=""> <a href="https://www.semrush.com/">Semrush</a></td>
+<td>搜索量、KD、相关词、竞品关键词</td>
+<td>付费；免费版每天约 10 次查询</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=ahrefs.com&sz=32" width="16" height="16" alt=""> <a href="https://ahrefs.com/">Ahrefs</a></td>
+<td>KD、Clicks、CPS、Parent Topic、竞品 Top Pages</td>
+<td>付费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=similarweb.com&sz=32" width="16" height="16" alt=""> <a href="https://www.similarweb.com/">Similarweb</a></td>
+<td>竞品流量规模和渠道构成</td>
+<td>免费增值</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=traffic.cv&sz=32" width="16" height="16" alt=""> <a href="https://traffic.cv/">traffic.cv</a></td>
+<td>网站流量查询、流量暴涨榜</td>
+<td>免费查看</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=neilpatel.com&sz=32" width="16" height="16" alt=""> <a href="https://app.neilpatel.com/en/ai-keyword-overview">Ubersuggest</a></td>
+<td>关键词、内容点子、竞品域名分析</td>
+<td>免费额度</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=lowfruits.io&sz=32" width="16" height="16" alt=""> <a href="https://lowfruits.io/">LowFruits</a></td>
+<td>找 SERP 里有弱站的低竞争词</td>
+<td>付费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=moz.com&sz=32" width="16" height="16" alt=""> <a href="https://moz.com/">Moz</a></td>
+<td>网站和关键词数据</td>
+<td>免费增值</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=aitdk.com&sz=32" width="16" height="16" alt=""> <a href="https://aitdk.com/">AITDK</a></td>
+<td>浏览器插件，一键查看流量</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=sitedata.dev&sz=32" width="16" height="16" alt=""> <a href="https://sitedata.dev/zh-cn">SiteData</a></td>
+<td>浏览器插件，流量分析</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=trendsbar.net&sz=32" width="16" height="16" alt=""> <a href="https://trendsbar.net/zh">TrendsBar</a></td>
+<td>浏览器插件，在搜索结果页旁边显示趋势</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=explodingtopics.com&sz=32" width="16" height="16" alt=""> <a href="https://explodingtopics.com/">Exploding Topics</a></td>
+<td>发现新兴话题</td>
+<td>免费增值</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=index.baidu.com&sz=32" width="16" height="16" alt=""> <a href="https://index.baidu.com/">百度指数</a></td>
+<td>中文关键词热度和趋势</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=aizhan.com&sz=32" width="16" height="16" alt=""> <a href="https://www.aizhan.com/">爱站网</a></td>
+<td>百度生态的 SEO 数据</td>
+<td>免费增值</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=chinaz.com&sz=32" width="16" height="16" alt=""> <a href="https://seo.chinaz.com/">站长之家 SEO</a></td>
+<td>百度生态的 SEO 数据</td>
+<td>免费增值</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=whoismaking.money&sz=32" width="16" height="16" alt=""> <a href="https://whoismaking.money/zh">whoismaking.money</a></td>
+<td>公开收入的产品清单，用来找对标</td>
+<td>免费</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>原文给的价格是作者撰写时的快照（例如 Semrush $99.95/月起、Ahrefs $99/月起），<strong>请以官网当前价格为准</strong>。</p>
+</blockquote>
+<hr>
+<h2>来源</h2>
+<ul>
+<li><a href="https://lownrain.feishu.cn/wiki/Rn58w7M9iiIwVbkdev7cfJFknAd">SEO关键词研究策略</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/XtlgwkEkmiN0uWkG800cujRvnEe">如何找到有潜力的关键词</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/L3puwoNS3imyg7kyhDbcA7Ffngh">如何选内容主题</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/STTgwwwfKiP6hHk87gtcW0rSnXd">关键词研究</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Vp9hww9hiifABkkytd5cxrKxnzd">网站/关键词流量查询</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/QpsGwfHUkiF08hkLqcxc2lRQnGh">Ahrefs Seo名词</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/T3mnwUqeRiqfOyk8XBBc2zmHnpf">通过SEO打造自然增长产品</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/DA5nwtLEoiE7yDkFPjgcqMwPnme">寻找小众市场做出自己产品的七个步骤</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/B2MLwCgXBisanqkZNyCcXDP6nqh">SEO经验分享</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/M4Dtwgynwi4R5FkHXcjcZVeZnRb">如何利用内链优化SEO排名</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Yj5QwQGv4iQ6LmkihUKcUKYsnLe">给新手独立开发者的建议</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/MWv9wFf4liIQ8sk1qtIct7zQnlh">获取流量的最有效方式就是成为TOP1</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/EgKEwabgAirGwRk5mOIcqvfanse">出海产品的推广策略</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/SXgew9A8jihj2uk4oMlcRCZYnUb">如何获取流量？SEO依然是性价比最高的方式</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/X6P0wKg0OinqS7kCmzXcxaMlnkh">SEO满分网站赏析</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/LpunwNX0citrl1kmB5TcIDJAnU5">SEO优化SOP</a>（独立开发前线｜SEO从0到100）</li>
+</ul>
+</article>
+</div>
+</body>
+</html>

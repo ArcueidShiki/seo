@@ -1,0 +1,4788 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO / GEO / 增长 Checklist 工具 – SEO Handbook</title>
+<meta name="description" content="交互式 SEO、GEO、SERP、外链、流量与账号运营 checklist：每一条都写明检查标准、检查方法和要用的工具，可勾选进度，并能叠加自动审计结果。">
+<link rel="canonical" href="https://ArcueidShiki.github.io/seo/tool/">
+<link rel="icon" href="/seo/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="SEO / GEO / 增长 Checklist 工具">
+<meta property="og:description" content="每一条都写明检查标准、检查方法和要用的工具。">
+<meta property="og:url" content="https://ArcueidShiki.github.io/seo/tool/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--brand:#4f46e5;--bg:#f6f7fb;--card:#fff;
+--pass:#059669;--fail:#dc2626;--warn:#d97706;--manual:#6366f1;--na:#9ca3af}
+*{box-sizing:border-box}
+body{margin:0;font:14.5px/1.6 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--brand)}
+svg.i{width:18px;height:18px;flex:none;vertical-align:-3px}
+header.bar{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line)}
+header.bar .in{max-width:1400px;margin:0 auto;padding:10px 18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.brand{font-weight:700;font-size:16px;display:flex;gap:8px;align-items:center;text-decoration:none;color:var(--ink)}
+.prog{display:flex;align-items:center;gap:8px;color:var(--muted)}
+.bar-o{width:160px;height:8px;background:#eef0f4;border-radius:9px;overflow:hidden}.bar-i{height:100%;background:var(--brand);border-radius:9px;transition:width .2s}
+.spacer{flex:1}
+button,select,input[type=search]{font:inherit;border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 10px;color:var(--ink)}
+button{cursor:pointer;display:inline-flex;gap:6px;align-items:center}button:hover{border-color:#c7cbd6}
+button.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.layout{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:270px 1fr;gap:18px;padding:16px 18px 60px}
+aside{position:sticky;top:64px;align-self:start;max-height:calc(100vh - 80px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px}
+.cat{display:flex;gap:10px;align-items:center;padding:7px 9px;border-radius:9px;cursor:pointer;color:#374151}
+.cat:hover{background:#f3f4f6}.cat.on{background:#eef2ff;color:var(--brand);font-weight:600}
+.cat .ico{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none}
+.cat .n{margin-left:auto;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-bottom:14px}
+.chip{border:1px solid var(--line);border-radius:99px;padding:3px 10px;cursor:pointer;font-size:13px;background:#fff;user-select:none}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.flabel{color:var(--muted);font-size:12px;margin-left:6px}
+input[type=search]{min-width:220px}
+section.group{margin-bottom:22px}
+section.group>h2{display:flex;gap:10px;align-items:center;font-size:17px;margin:4px 0 4px}
+section.group>p{color:var(--muted);margin:0 0 10px}
+.ghead-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center}
+.item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px;display:grid;grid-template-columns:26px 1fr auto;gap:10px}
+.item.done{opacity:.62}.item.done .t{text-decoration:line-through}
+.item input[type=checkbox]{width:18px;height:18px;margin-top:2px;accent-color:var(--brand);cursor:pointer}
+.t{font-weight:600;font-size:15px}
+.meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:3px}
+.badge{font-size:11.5px;border-radius:6px;padding:1px 7px;background:#f3f4f6;color:#374151;white-space:nowrap}
+.p0{background:#fee2e2;color:#991b1b}.p1{background:#fef3c7;color:#92400e}.p2{background:#e0e7ff;color:#3730a3}
+.auto{background:#dcfce7;color:#166534}
+.why{color:#4b5563;margin:6px 0 0}
+.ca{margin:8px 0 0;padding:8px 10px;background:#f9fafb;border-radius:8px;border:1px dashed #e5e7eb}
+.ca b{font-size:12px;color:var(--muted);display:block;margin-bottom:2px}
+.ca ul{margin:0;padding-left:18px}
+.tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tool{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:3px 8px;font-size:12.5px;text-decoration:none;color:#374151;background:#fff}
+.tool:hover{border-color:var(--brand)}
+.tool img,.tool svg{width:16px;height:16px;border-radius:3px}
+.status{font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px;color:#fff;white-space:nowrap;height:fit-content}
+.s-pass{background:var(--pass)}.s-fail{background:var(--fail)}.s-warn{background:var(--warn)}.s-manual{background:var(--manual)}.s-na{background:var(--na)}
+.sdetail{grid-column:2/4;font-size:12.5px;color:#374151;background:#f8fafc;border-left:3px solid var(--line);padding:4px 8px;border-radius:4px}
+.sdetail.fail{border-color:var(--fail)}.sdetail.pass{border-color:var(--pass)}.sdetail.warn{border-color:var(--warn)}
+details.more summary{cursor:pointer;color:var(--muted);font-size:13px;margin-top:6px}
+.empty{color:var(--muted);padding:30px;text-align:center}
+.score{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin-bottom:14px}
+.score .big{font-size:26px;font-weight:800}
+#modal{position:fixed;inset:0;background:rgba(17,24,39,.45);z-index:20;display:flex;align-items:center;justify-content:center;padding:20px}
+#modal[hidden]{display:none}
+.mbox{background:#fff;border-radius:14px;padding:18px;width:min(820px,100%);max-height:90vh;display:flex;flex-direction:column;gap:10px}
+.mbox h3{margin:0}.mbox textarea{width:100%;height:55vh;font:12.5px/1.5 ui-monospace,Menlo,monospace;border:1px solid var(--line);border-radius:8px;padding:10px}
+.mact{display:flex;gap:10px;align-items:center}.mact a.dl{font-size:14px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}aside{position:static;max-height:none}}
+@media print{header.bar,aside,.filters{display:none}.layout{display:block}.item{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header class="bar"><div class="in">
+  <a class="brand" href="/seo/"><span id="logo"></span>SEO Handbook · Checklist</a>
+  <div class="prog"><div class="bar-o"><div class="bar-i" id="pbar"></div></div><span id="ptext"></span></div>
+  <div class="spacer"></div>
+  <label class="flabel" for="overlay">叠加审计结果</label>
+  <select id="overlay"><option value="">不叠加</option></select>
+  <select id="groupBy" aria-label="分组方式"><option value="cat">按类别</option><option value="platform">按平台/工具</option><option value="phase">按阶段</option></select>
+  <button id="exportMd" title="导出 Markdown 清单"><span data-i="file-down"></span>Markdown</button>
+  <button id="exportJson" title="导出勾选状态"><span data-i="download"></span>JSON</button>
+  <button id="reset" title="清空勾选"><span data-i="rotate-ccw"></span>重置</button>
+</div></header>
+
+<div class="layout">
+  <aside><div id="cats"></div></aside>
+  <main>
+    <div class="filters" id="filters">
+      <input type="search" id="q" placeholder="搜索条目 / 工具 / 平台…" aria-label="搜索">
+      <span class="flabel">阶段</span><span id="fPhase"></span>
+      <span class="flabel">优先级</span><span id="fPri"></span>
+      <span class="flabel">类型</span><span id="fType"></span>
+      <span class="flabel">状态</span><span id="fDone"></span>
+    </div>
+    <div id="scorebox"></div>
+    <div id="list"></div>
+  </main>
+</div>
+
+<div id="modal" hidden><div class="mbox"><h3></h3><textarea readonly></textarea>
+<div class="mact"><button class="primary" id="mcopy">复制到剪贴板</button><a class="dl" href="#">下载文件</a><span id="mmsg"></span><span class="spacer"></span><button id="mclose">关闭</button></div></div></div>
+<script>
+const DATA = {
+  "version": "1.0.0",
+  "updated": "2026-11-01",
+  "phases": [
+    {
+      "id": "plan",
+      "name": "① 规划",
+      "icon": "compass",
+      "desc": "动手之前：选市场、选关键词、定站点结构"
+    },
+    {
+      "id": "build",
+      "name": "② 开发",
+      "icon": "code",
+      "desc": "写代码时就把技术 SEO、页面标签、性能做对"
+    },
+    {
+      "id": "launch",
+      "name": "③ 上线",
+      "icon": "rocket",
+      "desc": "上线当周：提交搜索引擎、配置统计、冷启动发布"
+    },
+    {
+      "id": "grow",
+      "name": "④ 增长",
+      "icon": "trending-up",
+      "desc": "上线后 1–12 个月：内容、外链、GEO、平台运营"
+    },
+    {
+      "id": "maintain",
+      "name": "⑤ 维护",
+      "icon": "repeat",
+      "desc": "每周 / 每月例行检查"
+    }
+  ],
+  "categories": [
+    {
+      "id": "keyword",
+      "name": "关键词与选题",
+      "nameEn": "Keyword research",
+      "icon": "search",
+      "color": "#2563eb",
+      "desc": "Google 给单个页面排名，不给整个网站排名。每个页面先选定一个关键词，再动手写。"
+    },
+    {
+      "id": "structure",
+      "name": "网站结构与内链",
+      "nameEn": "Site structure & internal links",
+      "icon": "network",
+      "color": "#7c3aed",
+      "desc": "URL、目录层级、内链和主题集群，决定权重怎么在站内流动。"
+    },
+    {
+      "id": "onpage",
+      "name": "页面标签 On-page",
+      "nameEn": "On-page tags",
+      "icon": "tags",
+      "color": "#db2777",
+      "desc": "Title、Description、H1、图片 alt、社交卡片：决定搜索结果长什么样。"
+    },
+    {
+      "id": "technical",
+      "name": "技术 SEO",
+      "nameEn": "Technical SEO",
+      "icon": "settings",
+      "color": "#0891b2",
+      "desc": "能抓取、能渲染、能索引：robots、sitemap、canonical、SSR、hreflang、404。"
+    },
+    {
+      "id": "performance",
+      "name": "速度与体验",
+      "nameEn": "Performance & CWV",
+      "icon": "gauge",
+      "color": "#ea580c",
+      "desc": "Core Web Vitals（LCP / INP / CLS）、图片、页面体积。"
+    },
+    {
+      "id": "infra",
+      "name": "域名 / HTTPS / CDN / 安全",
+      "nameEn": "Domain, HTTPS, CDN & security",
+      "icon": "shield-check",
+      "color": "#475569",
+      "desc": "域名选择、Cloudflare、HTTPS、域名邮箱、防刷与防攻击。"
+    },
+    {
+      "id": "indexing",
+      "name": "提交与收录",
+      "nameEn": "Search engine submission",
+      "icon": "send",
+      "color": "#16a34a",
+      "desc": "Google Search Console、Bing、IndexNow、百度、Yandex：让搜索引擎知道你的页面存在。"
+    },
+    {
+      "id": "content",
+      "name": "内容与 E-E-A-T",
+      "nameEn": "Content & E-E-A-T",
+      "icon": "pen-line",
+      "color": "#ca8a04",
+      "desc": "满足搜索意图、有第一手经验、有作者和日期、持续更新。"
+    },
+    {
+      "id": "serp",
+      "name": "SERP 富结果与点击率",
+      "nameEn": "SERP features & CTR",
+      "icon": "star",
+      "color": "#e11d48",
+      "desc": "结构化数据、面包屑、站点名、图片/视频结果、精选摘要。"
+    },
+    {
+      "id": "geo",
+      "name": "GEO · AI 搜索优化",
+      "nameEn": "Generative engine optimization",
+      "icon": "bot",
+      "color": "#9333ea",
+      "desc": "让 ChatGPT、Perplexity、Claude、Gemini、Google AI Overviews 能读到并引用你。"
+    },
+    {
+      "id": "backlinks",
+      "name": "外链建设",
+      "nameEn": "Backlinks",
+      "icon": "link",
+      "color": "#0d9488",
+      "desc": "导航站、发布平台、内容外链、合作与被提及；外链就是信任票。"
+    },
+    {
+      "id": "analytics",
+      "name": "数据与监测",
+      "nameEn": "Analytics & monitoring",
+      "icon": "chart-line",
+      "color": "#4f46e5",
+      "desc": "GA4 / Plausible / Clarity / GSC：没有数据就没法优化。"
+    },
+    {
+      "id": "launch",
+      "name": "发布与冷启动",
+      "nameEn": "Launch & distribution",
+      "icon": "rocket",
+      "color": "#f97316",
+      "desc": "Product Hunt、Hacker News、Reddit、导航站、社区：第一波用户和外链。"
+    },
+    {
+      "id": "social",
+      "name": "平台账号运营",
+      "nameEn": "Social & platform accounts",
+      "icon": "megaphone",
+      "color": "#be185d",
+      "desc": "X、YouTube、小红书、抖音 / TikTok、LinkedIn 等平台的账号定位、内容和涨粉。"
+    },
+    {
+      "id": "i18n",
+      "name": "多语言与本地化",
+      "nameEn": "International & local",
+      "icon": "languages",
+      "color": "#059669",
+      "desc": "hreflang、本地化关键词、分地区运营。"
+    },
+    {
+      "id": "monetize",
+      "name": "变现",
+      "nameEn": "Monetization",
+      "icon": "wallet",
+      "color": "#65a30d",
+      "desc": "广告、订阅、联盟营销：流量最后要变成收入。"
+    }
+  ],
+  "platforms": {
+    "gsc": {
+      "name": "Google Search Console",
+      "domain": "search.google.com",
+      "url": "https://search.google.com/search-console"
+    },
+    "bing": {
+      "name": "Bing Webmaster Tools",
+      "domain": "bing.com",
+      "url": "https://www.bing.com/webmasters"
+    },
+    "indexnow": {
+      "name": "IndexNow",
+      "domain": "indexnow.org",
+      "url": "https://www.indexnow.org/"
+    },
+    "baidu": {
+      "name": "百度搜索资源平台",
+      "domain": "ziyuan.baidu.com",
+      "url": "https://ziyuan.baidu.com/"
+    },
+    "yandex": {
+      "name": "Yandex Webmaster",
+      "domain": "webmaster.yandex.com",
+      "url": "https://webmaster.yandex.com/"
+    },
+    "ga4": {
+      "name": "Google Analytics 4",
+      "domain": "analytics.google.com",
+      "url": "https://analytics.google.com/"
+    },
+    "plausible": {
+      "name": "Plausible",
+      "domain": "plausible.io",
+      "url": "https://plausible.io/"
+    },
+    "umami": {
+      "name": "Umami",
+      "domain": "umami.is",
+      "url": "https://umami.is/"
+    },
+    "clarity": {
+      "name": "Microsoft Clarity",
+      "domain": "clarity.microsoft.com",
+      "url": "https://clarity.microsoft.com/"
+    },
+    "pagespeed": {
+      "name": "PageSpeed Insights",
+      "domain": "pagespeed.web.dev",
+      "url": "https://pagespeed.web.dev/"
+    },
+    "lighthouse": {
+      "name": "Lighthouse",
+      "domain": "developer.chrome.com",
+      "url": "https://developer.chrome.com/docs/lighthouse"
+    },
+    "richresults": {
+      "name": "Rich Results Test",
+      "domain": "search.google.com",
+      "url": "https://search.google.com/test/rich-results"
+    },
+    "schemavalidator": {
+      "name": "Schema Validator",
+      "domain": "validator.schema.org",
+      "url": "https://validator.schema.org/"
+    },
+    "opengraph": {
+      "name": "OpenGraph.xyz",
+      "domain": "opengraph.xyz",
+      "url": "https://www.opengraph.xyz/"
+    },
+    "screamingfrog": {
+      "name": "Screaming Frog",
+      "domain": "screamingfrog.co.uk",
+      "url": "https://www.screamingfrog.co.uk/seo-spider/"
+    },
+    "ahrefs": {
+      "name": "Ahrefs",
+      "domain": "ahrefs.com",
+      "url": "https://ahrefs.com/"
+    },
+    "ahrefs-awt": {
+      "name": "Ahrefs Webmaster Tools（免费）",
+      "domain": "ahrefs.com",
+      "url": "https://ahrefs.com/webmaster-tools"
+    },
+    "semrush": {
+      "name": "Semrush",
+      "domain": "semrush.com",
+      "url": "https://www.semrush.com/"
+    },
+    "similarweb": {
+      "name": "Similarweb",
+      "domain": "similarweb.com",
+      "url": "https://www.similarweb.com/"
+    },
+    "gtrends": {
+      "name": "Google Trends",
+      "domain": "trends.google.com",
+      "url": "https://trends.google.com/"
+    },
+    "keywordplanner": {
+      "name": "Google Keyword Planner",
+      "domain": "ads.google.com",
+      "url": "https://ads.google.com/home/tools/keyword-planner/"
+    },
+    "wayback": {
+      "name": "Wayback Machine",
+      "domain": "web.archive.org",
+      "url": "https://web.archive.org/"
+    },
+    "cloudflare": {
+      "name": "Cloudflare",
+      "domain": "cloudflare.com",
+      "url": "https://dash.cloudflare.com/"
+    },
+    "auditor": {
+      "name": "seo-handbook auditor",
+      "icon": "scan-search",
+      "url": "../reports/"
+    },
+    "chatgpt": {
+      "name": "ChatGPT",
+      "domain": "chatgpt.com",
+      "url": "https://chatgpt.com/"
+    },
+    "perplexity": {
+      "name": "Perplexity",
+      "domain": "perplexity.ai",
+      "url": "https://www.perplexity.ai/"
+    },
+    "claude": {
+      "name": "Claude",
+      "domain": "claude.ai",
+      "url": "https://claude.ai/"
+    },
+    "gemini": {
+      "name": "Gemini",
+      "domain": "gemini.google.com",
+      "url": "https://gemini.google.com/"
+    },
+    "llmstxt": {
+      "name": "llms.txt 规范",
+      "domain": "llmstxt.org",
+      "url": "https://llmstxt.org/"
+    },
+    "producthunt": {
+      "name": "Product Hunt",
+      "domain": "producthunt.com",
+      "url": "https://www.producthunt.com/"
+    },
+    "hackernews": {
+      "name": "Hacker News",
+      "domain": "news.ycombinator.com",
+      "url": "https://news.ycombinator.com/"
+    },
+    "reddit": {
+      "name": "Reddit",
+      "domain": "reddit.com",
+      "url": "https://www.reddit.com/"
+    },
+    "indiehackers": {
+      "name": "Indie Hackers",
+      "domain": "indiehackers.com",
+      "url": "https://www.indiehackers.com/"
+    },
+    "x": {
+      "name": "X (Twitter)",
+      "domain": "x.com",
+      "url": "https://x.com/"
+    },
+    "youtube": {
+      "name": "YouTube",
+      "domain": "youtube.com",
+      "url": "https://www.youtube.com/"
+    },
+    "tiktok": {
+      "name": "TikTok",
+      "domain": "tiktok.com",
+      "url": "https://www.tiktok.com/"
+    },
+    "linkedin": {
+      "name": "LinkedIn",
+      "domain": "linkedin.com",
+      "url": "https://www.linkedin.com/"
+    },
+    "pinterest": {
+      "name": "Pinterest",
+      "domain": "pinterest.com",
+      "url": "https://www.pinterest.com/"
+    },
+    "medium": {
+      "name": "Medium",
+      "domain": "medium.com",
+      "url": "https://medium.com/"
+    },
+    "devto": {
+      "name": "DEV Community",
+      "domain": "dev.to",
+      "url": "https://dev.to/"
+    },
+    "hashnode": {
+      "name": "Hashnode",
+      "domain": "hashnode.com",
+      "url": "https://hashnode.com/"
+    },
+    "substack": {
+      "name": "Substack",
+      "domain": "substack.com",
+      "url": "https://substack.com/"
+    },
+    "quora": {
+      "name": "Quora",
+      "domain": "quora.com",
+      "url": "https://www.quora.com/"
+    },
+    "github": {
+      "name": "GitHub",
+      "domain": "github.com",
+      "url": "https://github.com/"
+    },
+    "xiaohongshu": {
+      "name": "小红书",
+      "domain": "xiaohongshu.com",
+      "url": "https://www.xiaohongshu.com/"
+    },
+    "douyin": {
+      "name": "抖音",
+      "domain": "douyin.com",
+      "url": "https://www.douyin.com/"
+    },
+    "bilibili": {
+      "name": "哔哩哔哩",
+      "domain": "bilibili.com",
+      "url": "https://www.bilibili.com/"
+    },
+    "zhihu": {
+      "name": "知乎",
+      "domain": "zhihu.com",
+      "url": "https://www.zhihu.com/"
+    },
+    "v2ex": {
+      "name": "V2EX",
+      "domain": "v2ex.com",
+      "url": "https://www.v2ex.com/"
+    },
+    "juejin": {
+      "name": "掘金",
+      "domain": "juejin.cn",
+      "url": "https://juejin.cn/"
+    },
+    "adsense": {
+      "name": "Google AdSense",
+      "domain": "adsense.google.com",
+      "url": "https://adsense.google.com/"
+    },
+    "stripe": {
+      "name": "Stripe",
+      "domain": "stripe.com",
+      "url": "https://stripe.com/"
+    },
+    "gptzero": {
+      "name": "GPTZero",
+      "domain": "gptzero.me",
+      "url": "https://gptzero.me/"
+    },
+    "google": {
+      "name": "Google 搜索",
+      "domain": "google.com",
+      "url": "https://www.google.com/"
+    },
+    "google-alerts": {
+      "name": "Google Alerts",
+      "domain": "google.com",
+      "url": "https://www.google.com/alerts"
+    },
+    "lookerstudio": {
+      "name": "Looker Studio",
+      "domain": "lookerstudio.google.com",
+      "url": "https://lookerstudio.google.com/"
+    },
+    "duckduckgo": {
+      "name": "DuckDuckGo",
+      "domain": "duckduckgo.com",
+      "url": "https://duckduckgo.com/"
+    },
+    "copilot": {
+      "name": "Microsoft Copilot",
+      "domain": "copilot.microsoft.com",
+      "url": "https://copilot.microsoft.com/"
+    },
+    "answerthepublic": {
+      "name": "AnswerThePublic",
+      "domain": "answerthepublic.com",
+      "url": "https://answerthepublic.com/"
+    },
+    "alsoasked": {
+      "name": "AlsoAsked",
+      "domain": "alsoasked.com",
+      "url": "https://alsoasked.com/"
+    },
+    "explodingtopics": {
+      "name": "Exploding Topics",
+      "domain": "explodingtopics.com",
+      "url": "https://explodingtopics.com/"
+    },
+    "surfer": {
+      "name": "Surfer SEO",
+      "domain": "surferseo.com",
+      "url": "https://surferseo.com/"
+    },
+    "moz": {
+      "name": "Moz Link Explorer",
+      "domain": "moz.com",
+      "url": "https://moz.com/link-explorer"
+    },
+    "trafficcv": {
+      "name": "Traffic.cv",
+      "domain": "traffic.cv",
+      "url": "https://traffic.cv/"
+    },
+    "frogdr": {
+      "name": "FrogDR",
+      "domain": "frogdr.com",
+      "url": "https://frogdr.com/"
+    },
+    "backlinkdirs": {
+      "name": "BacklinkDirs",
+      "domain": "backlinkdirs.com",
+      "url": "https://backlinkdirs.com/"
+    },
+    "f5bot": {
+      "name": "F5Bot",
+      "domain": "f5bot.com",
+      "url": "https://f5bot.com/"
+    },
+    "qwoted": {
+      "name": "Qwoted",
+      "domain": "qwoted.com",
+      "url": "https://www.qwoted.com/"
+    },
+    "featured": {
+      "name": "Featured",
+      "domain": "featured.com",
+      "url": "https://featured.com/"
+    },
+    "g2": {
+      "name": "G2",
+      "domain": "g2.com",
+      "url": "https://www.g2.com/"
+    },
+    "crunchbase": {
+      "name": "Crunchbase",
+      "domain": "crunchbase.com",
+      "url": "https://www.crunchbase.com/"
+    },
+    "baidu-index": {
+      "name": "百度指数",
+      "domain": "index.baidu.com",
+      "url": "https://index.baidu.com/"
+    },
+    "baidu-tongji": {
+      "name": "百度统计",
+      "domain": "tongji.baidu.com",
+      "url": "https://tongji.baidu.com/"
+    },
+    "sogou": {
+      "name": "搜狗站长平台",
+      "domain": "zhanzhang.sogou.com",
+      "url": "https://zhanzhang.sogou.com/"
+    },
+    "so360": {
+      "name": "360 站长平台",
+      "domain": "zhanzhang.so.com",
+      "url": "https://zhanzhang.so.com/"
+    },
+    "toutiao": {
+      "name": "头条搜索站长平台",
+      "domain": "zhanzhang.toutiao.com",
+      "url": "https://zhanzhang.toutiao.com/"
+    },
+    "namecheap": {
+      "name": "Namecheap",
+      "domain": "namecheap.com",
+      "url": "https://www.namecheap.com/"
+    },
+    "dynadot": {
+      "name": "Dynadot",
+      "domain": "dynadot.com",
+      "url": "https://www.dynadot.com/"
+    },
+    "icann-lookup": {
+      "name": "ICANN Lookup（WHOIS）",
+      "domain": "lookup.icann.org",
+      "url": "https://lookup.icann.org/"
+    },
+    "ssllabs": {
+      "name": "SSL Labs",
+      "domain": "ssllabs.com",
+      "url": "https://www.ssllabs.com/ssltest/"
+    },
+    "mxtoolbox": {
+      "name": "MXToolbox",
+      "domain": "mxtoolbox.com",
+      "url": "https://mxtoolbox.com/"
+    },
+    "mailtester": {
+      "name": "mail-tester",
+      "domain": "mail-tester.com",
+      "url": "https://www.mail-tester.com/"
+    },
+    "uptimerobot": {
+      "name": "UptimeRobot",
+      "domain": "uptimerobot.com",
+      "url": "https://uptimerobot.com/"
+    },
+    "webpagetest": {
+      "name": "WebPageTest",
+      "domain": "webpagetest.org",
+      "url": "https://www.webpagetest.org/"
+    },
+    "fbdebugger": {
+      "name": "Facebook Sharing Debugger",
+      "domain": "developers.facebook.com",
+      "url": "https://developers.facebook.com/tools/debug/"
+    },
+    "betalist": {
+      "name": "BetaList",
+      "domain": "betalist.com",
+      "url": "https://betalist.com/"
+    },
+    "uneed": {
+      "name": "Uneed",
+      "domain": "uneed.best",
+      "url": "https://www.uneed.best/"
+    },
+    "alternativeto": {
+      "name": "AlternativeTo",
+      "domain": "alternativeto.net",
+      "url": "https://alternativeto.net/"
+    },
+    "saashub": {
+      "name": "SaaSHub",
+      "domain": "saashub.com",
+      "url": "https://www.saashub.com/"
+    },
+    "stackshare": {
+      "name": "StackShare",
+      "domain": "stackshare.io",
+      "url": "https://stackshare.io/"
+    },
+    "peerlist": {
+      "name": "Peerlist",
+      "domain": "peerlist.io",
+      "url": "https://peerlist.io/"
+    },
+    "fazier": {
+      "name": "Fazier",
+      "domain": "fazier.com",
+      "url": "https://fazier.com/"
+    },
+    "microlaunch": {
+      "name": "Microlaunch",
+      "domain": "microlaunch.net",
+      "url": "https://microlaunch.net/"
+    },
+    "devhunt": {
+      "name": "DevHunt",
+      "domain": "devhunt.org",
+      "url": "https://devhunt.org/"
+    },
+    "theresanaiforthat": {
+      "name": "There's An AI For That",
+      "domain": "theresanaiforthat.com",
+      "url": "https://theresanaiforthat.com/"
+    },
+    "toolify": {
+      "name": "Toolify",
+      "domain": "toolify.ai",
+      "url": "https://www.toolify.ai/"
+    },
+    "futurepedia": {
+      "name": "Futurepedia",
+      "domain": "futurepedia.io",
+      "url": "https://www.futurepedia.io/"
+    },
+    "futuretools": {
+      "name": "Future Tools",
+      "domain": "futuretools.io",
+      "url": "https://www.futuretools.io/"
+    },
+    "aibot-cn": {
+      "name": "AI 工具集",
+      "domain": "ai-bot.cn",
+      "url": "https://ai-bot.cn/"
+    },
+    "appsumo": {
+      "name": "AppSumo",
+      "domain": "appsumo.com",
+      "url": "https://appsumo.com/"
+    },
+    "sspai": {
+      "name": "少数派",
+      "domain": "sspai.com",
+      "url": "https://sspai.com/"
+    },
+    "linuxdo": {
+      "name": "LINUX DO",
+      "domain": "linux.do",
+      "url": "https://linux.do/"
+    },
+    "jike": {
+      "name": "即刻",
+      "domain": "okjike.com",
+      "url": "https://okjike.com/"
+    },
+    "ruanyf-weekly": {
+      "name": "科技爱好者周刊（阮一峰）",
+      "domain": "github.com",
+      "url": "https://github.com/ruanyf/weekly"
+    },
+    "wechat-mp": {
+      "name": "微信公众平台",
+      "domain": "mp.weixin.qq.com",
+      "url": "https://mp.weixin.qq.com/"
+    },
+    "xhs-creator": {
+      "name": "小红书创作服务平台",
+      "domain": "creator.xiaohongshu.com",
+      "url": "https://creator.xiaohongshu.com/"
+    },
+    "douyin-creator": {
+      "name": "抖音创作者中心",
+      "domain": "creator.douyin.com",
+      "url": "https://creator.douyin.com/"
+    },
+    "jiandan": {
+      "name": "简单设计",
+      "domain": "jiandan.link",
+      "url": "https://jiandan.link/"
+    },
+    "canva": {
+      "name": "Canva",
+      "domain": "canva.com",
+      "url": "https://www.canva.com/"
+    },
+    "capcut": {
+      "name": "剪映 / CapCut",
+      "domain": "capcut.com",
+      "url": "https://www.capcut.com/"
+    },
+    "qimai": {
+      "name": "七麦数据",
+      "domain": "qimai.cn",
+      "url": "https://www.qimai.cn/"
+    },
+    "sensortower": {
+      "name": "Sensor Tower",
+      "domain": "sensortower.com",
+      "url": "https://sensortower.com/"
+    },
+    "appstoreconnect": {
+      "name": "App Store Connect",
+      "domain": "appstoreconnect.apple.com",
+      "url": "https://appstoreconnect.apple.com/"
+    },
+    "playconsole": {
+      "name": "Google Play Console",
+      "domain": "play.google.com",
+      "url": "https://play.google.com/console/"
+    },
+    "paddle": {
+      "name": "Paddle",
+      "domain": "paddle.com",
+      "url": "https://www.paddle.com/"
+    },
+    "creem": {
+      "name": "Creem",
+      "domain": "creem.io",
+      "url": "https://www.creem.io/"
+    },
+    "lemonsqueezy": {
+      "name": "Lemon Squeezy",
+      "domain": "lemonsqueezy.com",
+      "url": "https://www.lemonsqueezy.com/"
+    },
+    "polar": {
+      "name": "Polar",
+      "domain": "polar.sh",
+      "url": "https://polar.sh/"
+    },
+    "paypal": {
+      "name": "PayPal",
+      "domain": "paypal.com",
+      "url": "https://www.paypal.com/"
+    },
+    "ezoic": {
+      "name": "Ezoic",
+      "domain": "ezoic.com",
+      "url": "https://www.ezoic.com/"
+    },
+    "impact": {
+      "name": "impact.com",
+      "domain": "impact.com",
+      "url": "https://impact.com/"
+    },
+    "awin": {
+      "name": "Awin",
+      "domain": "awin.com",
+      "url": "https://www.awin.com/"
+    },
+    "rewardful": {
+      "name": "Rewardful",
+      "domain": "rewardful.com",
+      "url": "https://www.rewardful.com/"
+    }
+  },
+  "items": [
+    {
+      "id": "kw-seed-expansion",
+      "cat": "keyword",
+      "phase": "plan",
+      "priority": "P0",
+      "title": "从种子词扩展出 ≥ 50 个候选关键词，建成关键词表",
+      "why": "一个好关键词就是一个新的流量入口；凭感觉选题，页面写完也可能没人搜。",
+      "checkAgainst": [
+        "关键词表 ≥ 50 行，每行有：月搜索量、KD、CPC、搜索意图、来源",
+        "来源至少覆盖 3 种：Google 下拉联想、SERP 底部「相关搜索」/ People Also Ask、AnswerThePublic / AlsoAsked、竞品排名词、LLM 扩展",
+        "按三层扩展：核心词（ai poster generator）→ 场景词（… for instagram ads）→ 问题 / 对比 / 教程词（best …、X vs Y、how to …）"
+      ],
+      "how": "无痕窗口在 Google 输入种子词，记录下拉框和底部相关搜索；把种子词放进 AnswerThePublic / AlsoAsked 拿问题词；让 ChatGPT 按「场景 / 人群 / 问题」各列 20 个；最后在 Semrush / Ahrefs / Keyword Planner 批量补数据，没有搜索量的删掉。",
+      "tools": [
+        "google",
+        "answerthepublic",
+        "alsoasked",
+        "chatgpt",
+        "semrush",
+        "ahrefs",
+        "keywordplanner"
+      ],
+      "auto": false
+    },
+    {
+      "id": "kw-volume-kd-threshold",
+      "cat": "keyword",
+      "phase": "plan",
+      "priority": "P0",
+      "title": "目标词过数据门槛：新站首批词 KD < 20 且月搜索量 > 500",
+      "why": "新站外链少，高难度词基本排不上去；搜索量接近 0 的词意味着要自己教育市场，不适合独立开发者。",
+      "checkAgainst": [
+        "新站（DR < 20）首批目标词：Ahrefs KD < 20（Semrush KD% < 30）且月搜索量 > 500",
+        "核心词（3–6 个月后再冲）：月搜索量 ≥ 1,000 且 KD < 50（笔记中的 KD 阈值区间为 20–50，起步取保守值）",
+        "产品所在主题下有 > 100 个相关词，能做成一组页面，而不是只有一个词",
+        "搜索量至少 2 个来源交叉确认：Semrush / Ahrefs / Keyword Planner 区间 / Google Trends 对比基准词",
+        "Ahrefs 的 Parent Topic 是另一个词时，并入父主题页面，不单独建页"
+      ],
+      "how": "Ahrefs Keywords Explorer 或 Semrush Keyword Overview 查 Volume、KD、Parent Topic；Keyword Planner →「获取搜索量和预测」（只给区间，作参考够用）。Trends 估算法：和已知搜索量的基准词对比（如 tts ≈ 28 万/月），Trends 指数比值 × 基准搜索量 ≈ 估算值。",
+      "tools": [
+        "ahrefs",
+        "semrush",
+        "keywordplanner",
+        "gtrends"
+      ],
+      "auto": false
+    },
+    {
+      "id": "kw-serp-feasibility",
+      "cat": "keyword",
+      "phase": "plan",
+      "priority": "P0",
+      "title": "动笔前人工看一遍 Top 10，判断新站能不能打进去",
+      "why": "KD 只是外链数量的估算；真正决定能否排上去的是前 10 名是谁、页面是不是专门为这个词写的。",
+      "checkAgainst": [
+        "每个目标词有一行 SERP 分析记录：大站占比、页面类型、是否专门针对该词、是否有论坛结果",
+        "可做信号（满足 ≥ 2 条）：Top 10 有 ≥ 3 个 DR < 30 的小站；前 5 有 Reddit / Quora / 论坛结果；Top 3–5 的 title / H1 没有完整包含该词或只是顺带提到；有 2023 年后上线的站进入前 10",
+        "放弃信号：Top 10 全是 DR > 70 的品牌站或大站内页；标题清一色「Best XXX in 2026 | Top XX Tools」式模板（改做更长尾的词）"
+      ],
+      "how": "无痕窗口按目标国家搜索（URL 加 &gl=us&hl=en）；用 Ahrefs SERP Overview 或 AITDK / Detailed SEO 插件看每个结果的 DR；逐个打开前 5 名，看 title、H1、目录是否围绕该词，正文有没有步骤、对比、结论。",
+      "tools": [
+        "google",
+        "ahrefs",
+        "semrush"
+      ],
+      "auto": false
+    },
+    {
+      "id": "kw-intent-page-type",
+      "cat": "keyword",
+      "phase": "plan",
+      "priority": "P0",
+      "title": "页面类型与 SERP 意图一致：工具页、教程、对比页还是清单",
+      "why": "Top 10 都是教程和清单时产品页排不上去；Top 10 都是工具页时，博客文章同样排不上去。",
+      "checkAgainst": [
+        "每个关键词标注意图：信息型 / 商业调研型（best、vs、alternative）/ 交易型（tool、generator、online、free）/ 导航型",
+        "计划的页面类型 = Top 10 中占多数（≥ 6/10）的页面类型",
+        "交易型词 → 工具页 / 落地页；信息型 → 文章；对比型 → 对比页或清单页"
+      ],
+      "how": "关键词表加三列：「意图」「Top 10 主流页面类型」「计划页面类型」，三列不一致的行标红重新规划。",
+      "tools": [
+        "google",
+        "semrush"
+      ],
+      "auto": false
+    },
+    {
+      "id": "kw-trend-direction",
+      "cat": "keyword",
+      "phase": "plan",
+      "priority": "P1",
+      "title": "用 Trends 确认关键词在上升或稳定，不是一阵风",
+      "why": "正在下降的词做完也没流量；刚开始上升的新词竞争小、机会大。",
+      "checkAgainst": [
+        "5 年视图不是单峰，近 12 个月持平或上升",
+        "新词机会：在词根（generator / maker / editor / tool）的 Related queries → Rising 中出现，且 7 天 / 30 天 / 90 天视图都在上升",
+        "中文词同时看百度指数（或 360 趋势 / 巨量算数），曲线不是持续下降"
+      ],
+      "how": "Google Trends 输入候选词，依次切换 Past 5 years / 12 months / 90 days / 30 days / 7 days；输入词根看 Rising；中文词在百度指数里看趋势和需求图谱。",
+      "tools": [
+        "gtrends",
+        "explodingtopics",
+        "baidu-index"
+      ],
+      "auto": false
+    },
+    {
+      "id": "kw-competitor-gap",
+      "cat": "keyword",
+      "phase": "plan",
+      "priority": "P1",
+      "title": "拆解 3–5 个竞品的流量词和 Top Pages，列出内容缺口",
+      "why": "竞品已经替你验证过哪些词能带来流量；最近流量暴涨的网站，往往刚吃到一个新词或容易的词。",
+      "checkAgainst": [
+        "竞品表：每个竞品的月访问量、主要渠道、Top 10 流量页面、Top 20 流量词",
+        "内容缺口：竞品有排名而你没有页面的词 ≥ 20 个，已并入关键词表",
+        "每月看一次 traffic.cv 等流量飙升榜，记录同领域流量突增的网站和它新增的关键词"
+      ],
+      "how": "Semrush → Organic Research / Keyword Gap；Ahrefs → Site Explorer → Top pages / Content gap；Similarweb 看渠道构成。没有付费工具时，Semrush 免费额度（约 10 次 / 天）只查最重要的竞品。",
+      "tools": [
+        "semrush",
+        "ahrefs",
+        "similarweb",
+        "trafficcv"
+      ],
+      "auto": false
+    },
+    {
+      "id": "kw-core-five",
+      "cat": "keyword",
+      "phase": "plan",
+      "priority": "P1",
+      "title": "选定 5 个核心关键词，其中至少 1 个能较快冲进前 3",
+      "why": "先拿到一个能带来流量的词，才有数据和动力继续优化；难度要搭配，不要全押大词。",
+      "checkAgainst": [
+        "核心词 5 个，每个都和产品高度相关",
+        "至少 1 个词的 SERP 分析结论为「弱竞争」（新站 3 个月内有望进前 3）",
+        "每个核心词在「关键词 → URL」映射表里对应唯一一个 URL"
+      ],
+      "how": "关键词表按「相关性 × 搜索量 ÷ 难度」排序挑 5 个；给每个词指定落地 URL，并在排名跟踪里建项目。",
+      "tools": [
+        "ahrefs",
+        "semrush",
+        "gsc"
+      ],
+      "auto": false
+    },
+    {
+      "id": "kw-cn-platform-keywords",
+      "cat": "keyword",
+      "phase": "plan",
+      "priority": "P1",
+      "title": "中文市场按平台分别建关键词表：百度、小红书、抖音、微信、知乎、B站",
+      "why": "中文用户的搜索分散在各个 App 里，每个平台的下拉联想就是它自己的需求清单；只看百度会漏掉大部分需求。",
+      "checkAgainst": [
+        "每个目标平台一张词表，每个词标注来源：该平台搜索框下拉联想 / 热门内容标题 / 评论区提问",
+        "每个平台 ≥ 20 个长尾词，且都属于同一个垂直领域",
+        "百度词在百度指数 / 爱站 / 站长之家有需求数据；小红书、抖音的词在输入种子词后确实出现在下拉框中"
+      ],
+      "how": "依次在小红书、抖音、微信、知乎、B站搜索框输入种子词，截图下拉联想；百度端用百度指数看需求图谱；各平台放在同一张表的不同 sheet。",
+      "tools": [
+        "baidu-index",
+        "xiaohongshu",
+        "douyin",
+        "wechat-mp",
+        "zhihu",
+        "bilibili"
+      ],
+      "auto": false
+    },
+    {
+      "id": "kw-serp-click-share",
+      "cat": "keyword",
+      "phase": "plan",
+      "priority": "P2",
+      "title": "评估 SERP 的可点击空间：广告、AI 概览、精选摘要会抢走多少点击",
+      "why": "搜索量相同的词，首屏被广告和 AI 概览占满时，自然结果能拿到的点击会少很多。",
+      "checkAgainst": [
+        "记录每个核心词首屏有无：搜索广告（条数）、AI 概览、精选摘要、视频 / 图片模块、论坛模块",
+        "Ahrefs 的 CPS（每次搜索的点击数）明显偏低（经验值 < 0.5）或首屏 ≥ 3 条广告的词，降低优先级",
+        "信息型词出现 AI 概览时，同时加入 GEO 测试问题清单"
+      ],
+      "how": "无痕窗口搜索并截图首屏；Ahrefs Keywords Explorer 看 Clicks 和 CPS；Semrush 关键词列表的 SERP Features 列。",
+      "tools": [
+        "google",
+        "ahrefs",
+        "semrush"
+      ],
+      "auto": false
+    },
+    {
+      "id": "kw-striking-distance",
+      "cat": "keyword",
+      "phase": "grow",
+      "priority": "P0",
+      "title": "从 GSC 挖「差一点」的词：平均排名 8–30、已有展示的查询",
+      "why": "已经有排名的长尾词最容易提升；用一组文章做内链支撑，就能把它和产品页一起推上首页。",
+      "checkAgainst": [
+        "导出 GSC 近 3 个月数据：平均排名 8–30、展示 ≥ 100 的查询（笔记用 11–30，这里从 8 开始）",
+        "每月挑 1–3 个和产品强相关的长尾词，各安排一个 5 篇文章的主题集群或扩写现有页面",
+        "4–8 周后复查这些词的平均排名，有上升记录"
+      ],
+      "how": "GSC → 效果 → 勾选「平均排名」→ 查询标签 → 过滤「排名 > 8」；Bing Webmaster → Search Performance 同样操作；导出后在关键词表打标签。",
+      "tools": [
+        "gsc",
+        "bing"
+      ],
+      "auto": false
+    },
+    {
+      "id": "kw-monthly-review",
+      "cat": "keyword",
+      "phase": "maintain",
+      "priority": "P1",
+      "title": "每月复盘关键词：核心词排名、新出现的查询、关键词内耗",
+      "why": "需求和排名一直在变；不复盘就会错过新词，也发现不了两个页面在抢同一个词。",
+      "checkAgainst": [
+        "5 个核心词的排名每月记录一次",
+        "每个重要页面查看 GSC 查询列表：有展示但页面没回答的问题 → 补 FAQ 或新段落",
+        "内耗检查：同一查询对应 ≥ 2 个 URL 且排名来回跳 → 合并页面或调整其中一个的目标词",
+        "新发现的候选词进入关键词表并打上来源"
+      ],
+      "how": "GSC → 效果 → 按网页筛选 → 查询；点某个查询再切到「网页」标签看对应 URL 数；Semrush Position Tracking 的 Cannibalization 报告（付费）。",
+      "tools": [
+        "gsc",
+        "semrush",
+        "ahrefs"
+      ],
+      "auto": false
+    },
+    {
+      "id": "structure-keyword-url-map",
+      "cat": "structure",
+      "phase": "plan",
+      "priority": "P0",
+      "title": "建立「关键词 → URL」映射：一页只主攻一个词，一个场景一个页面",
+      "why": "Google 给页面排名，不给整个网站排名；一个页面想覆盖所有功能，结果哪个词都排不上，还会造成关键词内耗。",
+      "checkAgainst": [
+        "映射表里每个 URL 只有 1 个主关键词（可附带同义词和长尾）",
+        "同一个主关键词只对应 1 个 URL",
+        "每个用例 / 场景 / 功能有自己的页面，没有一个「什么都讲」的总览页去抢具体功能词",
+        "URL slug 用该页主关键词的英文连字符形式，如 /tools/pdf-to-excel"
+      ],
+      "how": "关键词表加一列「目标 URL」，用透视表找一词多页和一页多词；上线后用 GSC 查询 → 网页 交叉检查。",
+      "tools": [
+        "gsc",
+        "screamingfrog"
+      ],
+      "auto": false
+    },
+    {
+      "id": "structure-subfolder-not-subdomain",
+      "cat": "structure",
+      "phase": "plan",
+      "priority": "P1",
+      "title": "博客和文档放子目录（/blog、/docs），子域名只给真正独立的应用",
+      "why": "子域名常被当作另一个网站，内容积累的权重分不到主站；子目录还能共用统计、证书、缓存和 GSC 资源。",
+      "checkAgainst": [
+        "博客在 example.com/blog，而不是 blog.example.com",
+        "子域名只用于业务或技术上隔离的部分：app.、api.、status. 等",
+        "需要 SEO 的文档 / 帮助中心放在 /docs，用静态文档生成器（Fumadocs、Docusaurus、Starlight、VitePress 等）输出可索引的 HTML，并出现在 sitemap 中"
+      ],
+      "how": "规划阶段先画站点地图；已经用了子域名的，迁移时逐条 301 到子目录，并在 GSC 提交新 sitemap。",
+      "tools": [
+        "gsc",
+        "cloudflare"
+      ],
+      "auto": false
+    },
+    {
+      "id": "structure-url-rules",
+      "cat": "structure",
+      "phase": "plan",
+      "priority": "P1",
+      "title": "上线前写好 URL 规则，之后不随意改路径",
+      "why": "每改一次路径，搜索引擎都要重新抓取、重新积累信号，外部链接也可能失效。",
+      "checkAgainst": [
+        "URL 规则成文：目录层级（/blog/xxx、/tools/xxx、/vs/xxx）、全小写、连字符、是否带结尾斜杠",
+        "带 / 不带结尾斜杠只保留一种可访问，另一种 301 到它，canonical 一致",
+        "必须改版时，事先导出 GSC 中所有有展示的 URL，做完整的旧 → 新 301 对照表"
+      ],
+      "how": "curl -I 分别请求带斜杠和不带斜杠的地址；改版前在 GSC → 效果 → 网页 导出全部 URL。",
+      "tools": [
+        "gsc",
+        "screamingfrog"
+      ],
+      "auto": false
+    },
+    {
+      "id": "links-internal",
+      "cat": "structure",
+      "phase": "build",
+      "priority": "P0",
+      "title": "每个页面至少有 2 个指向其他页面的内链，没有孤立页面",
+      "why": "内链让爬虫发现页面并传递权重；孤立页面很难被收录。",
+      "checkAgainst": [
+        "每页 ≥2 个指向站内其他页面的链接",
+        "重要页面离首页 ≤3 次点击",
+        "主题集群：支撑文章链接到支柱页 / 产品页"
+      ],
+      "how": "auditor 爬取；Screaming Frog 的 Crawl Depth 和 Inlinks。",
+      "tools": [
+        "auditor",
+        "screamingfrog",
+        "ahrefs-awt"
+      ],
+      "auto": true
+    },
+    {
+      "id": "links-anchor-text",
+      "cat": "structure",
+      "phase": "build",
+      "priority": "P1",
+      "title": "锚文本有描述性，不用\"点击这里\"",
+      "why": "锚文本告诉搜索引擎目标页讲什么。",
+      "checkAgainst": [
+        "没有 click here / here / read more / 点击这里 这类锚文本",
+        "内链锚文本自然包含目标页关键词，但不要每条都完全一样"
+      ],
+      "how": "auditor。",
+      "tools": [
+        "auditor"
+      ],
+      "auto": true
+    },
+    {
+      "id": "tech-clean-urls",
+      "cat": "structure",
+      "phase": "build",
+      "priority": "P1",
+      "title": "URL 干净：小写、连字符、无参数、有层级",
+      "why": "可读的 URL 本身就是相关性信号，也更容易被分享和点击。",
+      "checkAgainst": [
+        "例如 /guide/position-sizing-rules/，不要 /page.html?id=2&ref=home",
+        "全小写、用 - 不用 _",
+        "改版换 URL 时做 301 跳转"
+      ],
+      "how": "auditor 检查站内链接。",
+      "tools": [
+        "auditor"
+      ],
+      "auto": true
+    },
+    {
+      "id": "structure-nav-footer-hubs",
+      "cat": "structure",
+      "phase": "build",
+      "priority": "P1",
+      "title": "导航、页脚和分类页把所有重要页面串起来",
+      "why": "导航和分类页是爬虫发现新页面的主要路径，也决定站内权重往哪里流。",
+      "checkAgainst": [
+        "顶部导航包含：功能、用例、价格、FAQ、博客、主 CTA，使用 <nav> 和普通 <a href>",
+        "页脚有：隐私政策、服务条款、联系方式、About，以及主要功能页链接",
+        "首页直接链接最重要的子页面；每个分类 / 集合页链接到其下全部子页面",
+        "首页的功能区块、用例区块分别链接到对应详情页或文章"
+      ],
+      "how": "人工检查导航和页脚；Screaming Frog → Internal 按 Inlinks 升序，确认排在最前面的不是重要页面。",
+      "tools": [
+        "screamingfrog",
+        "ahrefs-awt"
+      ],
+      "auto": false
+    },
+    {
+      "id": "structure-topic-cluster-funnel",
+      "cat": "structure",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "用「5 篇文章漏斗」做主题集群：文章 2–5 → 文章 1 → 产品页",
+      "why": "集群内的权重先汇集到文章 1 再传给产品页，比每篇都直链产品页更自然，也能让文章 1 和产品页同时排名。",
+      "checkAgainst": [
+        "每个目标长尾词有 5 篇相关文章",
+        "文章 1：开头和结尾各有一个以目标长尾词为锚文本、指向产品页的链接",
+        "文章 2–5：用同一长尾词（或近义写法）作锚文本链接到文章 1，而不是直接链产品页",
+        "集群内链都没有 rel=nofollow"
+      ],
+      "how": "发布后用 Screaming Frog 爬取，查看产品页和文章 1 的 Inlinks 及锚文本；Ahrefs Webmaster Tools → Site Audit → Internal links 复核。",
+      "tools": [
+        "screamingfrog",
+        "ahrefs-awt"
+      ],
+      "auto": false
+    },
+    {
+      "id": "structure-programmatic-pages",
+      "cat": "structure",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "程序化页面（每个功能 / 格式 / 场景一页）每页都要有独有内容",
+      "why": "一词一页的模板页能批量覆盖长尾，但只替换关键词的空模板属于 Google 2024 年起明确打击的「规模化内容滥用」。",
+      "checkAgainst": [
+        "每个程序化页面有该页独有的数据、示例、截图或工具输出，不只是替换关键词",
+        "每个 URL 对应关键词表中一个有搜索量的词，不为凑数量生成页面",
+        "先上 10–20 页观察：4–8 周后这批页面的「已抓取 - 尚未编入索引」占比 < 30% 再扩量（经验阈值）"
+      ],
+      "how": "程序化页面单独放一个 sitemap，在 GSC → 网页索引编制 中按该 sitemap 筛选看收录率；抽查 5 个页面并排阅读，判断是否只是换了关键词。",
+      "tools": [
+        "gsc",
+        "screamingfrog"
+      ],
+      "auto": false
+    },
+    {
+      "id": "onpage-title",
+      "cat": "onpage",
+      "phase": "build",
+      "priority": "P0",
+      "title": "每个页面有独立、含关键词的 <title>",
+      "why": "标题是搜索结果里最显眼的蓝字，也是排名信号；\"Home\"这类通用标题会被 Google 改写。",
+      "checkAgainst": [
+        "存在且不是 Home / Untitled / React App 这类默认值",
+        "15–65 个字符（中文约 30 字以内），主关键词靠前",
+        "格式参考：主关键词 – 卖点 | 品牌"
+      ],
+      "how": "浏览器标签页或 view-source 查看；批量用 Screaming Frog / auditor 爬取。",
+      "tools": [
+        "auditor",
+        "screamingfrog",
+        "gsc"
+      ],
+      "auto": true
+    },
+    {
+      "id": "onpage-meta-description",
+      "cat": "onpage",
+      "phase": "build",
+      "priority": "P0",
+      "title": "每个页面有 meta description",
+      "why": "不直接影响排名，但影响点击率；缺失时 Google 会从正文随机截取一段。",
+      "checkAgainst": [
+        "50–165 个字符（中文约 80 字以内）",
+        "包含主关键词和一个行动号召 / 卖点",
+        "每页不同"
+      ],
+      "how": "view-source 搜 name=\"description\"。",
+      "tools": [
+        "auditor",
+        "screamingfrog"
+      ],
+      "auto": true
+    },
+    {
+      "id": "onpage-h1",
+      "cat": "onpage",
+      "phase": "build",
+      "priority": "P0",
+      "title": "每页恰好 1 个 H1，且在服务端 HTML 中",
+      "why": "H1 告诉搜索引擎这一页讲什么；由 JS 后插入的 H1 在首次抓取时看不到。",
+      "checkAgainst": [
+        "服务端返回的 HTML 中 <h1> 数量 = 1",
+        "H1 包含主关键词，和 title 意思一致但可以不完全相同"
+      ],
+      "how": "curl 页面后数 <h1>；或 auditor。",
+      "tools": [
+        "auditor"
+      ],
+      "auto": true
+    },
+    {
+      "id": "onpage-keyword-placement",
+      "cat": "onpage",
+      "phase": "build",
+      "priority": "P0",
+      "title": "主关键词出现在 title、H1、description、首段、URL",
+      "why": "关键词位置比密度重要；不要堆砌（2–8% 密度、meta keywords 都是过时做法）。",
+      "checkAgainst": [
+        "title / H1 / description / 正文前 100 词都包含主关键词或其近义写法",
+        "URL slug 用关键词的英文连字符形式",
+        "图片 alt 自然包含相关词"
+      ],
+      "how": "auditor --keyword \"你的关键词\"。",
+      "tools": [
+        "auditor"
+      ],
+      "auto": true
+    },
+    {
+      "id": "onpage-title-unique",
+      "cat": "onpage",
+      "phase": "build",
+      "priority": "P1",
+      "title": "全站没有重复的 title",
+      "why": "重复标题会让 Google 分不清该给哪个页面排名（关键词内耗）。",
+      "checkAgainst": [
+        "所有可索引页面 title 两两不同",
+        "每个页面对应不同的关键词或意图"
+      ],
+      "how": "auditor 或 Screaming Frog 的 Page Titles → Duplicate。",
+      "tools": [
+        "auditor",
+        "screamingfrog"
+      ],
+      "auto": true
+    },
+    {
+      "id": "onpage-heading-hierarchy",
+      "cat": "onpage",
+      "phase": "build",
+      "priority": "P1",
+      "title": "标题层级 H1→H2→H3 不跳级",
+      "why": "清晰的层级帮助搜索引擎和 AI 理解段落结构，也是无障碍要求。",
+      "checkAgainst": [
+        "没有从 H1 直接跳到 H3 的情况",
+        "不用标题标签做纯样式"
+      ],
+      "how": "Detailed SEO / HeadingsMap 浏览器插件或 auditor。",
+      "tools": [
+        "auditor"
+      ],
+      "auto": true
+    },
+    {
+      "id": "social-open-graph",
+      "cat": "onpage",
+      "phase": "build",
+      "priority": "P1",
+      "title": "Open Graph 社交卡片（og:title / description / image / url）",
+      "why": "在 X、微信、Slack、Discord、LinkedIn 分享时显示大图卡片，影响社交点击率。",
+      "checkAgainst": [
+        "4 个 og 标签齐全",
+        "og:image 为 1200×630、小于 1MB 的绝对 URL",
+        "用 opengraph.xyz 预览正常"
+      ],
+      "how": "粘贴 URL 到 opengraph.xyz 或 X 的发帖框预览。",
+      "tools": [
+        "opengraph",
+        "auditor"
+      ],
+      "auto": true
+    },
+    {
+      "id": "img-alt",
+      "cat": "onpage",
+      "phase": "build",
+      "priority": "P1",
+      "title": "所有图片有描述性 alt",
+      "why": "图片搜索流量入口 + 无障碍；alt 是搜索引擎理解图片的主要依据。",
+      "checkAgainst": [
+        "渲染后的 DOM 中每个 <img> 都有非空 alt",
+        "alt 描述图片内容，不堆关键词",
+        "纯装饰图用 alt=\"\" 或 CSS 背景"
+      ],
+      "how": "auditor 或 Lighthouse Accessibility。",
+      "tools": [
+        "auditor",
+        "lighthouse"
+      ],
+      "auto": true
+    },
+    {
+      "id": "onpage-topic-consistency",
+      "cat": "onpage",
+      "phase": "build",
+      "priority": "P1",
+      "title": "Title、H1、Description、正文、锚文本、Schema 讲的是同一个主题",
+      "why": "各处信号一致，搜索引擎才能稳定理解页面主题；标题和内容对不上时，Google 会自己改写标题。",
+      "checkAgainst": [
+        "抽 5 个页面：title、H1、description、首段、指向它的内链锚文本、JSON-LD 的 name / headline 意思一致",
+        "H1 用大白话说清「做什么」，不用 redefine / empower / next-gen / 赋能 / 颠覆 这类空话",
+        "同一页关键词写法统一（缩写和全称不混用）；title 中同一个词不重复出现",
+        "不依赖 meta keywords（Google 忽略；只面向百度的站可选填 3–5 个本页词）"
+      ],
+      "how": "Detailed SEO Extension 或 view-source 并排查看；Screaming Frog → Page Titles / H1 / Meta Description 导出后对照。",
+      "tools": [
+        "screamingfrog"
+      ],
+      "auto": false
+    },
+    {
+      "id": "onpage-og-per-page",
+      "cat": "onpage",
+      "phase": "build",
+      "priority": "P1",
+      "title": "每篇文章 / 每个产品页有专属分享封面，修改后强制刷新平台缓存",
+      "why": "用 Logo 当 og:image，分享出去就是一块白底小图；各平台会缓存旧卡片，不刷新就看不到修改。",
+      "checkAgainst": [
+        "文章和产品页的 og:image 是该页专属封面或 UI 截图，不是全站 Logo",
+        "og:type 按模板区分：首页 website、文章 article、产品 product；og:url 等于该页 canonical（不带参数）",
+        "og:image 对外部抓取返回 200，没有被防盗链或 Cloudflare 质询拦截",
+        "修改后用 Facebook Sharing Debugger 重新抓取，并在微信、Telegram、Slack、X 实际发一次看预览"
+      ],
+      "how": "curl -I 请求 og:image 地址；Facebook Sharing Debugger → Scrape Again；X 发帖框粘贴链接预览。",
+      "tools": [
+        "fbdebugger",
+        "opengraph",
+        "x"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-twitter-card",
+      "cat": "onpage",
+      "phase": "build",
+      "priority": "P2",
+      "title": "Twitter / X card 标签",
+      "why": "X 优先读取 twitter:* 标签，缺失时回退到 og。",
+      "checkAgainst": [
+        "twitter:card = summary_large_image",
+        "可选 twitter:site 填官方账号"
+      ],
+      "how": "X 发帖框粘贴链接预览。",
+      "tools": [
+        "x",
+        "auditor"
+      ],
+      "auto": true
+    },
+    {
+      "id": "onpage-semantic-html",
+      "cat": "onpage",
+      "phase": "build",
+      "priority": "P2",
+      "title": "用语义化标签组织页面：步骤用 <ol>，对比用 <table>，评价用 <blockquote>",
+      "why": "语义结构帮助搜索引擎和 AI 准确抽取步骤、对比和引用，也是无障碍的基础。",
+      "checkAgainst": [
+        "每页 1 个 <main>；导航在 <nav>，页脚在 <footer>，文章正文在 <article>",
+        "「怎么用」的步骤是 <ol> 列表；对比内容是带 <th> 的真实 <table>，不是图片",
+        "用户评价用 <blockquote> 加署名；日期用 <time datetime>"
+      ],
+      "how": "DevTools → Elements 检查结构；Lighthouse Accessibility 或 axe DevTools 插件。",
+      "tools": [
+        "lighthouse"
+      ],
+      "auto": false
+    },
+    {
+      "id": "onpage-image-filenames",
+      "cat": "onpage",
+      "phase": "build",
+      "priority": "P2",
+      "title": "图片文件名有描述性，Logo 和产品截图的 alt 写清楚内容",
+      "why": "文件名和 alt 是图片搜索的主要文本信号；IMG_1234.png 不提供任何信息。",
+      "checkAgainst": [
+        "文件名用连字符描述内容，例如 ai-poster-generator-instagram-example.webp；没有 IMG_1234、screenshot(3)、未命名",
+        "Logo 的 alt = 品牌名 + 定位（如「Vexlora 仓位计算器 logo」），Logo 链接到首页",
+        "产品 UI 截图的 alt 说明截图里展示的功能；同一页没有两张图片用相同的 alt",
+        "纯装饰图片用 alt=\"\"；alt 中同一关键词不重复堆砌"
+      ],
+      "how": "Screaming Frog → Images 导出文件名和 alt 列表人工检查。",
+      "tools": [
+        "screamingfrog"
+      ],
+      "auto": false
+    },
+    {
+      "id": "tech-viewport",
+      "cat": "technical",
+      "phase": "build",
+      "priority": "P0",
+      "title": "移动端 viewport 与响应式布局",
+      "why": "Google 采用移动优先索引：按手机版页面来抓取和排名。",
+      "checkAgainst": [
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+        "375px 宽度下无横向滚动、字号 ≥16px、点击区域 ≥48px"
+      ],
+      "how": "Chrome DevTools 手机模式；Lighthouse。",
+      "tools": [
+        "auditor",
+        "lighthouse"
+      ],
+      "auto": true
+    },
+    {
+      "id": "tech-canonical",
+      "cat": "technical",
+      "phase": "build",
+      "priority": "P0",
+      "title": "每个可索引页面有自引用的绝对 canonical",
+      "why": "避免参数、大小写、http/https、带不带斜杠造成的重复内容。",
+      "checkAgainst": [
+        "<link rel=\"canonical\" href=\"https://完整地址\">",
+        "指向自己（除非确实是重复页）",
+        "canonical、sitemap、内链使用同一个 URL 版本"
+      ],
+      "how": "GSC 网址检查 → \"Google 选择的规范网址\" 应与你声明的一致。",
+      "tools": [
+        "auditor",
+        "gsc"
+      ],
+      "auto": true
+    },
+    {
+      "id": "tech-indexable",
+      "cat": "technical",
+      "phase": "build",
+      "priority": "P0",
+      "title": "重要页面没有误加 noindex",
+      "why": "上线前忘了删 noindex 或 robots 全站禁止，是最常见的\"为什么没收录\"原因。",
+      "checkAgainst": [
+        "重要页面没有 <meta name=\"robots\" content=\"noindex\">，也没有 X-Robots-Tag: noindex",
+        "只有 404、站内搜索、后台等页面用 noindex"
+      ],
+      "how": "auditor；GSC → 网页索引编制报告。",
+      "tools": [
+        "auditor",
+        "gsc"
+      ],
+      "auto": true
+    },
+    {
+      "id": "tech-ssr-content",
+      "cat": "technical",
+      "phase": "build",
+      "priority": "P0",
+      "title": "正文在不执行 JS 的 HTML 中就存在（SSR / SSG）",
+      "why": "Google 渲染 JS 要排队，可能延迟几天；大多数 AI 爬虫完全不执行 JS。纯客户端渲染的 SPA 对它们来说就是空白页。",
+      "checkAgainst": [
+        "curl 拿到的 HTML 里有 ≥80 个词的正文",
+        "首屏 HTML 的词数 ≥ 渲染后的 70%",
+        "Next.js / Nuxt / Astro 用 SSG 或 SSR；Vite SPA 需要预渲染"
+      ],
+      "how": "auditor 对比原始 HTML 和渲染后 DOM；GSC 网址检查 → 查看已抓取的网页。",
+      "tools": [
+        "auditor",
+        "gsc"
+      ],
+      "auto": true
+    },
+    {
+      "id": "tech-robots-txt",
+      "cat": "technical",
+      "phase": "build",
+      "priority": "P0",
+      "title": "robots.txt 允许抓取并声明 Sitemap",
+      "why": "robots.txt 是爬虫访问的第一个文件。",
+      "checkAgainst": [
+        "/robots.txt 返回 200",
+        "没有 Disallow: / 全站禁止",
+        "含 Sitemap: https://…/sitemap.xml"
+      ],
+      "how": "浏览器打开 /robots.txt；GSC → 设置 → robots.txt。",
+      "tools": [
+        "auditor",
+        "gsc"
+      ],
+      "auto": true
+    },
+    {
+      "id": "tech-xml-sitemap",
+      "cat": "technical",
+      "phase": "build",
+      "priority": "P0",
+      "title": "XML sitemap：只含可索引的规范 URL，lastmod 真实",
+      "why": "帮助搜索引擎发现全部页面；priority 和 changefreq 基本被忽略，lastmod 要真实。",
+      "checkAgainst": [
+        "/sitemap.xml 合法且返回 200",
+        "只列 200、可索引、自引用 canonical 的 URL",
+        "每条都有真实的 <lastmod>",
+        "超过 5 万条或 50MB 用 sitemap index",
+        "已在 GSC 和 Bing 提交"
+      ],
+      "how": "auditor 会逐条请求 sitemap 里的 URL；GSC → 站点地图。",
+      "tools": [
+        "auditor",
+        "gsc",
+        "bing"
+      ],
+      "auto": true
+    },
+    {
+      "id": "tech-crawlable-links",
+      "cat": "technical",
+      "phase": "build",
+      "priority": "P0",
+      "title": "链接是真正的 <a href>，不用 # 路由，分页可被抓取",
+      "why": "爬虫只跟随带 href 的 <a>；onClick 跳转、hash 路由和无限滚动后面的内容，爬虫都看不到。",
+      "checkAgainst": [
+        "导航、分页、卡片点击都用 <a href=\"/path\">，不是 <div onClick> 或 <button>",
+        "不使用 /#/page 这类 hash 路由",
+        "无限滚动或「加载更多」同时提供可访问的分页 URL（?page=2 或 /page/2）",
+        "GSC 网址检查 → 查看已抓取的网页：HTML 中能看到主要内链"
+      ],
+      "how": "DevTools → Command Menu → Disable JavaScript 后浏览站点；Screaming Frog 用文本模式和 JS 渲染模式各爬一次，比较发现的页面数。",
+      "tools": [
+        "screamingfrog",
+        "gsc"
+      ],
+      "auto": false
+    },
+    {
+      "id": "tech-preview-noindex",
+      "cat": "technical",
+      "phase": "build",
+      "priority": "P0",
+      "title": "预览 / 测试环境不被索引（*.vercel.app、*.pages.dev、staging.）",
+      "why": "预览域名被收录会产生整站重复内容，甚至抢走正式站的排名。",
+      "checkAgainst": [
+        "预览和 staging 环境响应头有 X-Robots-Tag: noindex，或需要密码访问",
+        "Google 搜索 site:vercel.app \"你的品牌\" 和 site:pages.dev \"你的品牌\" 没有结果",
+        "托管平台给的默认生产域名（如 xxx.vercel.app）301 到正式域名或设为 noindex"
+      ],
+      "how": "curl -I 预览地址看 X-Robots-Tag；在 Vercel / Netlify / Cloudflare Pages 设置里给非生产环境加 noindex 响应头或访问保护。",
+      "tools": [
+        "google",
+        "cloudflare"
+      ],
+      "auto": false
+    },
+    {
+      "id": "tech-html-lang",
+      "cat": "technical",
+      "phase": "build",
+      "priority": "P1",
+      "title": "<html lang> 声明页面语言",
+      "why": "帮助搜索引擎判断语言和地区；读屏软件也依赖它。",
+      "checkAgainst": [
+        "每页 <html lang=\"en\"> / \"zh-CN\" 等，和实际内容语言一致"
+      ],
+      "how": "view-source。",
+      "tools": [
+        "auditor"
+      ],
+      "auto": true
+    },
+    {
+      "id": "tech-404",
+      "cat": "technical",
+      "phase": "build",
+      "priority": "P1",
+      "title": "不存在的 URL 返回真实 404 状态码，并有引导链接",
+      "why": "返回 200 的\"软 404\"会浪费抓取预算；好的 404 页能把用户留在站内。",
+      "checkAgainst": [
+        "随便输一个 URL，HTTP 状态码 = 404",
+        "404 页有返回首页 / 热门页的链接，并设 noindex"
+      ],
+      "how": "curl -I 一个随机 URL。",
+      "tools": [
+        "auditor"
+      ],
+      "auto": true
+    },
+    {
+      "id": "tech-redirect-hygiene",
+      "cat": "technical",
+      "phase": "build",
+      "priority": "P1",
+      "title": "跳转干净：服务端 301、最多一跳、站内链接不指向跳转地址",
+      "why": "跳转链浪费抓取并可能损失信号；meta refresh 和 JS 跳转不可靠；站内链接指向 301 会白白多一次请求。",
+      "checkAgainst": [
+        "所有永久跳转都是服务端 301 / 308（临时才用 302 / 307），没有 <meta http-equiv=refresh> 和 JS 跳转",
+        "任意旧地址到最终地址 ≤ 1 跳（http → https → www → 去斜杠这类 3 跳要合并成 1 跳）",
+        "站内链接、canonical、sitemap 中指向 3xx 的 URL 数 = 0",
+        "删除且没有替代内容的页面返回 404 或 410，不批量 301 到首页"
+      ],
+      "how": "curl -sIL 地址 查看跳转次数；Screaming Frog → Response Codes → Redirection (3xx)，以及 Reports → Redirect Chains。",
+      "tools": [
+        "screamingfrog",
+        "ahrefs-awt"
+      ],
+      "auto": false
+    },
+    {
+      "id": "tech-param-canonical",
+      "cat": "technical",
+      "phase": "build",
+      "priority": "P1",
+      "title": "带参数的 URL（UTM、排序、筛选、A/B 测试）都 canonical 到干净 URL",
+      "why": "分享链接、广告和筛选器带的参数会生成大量重复 URL，分散排名信号。",
+      "checkAgainst": [
+        "访问 /page?utm_source=test 时，canonical 指向 /page",
+        "排序 / 筛选参数页 canonical 指向主版本或设为 noindex,follow，且不出现在 sitemap 中",
+        "A/B 测试变体和近似模板页 canonical 指向主版本",
+        "canonical 目标返回 200、可索引、不跳转；每页只有 1 个 canonical 标签，没有循环"
+      ],
+      "how": "给 3 个页面手动加 ?utm_source=test 后 view-source 检查；Screaming Frog → Canonicals → Non-Indexable Canonical / Multiple。",
+      "tools": [
+        "screamingfrog",
+        "gsc"
+      ],
+      "auto": false
+    },
+    {
+      "id": "tech-favicon",
+      "cat": "technical",
+      "phase": "build",
+      "priority": "P2",
+      "title": "favicon（Google 结果里显示的站点图标）",
+      "why": "Google 移动端和桌面端结果都显示站点图标，影响辨识度和点击率。",
+      "checkAgainst": [
+        "<link rel=\"icon\"> 指向 48×48 倍数尺寸的图标或 SVG",
+        "apple-touch-icon 180×180"
+      ],
+      "how": "Google 结果几周后才会更新图标。",
+      "tools": [
+        "auditor"
+      ],
+      "auto": true
+    },
+    {
+      "id": "tech-broken-links-scan",
+      "cat": "technical",
+      "phase": "maintain",
+      "priority": "P1",
+      "title": "每月扫一次死链：站内 4xx = 0，出站死链及时替换",
+      "why": "死链浪费抓取、伤害体验；引用的外部来源失效也会降低内容可信度。",
+      "checkAgainst": [
+        "站内链接返回 4xx / 5xx 的数量 = 0",
+        "出站链接 404 的数量 = 0（替换或删除）",
+        "GSC「未找到 (404)」列表中，仍被站内链接或 sitemap 引用的 URL = 0"
+      ],
+      "how": "每月跑一次 Screaming Frog（免费版 500 个 URL）或 Ahrefs Webmaster Tools 的 Site Audit（免费，可定时）；GSC 404 列表点开看「引荐页面」。",
+      "tools": [
+        "screamingfrog",
+        "ahrefs-awt",
+        "gsc"
+      ],
+      "auto": false
+    },
+    {
+      "id": "tech-crawl-stats",
+      "cat": "technical",
+      "phase": "maintain",
+      "priority": "P2",
+      "title": "每月看 GSC 抓取统计：主机状态正常，5xx 和 403 接近 0",
+      "why": "服务器错误或防火墙误拦 Googlebot 时，收录会悄悄下降，前台访问不一定看得出来。",
+      "checkAgainst": [
+        "GSC → 设置 → 抓取统计信息 → 主机状态：robots.txt 抓取、DNS 解析、服务器连接均无问题",
+        "按响应分类：5xx 占比 < 1%，没有成批的 403（多半是 WAF / Bot 规则误拦）",
+        "平均响应时间平稳、没有持续上升（经验值 < 500 ms）"
+      ],
+      "how": "GSC → 设置 → 抓取统计信息 → 打开报告；出现 403 时去 Cloudflare → Security → Events 按 User-Agent 筛选 Googlebot，确认「已验证机器人」被放行。",
+      "tools": [
+        "gsc",
+        "cloudflare"
+      ],
+      "auto": false
+    },
+    {
+      "id": "perf-core-web-vitals",
+      "cat": "performance",
+      "phase": "build",
+      "priority": "P0",
+      "title": "Core Web Vitals 达标：LCP ≤2.5s · INP ≤200ms · CLS ≤0.1",
+      "why": "Google 的页面体验排名信号，看真实用户数据（CrUX）第 75 百分位。",
+      "checkAgainst": [
+        "实验室：LCP ≤2.5s、TBT ≤200ms（INP 的代理指标）、CLS ≤0.1",
+        "上线后：GSC → 核心网页指标 报告全部\"良好\"",
+        "不在 <head> 里放同步阻塞的 JS"
+      ],
+      "how": "auditor / PageSpeed（实验室数据）；GSC CWV 报告（真实用户数据）。",
+      "tools": [
+        "auditor",
+        "pagespeed",
+        "gsc"
+      ],
+      "auto": true
+    },
+    {
+      "id": "img-dimensions",
+      "cat": "performance",
+      "phase": "build",
+      "priority": "P1",
+      "title": "图片声明 width / height，避免布局偏移（CLS）",
+      "why": "没有尺寸的图片加载后会把内容往下挤，导致 CLS 超标。",
+      "checkAgainst": [
+        "每个 <img> 都有 width 和 height 属性（或 CSS aspect-ratio）",
+        "CLS ≤ 0.1"
+      ],
+      "how": "auditor；Lighthouse → Avoid large layout shifts。",
+      "tools": [
+        "auditor",
+        "lighthouse"
+      ],
+      "auto": true
+    },
+    {
+      "id": "img-optimized",
+      "cat": "performance",
+      "phase": "build",
+      "priority": "P1",
+      "title": "图片压缩并使用 WebP / AVIF，首屏外懒加载",
+      "why": "图片通常占页面体积的大头，直接影响 LCP。",
+      "checkAgainst": [
+        "单张图片 ≤200KB；PNG / JPEG 照片 ≤100KB，否则转 WebP / AVIF",
+        "首屏外图片 loading=\"lazy\"；LCP 图片 fetchpriority=\"high\" 且不懒加载",
+        "按显示尺寸输出（srcset）"
+      ],
+      "how": "auditor 统计实际下载的图片；PageSpeed → Properly size images。",
+      "tools": [
+        "auditor",
+        "pagespeed"
+      ],
+      "auto": true
+    },
+    {
+      "id": "perf-lighthouse",
+      "cat": "performance",
+      "phase": "build",
+      "priority": "P1",
+      "title": "Lighthouse 移动端：性能 ≥90，SEO / 无障碍 / 最佳实践 ≥90",
+      "why": "实验室分数是上线前最快的回归检查。",
+      "checkAgainst": [
+        "Performance ≥ 90（移动端）",
+        "SEO ≥ 90，Accessibility ≥ 90，Best Practices ≥ 90"
+      ],
+      "how": "auditor 自动运行 Lighthouse；也可以用 PageSpeed Insights。",
+      "tools": [
+        "auditor",
+        "pagespeed",
+        "lighthouse"
+      ],
+      "auto": true
+    },
+    {
+      "id": "perf-edge-cache-html",
+      "cat": "performance",
+      "phase": "build",
+      "priority": "P1",
+      "title": "营销页 HTML 走 CDN 边缘缓存，海外 TTFB < 200 ms",
+      "why": "只缓存图片和 JS、不缓存 HTML 时，海外用户的 TTFB 常在 800 ms 以上，直接拖慢 LCP。",
+      "checkAgainst": [
+        "/、/blog/*、/pricing、/docs/* 第二次请求的响应头 cf-cache-status: HIT",
+        "Cache Rule：Cache Everything，Edge TTL 6–24 小时，Browser TTL 1–4 小时；发布内容后清对应缓存",
+        "从美国、欧洲、东南亚至少 3 个测试点测 TTFB < 200 ms；≥ 800 ms 为不合格"
+      ],
+      "how": "Cloudflare → Caching → Cache Rules 新建「营销页」规则（按 URI Path 匹配，排在 API 绕过规则之后）；curl -sI 查看 cf-cache-status；WebPageTest 选不同地区测试 TTFB。",
+      "tools": [
+        "cloudflare",
+        "webpagetest",
+        "pagespeed"
+      ],
+      "auto": false
+    },
+    {
+      "id": "perf-third-party-budget",
+      "cat": "performance",
+      "phase": "build",
+      "priority": "P1",
+      "title": "第三方脚本（统计、客服、广告、A/B 测试）有预算，每加一个都复测",
+      "why": "第三方脚本是 INP 和 CLS 退化最常见的原因，广告位和聊天插件尤其明显。",
+      "checkAgainst": [
+        "第三方脚本全部 async / defer 或在用户交互后加载；首页第三方域名 ≤ 5 个（经验值）",
+        "广告位、嵌入组件用 min-height 预留空间，加上后 CLS 仍 ≤ 0.1",
+        "每新增一个脚本，PageSpeed 前后对比：移动端性能分下降 ≤ 5、TBT 增加 ≤ 100 ms（经验阈值）"
+      ],
+      "how": "PageSpeed Insights →「减少第三方代码的影响」；DevTools → Network 按域名分组；Performance 面板录制一次交互查看长任务。",
+      "tools": [
+        "pagespeed",
+        "lighthouse"
+      ],
+      "auto": false
+    },
+    {
+      "id": "perf-page-weight",
+      "cat": "performance",
+      "phase": "build",
+      "priority": "P2",
+      "title": "首页总传输体积 ≤1MB",
+      "why": "移动网络下体积直接决定首屏时间。",
+      "checkAgainst": [
+        "Lighthouse total-byte-weight ≤ 1000KB",
+        "第三方脚本（聊天插件、多个统计）按需加载"
+      ],
+      "how": "auditor；DevTools Network 面板。",
+      "tools": [
+        "auditor",
+        "lighthouse"
+      ],
+      "auto": true
+    },
+    {
+      "id": "perf-cdn-protocols",
+      "cat": "performance",
+      "phase": "build",
+      "priority": "P2",
+      "title": "开启 HTTP/3、Early Hints 和 Brotli；代码压缩在构建时完成",
+      "why": "这些开关对 SaaS 没有副作用，对远距离用户收益最大。Cloudflare 的 Auto Minify 已在 2024 年下线，压缩要交给构建工具。",
+      "checkAgainst": [
+        "Cloudflare → Speed → Optimization 中 HTTP/3、Early Hints 已开启",
+        "HTML / CSS / JS 响应头 content-encoding 为 br 或 zstd",
+        "构建产物已压缩（Vite / Next.js / Astro 默认开启），不依赖 CDN 的 Auto Minify",
+        "DevTools → Network 的 Protocol 列显示 h3 或 h2"
+      ],
+      "how": "Cloudflare 后台检查开关；DevTools → Network 右键表头打开 Protocol 列；curl -sI -H 'Accept-Encoding: br' 查看编码。",
+      "tools": [
+        "cloudflare"
+      ],
+      "auto": false
+    },
+    {
+      "id": "perf-field-data-monitor",
+      "cat": "performance",
+      "phase": "maintain",
+      "priority": "P1",
+      "title": "每月复查真实用户数据（CrUX），流量不够时自己上报 Web Vitals",
+      "why": "排名用的是真实用户 28 天数据的第 75 百分位，实验室满分不代表真实体验好；INP 已于 2024 年 3 月取代 FID。",
+      "checkAgainst": [
+        "GSC → 核心网页指标：移动端和桌面端「较差」网址数 = 0，「需要改进」逐月减少",
+        "PageSpeed Insights 真实用户数据：LCP ≤ 2.5 s、INP ≤ 200 ms、CLS ≤ 0.1",
+        "流量不足、没有 CrUX 数据时，用 web-vitals 库把 INP / LCP / CLS 上报到 GA4 或 Plausible 自定义事件"
+      ],
+      "how": "每月第一周打开 GSC 核心网页指标报告；INP 问题用 DevTools Performance 面板录制交互，找超过 50 ms 的长任务。",
+      "tools": [
+        "gsc",
+        "pagespeed",
+        "ga4"
+      ],
+      "auto": false
+    },
+    {
+      "id": "infra-domain-choice",
+      "cat": "infra",
+      "phase": "plan",
+      "priority": "P0",
+      "title": "选一个短、好记、好拼写的域名，优先 .com",
+      "why": "域名不是直接排名因素，但影响点击率、信任和口碑传播；上线后再换域名代价很大。",
+      "checkAgainst": [
+        "主体 ≤ 15 个字符，无连字符、无数字，听一遍就能拼出来",
+        "优先 .com；.ai / .io / .co 被 Google 当作通用顶级域，可以用；.cn / .de 等国家域名会被地理定向",
+        "包含主关键词（如 HeadshotPro.com）或是独特好搜的品牌词：在 Google 和百度搜索该词，没有同名大站",
+        "在 USPTO / WIPO 商标库和应用商店搜过，没有明显冲突",
+        "开启自动续费、WHOIS 隐私保护，注册商账号开启 2FA"
+      ],
+      "how": "在 Namecheap / Dynadot / Cloudflare Registrar 查可用性；oneword.domains、expireddomains.net 找短域名；商标查询用 tmsearch.uspto.gov 和 branddb.wipo.int。",
+      "tools": [
+        "namecheap",
+        "dynadot",
+        "cloudflare",
+        "google"
+      ],
+      "auto": false
+    },
+    {
+      "id": "infra-domain-due-diligence",
+      "cat": "infra",
+      "phase": "plan",
+      "priority": "P1",
+      "title": "买老域名或二手域名前查历史：没被惩罚、没有垃圾外链",
+      "why": "曾被用作垃圾站或 PBN 的域名带着历史包袱，新内容很难获得排名。",
+      "checkAgainst": [
+        "Wayback Machine 历次快照中没有成人、博彩、药品、仿牌或外语垃圾内容",
+        "Ahrefs / Semrush 外链中没有大量垃圾锚文本，引用域名曲线没有异常暴涨后归零",
+        "Google 搜索 site:该域名 不是完全没有结果（被完全清空可能是惩罚）",
+        "ICANN Lookup 查到注册日期、到期日期和状态正常"
+      ],
+      "how": "web.archive.org 查看最早、中间年份和最近的快照；Ahrefs 免费 Backlink Checker 看前 100 条外链；lookup.icann.org 查 WHOIS。",
+      "tools": [
+        "wayback",
+        "ahrefs",
+        "icann-lookup",
+        "google"
+      ],
+      "auto": false
+    },
+    {
+      "id": "infra-single-host-301",
+      "cat": "infra",
+      "phase": "build",
+      "priority": "P0",
+      "title": "www 和裸域只保留一个，另一个一跳 301 过去，并保留路径和参数",
+      "why": "www.example.com 和 example.com 技术上是两个站，不统一就会产生重复内容、分散外链权重。",
+      "checkAgainst": [
+        "curl -I https://www.example.com/blog/x 返回 301，Location 为 https://example.com/blog/x（路径和查询参数都保留）",
+        "两个主机名的 http:// 都一跳 301 到 https:// 主域名",
+        "站内链接、canonical、sitemap、og:url 全部使用主域名，从不混用"
+      ],
+      "how": "Cloudflare → Rules → Redirect Rules 建一条 301 规则（www 的 DNS 记录保持橙云代理，规则才会生效）；或在 Nginx 里 return 301 https://example.com$request_uri。",
+      "tools": [
+        "cloudflare"
+      ],
+      "auto": false
+    },
+    {
+      "id": "infra-https-tls",
+      "cat": "infra",
+      "phase": "build",
+      "priority": "P0",
+      "title": "全站 HTTPS：证书覆盖裸域和 www，自动续期，Cloudflare 用 Full (strict)",
+      "why": "HTTPS 是基础信任信号；证书过期会让整站在浏览器里报错，流量瞬间归零。",
+      "checkAgainst": [
+        "SSL Labs 评级 ≥ A，证书覆盖裸域、www 和正在使用的子域名",
+        "证书剩余有效期 > 30 天且配置了自动续期（Cloudflare 边缘证书、Let's Encrypt 或 AllinSSL）",
+        "Cloudflare SSL/TLS 加密模式为 Full (strict)，不是 Flexible（Flexible 容易造成重定向循环，且回源是明文）",
+        "页面无混合内容警告；所有子域名都支持 HTTPS 之后再开启 HSTS"
+      ],
+      "how": "ssllabs.com/ssltest 测试；Cloudflare → SSL/TLS → Overview；Chrome DevTools → Security 面板查看混合内容。",
+      "tools": [
+        "ssllabs",
+        "cloudflare"
+      ],
+      "auto": false
+    },
+    {
+      "id": "infra-cf-proxy-plan",
+      "cat": "infra",
+      "phase": "build",
+      "priority": "P0",
+      "title": "按流量类型规划 Cloudflare 代理：人访问的走橙云，API 和 Webhook 走灰云",
+      "why": "Cloudflare 保护的是「人的访问层」；Webhook 和 API 被 WAF / Bot 规则误拦，就会出现「付了钱却没开通」或 OAuth 登录失败。",
+      "checkAgainst": [
+        "DNS 表：裸域、www、营销页、app.（控制台）为橙云；api.、hooks.（Webhook 接收）为灰云（仅 DNS）",
+        "Stripe / Paddle / Creem 等支付平台的 Webhook 投递日志全部 2xx，没有 403 或质询页面",
+        "OAuth 回调路径不缓存、不质询：无痕窗口完整走一遍 Google / GitHub 登录成功",
+        "Bot Fight Mode 无法用 WAF 规则豁免，因此被程序调用的接口不放在开启它的橙云主机名下"
+      ],
+      "how": "Cloudflare → DNS → Records 检查每条记录的代理状态；支付平台后台 → Webhooks 查看最近的投递记录和响应码。",
+      "tools": [
+        "cloudflare",
+        "stripe",
+        "paddle",
+        "creem"
+      ],
+      "auto": false
+    },
+    {
+      "id": "infra-cf-no-cache-private",
+      "cat": "infra",
+      "phase": "build",
+      "priority": "P0",
+      "title": "API、登录、控制台、OAuth 回调绝不缓存",
+      "why": "缓存规则写错时，用户 A 会看到用户 B 的数据，这是最严重的事故之一。",
+      "checkAgainst": [
+        "/api/*、/auth/*、/dashboard/*、OAuth 回调的响应头 cf-cache-status 为 DYNAMIC 或 BYPASS",
+        "带 Set-Cookie 或 Authorization 的请求不会命中 Cache Everything 规则",
+        "用两个不同账号同时请求同一接口，返回的数据互不串号"
+      ],
+      "how": "Cloudflare → Caching → Cache Rules：给这些路径加 Bypass cache 规则，并放在营销页缓存规则之前；curl -sI 检查响应头。",
+      "tools": [
+        "cloudflare"
+      ],
+      "auto": false
+    },
+    {
+      "id": "infra-cf-rate-limit",
+      "cat": "infra",
+      "phase": "build",
+      "priority": "P0",
+      "title": "给昂贵接口加限流：/api、/auth、/generate、/chat",
+      "why": "限流的目的不是完美防御，而是提高攻击成本、保护模型调用费用。",
+      "checkAgainst": [
+        "速率限制规则覆盖 /api/*、/auth/login、/auth/register、/generate、/chat",
+        "参考阈值：单 IP 60 秒内 > 100 次 → Challenge 或 Block（Cloudflare 免费版规则数和计数窗口有限，例如只能用 10 秒窗口时可换算为 10 秒 > 20 次，以当前套餐说明为准）",
+        "应用层另有按用户 / API Key 的额度和每日上限，防止多号白嫖",
+        "压测验证：同一 IP 超过阈值后的请求被拦截或质询"
+      ],
+      "how": "Cloudflare → Security → WAF → Rate limiting rules；在测试环境用 k6 / autocannon / hey 发请求验证；应用层可用 Redis 计数或 Upstash Ratelimit。",
+      "tools": [
+        "cloudflare"
+      ],
+      "auto": false
+    },
+    {
+      "id": "infra-cf-bot-waf",
+      "cat": "infra",
+      "phase": "build",
+      "priority": "P1",
+      "title": "开启 Bot Fight Mode，登录 / 注册 / 找回密码加 WAF 质询和人机验证",
+      "why": "对 AI SaaS 来说，被刷意味着模型账单暴涨；批量注册脚本和撞库是最常见的攻击。",
+      "checkAgainst": [
+        "Security → Bots：Bot Fight Mode 已开启（API 主机已改为灰云）",
+        "WAF 自定义规则：/login、/register、/forgot-password 在 UA 异常或请求频率异常时 Managed Challenge，规则有命中日志",
+        "注册表单接入 Cloudflare Turnstile 或同类人机验证",
+        "平时 Under Attack 模式关闭，只在遭受攻击时临时开启"
+      ],
+      "how": "Cloudflare → Security → Bots / WAF → Custom rules（免费版可建 5 条）；Security → Events 查看命中记录。",
+      "tools": [
+        "cloudflare"
+      ],
+      "auto": false
+    },
+    {
+      "id": "infra-domain-email",
+      "cat": "infra",
+      "phase": "launch",
+      "priority": "P1",
+      "title": "配置域名邮箱，并设置 MX / SPF / DKIM / DMARC",
+      "why": "用域名邮箱做客服、外联和发收据更可信；Gmail 和 Yahoo 自 2024 年起要求所有发件人至少配置 SPF 或 DKIM，每天发 5,000 封以上的发件人三者（SPF、DKIM、DMARC）必须齐全，否则容易进垃圾箱或被拒收。",
+      "checkAgainst": [
+        "至少有 hello@ 或 support@ 一个域名地址，出现在页脚、隐私政策和外联邮件中",
+        "DNS 有 MX、SPF（只有一条 v=spf1 记录）、DKIM、DMARC（先用 p=none 并配置 rua 报告，2–4 周报告正常后改为 p=quarantine）",
+        "mail-tester.com 评分 ≥ 9/10；MXToolbox 的 SPF / DKIM / DMARC 检查全部通过",
+        "只收不发可用 Cloudflare Email Routing（免费转发）；需要发信用 Zoho Mail（免费最多 5 个用户）、Google Workspace 或注册商赠送的邮箱"
+      ],
+      "how": "在邮件服务商后台拿到 DNS 记录，填入 Cloudflare DNS；dig TXT _dmarc.example.com 验证；给 mail-tester 提供的地址发一封测试邮件。",
+      "tools": [
+        "cloudflare",
+        "mxtoolbox",
+        "mailtester",
+        "dynadot"
+      ],
+      "auto": false
+    },
+    {
+      "id": "infra-security-monitor",
+      "cat": "infra",
+      "phase": "maintain",
+      "priority": "P1",
+      "title": "每月安全与可用性检查：GSC 安全问题、宕机监控、账号 2FA、域名到期",
+      "why": "被黑、被挂恶意代码、长时间宕机或域名过期，都会让排名和信任快速下降，而且往往不是自己最先发现。",
+      "checkAgainst": [
+        "GSC → 安全问题和人工处置：两项都是「未检测到任何问题」",
+        "可用性监控每 5 分钟检测首页和关键 API，宕机即时通知（邮件 / Telegram）",
+        "注册商、Cloudflare、GSC、支付平台、GitHub 账号全部开启 2FA；域名开启注册商锁定",
+        "域名到期日 > 60 天且自动续费开启"
+      ],
+      "how": "每月第一周检查；UptimeRobot 免费版做监控；在 ICANN Lookup 查看域名状态是否包含 clientTransferProhibited。",
+      "tools": [
+        "gsc",
+        "uptimerobot",
+        "icann-lookup"
+      ],
+      "auto": false
+    },
+    {
+      "id": "indexing-gsc",
+      "cat": "indexing",
+      "phase": "launch",
+      "priority": "P0",
+      "title": "验证 Google Search Console 并提交 sitemap",
+      "why": "GSC 是唯一能看到 Google 真实收录、查询词、排名和点击的地方。",
+      "checkAgainst": [
+        "优先用域名资源（DNS TXT 验证），否则用网址前缀资源 + HTML 标记",
+        "已提交 sitemap.xml，状态为\"成功\"",
+        "核心页面用网址检查 → 请求编入索引",
+        "\"网页\"报告里没有大量\"已抓取 - 尚未编入索引\""
+      ],
+      "how": "需要你的 Google 账号；本仓库构建时通过 GSC_VERIFICATION 环境变量注入验证标签。",
+      "tools": [
+        "gsc"
+      ],
+      "auto": true
+    },
+    {
+      "id": "indexing-gsc-setup",
+      "cat": "indexing",
+      "phase": "launch",
+      "priority": "P0",
+      "title": "GSC 用域名资源统一管理，至少 2 个所有者，开启邮件提醒",
+      "why": "域名资源一次覆盖 http / https、www / 裸域和所有子域名；只有一个所有者的账号一旦丢失，历史数据很难找回。",
+      "checkAgainst": [
+        "GSC 中有「网域」类型资源（DNS TXT 验证），而不只是网址前缀资源",
+        "设置 → 用户和权限：至少 2 个所有者（另一个是备用账号）",
+        "邮件通知已开启，出现新的索引、安全或人工处置问题时能收到邮件"
+      ],
+      "how": "GSC → 添加资源 → 网域 → 在 Cloudflare DNS 添加 TXT 记录。auditor 只能检测页面上的验证标签，这几项需要登录后台确认。",
+      "tools": [
+        "gsc",
+        "cloudflare"
+      ],
+      "auto": false
+    },
+    {
+      "id": "indexing-bing-import",
+      "cat": "indexing",
+      "phase": "launch",
+      "priority": "P0",
+      "title": "Bing Webmaster Tools 从 GSC 一键导入，确认 sitemap 和核心页面已收录",
+      "why": "Bing 本身有搜索份额，而且 ChatGPT 搜索、Copilot、DuckDuckGo 等都部分依赖 Bing 的索引。",
+      "checkAgainst": [
+        "Bing Webmaster 中站点已验证（Import from Google Search Console 或 DNS 验证）",
+        "Sitemaps 页面状态为 Success，发现的 URL 数 ≈ 可索引页面数",
+        "URL Inspection 检查首页和 3 个核心页面，均已收录"
+      ],
+      "how": "bing.com/webmasters → Add site → Import from GSC，授权后自动导入站点和 sitemap；未收录的页面在 URL Inspection 里点 Request indexing。",
+      "tools": [
+        "bing"
+      ],
+      "auto": false
+    },
+    {
+      "id": "indexing-indexnow",
+      "cat": "indexing",
+      "phase": "launch",
+      "priority": "P1",
+      "title": "接入 IndexNow，发布或更新页面时自动通知 Bing、Yandex 等",
+      "why": "IndexNow 能让 Bing、Yandex、Seznam、Naver 在几分钟内知道 URL 变化；Google 目前不使用 IndexNow，仍需 sitemap 和 GSC。",
+      "checkAgainst": [
+        "根目录有 IndexNow key 文件（/{key}.txt），返回 200",
+        "发布、更新、删除页面时自动推送（构建脚本、CMS 插件或 Cloudflare Crawler Hints）",
+        "Bing Webmaster → IndexNow 报告中能看到最近提交的 URL"
+      ],
+      "how": "Cloudflare → Caching → Configuration → Crawler Hints 开启即可自动推送；或在部署脚本里向 https://api.indexnow.org/indexnow 发 POST 请求。",
+      "tools": [
+        "indexnow",
+        "bing",
+        "cloudflare",
+        "yandex"
+      ],
+      "auto": false
+    },
+    {
+      "id": "indexing-brand-site-check",
+      "cat": "indexing",
+      "phase": "launch",
+      "priority": "P1",
+      "title": "上线 2–4 周后自查：搜品牌名首页排第一，site: 收录数与 sitemap 同一量级",
+      "why": "连品牌词都搜不到官网，说明收录或实体信号有问题，要先解决再做内容。",
+      "checkAgainst": [
+        "Google 和 Bing 搜索品牌名，官网首页排第 1（品牌名与常见词重名时搜「品牌名 + 品类词」）",
+        "site:域名 的结果数与 sitemap 中的 URL 数处于同一量级（site: 只是粗略估计）",
+        "首页结果显示正确的站点名称和 favicon"
+      ],
+      "how": "无痕窗口分别在 Google、Bing（中文站加上百度）搜索；GSC 效果报告中筛选品牌查询，查看平均排名。",
+      "tools": [
+        "google",
+        "bing",
+        "gsc"
+      ],
+      "auto": false
+    },
+    {
+      "id": "indexing-cn-engines",
+      "cat": "indexing",
+      "phase": "launch",
+      "priority": "P2",
+      "title": "面向中文用户时，在百度、搜狗、360、头条站长平台验证并提交",
+      "why": "国内搜索引擎不会从 Google 获取信息；不主动提交，新站可能几个月都不被收录。",
+      "checkAgainst": [
+        "百度搜索资源平台、搜狗站长平台、360 站长平台、头条搜索站长平台均显示「已验证」",
+        "各平台提交 sitemap；百度另配置「普通收录」API 推送新 URL（每日有配额）",
+        "百度搜索 site:域名 能查到中文页面；境外服务器收录偏慢属正常，不为此做违规操作",
+        "中文站同时安装百度统计"
+      ],
+      "how": "ziyuan.baidu.com → 用户中心 → 站点管理 → 添加网站，用文件、HTML 标签或 CNAME 验证；其余平台流程类似。",
+      "tools": [
+        "baidu",
+        "sogou",
+        "so360",
+        "toutiao",
+        "baidu-tongji"
+      ],
+      "auto": false
+    },
+    {
+      "id": "indexing-request-on-publish",
+      "cat": "indexing",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "每次发布新页面或重要更新，当天在 GSC 请求编入索引",
+      "why": "新站外链少、抓取频率低，主动提交能把收录从几周缩短到几天，也有助于确立首发。",
+      "checkAgainst": [
+        "每篇新文章 / 新落地页发布当天：GSC 网址检查 → 测试实际网址 → 请求编入索引",
+        "7 天内复查显示「网址在 Google 上」；14 天仍未收录的进入排查清单",
+        "请求编入索引有每日配额（经验值约 10 条），优先提交核心页面，其余依靠 sitemap"
+      ],
+      "how": "GSC 顶部搜索框粘贴 URL → 测试实际网址 → 请求编入索引；Bing 侧依靠 IndexNow 或 URL Submission。",
+      "tools": [
+        "gsc",
+        "bing"
+      ],
+      "auto": false
+    },
+    {
+      "id": "indexing-coverage-triage",
+      "cat": "indexing",
+      "phase": "maintain",
+      "priority": "P0",
+      "title": "每周检查「网页」索引报告，按原因分类处理未编入索引的页面",
+      "why": "收录是排名的前提；新站最常见的问题是「已抓取 - 尚未编入索引」，通常意味着内容价值不足或内链太少。",
+      "checkAgainst": [
+        "「已抓取 - 尚未编入索引」和「已发现 - 尚未编入索引」中的重要页面数逐周下降",
+        "「重复网页，Google 选择的规范网址与用户指定的不同」= 0；抽查核心页面，「Google 选择的规范网址」与声明的一致",
+        "「软 404」「被 robots.txt 屏蔽」「已排除 noindex」里没有本该收录的页面",
+        "每类原因都有处理动作：内容薄 → 扩写或合并；孤立页面 → 加内链；规范冲突 → 修 canonical"
+      ],
+      "how": "GSC → 编制索引 → 网页，逐个点开原因查看示例 URL；修复后点击「验证修正」。",
+      "tools": [
+        "gsc"
+      ],
+      "auto": false
+    },
+    {
+      "id": "content-feature-to-question",
+      "cat": "content",
+      "phase": "plan",
+      "priority": "P1",
+      "title": "把每个产品功能翻译成用户会搜的问题，覆盖 4 类常青内容",
+      "why": "用户搜的是问题，不是你的功能名；教程、对比、问题解决、场景方案这 4 类内容需求稳定、衰减慢，适合做内链矩阵。",
+      "checkAgainst": [
+        "「功能 → 搜索问题 → 文章 URL」映射表没有空行（例：批量生成 → how to generate posters in bulk；商用授权 → can AI-generated posters be used commercially）",
+        "内容计划同时包含：How-to 教程、X vs Y 对比、问题解决（why X doesn't work）、场景方案（X for 某人群 / 平台）",
+        "每个选题在 5 问中至少 3 个为「是」：有人搜？首页是内容页？能比前 3 更具体？产品能自然出现？6 个月后仍有效？",
+        "自测：这个标题我自己会输入搜索框吗？不会就删掉"
+      ],
+      "how": "内容计划表增加「对应功能」「搜索问题」「内容类型」「5 问得分」四列；问题措辞用 AnswerThePublic 和 Google 下拉框校准。",
+      "tools": [
+        "answerthepublic",
+        "semrush"
+      ],
+      "auto": false
+    },
+    {
+      "id": "content-landing-template",
+      "cat": "content",
+      "phase": "build",
+      "priority": "P0",
+      "title": "落地页按用户思考路径排版：Hero → 痛点 → 方案 → 步骤 → 案例 → 对比 → FAQ → CTA",
+      "why": "能排名的页面不是产品宣传册，而是一份「顺带转化的解决问题文档」：搜索引擎一眼看懂解决什么问题，用户一眼判断是否相关。",
+      "checkAgainst": [
+        "Hero：H1 用大白话说「做什么」；副标题写清场景或目标人群；CTA 是低门槛动作（「免费生成第一版」而不是「立即购买」）",
+        "痛点区：H2「为什么需要 X」+ ≥ 3 个具体痛点",
+        "方案区：每个 H3 写「解决了什么问题」，而不是「支持多模型」式的功能罗列",
+        "「怎么用」：3 个编号步骤（你做什么 → 产品做什么 → 你得到什么），配截图或 GIF",
+        "有真实案例 / 前后对比 / 使用数据，有与传统方式或竞品的对比表，有 FAQ，结尾只放下一步 CTA",
+        "写明局限：适合谁、不适合谁、什么情况下效果最好"
+      ],
+      "how": "拿页面逐段对照打勾；每个场景 / 用例单独做一页。上线后用 Clarity 热图看用户在哪一段离开。",
+      "tools": [
+        "clarity"
+      ],
+      "auto": false
+    },
+    {
+      "id": "content-depth",
+      "cat": "content",
+      "phase": "build",
+      "priority": "P1",
+      "title": "核心页面内容足够回答搜索意图（不是薄内容）",
+      "why": "工具站只有一个输入框会被判为薄内容；补充用法、公式、示例、FAQ，才能同时排名和转化。",
+      "checkAgainst": [
+        "工具 / 落地页可见正文 ≥400 词（按搜索意图和 Top 10 竞品调整）",
+        "包含：一句话答案、步骤 / 公式、示例、FAQ、相关链接"
+      ],
+      "how": "auditor 统计正文词数；人工对比 Top 10 竞品。",
+      "tools": [
+        "auditor"
+      ],
+      "auto": true
+    },
+    {
+      "id": "content-eeat-signals",
+      "cat": "content",
+      "phase": "build",
+      "priority": "P1",
+      "title": "E-E-A-T 信号：About 页、作者署名、更新日期、联系方式",
+      "why": "金融、健康等 YMYL 主题尤其看重\"谁写的、凭什么可信\"。",
+      "checkAgainst": [
+        "有 About / Contact 页面",
+        "文章有作者和可见的发布 / 更新日期（<time datetime>）",
+        "YMYL 内容有免责声明",
+        "作者在 X、GitHub、LinkedIn 等平台可以被搜到"
+      ],
+      "how": "auditor 检测 About 页和日期；人工检查作者页。",
+      "tools": [
+        "auditor"
+      ],
+      "auto": true
+    },
+    {
+      "id": "content-free-no-login",
+      "cat": "content",
+      "phase": "build",
+      "priority": "P1",
+      "title": "核心价值不登录就能用、能看到",
+      "why": "先注册才能用会提高跳出率、缩短停留时间；爬虫也只能看到未登录的版本，免费可用的内容更容易被分享和引用。",
+      "checkAgainst": [
+        "无痕窗口打开落地页，不注册就能完成一次核心操作，或至少看到完整的示例结果",
+        "主要内容不被注册墙 / 付费墙遮挡；登录放在使用之后（如保存、导出高清、提高额度）",
+        "改动后 GA4 中落地页的平均互动时长上升、跳出率下降"
+      ],
+      "how": "无痕窗口实测一遍；GSC 网址检查 → 查看已抓取的网页，确认爬虫拿到的是完整内容。",
+      "tools": [
+        "ga4",
+        "gsc"
+      ],
+      "auto": false
+    },
+    {
+      "id": "content-real-testimonials",
+      "cat": "content",
+      "phase": "build",
+      "priority": "P1",
+      "title": "用户评价、案例和用户数都真实可追溯，不编造",
+      "why": "虚假评价和虚构用户数会被用户和平台识破，违反 Google 结构化数据政策，美国 FTC 2024 年起也明确禁止虚假评价，风险远大于收益。",
+      "checkAgainst": [
+        "每条评价都有真实来源（截图，或链接到原帖、推文、Product Hunt 评论），并获得引用许可",
+        "「已有 N 名用户」之类的数字能在后台数据中核对",
+        "Review / AggregateRating 只标注真实评价；LocalBusiness / Organization 类型的自我评价不会显示星级",
+        "没有用 AI 生成的人像冒充用户头像"
+      ],
+      "how": "建一个评价素材库，记录来源 URL 和授权日期；结构化数据用 Rich Results Test 验证。",
+      "tools": [
+        "richresults",
+        "producthunt"
+      ],
+      "auto": false
+    },
+    {
+      "id": "links-external-citation",
+      "cat": "content",
+      "phase": "build",
+      "priority": "P2",
+      "title": "引用权威外部来源",
+      "why": "引用数据来源能增加可信度，也是 AI 判断内容质量的信号。",
+      "checkAgainst": [
+        "关键数据或结论链接到原始出处（官方文档、论文、权威媒体）",
+        "外链 rel 设置得当（赞助链接用 sponsored，用户生成内容用 ugc）"
+      ],
+      "how": "auditor。",
+      "tools": [
+        "auditor"
+      ],
+      "auto": true
+    },
+    {
+      "id": "content-beat-serp-brief",
+      "cat": "content",
+      "phase": "grow",
+      "priority": "P0",
+      "title": "每篇文章动笔前写一份「打败 SERP」简报",
+      "why": "搜索流量赢家通吃，前几名拿走大部分点击；只有能成为该主题最好的页面才值得写。",
+      "checkAgainst": [
+        "简报包含：目标词、搜索意图、Top 3 页面的不足（缺步骤、无实测截图、过时、空泛）、本文多出来的东西（数据、实测、工具、模板）",
+        "产品能自然出现：作为教程步骤、对比选项或实现方式；去掉产品文章反而更好读的选题不写",
+        "读完 Top 3 的反应是「就这？」才动笔"
+      ],
+      "how": "逐段阅读 Top 3 并记录；可以用 Surfer SEO 等工具对比术语覆盖，但以人工判断为准。",
+      "tools": [
+        "google",
+        "surfer"
+      ],
+      "auto": false
+    },
+    {
+      "id": "content-ai-human-edit",
+      "cat": "content",
+      "phase": "grow",
+      "priority": "P0",
+      "title": "AI 可以起草，但发布前必须人工改写并加入第一手细节",
+      "why": "Google 不惩罚「AI 写的」，惩罚的是批量生产、没有增量价值的内容；读起来像模板的文章也很难被分享和引用。",
+      "checkAgainst": [
+        "不发布未修改的 AI 原稿；每篇至少加入 1 处只有你能写出的细节（实测截图、真实数字、踩过的坑）",
+        "GPTZero 判定的 AI 概率 < 40%（笔记作者的阈值）；检测器会误判，只作参考信号，不为骗过检测器而改写",
+        "事实、数字、链接全部人工核对",
+        "段落短：中文约 100 字以内、英文 3–4 行一段，手机上好读"
+      ],
+      "how": "发布前按清单逐项打勾，把 GPTZero 分数和改动说明记在内容表里；预算允许时可以「AI 初稿 → 自己改 1 小时 → 母语写手润色」（笔记参考价约 $200 / 篇）。",
+      "tools": [
+        "gptzero",
+        "chatgpt"
+      ],
+      "auto": false
+    },
+    {
+      "id": "content-vs-alternatives",
+      "cat": "content",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "为前 3 个竞品做「X vs Y」「X alternatives」页面，有搜索量再做「免费 / 优惠码」页",
+      "why": "对比和替代品词是转化率最高的商业调研流量，能把竞品的品牌流量分一部分过来。",
+      "checkAgainst": [
+        "每个主要竞品至少有 /vs/竞品 和 /alternatives/竞品 两个页面；coupon / free 页只在关键词有搜索量时做",
+        "对比表事实准确并注明核对日期，同时写出竞品的优点和你不适合的场景",
+        "不冒充竞品官方、不捏造竞品缺陷、不在标题中误导性使用对方商标",
+        "页面有明确 CTA 和迁移指南（如何从竞品切换过来）"
+      ],
+      "how": "在 Ahrefs / Semrush 查「竞品名 alternative / vs / free / coupon」的搜索量；每季度核对一次对比表中的价格和功能。",
+      "tools": [
+        "ahrefs",
+        "semrush"
+      ],
+      "auto": false
+    },
+    {
+      "id": "content-first-hand-evidence",
+      "cat": "content",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "每篇核心文章至少有 1 个第一手证据：原创截图、真实数据或失败经历",
+      "why": "E-E-A-T 中的「经验」最难伪造，也是个人开发者对抗内容农场的最大优势。",
+      "checkAgainst": [
+        "每篇支柱文章 ≥ 1 个原创素材：自己操作的截图 / 录屏、自己的数据、遇到的具体限制或报错",
+        "写出具体场景（什么时候、什么条件下）和不完美的过程（调整、取舍、失败）",
+        "没有用图库图片冒充「案例」"
+      ],
+      "how": "逐篇审查支柱文章，判断标准：这个细节别人能不能直接抄走？能抄走的不算。",
+      "tools": [],
+      "auto": false
+    },
+    {
+      "id": "content-citable-asset",
+      "cat": "content",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "至少做 1 个可被引用的「工具型」资产：模板、提示词库、参数表或免费小工具",
+      "why": "这类内容不推销、方便引用，会自然吸引外链和 AI 引用，比再多写几篇文章更有效。",
+      "checkAgainst": [
+        "至少 1 个资产已上线：免费模板 / Prompt 库 / 规格参数表 / 行业标准汇总 / 计算器",
+        "资产页免登录可访问，有固定 URL 和方便引用的形式（可复制的表格、嵌入代码或引用格式）",
+        "在 Ahrefs Webmaster Tools 或 GSC 链接报告中单独跟踪该页面的引用域名数"
+      ],
+      "how": "从用户最常问、需要反复查的信息里挑选；上线后在社区和外联中优先推广它。",
+      "tools": [
+        "ahrefs-awt",
+        "gsc"
+      ],
+      "auto": false
+    },
+    {
+      "id": "content-cadence-calendar",
+      "cat": "content",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "内容日历：固定节奏发布，前 3 个月完成约 10 篇深度文章",
+      "why": "10–20 篇内容看不出效果，在一个垂直领域持续输出几百篇才会稳定见效；没有固定节奏最容易半途而废。",
+      "checkAgainst": [
+        "选题库 ≥ 20 个，每个有目标词和来源",
+        "节奏写进日历并执行：至少每 2–3 周 1 篇深度文章（笔记作者的节奏），有余力每周 1 篇",
+        "前 3 个月完成约 10 篇深度文章，覆盖行业趋势、工具 / 竞品对比、客户案例",
+        "预期：新站通常要 3–6 个月才有稳定的 Google 流量，3 个月内不因没流量停更"
+      ],
+      "how": "用 Notion 或飞书多维表格做内容日历，列：选题、关键词、状态、发布日期、URL、GSC 点击。",
+      "tools": [
+        "gsc"
+      ],
+      "auto": false
+    },
+    {
+      "id": "content-syndication-canonical",
+      "cat": "content",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "转载到 Dev.to、Hashnode、Medium 等平台：等原文收录后再发，并设置 canonical 指回原文",
+      "why": "转载能带来曝光和外链，但处理不好，高权重平台上的副本会抢走原文的排名。",
+      "checkAgainst": [
+        "原文在 GSC 网址检查中显示「网址在 Google 上」之后才转载",
+        "支持 canonical 的平台都设置指回原文：Dev.to（front matter 的 canonical_url）、Hashnode（Are you republishing 选项）、Medium（用 Import a story 导入会自动设置）",
+        "不支持 canonical 的平台只发前约 70%，文末放「阅读全文」链接回原站",
+        "每个平台链接的 rel 属性以页面源码实测为准并记入外链表（Medium、掘金、V2EX、知乎为 nofollow）"
+      ],
+      "how": "发布后 view-source 搜索 rel=\"canonical\"，确认指向原文 URL。",
+      "tools": [
+        "devto",
+        "hashnode",
+        "medium",
+        "substack",
+        "gsc"
+      ],
+      "auto": false
+    },
+    {
+      "id": "content-pitfalls-troubleshooting",
+      "cat": "content",
+      "phase": "grow",
+      "priority": "P2",
+      "title": "每个核心主题写一篇「常见误区 / 踩坑 / 排错」，问题来自真实用户",
+      "why": "误区和排错类内容需求稳定、细节多，最能体现经验，也最常被 AI 回答引用。",
+      "checkAgainst": [
+        "每个核心主题至少 1 篇：常见错误、为什么不起作用、怎么修",
+        "问题来自真实来源：客服邮件、评论区、Reddit / 知乎讨论、GSC 查询；每月至少新增 1 个",
+        "每个问题按「结论 → 原因 → 修复步骤」写"
+      ],
+      "how": "把客服和评论里的问题截图收进素材库，按主题打标签，每月挑出现次数最多的写。",
+      "tools": [
+        "reddit",
+        "zhihu",
+        "gsc"
+      ],
+      "auto": false
+    },
+    {
+      "id": "content-refresh-quarterly",
+      "cat": "content",
+      "phase": "maintain",
+      "priority": "P1",
+      "title": "每季度刷新内容：点击下滑的页面更新，长期无流量的薄页面合并",
+      "why": "过时的数字、截图和年份会降低点击率和可信度；大量长期没流量的薄页面会拉低整站的质量判断。",
+      "checkAgainst": [
+        "GSC 对比最近 3 个月与前 3 个月：点击下降 > 20% 的页面全部进入刷新清单（经验阈值）",
+        "刷新内容包括：数据、截图、年份、失效链接，以及 GSC 中出现的新查询；有实质修改才更新 dateModified 和页面上的「更新于」日期",
+        "12 个月内 0 点击且无外链的薄页面：合并到相关页面并 301，或补充改进；有外链的页面不直接删除"
+      ],
+      "how": "GSC → 效果 → 日期 → 比较 → 网页标签，按点击差值排序；Ahrefs Webmaster Tools 查看哪些页面有外链。",
+      "tools": [
+        "gsc",
+        "ahrefs-awt"
+      ],
+      "auto": false
+    },
+    {
+      "id": "serp-structured-data",
+      "cat": "serp",
+      "phase": "build",
+      "priority": "P0",
+      "title": "JSON-LD 结构化数据合法且与页面内容一致",
+      "why": "结构化数据决定是否有资格出现富结果，也帮助 AI 理解实体。",
+      "checkAgainst": [
+        "每个可索引页面都有能解析的 JSON-LD",
+        "类型匹配页面：工具用 WebApplication / SoftwareApplication，文章用 Article，商品用 Product",
+        "Rich Results Test 无错误",
+        "不编造评分 / 评论（aggregateRating 必须来自真实评价）"
+      ],
+      "how": "auditor 检查 JSON 能否解析；Rich Results Test 和 Schema Validator 检查规范。",
+      "tools": [
+        "auditor",
+        "richresults",
+        "schemavalidator"
+      ],
+      "auto": true
+    },
+    {
+      "id": "serp-breadcrumbs",
+      "cat": "serp",
+      "phase": "build",
+      "priority": "P1",
+      "title": "BreadcrumbList 面包屑",
+      "why": "搜索结果里显示路径而不是长 URL，层级更清楚。",
+      "checkAgainst": [
+        "页面有可见的面包屑导航",
+        "有对应的 BreadcrumbList JSON-LD，item 用绝对 URL"
+      ],
+      "how": "Rich Results Test。",
+      "tools": [
+        "auditor",
+        "richresults"
+      ],
+      "auto": true
+    },
+    {
+      "id": "serp-entity-schema",
+      "cat": "serp",
+      "phase": "build",
+      "priority": "P1",
+      "title": "Organization + WebSite 实体（站点名、logo、sameAs）",
+      "why": "Google 用它决定结果里显示的站点名称和 logo，也是知识图谱和 AI 识别品牌实体的基础。",
+      "checkAgainst": [
+        "首页有 Organization（name、url、logo、sameAs 指向社交账号）",
+        "首页有 WebSite（name = 你希望显示的站点名）"
+      ],
+      "how": "Rich Results Test；几周后在搜索结果中确认站点名。",
+      "tools": [
+        "auditor",
+        "richresults"
+      ],
+      "auto": true
+    },
+    {
+      "id": "serp-rich-results-eligibility",
+      "cat": "serp",
+      "phase": "build",
+      "priority": "P1",
+      "title": "只为仍然有效的富结果类型投入，不再为 FAQ / HowTo 富结果花时间",
+      "why": "FAQ 富结果自 2023 年 8 月起只对政府和医疗权威站显示，HowTo 富结果已经下线，2025 年 Google 又停用了一批类型（如 Course Info、Claim Review、Estimated Salary）。",
+      "checkAgainst": [
+        "优先实现：Organization / WebSite（站点名、logo）、BreadcrumbList、Article、Product 或 SoftwareApplication（价格与页面一致）、VideoObject",
+        "FAQPage 可以保留（帮助 AI 理解问答），但不期待 FAQ 富结果；不为富结果新增 HowTo 标记",
+        "SoftwareApplication 只有在有真实评分时才写 aggregateRating，没有就不写",
+        "所用类型都能在 Google 搜索中心「结构化数据搜索结果库」文档中找到"
+      ],
+      "how": "查阅 developers.google.com/search/docs/appearance/structured-data/search-gallery；Rich Results Test 只会报告当前支持的类型。",
+      "tools": [
+        "richresults",
+        "schemavalidator"
+      ],
+      "auto": false
+    },
+    {
+      "id": "serp-image-video",
+      "cat": "serp",
+      "phase": "build",
+      "priority": "P2",
+      "title": "争取图片和视频结果：原创图片 + 嵌入页面的演示视频（VideoObject）",
+      "why": "图片和视频结果是额外的流量入口，对设计类、工具类产品尤其明显。",
+      "checkAgainst": [
+        "关键图片原创；以图片为主的网站提供图片 sitemap（image:image）",
+        "每个核心落地页嵌入 1 个演示视频，放在页面主体位置而不是藏在页脚",
+        "VideoObject 包含 name、description、thumbnailUrl、uploadDate、duration；YouTube 视频加章节",
+        "GSC「视频网页」报告中有已编入索引的视频页"
+      ],
+      "how": "Rich Results Test 验证 VideoObject；GSC → 视频网页 查看未编入索引的原因。",
+      "tools": [
+        "youtube",
+        "richresults",
+        "gsc"
+      ],
+      "auto": false
+    },
+    {
+      "id": "serp-brand-serp",
+      "cat": "serp",
+      "phase": "grow",
+      "priority": "P2",
+      "title": "品牌词搜索结果第一页尽量都是你自己的资产",
+      "why": "搜索品牌名的人意向最高；第一页被官网和自己的账号占满，能提高信任，也挡住仿冒和过时信息。",
+      "checkAgainst": [
+        "搜索品牌名，第一页 ≥ 5 个结果属于你：官网、X、GitHub、LinkedIn、YouTube、Product Hunt、Crunchbase 等",
+        "这些资料页的名称、简介、logo 一致并链接回官网，与 Organization 的 sameAs 列表一致",
+        "前 3 名没有仿冒站或过期信息"
+      ],
+      "how": "无痕窗口搜索品牌名，以及「品牌名 review」「品牌名 pricing」；缺哪个资料页就补哪个。",
+      "tools": [
+        "google",
+        "x",
+        "github",
+        "linkedin",
+        "producthunt",
+        "crunchbase"
+      ],
+      "auto": false
+    },
+    {
+      "id": "serp-ctr-rewrite",
+      "cat": "serp",
+      "phase": "maintain",
+      "priority": "P1",
+      "title": "每月找出「排名不错但点击率低」的页面，改写标题和描述",
+      "why": "点击率决定同样的排名能拿到多少流量；标题与页面不匹配时 Google 还会自行改写。",
+      "checkAgainst": [
+        "GSC 中平均排名 ≤ 5、展示 ≥ 500、CTR < 3% 的页面进入改写清单（经验阈值；有 AI 概览的查询整体 CTR 会更低）",
+        "搜索目标词看实际展示：标题被改写的，调整 title 与 H1 保持一致、去掉冗长的品牌后缀",
+        "新标题用已验证的写法：数字 + 结果、年份、括号补充（如「（含实战案例）」），主关键词靠前",
+        "每次改写记录日期，4 周后对比 CTR"
+      ],
+      "how": "GSC → 效果 → 勾选 CTR 和平均排名 → 网页标签，按展示排序；改写记录写在关键词表里。",
+      "tools": [
+        "gsc",
+        "google"
+      ],
+      "auto": false
+    },
+    {
+      "id": "serp-enhancements-monitor",
+      "cat": "serp",
+      "phase": "maintain",
+      "priority": "P2",
+      "title": "每月检查 GSC 增强功能报告，结构化数据错误保持为 0",
+      "why": "模板改版常会悄悄破坏结构化数据；不会有人通知你，富结果只是默默消失。",
+      "checkAgainst": [
+        "GSC 中面包屑、商品摘要、视频、无法解析的结构化数据等报告的「无效」项 = 0",
+        "每次模板改动上线后，抽 3 个页面用 Rich Results Test 复测"
+      ],
+      "how": "GSC 左侧栏下半部分的「购物」「增强功能」逐个打开；修复后点击「验证修正」。",
+      "tools": [
+        "gsc",
+        "richresults"
+      ],
+      "auto": false
+    },
+    {
+      "id": "geo-answer-first",
+      "cat": "geo",
+      "phase": "build",
+      "priority": "P0",
+      "title": "答案先行：H1 后第一段直接给出定义 / 结论",
+      "why": "AI 搜索和精选摘要都偏好引用简短、自成一体的答案段落。",
+      "checkAgainst": [
+        "H1 后第一段 ≤80 词，直接回答核心问题（公式、定义、结论）",
+        "每个 H2 下第一句也能单独成立"
+      ],
+      "how": "auditor 启发式检测；把页面丢给 ChatGPT / Perplexity 问目标问题，看是否引用。",
+      "tools": [
+        "auditor",
+        "chatgpt",
+        "perplexity"
+      ],
+      "auto": true
+    },
+    {
+      "id": "geo-faq-blocks",
+      "cat": "geo",
+      "phase": "build",
+      "priority": "P1",
+      "title": "FAQ / 问答式小标题",
+      "why": "用户会把问题原话问给 AI；问答格式最容易被摘取。注意：Google 的 FAQ 富结果自 2023 年起只给政府和医疗类权威站点显示。",
+      "checkAgainst": [
+        "≥3 个用问句写的小标题，或 FAQPage 结构化数据",
+        "问题来自真实搜索：People Also Ask、Reddit、AnswerThePublic"
+      ],
+      "how": "auditor。",
+      "tools": [
+        "auditor"
+      ],
+      "auto": true
+    },
+    {
+      "id": "geo-ai-crawlers",
+      "cat": "geo",
+      "phase": "build",
+      "priority": "P1",
+      "title": "robots.txt 没有屏蔽 AI 搜索爬虫",
+      "why": "想被 ChatGPT 搜索 / Perplexity / Claude 引用，就不能屏蔽 OAI-SearchBot、PerplexityBot、Claude-SearchBot。训练爬虫（GPTBot、Google-Extended）是否放行可以单独决定。",
+      "checkAgainst": [
+        "没有 Disallow 掉 OAI-SearchBot、ChatGPT-User、PerplexityBot、ClaudeBot / Claude-SearchBot",
+        "Cloudflare 的 \"Block AI bots\" 开关和 robots 策略一致"
+      ],
+      "how": "查看 robots.txt；Cloudflare → Security → Bots。",
+      "tools": [
+        "auditor",
+        "cloudflare"
+      ],
+      "auto": true
+    },
+    {
+      "id": "geo-knowledge-units",
+      "cat": "geo",
+      "phase": "build",
+      "priority": "P1",
+      "title": "核心页面覆盖五类知识单元：是什么、为什么、怎么用、和谁比、常见错误",
+      "why": "生成式引擎按问题检索段落再拼成答案；解释原因和用法的结构化内容最容易被拆成可复用的知识单元。",
+      "checkAgainst": [
+        "每个核心页面的 H2 / H3 大纲能对应到：定义、原理或原因、使用步骤、对比、常见错误或局限",
+        "对比信息用 HTML 表格，步骤用有序列表，定义用一句话单独成段",
+        "内容围绕真实问题组织，而不是围绕关键词堆段落"
+      ],
+      "how": "用 HeadingsMap 插件导出大纲对照检查；把页面 URL 发给 ChatGPT 或 Perplexity，问「根据这个页面，X 和 Y 有什么区别」，看能否准确摘出答案。",
+      "tools": [
+        "chatgpt",
+        "perplexity"
+      ],
+      "auto": false
+    },
+    {
+      "id": "geo-llms-txt",
+      "cat": "geo",
+      "phase": "build",
+      "priority": "P2",
+      "title": "根目录提供 /llms.txt",
+      "why": "给大模型的站点摘要和关键页面索引；成本很低，各家支持程度不一。",
+      "checkAgainst": [
+        "/llms.txt 返回 200，Markdown 格式",
+        "包含 # 站点名、> 一句话简介、关键事实、## Pages 链接列表"
+      ],
+      "how": "浏览器打开 /llms.txt。",
+      "tools": [
+        "auditor",
+        "llmstxt"
+      ],
+      "auto": true
+    },
+    {
+      "id": "geo-bing-index",
+      "cat": "geo",
+      "phase": "launch",
+      "priority": "P0",
+      "title": "确认核心页面已被 Bing 收录：ChatGPT 搜索和 Copilot 都依赖它",
+      "why": "ChatGPT 搜索结合了 Bing 等第三方索引和自家爬虫，Copilot 直接使用 Bing；Bing 里没有你，这些 AI 就很难找到你。",
+      "checkAgainst": [
+        "Bing Webmaster → URL Inspection：首页和全部核心页面显示已收录",
+        "上线 2 周内在 bing.com 搜索 site:域名 有结果；未收录的页面用 IndexNow 或 Submit URL 推送",
+        "Bing Webmaster 中没有抓取错误或被阻止的核心 URL"
+      ],
+      "how": "Bing Webmaster Tools → URL Inspection / Site Explorer；配合 IndexNow 条目一起做。",
+      "tools": [
+        "bing",
+        "indexnow",
+        "chatgpt",
+        "copilot"
+      ],
+      "auto": false
+    },
+    {
+      "id": "geo-bot-access-logs",
+      "cat": "geo",
+      "phase": "launch",
+      "priority": "P1",
+      "title": "从日志确认 AI 爬虫真的抓到了页面，而不只是 robots.txt 放行",
+      "why": "robots.txt 放行了，WAF、Bot Fight Mode 或 Cloudflare 的 AI 爬虫屏蔽设置仍可能返回 403；2025 年起 Cloudflare 会让新接入的域名默认屏蔽 AI 爬虫。",
+      "checkAgainst": [
+        "Cloudflare AI Crawl Control（原 AI Audit）或服务器日志中，OAI-SearchBot、ChatGPT-User、PerplexityBot、Claude-SearchBot 的请求返回 200",
+        "这些 User-Agent 在 Security → Events 中没有被 Block 或 Challenge 的记录",
+        "训练类爬虫（GPTBot、ClaudeBot、Google-Extended、CCBot）是否放行已明确决定，并记录理由"
+      ],
+      "how": "Cloudflare 后台按 User-Agent 筛选；不用 Cloudflare 时 grep 访问日志，例如 grep -E 'OAI-SearchBot|PerplexityBot|Claude-SearchBot' access.log，再统计状态码。",
+      "tools": [
+        "cloudflare"
+      ],
+      "auto": false
+    },
+    {
+      "id": "geo-community-presence",
+      "cat": "geo",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "在 Reddit、Hacker News、知乎、V2EX、贴吧等讨论区长期真实参与",
+      "why": "多轮问答式的真实讨论是大模型高度依赖的语料；Reddit 帖子在 Google 和 AI 回答里都经常被引用。",
+      "checkAgainst": [
+        "每月 ≥ 4 次有实质内容的回答（解释原因、给出步骤），不是丢一个链接",
+        "只在问题确实相关时提到自己的产品，并说明你是开发者",
+        "记录获赞或被追问的帖子链接，观察它们是否出现在 AI 测试问题的引用来源里"
+      ],
+      "how": "用 F5Bot 订阅品类关键词在 Reddit / Hacker News 上的新帖提醒；中文社区用站内搜索关注相关话题。",
+      "tools": [
+        "reddit",
+        "hackernews",
+        "zhihu",
+        "v2ex",
+        "f5bot"
+      ],
+      "auto": false
+    },
+    {
+      "id": "geo-entity-consistency",
+      "cat": "geo",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "品牌在全网的描述一致：名字、一句话定位、品类、价格、创始人",
+      "why": "AI 通过多个来源交叉确认「这个品牌是什么」；各处说法不一致，模型就不敢把你和品类关联起来。",
+      "checkAgainst": [
+        "有一份品牌事实卡：品牌名（固定写法）、一句话定位（≤ 20 词）、所属品类、定价、创始人、上线年份、官网",
+        "官网 About 页、导航站、Product Hunt、X / LinkedIn / GitHub 简介、Crunchbase 都使用事实卡上的说法",
+        "抽查 5 个第三方页面，描述与事实卡一致；过时描述已联系对方更新",
+        "不为了 GEO 去创建不符合收录标准的维基百科词条"
+      ],
+      "how": "搜索「品牌名」「品牌名 是什么」「what is 品牌名」，逐个核对第三方描述。",
+      "tools": [
+        "crunchbase",
+        "linkedin",
+        "producthunt",
+        "google"
+      ],
+      "auto": false
+    },
+    {
+      "id": "geo-original-stats",
+      "cat": "geo",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "发布可被引用的原创数据：每个数字都有方法、样本和日期",
+      "why": "AI 回答和记者都偏爱带具体数字的来源，原创数据是最容易获得引用和外链的内容。",
+      "checkAgainst": [
+        "至少 1 份原创数据：用户调研、产品使用统计、基准测试或价格对比",
+        "每个关键数字写成一句可以单独引用的完整句子（如「在 1,200 次测试中，X 的平均耗时为 3.2 秒（2026 年 3 月）」）",
+        "写明方法、样本量、时间范围，提供可下载的原始数据或图表",
+        "数据每年更新一次，页面显示更新日期"
+      ],
+      "how": "从产品后台匿名聚合数据；数据页单独一个 URL，标题含「报告 / 统计 / 基准」和年份。",
+      "tools": [
+        "gsc",
+        "ahrefs-awt"
+      ],
+      "auto": false
+    },
+    {
+      "id": "geo-third-party-lists",
+      "cat": "geo",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "争取进入 AI 经常引用的第三方榜单和评测页",
+      "why": "AI 回答「最好的 X 工具」时大量引用 best-of 清单、评测站和对比文章；你不在这些页面上，就很难被推荐。",
+      "checkAgainst": [
+        "列出测试问题中 AI 引用的前 10 个第三方来源（清单文章、G2、AlternativeTo、SaaSHub、Reddit 帖子等）",
+        "每个来源都有对应动作：提交收录、联系作者申请加入、完善 AlternativeTo / SaaSHub 资料",
+        "3 个月内至少进入其中 3 个"
+      ],
+      "how": "Perplexity 的回答会直接列出引用来源；给清单作者发邮件时附上试用账号和一段可直接引用的描述。",
+      "tools": [
+        "perplexity",
+        "g2",
+        "alternativeto",
+        "saashub"
+      ],
+      "auto": false
+    },
+    {
+      "id": "geo-prompt-test",
+      "cat": "geo",
+      "phase": "maintain",
+      "priority": "P0",
+      "title": "每月用固定问题清单测试 AI 搜索：有没有提到你、有没有引用你",
+      "why": "GEO 衡量的不是排名而是「被采纳的概率」；不定期测试，就不知道自己有没有进入模型的证据池。",
+      "checkAgainst": [
+        "固定 10–20 个测试问题：品类问题（best X tool）、对比（X vs Y、X alternatives）、任务问题（how to do Y）、品牌问题（what is 品牌名）",
+        "每月在 ChatGPT（开启搜索）、Perplexity、Gemini、Claude、Copilot、Google AI 概览 / AI Mode 各跑一遍",
+        "记录：是否提到品牌、是否带你的链接、排第几、引用了哪些第三方来源、推荐了哪些竞品",
+        "3 个月内「被提到」的问题数上升；引用竞品的来源（榜单、Reddit 帖子、评测）加入外联计划"
+      ],
+      "how": "在退出登录或无痕状态下测试以减少个性化影响；结果记在表格里按月对比。",
+      "tools": [
+        "chatgpt",
+        "perplexity",
+        "gemini",
+        "claude",
+        "copilot"
+      ],
+      "auto": false
+    },
+    {
+      "id": "bl-no-link-schemes",
+      "cat": "backlinks",
+      "phase": "plan",
+      "priority": "P0",
+      "title": "不买外链套餐、不做 PBN、不批量交换友链",
+      "why": "Google 的链接垃圾政策会让操纵性链接失效甚至触发人工处置。笔记原话：放在 2015 年看起来合理的外链手法，到 2026 年大概率有毒。",
+      "checkAgainst": [
+        "没有购买「SEO 外链套餐」、PBN、站群链接、论坛签名和评论区外链",
+        "友链只与真正相关、有流量的站点小规模交换（个位数），不参与链接农场式互换",
+        "赞助或付费推广中的链接标 rel=\"sponsored\" 或 nofollow",
+        "GSC → 人工处置 显示「未检测到任何问题」；只有在出现人工处置或明显的负面 SEO 时才使用拒绝（disavow）工具"
+      ],
+      "how": "每月外链复盘时检查新增的可疑域名（外语垃圾站、同 IP 群站、锚文本全是关键词的站点）。",
+      "tools": [
+        "gsc",
+        "ahrefs-awt"
+      ],
+      "auto": false
+    },
+    {
+      "id": "bl-cold-start-window",
+      "cat": "backlinks",
+      "phase": "plan",
+      "priority": "P1",
+      "title": "拆竞品冷启动外链 ①：先确定它的冷启动时间窗口",
+      "why": "竞品上线后 0–30 天的 5–20 个链接和提及带来了第一波流量，其中很多已经消失、Ahrefs 也抓不全，所以要先锁定时间范围再搜索。",
+      "checkAgainst": [
+        "每个重点竞品记录 3 个日期：域名注册日（WHOIS）、Wayback 最早快照日期、Product Hunt / BetaList 发布日",
+        "冷启动窗口 = 最早日期起 0–30 天（或 0–60 天）",
+        "打开最早 2–3 个 Wayback 快照，记录首页、页脚、About 中的「Featured on」「As seen on」徽章和媒体 logo"
+      ],
+      "how": "lookup.icann.org 查注册日期；web.archive.org/web/*/竞品域名 查看最早快照；搜索 site:producthunt.com \"竞品名\"。",
+      "tools": [
+        "icann-lookup",
+        "wayback",
+        "producthunt",
+        "betalist"
+      ],
+      "auto": false
+    },
+    {
+      "id": "bl-cold-start-search",
+      "cat": "backlinks",
+      "phase": "plan",
+      "priority": "P1",
+      "title": "拆竞品冷启动外链 ②：用限时搜索找链接、提及和二次传播，整理成路径",
+      "why": "冷启动期的信号大约是「直接外链 : 带网址的提及 : 只提名字」= 2 : 4 : 4，只用外链工具会漏掉大部分。",
+      "checkAgainst": [
+        "Google 搜索 \"competitor.com\" -site:competitor.com，工具 → 时间 → 自定义为冷启动窗口，人工剔除聚合站、镜像站、WHOIS 缓存页",
+        "同样限定时间搜 \"产品名\"、\"产品名\" AI、\"产品名\" tool，找没有链接的提及",
+        "搜 site:producthunt.com | site:reddit.com | site:news.ycombinator.com | site:indiehackers.com | site:betalist.com \"产品名\"，找原帖和转述它的博客 / 榜单",
+        "相同查询在 Bing、DuckDuckGo 再跑一遍（通常能多找到 10–20%），最后才用 Ahrefs / Semrush 补充验证",
+        "整理成路径表（链接类型 | 来源平台 | 第几天 | 作用），≥ 5 条覆盖第 0–30 天，并改写成自己的发布计划"
+      ],
+      "how": "满足以下 ≥ 2 条即为核心冷启动链接：30 天内出现、明显是人写的、首次系统介绍该产品、带主观评价、之后被他人引用。典型路径：Day 1 社区发布 → Day 7 博客评测 → Day 14 导航站 / 推荐清单。",
+      "tools": [
+        "google",
+        "bing",
+        "duckduckgo",
+        "ahrefs",
+        "semrush"
+      ],
+      "auto": false
+    },
+    {
+      "id": "bl-tracker-sheet",
+      "cat": "backlinks",
+      "phase": "launch",
+      "priority": "P0",
+      "title": "建一张外链追踪表，所有提交和获得的链接都登记",
+      "why": "外链工作非常零碎，没有表格就会重复提交、忘记复查，也算不清投入产出。",
+      "checkAgainst": [
+        "列：站点、提交页 URL、DR、rel（dofollow / nofollow）、对方自然流量、价格、状态、提交日期、上线日期、上线链接、带来的访问",
+        "待提交清单由 2–3 个导航站合并去重而来（BacklinkDirs、Launchpointzero、1000UserGuide、91wink SEO 外链资源目录），同一域名只出现一次",
+        "每条「已上线」记录有复查日期，每季度复查一次链接是否还在"
+      ],
+      "how": "Google Sheets 或飞书多维表格；DR 用 Ahrefs 免费 Website Authority Checker 查，rel 在上线页面用 DevTools 检查链接属性。",
+      "tools": [
+        "backlinkdirs",
+        "ahrefs"
+      ],
+      "auto": false
+    },
+    {
+      "id": "bl-link-vetting",
+      "cat": "backlinks",
+      "phase": "launch",
+      "priority": "P0",
+      "title": "每个外链机会先过 4 道门：DR、相关性、真实流量、dofollow",
+      "why": "一个 DR 70 却没有流量的链接农场，价值可能不如一个 DR 25 的同领域博客；只看 DR 很容易花冤枉钱。",
+      "checkAgainst": [
+        "DR / Authority Score 记录在表（作为参考，不是唯一标准）",
+        "主题相关或受众相关：同领域站点、同类工具导航",
+        "有真实自然流量：Ahrefs / Similarweb 估算 > 0 且近 6 个月没有断崖下跌；流量接近 0 的高 DR 站直接拒绝",
+        "链接位于正文或产品详情中，而不是页脚、侧边栏、签名；rel 属性已实测记录"
+      ],
+      "how": "在 Ahrefs Site Explorer 或 Similarweb 输入对方域名看流量曲线；打开对方已上线的同类页面，查看链接位置和 rel。",
+      "tools": [
+        "ahrefs",
+        "similarweb",
+        "semrush"
+      ],
+      "auto": false
+    },
+    {
+      "id": "bl-free-directories",
+      "cat": "backlinks",
+      "phase": "launch",
+      "priority": "P1",
+      "title": "上线第 1 个月：完成一轮免费目录和产品资料站提交，每个站描述不同",
+      "why": "目录的作用是让搜索引擎知道你存在、把你归入正确的品类，同时带来第一批来源多样的引用域名。",
+      "checkAgainst": [
+        "第 1 个月提交 ≥ 30 个免费目录 / 资料站，其中 ≥ 10 个为 dofollow 且 DR ≥ 50",
+        "必做：AlternativeTo、SaaSHub、Peerlist、StackShare（开发者工具）、相关的 GitHub Awesome 列表（如适用）",
+        "每个站的描述手写或改写，不复制同一段模板；分类选对",
+        "4–8 周后在 GSC → 链接 或 Ahrefs Webmaster Tools 中能看到其中大部分"
+      ],
+      "how": "按追踪表顺序提交，DR 高的优先；记录每个站的审核时间。",
+      "tools": [
+        "alternativeto",
+        "saashub",
+        "peerlist",
+        "stackshare",
+        "github",
+        "ahrefs-awt"
+      ],
+      "auto": false
+    },
+    {
+      "id": "bl-anchor-mix",
+      "cat": "backlinks",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "锚文本以品牌名和网址为主，精确匹配关键词只占少数",
+      "why": "大量精确匹配锚文本是典型的操纵信号；自然链接通常用品牌名、网址或「这个工具」之类的说法。",
+      "checkAgainst": [
+        "品牌词 + 裸 URL + 泛称（this tool、官网）合计 ≥ 70%（经验值）",
+        "精确匹配关键词锚文本 ≤ 10%（经验值）；不要求合作方必须使用指定的关键词锚文本",
+        "每月在 Anchors 报告中复查一次"
+      ],
+      "how": "Ahrefs Webmaster Tools（验证自己的站后免费）→ Backlinks → Anchors；或 Semrush Backlink Analytics → Anchors。",
+      "tools": [
+        "ahrefs-awt",
+        "semrush"
+      ],
+      "auto": false
+    },
+    {
+      "id": "bl-diversity-velocity",
+      "cat": "backlinks",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "外链来源多样、增长自然：盯引用域名数，而不是外链总数",
+      "why": "DR 是结果，引用域名（RD）是过程；同一域名的重复链接收益递减，突然暴涨的链接会显得异常。",
+      "checkAgainst": [
+        "来源类型分布：目录、社区、发布平台、博客 / 文章、媒体，没有一类占比 > 50%",
+        "优先获取新的引用域名，而不是同一站点的更多链接",
+        "RD 增长曲线没有无法解释的陡增（例如一周内突然多出几百个低质量域名）",
+        "DR 里程碑 10 → 20 → 30–40；独立开发者做到 DR 20–40 已经很有竞争力，不把 DR 当成 KPI"
+      ],
+      "how": "Ahrefs → Referring domains 图表；FrogDR 免费监控 3 个站的 DR，每月记录一次。",
+      "tools": [
+        "ahrefs",
+        "ahrefs-awt",
+        "frogdr"
+      ],
+      "auto": false
+    },
+    {
+      "id": "bl-guest-posts-interviews",
+      "cat": "backlinks",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "每月争取 1 个编辑型链接：客座文章、访谈、播客或合作案例",
+      "why": "在相关网站正文中被介绍，是质量最高、最难被模仿的外链，还能带来精准访问。",
+      "checkAgainst": [
+        "每月至少 1 次投稿、访谈、播客嘉宾或合作案例，目标站点通过 4 道门审核",
+        "内容为对方读者而写（经验、数据、教程），链接自然出现在正文中",
+        "不为「付费客座文章」付钱换 dofollow；存在赞助关系的链接应标 rel=\"sponsored\""
+      ],
+      "how": "搜索「领域词 + write for us / guest post / submit a story」；Indie Hackers、独立开发播客和 newsletter 都接受创始人访谈。",
+      "tools": [
+        "indiehackers",
+        "google"
+      ],
+      "auto": false
+    },
+    {
+      "id": "bl-competitor-gap",
+      "cat": "backlinks",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "对比竞品外链，找出「它有、你也拿得到」的来源",
+      "why": "竞品的目录、发布平台和评测文章大多可以复制，这是最快的外链来源清单。",
+      "checkAgainst": [
+        "至少 3 个竞品的引用域名清单已导出",
+        "筛出「链接了 ≥ 2 个竞品但没链接你」的域名，标注获取方式（提交、投稿、联系作者）",
+        "每月从中完成 ≥ 5 个"
+      ],
+      "how": "Ahrefs → Link Intersect；没有付费工具时，用 Semrush 免费额度、Moz Link Explorer、Seobility 等免费外链查询分别导出后合并。",
+      "tools": [
+        "ahrefs",
+        "semrush",
+        "moz"
+      ],
+      "auto": false
+    },
+    {
+      "id": "bl-paid-directories",
+      "cat": "backlinks",
+      "phase": "grow",
+      "priority": "P2",
+      "title": "付费目录只买性价比高、有真实流量的，并设定预算上限",
+      "why": "$10–30 就能拿到 DR 70+ 的收录，性价比远高于 $299–599 的大站；但付费换 dofollow 链接属于灰色地带，只少量使用，不要规模化购买。",
+      "checkAgainst": [
+        "首轮预算上限约 $100，优先 ≤ $30 且 DR ≥ 70 的选项（笔记价格：Turbo0 76/$16.9、Toolfame 70/$9.9、Aistage 73/$9.9、Magicbox 72/$15.9、Startupfa.me 82/$19、Dang.ai 80/$29、Uneed 73/$29.99，以当时报价为准）",
+        "付款前确认：目录本身有自然流量、有人工审核；不为「dofollow 升级」额外付费",
+        "外包代提交服务（Submitdirs、SubmitAI 等）要求交付上线链接清单，并抽查 ≥ 20% 确认真实存在且链向你",
+        "追踪表中计算每美元带来的 DR 变化和访问量"
+      ],
+      "how": "先用 Similarweb / Ahrefs 看目录的流量，再付款；上线后检查链接 rel 属性。",
+      "tools": [
+        "uneed",
+        "toolify",
+        "theresanaiforthat",
+        "similarweb",
+        "ahrefs"
+      ],
+      "auto": false
+    },
+    {
+      "id": "bl-journalist-requests",
+      "cat": "backlinks",
+      "phase": "grow",
+      "priority": "P2",
+      "title": "回复记者和作者的专家征集（HARO 类平台），用数据和经验换引用",
+      "why": "媒体引用带来高权威链接和品牌提及；个人开发者凭真实经验和数据同样能拿到。",
+      "checkAgainst": [
+        "注册 Qwoted、Featured 等平台，设置与自己领域相关的关键词提醒",
+        "每周至少回复 3 条相关征集；每条在几小时内回复、≤ 150 词、包含 1 个具体数据或经验",
+        "记录回复数和被引用数，被引用的文章加入外链追踪表"
+      ],
+      "how": "回复结构：一句话身份 + 直接回答问题 + 一个数据或例子 + 署名和链接；不要群发同一段话。",
+      "tools": [
+        "qwoted",
+        "featured"
+      ],
+      "auto": false
+    },
+    {
+      "id": "bl-broken-link-outreach",
+      "cat": "backlinks",
+      "phase": "grow",
+      "priority": "P2",
+      "title": "断链建设：找到同领域失效的资源页，提供你的替代内容",
+      "why": "帮对方修复死链，是少数对方有动力配合的外联方式，成功率高于直接求链接。",
+      "checkAgainst": [
+        "每月找出 ≥ 10 个同领域失效资源（被多个站点链接的 404 页面）",
+        "已有同主题且质量更好的替代内容后才发邮件",
+        "用域名邮箱发送，邮件中指出死链的具体位置；每个联系人最多跟进 1 次",
+        "记录发送数、回复数、成功数"
+      ],
+      "how": "Ahrefs → Site Explorer → 同领域站点 → Best by links，筛选 404；或用 Check My Links 浏览器插件检查资源汇总页。",
+      "tools": [
+        "ahrefs",
+        "google"
+      ],
+      "auto": false
+    },
+    {
+      "id": "bl-unlinked-mentions",
+      "cat": "backlinks",
+      "phase": "grow",
+      "priority": "P2",
+      "title": "监控品牌提及，把「提到了但没加链接」的变成链接",
+      "why": "已经提到你的作者最容易同意加链接；提及本身也是品牌和 GEO 信号。",
+      "checkAgainst": [
+        "提醒已设置：Google Alerts（品牌名、创始人名）、F5Bot（Reddit / Hacker News）",
+        "每月搜一次 \"品牌名\" -site:你的域名，记录新出现的提及",
+        "对没有链接的提及礼貌请求加链接（附准确网址和一句描述），记录结果"
+      ],
+      "how": "google.com/alerts 新建提醒；f5bot.com 添加关键词。",
+      "tools": [
+        "google-alerts",
+        "f5bot",
+        "google"
+      ],
+      "auto": false
+    },
+    {
+      "id": "bl-monthly-review",
+      "cat": "backlinks",
+      "phase": "maintain",
+      "priority": "P1",
+      "title": "每月外链复盘：引用域名、新增 / 丢失、DR、外链带来的访问",
+      "why": "外链是持续性工作；不复盘就不知道哪些渠道有效、哪些重要链接已经消失。",
+      "checkAgainst": [
+        "记录：引用域名数、本月新增 / 丢失、DR、来自外链的引荐访问和注册",
+        "上线 90 天后仍为 0 点击的外链来源类型降低优先级，精力放到带来访问和注册的渠道",
+        "丢失的重要链接（DR ≥ 50 或有访问）已联系对方恢复"
+      ],
+      "how": "Ahrefs Webmaster Tools（免费）→ Backlinks → New / Lost；GSC → 链接；GA4 → 流量获取 → 会话来源 / 媒介。",
+      "tools": [
+        "ahrefs-awt",
+        "gsc",
+        "ga4",
+        "frogdr"
+      ],
+      "auto": false
+    },
+    {
+      "id": "analytics-installed",
+      "cat": "analytics",
+      "phase": "launch",
+      "priority": "P0",
+      "title": "安装网站统计（GA4 / Plausible / Umami / Clarity）",
+      "why": "没有数据就不知道流量从哪来、哪个页面转化。",
+      "checkAgainst": [
+        "每个页面都加载统计脚本",
+        "关键转化（注册、付费、点击 CTA）配置为事件",
+        "Clarity 热图 / 录屏用于看用户行为",
+        "符合隐私要求（需要时加 Cookie 同意）"
+      ],
+      "how": "打开页面后在统计后台看实时访客。auditor 只能检测脚本是否存在，账号需要你自己配置。",
+      "tools": [
+        "ga4",
+        "plausible",
+        "umami",
+        "clarity"
+      ],
+      "auto": true
+    },
+    {
+      "id": "analytics-key-events-utm",
+      "cat": "analytics",
+      "phase": "launch",
+      "priority": "P0",
+      "title": "关键转化设为「关键事件」，所有对外链接统一 UTM 规则",
+      "why": "只有浏览量没有转化事件，就无法判断哪个渠道、哪个页面带来了真正的用户。",
+      "checkAgainst": [
+        "GA4 中 sign_up、核心操作（如 generate）、begin_checkout、purchase 已标为关键事件，DebugView 或实时报告中能看到测试事件",
+        "UTM 规则成文并全部小写：utm_source（x、reddit、producthunt…）、utm_medium（social、community、launch、email、referral）、utm_campaign",
+        "社交简介、发布平台、邮件、视频描述中的链接全部带 UTM"
+      ],
+      "how": "GA4 → 管理 → 事件 → 标记为关键事件；用 Google 的 Campaign URL Builder 生成链接并存进一张 UTM 表。",
+      "tools": [
+        "ga4",
+        "plausible",
+        "umami"
+      ],
+      "auto": false
+    },
+    {
+      "id": "analytics-ga4-config",
+      "cat": "analytics",
+      "phase": "launch",
+      "priority": "P1",
+      "title": "GA4 基础配置：数据保留 14 个月、排除内部流量、关联 GSC；中文站加百度统计",
+      "why": "GA4 默认只保留 2 个月的明细数据，等到需要做同比时数据已经没了；早期样本小，自己的访问会严重污染数据。",
+      "checkAgainst": [
+        "管理 → 数据设置 → 数据保留 = 14 个月",
+        "已定义内部流量（自己的 IP）并启用过滤；支付域名（如 checkout.stripe.com）加入「不需要的引荐」",
+        "GA4 已关联 Search Console，报告库中能看到 Search Console 集合",
+        "面向中文用户的站点同时安装百度统计"
+      ],
+      "how": "GA4 管理后台逐项设置；关联在 管理 → 产品关联 → Search Console；不需要的引荐在 数据流 → 配置代码设置 中。",
+      "tools": [
+        "ga4",
+        "gsc",
+        "baidu-tongji"
+      ],
+      "auto": false
+    },
+    {
+      "id": "analytics-ai-referrals",
+      "cat": "analytics",
+      "phase": "launch",
+      "priority": "P1",
+      "title": "单独统计 AI 助手带来的流量（ChatGPT、Perplexity、Gemini、Claude、Copilot）",
+      "why": "AI 搜索带来的访问在快速增长，但默认被混在 Referral 里，不拆出来就看不到 GEO 的效果。",
+      "checkAgainst": [
+        "GA4 自定义渠道组中有「AI 助手」渠道，来源匹配 chatgpt.com|perplexity.ai|gemini.google.com|copilot.microsoft.com|claude.ai",
+        "「AI 助手」渠道排在 Referral 之前",
+        "每月记录 AI 渠道的会话数、转化数和着陆页（ChatGPT 的引用链接通常带 utm_source=chatgpt.com）"
+      ],
+      "how": "GA4 → 管理 → 数据显示 → 渠道组 → 新建渠道组；Plausible / Umami 直接查看来源列表。",
+      "tools": [
+        "ga4",
+        "plausible",
+        "chatgpt",
+        "perplexity"
+      ],
+      "auto": false
+    },
+    {
+      "id": "analytics-rank-tracking",
+      "cat": "analytics",
+      "phase": "launch",
+      "priority": "P1",
+      "title": "为核心关键词建立排名跟踪，每周记录一次",
+      "why": "排名变化是最早的反馈信号；每次涨跌都有原因，记录下来才能复盘。",
+      "checkAgainst": [
+        "5 个核心词和主题集群目标词都在跟踪列表中",
+        "每周记录平均排名（GSC 按查询筛选），或使用 Semrush Position Tracking / Ahrefs Rank Tracker",
+        "同时跟踪 2–3 个竞品在这些词上的排名",
+        "排名变化超过 ±5 位时，在日志中记下可能原因（新内容、外链、算法更新）"
+      ],
+      "how": "GSC → 效果 → 查询 → 过滤「包含」核心词 → 导出；付费工具设置每周邮件报告。",
+      "tools": [
+        "gsc",
+        "semrush",
+        "ahrefs"
+      ],
+      "auto": false
+    },
+    {
+      "id": "analytics-retention-421",
+      "cat": "analytics",
+      "phase": "grow",
+      "priority": "P0",
+      "title": "先用留存和付费率验证产品，再放大流量（留存 4-2-1 原则）",
+      "why": "产品留不住人时，SEO 流量也积累不起来：跳出率高、停留时间短，排名最终会掉。先修产品，再买流量。",
+      "checkAgainst": [
+        "持续使用型产品：次日留存 ≥ 40%、7 日 ≥ 20%、30 日 ≥ 10%",
+        "一次性工具：看互动率、平均互动时长和直接访问占比（说明用户记住或收藏了网址）",
+        "付费率对比流量价值：月收入 ÷ 月自然访问 ≥ 核心词平均 CPC（例：CPC $0.5 × 每天 100 访问 = 每天 $50）",
+        "未达标前不启动付费推广和 KOL 合作"
+      ],
+      "how": "GA4 → 探索 → 同类群组探索（或 PostHog、Mixpanel 留存报告）；CPC 用 Keyword Planner 查询。",
+      "tools": [
+        "ga4",
+        "keywordplanner"
+      ],
+      "auto": false
+    },
+    {
+      "id": "analytics-branded-search",
+      "cat": "analytics",
+      "phase": "grow",
+      "priority": "P2",
+      "title": "每月拆分品牌词和非品牌词流量，把品牌搜索量当作权威度指标",
+      "why": "品牌词搜索量上升说明用户记住了你，这也是 E-E-A-T 中「权威」的外部信号。",
+      "checkAgainst": [
+        "GSC 用正则筛出品牌查询（含常见拼写错误），每月记录品牌展示和点击",
+        "品牌展示量连续 3 个月上升",
+        "非品牌点击单独统计，用于判断 SEO 内容本身的增长"
+      ],
+      "how": "GSC → 效果 → 查询 → 过滤器 → 自定义（正则表达式），例如 (?i)vexlora|vex lora；再选「不匹配正则表达式」查看非品牌查询。",
+      "tools": [
+        "gsc"
+      ],
+      "auto": false
+    },
+    {
+      "id": "analytics-weekly-check",
+      "cat": "analytics",
+      "phase": "maintain",
+      "priority": "P0",
+      "title": "每周 15 分钟例行检查：GSC、访问来源、转化",
+      "why": "问题发现得越早越好修；固定节奏能避免「三个月后才发现收录掉了」。",
+      "checkAgainst": [
+        "GSC：点击和展示的周环比，非节假日下降 > 20% 就排查；新收录的页面；人工处置和安全问题",
+        "统计工具：Top 5 访问来源的变化，新出现的引荐来源（新外链或社区帖子）",
+        "转化：注册数、付费数和转化率",
+        "结果写进周报表，一周一行"
+      ],
+      "how": "可以用 Looker Studio 把 GSC 和 GA4 做成一个看板；每周固定时间打开。",
+      "tools": [
+        "gsc",
+        "ga4",
+        "lookerstudio"
+      ],
+      "auto": false
+    },
+    {
+      "id": "launch-todolist-order",
+      "cat": "launch",
+      "phase": "plan",
+      "priority": "P0",
+      "title": "按顺序执行上线 TodoList：先基础和追踪，再渠道和内容，付费流量放最后",
+      "why": "顺序错了会浪费发布机会，例如统计还没装就上 Product Hunt，第一波流量无法归因；产品没验证就投广告则是在烧钱。",
+      "checkAgainst": [
+        "1–5 步全部完成后才对外发布：SEO 标签 → 页面结构 → GSC / GA4 / Bing → 域名邮箱 → 支付流程",
+        "6–9：宣传图文 → 选定 1 个主渠道 + 2 个辅助渠道 → 内容更新节奏 → Product Hunt / Hacker News 发布",
+        "10–19：外链 → 联盟计划 → 用户社群 → 按反馈迭代 → 长尾词新页面 → build in public → 产品视频 → 教程文章 → 访谈首个付费用户 → 调整定价",
+        "第 20 步：前面都完成后才开始付费投放"
+      ],
+      "how": "把 20 步复制到项目管理工具，完成一步记一个日期；发布前最后确认 1–5 步全部打勾。",
+      "tools": [
+        "gsc",
+        "ga4",
+        "bing",
+        "producthunt",
+        "hackernews"
+      ],
+      "auto": false
+    },
+    {
+      "id": "launch-betalist",
+      "cat": "launch",
+      "phase": "plan",
+      "priority": "P2",
+      "title": "内测阶段提交 BetaList，收集早期用户邮箱",
+      "why": "BetaList 面向尝鲜用户（月访问约 19 万），适合在正式发布前收集反馈和候补名单。",
+      "checkAgainst": [
+        "产品有可访问的落地页和候补名单 / 内测入口",
+        "提前 4–8 周提交（免费排队时间较长，赶时间再考虑付费加速）",
+        "记录 BetaList 带来的访问和邮箱注册数"
+      ],
+      "how": "betalist.com 提交创业项目；落地页放邮箱收集表单并接入邮件工具。",
+      "tools": [
+        "betalist"
+      ],
+      "auto": false
+    },
+    {
+      "id": "launch-kit",
+      "cat": "launch",
+      "phase": "launch",
+      "priority": "P0",
+      "title": "准备发布素材包：一句话标语、Logo、宣传图、演示视频、FAQ、联系方式",
+      "why": "各发布平台需要的素材大同小异；提前准备一次，发布周就能在几十个平台快速复用。",
+      "checkAgainst": [
+        "标语 ≤ 60 字符（Product Hunt tagline 上限）；短描述 ≤ 260 字符，另有一版长描述",
+        "方形 Logo 240×240（PNG / GIF）；约 5 张宣传图 1270×760；演示视频 ≤ 2 分钟，已上传 YouTube",
+        "亮点、目标用户、FAQ、使用指南、联系方式（域名邮箱）齐全",
+        "中英文各一版；提交到每个平台时在此基础上改写，不原样复制"
+      ],
+      "how": "放在一个共享文件夹里；宣传图用 Canva 的对应尺寸模板制作。",
+      "tools": [
+        "canva",
+        "producthunt",
+        "youtube"
+      ],
+      "auto": false
+    },
+    {
+      "id": "launch-producthunt",
+      "cat": "launch",
+      "phase": "launch",
+      "priority": "P0",
+      "title": "Product Hunt 发布：选好日期，准备 maker 首评，发布当天全程在线",
+      "why": "Product Hunt 是最大的英文产品发布平台（月访问约 300 万），能带来早期用户、反馈和高 DR 外链。",
+      "checkAgainst": [
+        "提前 ≥ 1 周用 maker 账号活跃（点赞、评论别人的产品）；可以自己 hunt，不必找 hunter",
+        "发布时间为太平洋时间 00:01（每日榜单从这时开始）；周二到周四流量大但竞争激烈，周末更容易排进前列",
+        "发布后立刻发 maker 首评：为什么做、解决什么问题、给 PH 用户的优惠",
+        "通知自己的用户和社群「来看看并给反馈」，不直接拉票、不刷票（PH 会检测并降权）",
+        "当天每条评论 1 小时内回复；记录排名、访问、注册和外链"
+      ],
+      "how": "producthunt.com → Launch，按素材包填写；注意并非所有发布都会被 Featured 到首页，素材质量和描述清晰度会影响审核。",
+      "tools": [
+        "producthunt",
+        "x",
+        "ga4"
+      ],
+      "auto": false
+    },
+    {
+      "id": "launch-show-hn",
+      "cat": "launch",
+      "phase": "launch",
+      "priority": "P1",
+      "title": "Hacker News「Show HN」：必须是别人能直接上手试用的东西",
+      "why": "HN 读者是技术早期用户，一次成功的 Show HN 能带来大量高质量访问和后续报道；违反规则的帖子会被标记。",
+      "checkAgainst": [
+        "标题以「Show HN: 」开头，平实描述，不用营销词和感叹号",
+        "链接是能直接试用的产品或开源仓库，尽量不要求注册或留邮箱；博客文章、落地页、候补名单不能发 Show HN",
+        "作者本人发帖，正文写一段背景（为什么做、技术取舍），之后在评论区持续回答",
+        "不让朋友集中点赞（投票圈会被检测）；没有反响可以隔一段时间再发，但不频繁重发"
+      ],
+      "how": "先读 news.ycombinator.com/showhn.html 的规则；发帖后前 2 小时保持在线回复。",
+      "tools": [
+        "hackernews"
+      ],
+      "auto": false
+    },
+    {
+      "id": "launch-reddit-posts",
+      "cat": "launch",
+      "phase": "launch",
+      "priority": "P1",
+      "title": "Reddit 发布帖：先读版规，用故事和经验开头，产品放在合适的位置",
+      "why": "Reddit 用户反感广告，但会认真对待真实的创作故事；帖子在 Google 和 AI 回答中的可见度都很高。",
+      "checkAgainst": [
+        "账号 karma 已达标（见 Reddit 养号条目）；目标版块 3–5 个，如 r/SideProject、r/IndieDev、r/SaaS、r/NoCode 等 5k–50k 成员的垂直版块",
+        "发帖前读完 sidebar 规则：是否允许自我推广、是否只允许在每周推广帖里发、最低 karma 和账号年龄",
+        "正文讲为什么做、真实问题、踩过的坑，而不是功能清单；允许时链接放在正文末尾或评论中，并附完整说明",
+        "同一天不在多个版块发相同内容；被踩的帖子不删；所有评论 24 小时内回复"
+      ],
+      "how": "发帖前在目标版块搜索同类帖子，参考高赞帖的格式；很多版块仍沿用「自我推广 ≤ 10%」的老规矩。",
+      "tools": [
+        "reddit"
+      ],
+      "auto": false
+    },
+    {
+      "id": "launch-small-launch-sites",
+      "cat": "launch",
+      "phase": "launch",
+      "priority": "P1",
+      "title": "发布后 2 周内，批量提交二线发布平台",
+      "why": "单个平台流量不大，但合起来是一批来源多样的引用域名和持续的长尾访问。",
+      "checkAgainst": [
+        "完成 ≥ 8 个：Fazier、Microlaunch、DevHunt（开发者工具）、Peerlist Launchpad、Tinylaunch、Open-Launch、Startupfa.me、SaaSHub",
+        "要求回链（放徽章）才给 dofollow 的平台，评估后再决定是否放，不在全站页脚堆满徽章",
+        "每个上线页面都登记到外链追踪表"
+      ],
+      "how": "按素材包统一提交，每个平台的描述改写一次。",
+      "tools": [
+        "fazier",
+        "microlaunch",
+        "devhunt",
+        "peerlist",
+        "saashub"
+      ],
+      "auto": false
+    },
+    {
+      "id": "launch-ai-directories",
+      "cat": "launch",
+      "phase": "launch",
+      "priority": "P1",
+      "title": "AI 产品提交到 AI 工具导航站，分类选对",
+      "why": "AI 导航站流量大，同时帮搜索引擎和 AI 把你归到正确的 AI 工具品类。",
+      "checkAgainst": [
+        "提交 ≥ 8 个 AI 导航站，如 There's An AI For That、Toolify、Futurepedia、Future Tools、TopAI.tools、dang.ai、AI 工具集（ai-bot.cn）；免费和付费以各站当前政策为准",
+        "付费前看对方流量（笔记快照：TAAFT 月 UV 约 540 万 / $299，Toolify 约 230 万 / $99，TopAI.tools 约 130 万 / $47），按流量 / 价格比排序",
+        "分类和标签准确；描述包含品类词（如 AI poster generator），而不是空泛口号",
+        "30 天后在 GA4 查看每个导航站的引荐访问，0 访问的不续费"
+      ],
+      "how": "统一使用素材包；在追踪表中记录价格、审核时间和上线链接。",
+      "tools": [
+        "theresanaiforthat",
+        "toolify",
+        "futurepedia",
+        "futuretools",
+        "aibot-cn"
+      ],
+      "auto": false
+    },
+    {
+      "id": "launch-cn-communities",
+      "cat": "launch",
+      "phase": "launch",
+      "priority": "P1",
+      "title": "中文社区发布：V2EX 分享创造、掘金、少数派、linux.do、即刻、阮一峰周刊",
+      "why": "中文开发者社区流量大（V2EX 月 PV 约 720 万、linux.do 约 430 万）；链接多为 nofollow，但能带来第一批中文用户和反馈。",
+      "checkAgainst": [
+        "V2EX 发在「分享创造」节点，讲清楚做了什么、为什么做，不重复发",
+        "掘金写技术实现文章，少数派投稿 Matrix 社区，linux.do 遵守版块规则，即刻发到独立开发相关圈子",
+        "阮一峰《科技爱好者周刊》：在 GitHub ruanyf/weekly 仓库按格式提交 issue",
+        "GA4 或百度统计中能看到这些域名的引荐访问"
+      ],
+      "how": "每个社区先看置顶规则和近期热门帖的写法；评论 24 小时内回复。",
+      "tools": [
+        "v2ex",
+        "juejin",
+        "sspai",
+        "linuxdo",
+        "jike",
+        "ruanyf-weekly"
+      ],
+      "auto": false
+    },
+    {
+      "id": "launch-day-ops",
+      "cat": "launch",
+      "phase": "launch",
+      "priority": "P1",
+      "title": "发布当天值守：回复评论、监控服务、预留额度，一周后复盘",
+      "why": "发布当天的流量峰值最容易暴露 bug、额度上限和支付问题；回复速度直接影响排名和口碑。",
+      "checkAgainst": [
+        "所有平台的评论和私信 24 小时内回复（Product Hunt 当天 1 小时内）",
+        "可用性监控和错误监控已开启；AI 调用额度、数据库连接数、速率限制按日常 5–10 倍流量预留",
+        "反馈集中记录在一张表里（来源、内容、处理状态）",
+        "发布 7 天后写复盘：各平台的访问、注册、付费和外链"
+      ],
+      "how": "提前在 Cloudflare 和云服务商后台检查配额；用 UptimeRobot 做外部监控。",
+      "tools": [
+        "uptimerobot",
+        "cloudflare",
+        "ga4"
+      ],
+      "auto": false
+    },
+    {
+      "id": "launch-aso",
+      "cat": "launch",
+      "phase": "launch",
+      "priority": "P1",
+      "title": "App 上架时做 ASO：名称、副标题、关键词字段、截图、评分",
+      "why": "应用商店搜索是 App 最主要的免费流量来源，名称和副标题中的关键词权重最高。",
+      "checkAgainst": [
+        "iOS：名称 ≤ 30 字符、副标题 ≤ 30 字符、关键词字段 ≤ 100 字符，核心词放在名称或副标题中",
+        "Google Play：标题 ≤ 30 字符、简短说明 ≤ 80 字符，完整说明自然包含中高热度关键词",
+        "前 2–3 张截图各传达 1 个核心卖点（截图上有大字标题）",
+        "在用户完成任务后的正向时刻请求评分（iOS 系统评分弹窗一年最多显示 3 次），评分数稳定增长"
+      ],
+      "how": "用七麦数据（国内）或 Sensor Tower（全球）查竞品关键词和排名；在 App Store Connect / Play Console 填写。",
+      "tools": [
+        "qimai",
+        "sensortower",
+        "appstoreconnect",
+        "playconsole"
+      ],
+      "auto": false
+    },
+    {
+      "id": "launch-indiehackers",
+      "cat": "launch",
+      "phase": "launch",
+      "priority": "P2",
+      "title": "在 Indie Hackers 建产品页，并发一篇「我为什么做它」的创作者故事",
+      "why": "Indie Hackers 鼓励公开收入和过程，帖子长期可见，适合讲构建故事、获得同行反馈。",
+      "checkAgainst": [
+        "产品资料完整：名称、一句话、网址、logo",
+        "发 1 篇构建故事：真实问题、做法、踩坑、真实数字，产品链接自然出现",
+        "之后每个里程碑（首个付费用户、MRR 节点）再发一篇更新"
+      ],
+      "how": "indiehackers.com 注册后创建产品，并在相关分组发帖；每条评论都回复。",
+      "tools": [
+        "indiehackers"
+      ],
+      "auto": false
+    },
+    {
+      "id": "launch-uneed",
+      "cat": "launch",
+      "phase": "launch",
+      "priority": "P2",
+      "title": "在 Uneed 发布，争取当日榜单徽章",
+      "why": "Uneed 是社区型发布平台，竞争比 Product Hunt 小，笔记中约 40–50 票常能拿到当日第一，徽章可以放在官网增加信任。",
+      "checkAgainst": [
+        "已排期发布（免费排队较久，付费可快速发布；笔记价格约 $29.99，DR 73）",
+        "发布当天在社群和 X 上告知，回复所有评论",
+        "获得的排名徽章放进官网页脚或「Featured on」区域"
+      ],
+      "how": "uneed.best 提交；发布后在追踪表中记录排名和访问。",
+      "tools": [
+        "uneed",
+        "x"
+      ],
+      "auto": false
+    },
+    {
+      "id": "launch-relaunch-cadence",
+      "cat": "launch",
+      "phase": "grow",
+      "priority": "P2",
+      "title": "每个大版本、每个重要新功能都当作一次新发布",
+      "why": "每次发布都会留下新的提及记录和外链，也能让老用户回流；对新站来说这是持续的外链节奏。",
+      "checkAgainst": [
+        "公开的更新日志页面，每个大版本有一篇更新说明",
+        "每个大版本至少在 2 个渠道发布（X / 社区帖子 + 发布平台），并记录链接",
+        "Product Hunt 再次发布需要有明显不同的新功能（间隔要求以官方当时规则为准）"
+      ],
+      "how": "维护一张「版本 → 发布链接」表，与外链追踪表关联。",
+      "tools": [
+        "producthunt",
+        "x"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-reddit-warmup",
+      "cat": "social",
+      "phase": "plan",
+      "priority": "P0",
+      "title": "Reddit 养号：前 7–14 天只评论，karma 达标后再发帖、再带链接",
+      "why": "Reddit 反感营销，新账号发推广帖会被自动删除甚至封号；shadowban 基本无法恢复，只能换号重来。",
+      "checkAgainst": [
+        "注册后前 7–14 天只评论：每天 3–5 条真实评论（补充、经验、提问），不带链接、不提品牌",
+        "发帖门槛：karma ≥ 50（两篇笔记给出的区间为 30–50，取保守值），先在宽松版块发不带链接的帖子",
+        "带链接或自我推广的门槛：karma ≥ 100 起步，保守做法 ≥ 500（两篇笔记分别给出 100 和 500）",
+        "不去刷 karma 的版块、不互相点赞、不用脚本"
+      ],
+      "how": "比发布日提前至少 2–4 周开始养号；在个人资料页查看 karma，在目标版块 sidebar 查看最低 karma 和账号年龄要求。",
+      "tools": [
+        "reddit"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-xhs-positioning",
+      "cat": "social",
+      "phase": "plan",
+      "priority": "P0",
+      "title": "小红书账号定位：一句话说清「给谁、提供什么、哪个细分角度」",
+      "why": "小红书是搜索驱动的内容平台；定位越细分越好记，也越容易被算法打上准确标签。",
+      "checkAgainst": [
+        "定位句 = 目标人群 + 他们能得到什么 + 细分角度（如「程序员的高效饮食指南」）",
+        "可持续：已列出 ≥ 30 个选题；有差异：在小红书搜索该细分词，直接竞争的账号不多",
+        "定位九宫格已填写：你是谁、粉丝是谁及需求场景、记忆点、差异化优势、能提供的价值、准备卖什么",
+        "陌生人看完简介和 3 篇笔记，能说出这个账号发什么"
+      ],
+      "how": "先在小红书搜索候选细分词，看头部账号和笔记数量；可以用简单设计的账号定位分析工具生成备选，再人工筛选。",
+      "tools": [
+        "xiaohongshu",
+        "jiandan"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-wechat-miniprogram",
+      "cat": "social",
+      "phase": "build",
+      "priority": "P1",
+      "title": "微信小程序 SEO：名称含核心需求词，简介首句含关键词，页面要有文字",
+      "why": "小程序发布后默认没有流量，微信搜一搜是唯一长期稳定的免费来源，而名称是权重最高的因素。",
+      "checkAgainst": [
+        "名称包含用户搜索的完整需求词（如「图片压缩工具」，而不是只有品牌名、英文或缩写）；副标题放次要功能词",
+        "简介第一句用自然的句子包含核心词，不写成广告；服务类目与核心功能一致",
+        "每个核心页面有文字标题和「功能说明」文字块，结果页有解释文字，没有纯图标页面",
+        "任务完成后或第 2–3 次使用时提示「添加到我的小程序」；在公众号文章、视频号、社群中引导用户「搜索 关键词」进入"
+      ],
+      "how": "在微信搜一搜 → 小程序 搜索目标词，对比前 10 名的名称和简介；类目在微信公众平台的小程序后台设置。",
+      "tools": [
+        "wechat-mp"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-x-profile",
+      "cat": "social",
+      "phase": "launch",
+      "priority": "P0",
+      "title": "完善 X 主页：头像、名字、简介、带 UTM 的链接、置顶帖",
+      "why": "主页是别人决定是否关注你的唯一依据；X 允许在简介和帖子里放可点击链接，是出海独立开发者最值得经营的社交平台。",
+      "checkAgainst": [
+        "清晰的真人头像（或风格统一的形象）；名字格式「名字 | 在做什么」",
+        "简介写清：你是谁、在做什么产品、关注你能得到什么，包含领域关键词",
+        "简介链接指向产品或个人主页，带 UTM（?utm_source=x&utm_medium=social）",
+        "置顶帖是当前最重要的产品介绍或成果，30 天内更新过"
+      ],
+      "how": "用手机打开自己的主页，让一个陌生人看 5 秒，看他能否说出你在做什么。",
+      "tools": [
+        "x"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-xhs-profile",
+      "cat": "social",
+      "phase": "launch",
+      "priority": "P0",
+      "title": "小红书主页四件套：头像、昵称、简介、背景图",
+      "why": "用户点进主页前只看到头像和昵称；主页决定看完一篇笔记的人会不会关注你。",
+      "checkAgainst": [
+        "头像：清晰的单人半身照（自然光、干净背景）或风格统一的插画形象；不用合照、不用侵权图片",
+        "昵称 2–6 个字并包含领域关键词（如「阿柚穿搭」），没有数字、下划线、表情和生僻字；用另一个账号搜昵称能在前几位找到",
+        "简介包含 4 要素：背景（如 90 后程序员）、内容方向、关注理由、商务邮箱",
+        "背景图与内容调性、头像配色一致；主页封面网格风格统一"
+      ],
+      "how": "用第二个账号搜索昵称测试；在手机上查看主页整体效果。",
+      "tools": [
+        "xiaohongshu",
+        "jiandan"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-handle-consistency",
+      "cat": "social",
+      "phase": "launch",
+      "priority": "P1",
+      "title": "在所有平台抢注同一个用户名，头像和一句话标签保持一致",
+      "why": "一致的名字和形象让用户跨平台认出你，也让搜索引擎和 AI 把这些账号识别为同一个实体。",
+      "checkAgainst": [
+        "X、GitHub、YouTube、LinkedIn、Reddit、小红书、抖音、B站、知乎使用同一个或高度一致的用户名（如「名字_独立开发者」）",
+        "个人 / 品牌标签 ≤ 5 个词，在所有简介中一致",
+        "所有账号开启 2FA，密码存在密码管理器中；账号清单记录注册邮箱和手机号"
+      ],
+      "how": "逐个平台查用户名是否可用并尽早注册；建一张账号清单表。",
+      "tools": [
+        "x",
+        "github",
+        "youtube",
+        "linkedin",
+        "reddit",
+        "xiaohongshu"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-x-buildinpublic",
+      "cat": "social",
+      "phase": "grow",
+      "priority": "P0",
+      "title": "在 X 上 build in public：固定节奏分享进度、数据和踩坑",
+      "why": "真诚分享有用信息和开发进度，最容易获得独立开发者圈子的转发；笔记作者约 5 个月从 0 涨到约 7,000 粉。",
+      "checkAgainst": [
+        "至少每周 3 条并连续 4 周以上（笔记最低线），有余力每天 1–2 条",
+        "每条最多 2 个话题标签（如 #buildinpublic）；多数帖子配图（截图、数据图、演示 GIF）",
+        "内容比例约 80% 对用户有用、10% 产品、10% 个人生活",
+        "30 天后根据 X Analytics 调整发帖时间；每月把表现最好的帖子改写后再发"
+      ],
+      "how": "每周提前写好草稿或用排程工具；每月看一次 Analytics 中的曝光、互动率和最佳帖子。",
+      "tools": [
+        "x"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-xhs-topics",
+      "cat": "social",
+      "phase": "grow",
+      "priority": "P0",
+      "title": "小红书选题来自搜索下拉框，而不是灵感",
+      "why": "下拉联想词就是平台给出的真实需求清单；写用户在搜的内容，而不是自己想写的。",
+      "checkAgainst": [
+        "选题库 ≥ 20 个，每个标注来源：搜索下拉、爆款笔记拆解、评论 / 私信提问、节日与购物节日历、跨平台热点（微博热搜、抖音、知乎）",
+        "每个选题的目标长尾词确实出现在小红书搜索下拉框中，并写进标题",
+        "通过 4 问：受众够大？痛点真实？站内有热搜或爆款？我有发言资格（经验 / 实测 / 案例）？",
+        "节日选题（520、618、七夕、双 11、圣诞、新年）提前 ≥ 1 周准备"
+      ],
+      "how": "每周末花 30 分钟：在搜索框输入种子词记录联想词，打开前 10 篇高赞笔记，记录标题关键词、切入角度和形式（清单 / 避坑 / 教程 / 对比 / 故事）。",
+      "tools": [
+        "xiaohongshu",
+        "xhs-creator"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-xhs-cover",
+      "cat": "social",
+      "phase": "grow",
+      "priority": "P0",
+      "title": "小红书封面点击率 ≥ 5%（8–15% 为优秀），低于 3% 立即换封面",
+      "why": "用户是否点开笔记，大约 80% 由封面决定：封面负责点击，内容负责留存。",
+      "checkAgainst": [
+        "画面有真人或真实场景（同一个包：平铺图 3.6% → 上身街拍 9%）",
+        "封面文字 6–10 个字、对比色、直接写价值（如「3 套小个子秋季通勤穿搭」），不满屏堆字",
+        "缩到手机信息流大小仍能看清重点，3 秒内能看懂",
+        "全账号封面使用统一模板和配色",
+        "创作者后台中每篇笔记封面点击率 ≥ 5%；< 3% 的笔记更换封面和标题"
+      ],
+      "how": "每篇拍 3–5 张备选，挑最能表达主题的一张，用简单设计 / Canva / 美图秀秀加字；在小红书创作服务平台的笔记数据中查看点击率。",
+      "tools": [
+        "xhs-creator",
+        "jiandan",
+        "canva"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-xhs-title-body",
+      "cat": "social",
+      "phase": "grow",
+      "priority": "P0",
+      "title": "小红书标题套公式，正文开头讲痛点、中间给具体细节、结尾提问",
+      "why": "同一主题，具体化的标题阅读量可能相差几十倍：「小个子秋季穿搭分享」不到 800，「158cm 小个子，3 套秋季通勤穿搭，显高不踩雷」2.5 万+。",
+      "checkAgainst": [
+        "标题 ≤ 20 字（平台上限），套用一种公式：数字 + 结果 / 疑问 / 反差 / 情绪，包含下拉框中的长尾词原词",
+        "每篇写 2–3 个备选标题，找 3 个人投票",
+        "正文第一句点出痛点；至少 2 个具体个人细节（身高、时长、金额、前后数据）；短句、分点、总-分-总",
+        "结尾用一个问题或「要不要我整理一份…」引导评论；标题的承诺在正文兑现，评论区没有「标题党」反馈",
+        "标签 3–5 个：1 个核心关键词 + 1 个热门话题 + 1 个垂直领域标签"
+      ],
+      "how": "发布前按清单逐项检查；把表现最好的标题词组记进「爆款词库」，每月更新。",
+      "tools": [
+        "xiaohongshu"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-xhs-sensitive-words",
+      "cat": "social",
+      "phase": "grow",
+      "priority": "P0",
+      "title": "每篇笔记发布前做敏感词和导流检查",
+      "why": "违规词和站外导流会让笔记被删或整个账号长期限流，处罚逐级升级（禁言 2 天 → 7 天 → 1 个月 → 封号）。",
+      "checkAgainst": [
+        "敏感词检测工具扫描标题、正文和图片文字，0 个高亮词",
+        "笔记、评论和图片里没有站外网址、微信号、二维码等导流信息，只通过主页等平台允许的方式引导",
+        "品牌合作通过蒲公英平台报备，不发未披露的软广",
+        "没有「最好」「第一」等绝对化用语和夸大功效的说法"
+      ],
+      "how": "用简单设计的敏感词检测工具粘贴全文检查，图片上的文字单独检查。",
+      "tools": [
+        "jiandan",
+        "xiaohongshu"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-video-hook",
+      "cat": "social",
+      "phase": "grow",
+      "priority": "P0",
+      "title": "短视频前 3 秒给钩子：反常识、先给结果、冲突或痛点，不做自我介绍",
+      "why": "前 3 秒决定是否被划走，直接影响完播率，而完播率是抖音和 TikTok 推荐中权重最高的指标。",
+      "checkAgainst": [
+        "每条视频前 3 秒使用 4 种开头之一：反常识观点、结果先行、矛盾冲突、痛点（「我做了 3 个号，只有这个活下来」好过「大家好，我是…」）",
+        "最精彩的画面放在最前面；系列视频有固定、可识别的开场",
+        "创作者后台的 3 秒 / 5 秒留存持续提升"
+      ],
+      "how": "发布前只看前 3 秒，问自己：用户凭什么不划走？在抖音创作者中心或 TikTok Studio 查看留存曲线。",
+      "tools": [
+        "douyin-creator",
+        "douyin",
+        "tiktok"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-video-completion",
+      "cat": "social",
+      "phase": "grow",
+      "priority": "P0",
+      "title": "完播率达标：10 秒视频看完 8 秒以上，30 秒视频平均观看 ≥ 25 秒",
+      "why": "抖音按流量池逐级放量，完播率、停留时长、评论、转发和收藏决定视频能否进入下一级流量池。",
+      "checkAgainst": [
+        "约 10 秒的视频完播率 ≥ 80%；30 秒视频平均播放时长 ≥ 25 秒",
+        "用于获取新用户的视频 < 60 秒；1–2 秒切换一个画面，没有废话（必要时剪辑加速到 ≥ 1.2 倍）",
+        "真人出镜（平台对真人内容有额外推荐），语气自然，不使用全模板或 AI 配音",
+        "低于账号中位数的视频，下一条缩短时长、加快节奏"
+      ],
+      "how": "抖音创作者中心 → 作品数据，查看完播率和平均播放时长，逐条记录对比；剪辑用剪映。",
+      "tools": [
+        "douyin-creator",
+        "capcut"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-x-replies-lists",
+      "cat": "social",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "每天做回复：在同领域大号下写有价值的评论，用 Lists 管理关注对象",
+      "why": "新账号的帖子很少有人看，但在大号下的优质评论能被大量看到，是早期涨粉最快的方式。",
+      "checkAgainst": [
+        "每天 20–30 分钟互动：≥ 10 条有内容的回复（补充经验、数据或提问），不是「Great post!」",
+        "建 ≥ 3 个 Lists：同领域创作者、潜在用户 / 客户、竞品和行业资讯",
+        "提到你的帖子和私信 24 小时内回复",
+        "不买粉、不刷互关：粉丝曲线没有无法解释的陡增"
+      ],
+      "how": "每天固定时间打开 Lists 时间线逐条看；回复时带上自己的真实经验。",
+      "tools": [
+        "x"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-reddit-subreddits",
+      "cat": "social",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "选 3–5 个 5k–50k 成员的垂直版块，先融入、再推广",
+      "why": "大版块（r/Entrepreneur、r/Startups、r/Marketing）对新账号非常严格；小而垂直的版块更容易被接受，转化也更精准。",
+      "checkAgainst": [
+        "目标版块清单 3–5 个，每个记录成员数、规则要点、是否允许自我推广",
+        "每个版块先留 ≥ 10 条评论、加入 ≥ 7 天后才发与产品有关的内容",
+        "产品只在有人问到时，在评论里自然提到（如「我做了一个小工具解决这个问题，需要的话可以分享」）"
+      ],
+      "how": "用 Reddit 搜索按领域词找版块，查看成员数和最近 30 天的帖子类型。",
+      "tools": [
+        "reddit"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-xhs-cadence",
+      "cat": "social",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "小红书发布节奏：新号每周 3–4 篇坚持 3 个月，固定在高峰时段发",
+      "why": "持续比爆发重要；笔记中同一篇内容早上 7:30 发不到 200 阅读，周五晚 9 点发有 5,000+。",
+      "checkAgainst": [
+        "前 3 个月每周 3–4 篇（每月 ≥ 12 篇），3 个月内不因数据差放弃",
+        "稳定期每周 2 篇深度 + 1 篇轻量",
+        "发布时间：工作日 12:00 或 20:00–22:00；周末 10:00 或 21:00 左右",
+        "图文（清单、教程，容易被收藏）和视频（场景、效果）交替发布"
+      ],
+      "how": "内容日历里排好一个月；用发布时间记录核对是否落在高峰时段。",
+      "tools": [
+        "xiaohongshu",
+        "xhs-creator"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-content-mix",
+      "cat": "social",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "内容比例：账号层面 50/30/20，推广层面 80/10/10",
+      "why": "只发产品更新等于发广告，平台不会推荐；全是干货又缺少真人感，用户记不住你。",
+      "checkAgainst": [
+        "50/30/20：50% 紧扣定位的垂直内容、30% 相邻的拓展内容、20% 展示真人的生活内容（月度比例误差 ±10%）",
+        "80/10/10：80% 对用户有用的内容、10% 产品推广、10% 个人生活（抽查最近 20 篇）",
+        "每周至少 1 篇资源 / 清单类「收藏型」内容；有 1 个固定编号的系列（如「宝藏网站 #N」）",
+        "产品介绍帖在各平台主页置顶"
+      ],
+      "how": "在内容日历里给每篇打两个标签（垂直 / 拓展 / 生活，有用 / 产品 / 个人），月底统计比例。适用于小红书、抖音、B站、公众号和 X。",
+      "tools": [
+        "xiaohongshu",
+        "douyin",
+        "x"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-douyin-search-seo",
+      "cat": "social",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "抖音 / TikTok 搜索 SEO：一条视频一个关键词，标题、口播、字幕三处都出现",
+      "why": "搜索流量是长尾、持久的；平台会做语音识别和画面文字识别，关键词「说出来 + 写出来」双重确认。",
+      "checkAgainst": [
+        "每条视频只对应 1 个关键词，来源于搜索下拉、结果页前 10 条的标题或评论区提问",
+        "标题包含关键词原词（不拆开、不换同义词）+ 场景 / 人群 / 结果",
+        "前 5 秒口播说出关键词；封面、前 3 秒字幕、中段总结卡片上都有关键词文字",
+        "话题标签 3–5 个：1 个核心词 + 1–2 个长尾词 + 1 个人群 / 场景，不蹭无关热点，绝不 ≥ 10 个",
+        "昵称和简介含领域关键词，≥ 80% 的视频属于同一主题"
+      ],
+      "how": "查看自动字幕确认关键词被识别；创作者中心 → 流量来源 查看「搜索」占比，按月观察（搜索流量往往几个月后才起来）。",
+      "tools": [
+        "douyin",
+        "tiktok",
+        "douyin-creator"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-video-cadence-safety",
+      "cat": "social",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "短视频发布节奏与账号健康：新号每天 1 条，原创、垂直、无违规",
+      "why": "账号权重类似信用分：违规、频繁删除、搬运、重复发布、内容跳来跳去都会让起号变慢。",
+      "checkAgainst": [
+        "新号每天 1 条，稳定期保持固定频率；常用时段 11:30–13:00、18:00–20:00、21:00–23:00",
+        "0 违规记录；不删除重发、不搬运、不重复上传同一视频",
+        "画面中不出现外部网址（拍屏而不是录屏可以避免露出网址），引导用户看主页",
+        "发布前自查：没有贩卖焦虑、极端对立、引战、灰色赚钱和擦边内容"
+      ],
+      "how": "每周查看一次创作者中心的账号状态和违规通知。",
+      "tools": [
+        "douyin-creator",
+        "tiktok"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-youtube",
+      "cat": "social",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "YouTube：演示视频用关键词标题，描述前两行放链接，加章节",
+      "why": "YouTube 是第二大搜索引擎，视频还会出现在 Google 视频结果里；同一个演示视频还能用于官网和各发布平台。",
+      "checkAgainst": [
+        "标题以目标关键词开头（如「How to … with 产品名」），控制在约 70 个字符以内避免截断",
+        "描述前 2 行包含关键词和带 UTM 的官网链接",
+        "章节：描述中的时间戳从 0:00 开始，至少 3 个，每段 ≥ 10 秒",
+        "自定义缩略图 1280×720；Shorts 用于引流，并关联到对应的长视频",
+        "视频已嵌入对应的官网落地页"
+      ],
+      "how": "YouTube Studio → 内容 → 编辑详情；Analytics → 流量来源 查看 YouTube 搜索占比。",
+      "tools": [
+        "youtube"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-wechat-mp",
+      "cat": "social",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "微信公众号：名称和标题带搜索词，固定节奏更新，用「阅读原文」导回网站",
+      "why": "微信搜一搜会检索公众号名称和文章标题；正文不能放外链，「阅读原文」是导回网站的主要入口。笔记案例：日更 60 天，涨粉 9,000+、收入过万。",
+      "checkAgainst": [
+        "公众号名称或简介含领域关键词；文章标题包含用户会搜的词",
+        "固定更新节奏（日更或每周 2–3 篇）并坚持 ≥ 60 天，记录粉丝、阅读和收入",
+        "每篇文章设置带 UTM 的「阅读原文」链接；自定义菜单链接到产品或小程序",
+        "文章内嵌小程序卡片或二维码，引导到私域"
+      ],
+      "how": "微信公众平台 → 内容管理，发表时填写原文链接；用微信搜一搜搜索目标词，检查账号和文章排名。",
+      "tools": [
+        "wechat-mp"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-repurpose-private",
+      "cat": "social",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "一份内容改成 ≥ 3 种形式分发，每个渠道都留转化入口",
+      "why": "内容是成本最低、寿命最长的获客渠道；每篇内容都是一个触点，触点足够多才会汇聚到产品上。",
+      "checkAgainst": [
+        "每篇核心内容至少分发到 3 个渠道 / 形式：短帖（X、即刻）、图文（小红书、公众号）、视频（抖音、B站、YouTube）",
+        "每个渠道都有转化入口：带 UTM 的链接、主页链接、「阅读原文」，或加微信 / 邮件订阅的钩子",
+        "每个平台账号只做一个垂直主题",
+        "私域（微信、邮件列表、Telegram）人数和转化率每月记录（笔记基准：私域转化约 1%）"
+      ],
+      "how": "用一张分发表记录：原文、各平台链接、发布日期、带来的访问和留资。",
+      "tools": [
+        "x",
+        "jike",
+        "xiaohongshu",
+        "wechat-mp",
+        "bilibili",
+        "youtube"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-x-links-threads",
+      "cat": "social",
+      "phase": "grow",
+      "priority": "P2",
+      "title": "测试外链帖子的写法：主帖讲完内容，链接放回复或简介",
+      "why": "带外链的帖子曝光普遍偏低（近几年被大量创作者观察到）；让内容本身先有价值，再给出链接。",
+      "checkAgainst": [
+        "对比测试：同类内容「正文带链接」和「链接放第一条回复」各发 ≥ 3 次，记录曝光差异",
+        "长内容用 Thread（1/6、2/6 编号）或长文，第一条单独成立",
+        "所有链接带 UTM，GA4 中能看到 x.com / t.co 来源的访问"
+      ],
+      "how": "X Analytics 对比曝光；GA4 按会话来源 / 媒介筛选 x / social。",
+      "tools": [
+        "x",
+        "ga4"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-linkedin",
+      "cat": "social",
+      "phase": "grow",
+      "priority": "P2",
+      "title": "LinkedIn（B2B 产品）：标题写清角色和产品，每周发 2–3 条经验帖",
+      "why": "B2B 买家和合作方会在 LinkedIn 判断你是否可信；创始人个人账号的触达通常高于公司主页。",
+      "checkAgainst": [
+        "个人标题格式「角色 @ 产品 | 帮谁解决什么问题」；Featured 区放产品链接和最好的帖子",
+        "公司主页已创建，名称、logo、简介与品牌事实卡一致",
+        "每周 2–3 条：经验、数据、案例（文字 + 图片或 PDF 轮播）；外链放正文末尾或评论中，对比测试曝光",
+        "每条评论 24 小时内回复"
+      ],
+      "how": "在 LinkedIn 后台查看帖子曝光和主页访问来源。",
+      "tools": [
+        "linkedin"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-reddit-safety",
+      "cat": "social",
+      "phase": "maintain",
+      "priority": "P1",
+      "title": "Reddit 账号安全：一人一号、私信克制、推广前检查 shadowban",
+      "why": "多账号、批量私信和重复发帖是封号的主要原因，而 shadowban 本人登录时看不出来。",
+      "checkAgainst": [
+        "一人一个账号，不在同一 IP 用多个账号做相似操作",
+        "私信每天 ≤ 5 条，每条内容不同，对方确实是目标用户",
+        "每次推广前退出登录查看自己的主页和帖子是否可见",
+        "不在同一天把相同内容发到多个版块；被踩的帖子不删除"
+      ],
+      "how": "无痕窗口打开 reddit.com/user/你的用户名，看不到即可能被 shadowban。",
+      "tools": [
+        "reddit"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-xhs-throttle-check",
+      "cat": "social",
+      "phase": "maintain",
+      "priority": "P1",
+      "title": "小红书限流自检：24 小时阅读 < 50 或远低于账号平均时立即排查",
+      "why": "平台称之为「流量异常」，只能和自己的历史基线比较；越早发现越容易恢复。",
+      "checkAgainst": [
+        "判定：发布 24 小时阅读 < 50，或低于账号平均阅读的 10%",
+        "分享测试：转发到微信后打开，出现「笔记正在审核」「无法展示」即未通过审核",
+        "搜索测试：用另一个账号搜完整标题（切换「最新」排序）和小红书号，能搜到笔记和主页卡片",
+        "处理：知道违规点就修改（会重新审核）；不知道就删除，不反复修改；账号级异常时停止导流等行为、正常发布，一般 7 天左右恢复",
+        "一部手机只登录一个账号，不在同一设备上来回切换"
+      ],
+      "how": "每篇笔记发布次日检查一次阅读量；异常时依次做分享测试和搜索测试。",
+      "tools": [
+        "xiaohongshu",
+        "xhs-creator"
+      ],
+      "auto": false
+    },
+    {
+      "id": "social-xhs-weekly-review",
+      "cat": "social",
+      "phase": "maintain",
+      "priority": "P1",
+      "title": "每周复盘小红书数据，按「曝光 / 点击率 / 互动」诊断该改哪里",
+      "why": "数据会明确告诉你该改封面、改内容还是做系列，避免凭感觉调整。",
+      "checkAgainst": [
+        "每篇记录：曝光、封面点击率、阅读、点赞、收藏、评论、涨粉、搜索流量占比",
+        "曝光高 + 点击率低 → 改封面和标题；点击率高 + 互动低 → 改内容；曝光低 → 检查关键词、标签以及是否限流",
+        "收藏率明显高于账号平均（如 2,000 曝光、400+ 收藏）→ 扩展成系列",
+        "每篇发布 7 天后写一句结论：什么有效、什么拖后腿、下一篇改什么"
+      ],
+      "how": "小红书创作服务平台 → 笔记数据导出到表格，每周固定时间复盘。",
+      "tools": [
+        "xhs-creator"
+      ],
+      "auto": false
+    },
+    {
+      "id": "i18n-native-keyword-research",
+      "cat": "i18n",
+      "phase": "plan",
+      "priority": "P0",
+      "title": "每种目标语言单独做关键词研究，不直接翻译关键词",
+      "why": "不同语言的用户用不同说法搜索同一个需求，直译出来的关键词常常没人搜。",
+      "checkAgainst": [
+        "每种语言有独立的关键词表，搜索量按目标国家查询（Keyword Planner / Semrush 的地区设置）",
+        "核心词经过母语者或当地 Google 下拉联想确认",
+        "每种语言的 Top 10 SERP 单独分析（各国的竞争对手不同）"
+      ],
+      "how": "Google Trends 切换国家对比；Google 搜索 URL 加 &hl=ja&gl=jp 等参数查看当地的下拉联想和结果。",
+      "tools": [
+        "keywordplanner",
+        "semrush",
+        "gtrends",
+        "google"
+      ],
+      "auto": false
+    },
+    {
+      "id": "i18n-url-structure",
+      "cat": "i18n",
+      "phase": "plan",
+      "priority": "P1",
+      "title": "多语言用子目录（/en/、/ja/），不按 IP 或浏览器语言强制跳转",
+      "why": "Googlebot 主要从美国抓取、不带语言偏好；强制跳转会让其他语言版本无法被抓取。",
+      "checkAgainst": [
+        "语言版本使用子目录（example.com/ja/）或独立域名，不用 ?lang=ja 参数或 Cookie 切换",
+        "不根据 IP 或 Accept-Language 自动跳转；改为页面顶部提示 + 语言切换器",
+        "语言切换器是普通 <a href> 链接，指向当前页面的对应语言版本，而不是首页"
+      ],
+      "how": "用 curl -I -H 'Accept-Language: ja' 测试是否被跳转；hreflang 由 auditor 自动检查。",
+      "tools": [
+        "gsc",
+        "screamingfrog"
+      ],
+      "auto": false
+    },
+    {
+      "id": "i18n-cn-market-split",
+      "cat": "i18n",
+      "phase": "plan",
+      "priority": "P1",
+      "title": "中文市场单独规划：品牌词策略 + 各平台站内搜索，不只押百度 SEO",
+      "why": "百度首页大量被广告和自家产品占据，新站很难做通用词；境外服务器在国内访问和收录都偏慢，而使用大陆服务器又需要 ICP 备案。",
+      "checkAgainst": [
+        "选用独特、国内没有同名网站的品牌名，目标：百度搜索品牌名排前 3",
+        "部署方案二选一并写进计划：境外站点（无需备案，国内访问较慢）或大陆服务器 + ICP 备案",
+        "中文获客主要放在小红书、知乎、B站、抖音、公众号的站内搜索，每个平台有关键词表",
+        "国内用户的收款方式已考虑（微信支付 / 支付宝，或小报童、爱发电等平台）"
+      ],
+      "how": "百度搜索品牌名检查重名；用国内网络或多地测速工具测试官网打开速度。",
+      "tools": [
+        "baidu",
+        "xiaohongshu",
+        "zhihu"
+      ],
+      "auto": false
+    },
+    {
+      "id": "tech-hreflang",
+      "cat": "i18n",
+      "phase": "build",
+      "priority": "P1",
+      "title": "多语言页面 hreflang 互相指向并带 x-default",
+      "why": "让不同语言 / 地区的用户看到对应版本，避免多语言页面被当作重复内容。",
+      "checkAgainst": [
+        "每个语言版本都列出全部语言（含自己）",
+        "A 指向 B 时 B 也要指回 A",
+        "有 x-default",
+        "语言代码正确，例如 zh-CN 而不是 cn"
+      ],
+      "how": "auditor；Ahrefs / Screaming Frog hreflang 报告。",
+      "tools": [
+        "auditor",
+        "screamingfrog"
+      ],
+      "auto": true
+    },
+    {
+      "id": "i18n-localized-content",
+      "cat": "i18n",
+      "phase": "build",
+      "priority": "P1",
+      "title": "本地化而不只是翻译：标题描述、示例、货币、日期、截图都换成当地版本",
+      "why": "机翻页面质量低、转化差；当地用户看到不对的货币、日期格式和例子会直接离开。",
+      "checkAgainst": [
+        "每种语言的 title、description、og 标签单独撰写，包含当地关键词",
+        "价格显示当地货币（或明确标注 USD），日期和数字格式符合当地习惯",
+        "机器翻译后至少经过一轮母语者或专业校对；关键页面没有残留的源语言文字",
+        "截图和示例使用对应语言的界面"
+      ],
+      "how": "每种语言抽查 5 个页面；GSC → 效果 → 按国家筛选，比较各语言页面的展示和 CTR。",
+      "tools": [
+        "gsc"
+      ],
+      "auto": false
+    },
+    {
+      "id": "monetize-model",
+      "cat": "monetize",
+      "phase": "plan",
+      "priority": "P0",
+      "title": "开发前定好收入模式：订阅、一次性付费、广告、联盟或付费收录",
+      "why": "先有流量再想变现，常常发现用户群根本不付费；收入模式还决定了定位、免费边界和页面设计。",
+      "checkAgainst": [
+        "写下收入模式、目标用户、价值主张（如「AI 婚纱照」而不是泛泛的「AI 文生图」）",
+        "免费 / 付费边界清楚：核心体验免费可用，PRO 提供更高额度、高清导出、去水印、优先支持、集成等",
+        "用竞品定价页和公开收入数据（如 whoismaking.money、Indie Hackers）确认这个品类有人付费"
+      ],
+      "how": "用一页纸写清：谁付钱、为什么付、付多少、多久付一次；对照 3 个竞品的定价。",
+      "tools": [
+        "indiehackers"
+      ],
+      "auto": false
+    },
+    {
+      "id": "monetize-payment-provider",
+      "cat": "monetize",
+      "phase": "plan",
+      "priority": "P0",
+      "title": "按自己的主体选收款平台：个人可用的 vs 需要海外公司的",
+      "why": "很多开发者做完产品才发现 Stripe 开不了户；先确认 KYC 要求，再写结账代码。",
+      "checkAgainst": [
+        "笔记整理的个人可申请平台：Creem、Paddle、PayPal（商业账户）、Waffo；Lemon Squeezy（2024 年被 Stripe 收购）和 Polar 以官网当前政策为准",
+        "需要公司或特定国家身份：Stripe（需在其支持的国家 / 地区有主体，不支持中国大陆）、PayPro Global、Paydify",
+        "优先考虑「记录商家（MoR）」模式的平台（如 Paddle、Lemon Squeezy、Polar、Creem），由平台代缴各国增值税 / 销售税",
+        "费率、提现方式（如 Wise 或国内银行卡）、拒付处理已写进成本模型"
+      ],
+      "how": "在各平台注册页查看支持的国家和主体类型；先用测试模式跑通一笔订单。",
+      "tools": [
+        "creem",
+        "paddle",
+        "lemonsqueezy",
+        "polar",
+        "stripe",
+        "paypal"
+      ],
+      "auto": false
+    },
+    {
+      "id": "monetize-pricing-page",
+      "cat": "monetize",
+      "phase": "build",
+      "priority": "P1",
+      "title": "定价页：2–3 个档位、年付优惠、限制写清楚，附真实评价和 FAQ",
+      "why": "定价页是转化最关键的一页；额度和退款政策含糊，会直接导致放弃购买。",
+      "checkAgainst": [
+        "免费档 + 2–3 个付费档；每档的额度和限制写成具体数字",
+        "年付有明确优惠（如相当于 2 个月免费）；「限时」「即将涨价」等紧迫感只在真实时使用",
+        "有真实用户评价和 FAQ（退款、取消、发票、额度用完怎么办）",
+        "结构化数据中的价格与页面显示一致"
+      ],
+      "how": "请 3 个没看过产品的人看定价页 30 秒，说出自己会选哪一档；用 Clarity 热图看用户停在哪里。",
+      "tools": [
+        "clarity",
+        "richresults"
+      ],
+      "auto": false
+    },
+    {
+      "id": "monetize-checkout-test",
+      "cat": "monetize",
+      "phase": "launch",
+      "priority": "P0",
+      "title": "上线前端到端测试支付：购买、开通、退款、取消、续费失败",
+      "why": "支付链路任何一环出错（尤其是 Webhook 被拦截），都会变成「付了钱却没开通」的投诉和退款。",
+      "checkAgainst": [
+        "用真实卡完成 1 笔小额购买：Webhook 返回 2xx，账户权限即时开通，收据从域名邮箱发出",
+        "退款、取消订阅、续费失败（测试卡）三种情况都有正确的权限变化和通知邮件",
+        "GA4 中 begin_checkout → purchase 漏斗可见，并记录流失率"
+      ],
+      "how": "支付平台测试模式 + 一笔真实小额交易；在 Cloudflare 确认 Webhook 主机为灰云或已放行。",
+      "tools": [
+        "stripe",
+        "paddle",
+        "creem",
+        "ga4"
+      ],
+      "auto": false
+    },
+    {
+      "id": "monetize-lead-magnet",
+      "cat": "monetize",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "用免费资源（清单、模板、额度）换邮箱或私域好友，再转化付费",
+      "why": "多数访客第一次不会付费；留下联系方式才能持续触达，私域转化率通常远高于公域。",
+      "checkAgainst": [
+        "至少 1 个免费资源换邮箱或加微信，放在高流量文章和落地页上",
+        "漏斗每一步都有数据：资源页访问 → 留资 → 打开 / 回复 → 付费",
+        "新订阅者收到 3–5 封自动欢迎邮件：交付资源、讲故事、展示案例、给出付费理由",
+        "私域按约 1% 转化做测算（笔记示例：2 万好友 × 1% × ¥200 = ¥4 万），每月用真实数据更新"
+      ],
+      "how": "邮件可用 Substack 或其他邮件营销工具，中文私域用企业微信；在 GA4 中把留资设为关键事件。",
+      "tools": [
+        "substack",
+        "ga4",
+        "wechat-mp"
+      ],
+      "auto": false
+    },
+    {
+      "id": "monetize-payer-interview",
+      "cat": "monetize",
+      "phase": "grow",
+      "priority": "P1",
+      "title": "访谈首批付费用户再调整定价；考虑买断（LTD）前先算清毛利",
+      "why": "第一批付费用户最清楚「为什么值得付钱」，他们的原话就是最好的定价页文案和下一个功能。",
+      "checkAgainst": [
+        "访谈前 5–10 位付费用户：为什么付费、对比过哪些产品、差点没买的原因",
+        "访谈后 30 天内更新定价页文案或档位，并记入定价变更日志",
+        "考虑 AppSumo 等买断平台时：计算平台分成后的单用户收入，对比长期服务成本（尤其 AI 调用费），算不过来就不做",
+        "每月记录：免费 → 付费转化率、MRR、流失率"
+      ],
+      "how": "付费后自动发一封创始人邮件，邀请 15 分钟通话；把用户原话整理进表格。",
+      "tools": [
+        "appsumo",
+        "ga4"
+      ],
+      "auto": false
+    },
+    {
+      "id": "monetize-adsense-readiness",
+      "cat": "monetize",
+      "phase": "grow",
+      "priority": "P2",
+      "title": "申请 AdSense 前自查：原创内容、政策页面、导航清晰；获批后配置 ads.txt",
+      "why": "AdSense 常以「低价值内容」拒绝新站；准备不足就反复申请只会浪费时间。",
+      "checkAgainst": [
+        "有足够多原创且有实质内容的页面（官方没有篇数门槛，经验上 ≥ 20–30 篇再申请）",
+        "有隐私政策（说明使用 Google 广告和 Cookie）、About、Contact 页面；导航清晰，没有大量空页面",
+        "面向欧洲经济区、英国、瑞士用户时使用 Google 认证的 CMP 同意弹窗（2024 年起强制）",
+        "获批后 /ads.txt 返回 200 并包含正确的发布商 ID；开启广告后 CLS 仍 ≤ 0.1",
+        "被拒或以中文流量为主时的备选：Ezoic、Adsterra、Monetag；中文站可用万维广告（Adwork）"
+      ],
+      "how": "AdSense → 网站 → 添加网站并按提示放置代码；用 PageSpeed Insights 对比开启广告前后的 CLS 和性能分。",
+      "tools": [
+        "adsense",
+        "ezoic",
+        "pagespeed"
+      ],
+      "auto": false
+    },
+    {
+      "id": "monetize-affiliate-program",
+      "cat": "monetize",
+      "phase": "grow",
+      "priority": "P2",
+      "title": "开设自己的联盟计划，让用户和创作者帮你推广",
+      "why": "联盟按成交付佣金，是笔记中与目录、SEO 并列的三个低成本渠道之一。",
+      "checkAgainst": [
+        "联盟计划已上线：Lemon Squeezy 自带联盟功能，或使用 Rewardful、impact.com、Awin（ShareASale 已并入 Awin）",
+        "佣金规则写清楚（SaaS 常见为首年 20–30% 的循环佣金，按自己的毛利决定）、Cookie 有效期、结算周期",
+        "条款禁止：竞价投放品牌词、垃圾邮件推广、虚假优惠码站",
+        "官网页脚有「Affiliates」入口；每个推广者有独立追踪链接，后台能看到点击和转化"
+      ],
+      "how": "先邀请 5–10 个真实用户或创作者加入，跑通一次结算后再公开招募。",
+      "tools": [
+        "lemonsqueezy",
+        "rewardful",
+        "impact",
+        "awin"
+      ],
+      "auto": false
+    }
+  ]
+};
+const REPORTS = {"before":{"name":"before","url":"http://localhost:8080/seo/demos/before/","publicUrl":"https://arcueidshiki.github.io/seo/demos/before/","keyword":"vexlora position size calculator","date":"2026-11-01T05:15:57.775Z","pagesCrawled":["/","/page.html?id=2&ref=home","/index.html"],"score":8,"counts":{"pass":2,"warn":2,"fail":32,"manual":2,"na":1},"checks":[{"id":"onpage-title","title":"每个页面有独立、含关键词的 <title>","status":"fail","detail":"/: generic title \"Home\" | /page.html: generic title \"Home\" | /index.html: generic title \"Home\""},{"id":"onpage-title-unique","title":"全站没有重复的 title","status":"fail","detail":"duplicate titles: Home"},{"id":"onpage-meta-description","title":"每个页面有 meta description","status":"fail","detail":"/: missing meta description | /page.html: missing meta description | /index.html: missing meta description"},{"id":"onpage-h1","title":"每页恰好 1 个 H1，且在服务端 HTML 中","status":"fail","detail":"/: 0 <h1> in server HTML (want exactly 1) | /page.html: 0 <h1> in server HTML (want exactly 1) | /index.html: 0 <h1> in server HTML (want exactly 1)"},{"id":"onpage-heading-hierarchy","title":"标题层级 H1→H2→H3 不跳级","status":"fail","detail":"/: no headings at all | /page.html: no headings at all | /index.html: no headings at all"},{"id":"onpage-keyword-placement","title":"主关键词出现在 title、H1、description、首段、URL","status":"fail","detail":"\"vexlora position size calculator\" missing from: title, h1, description, first100words","where":{"title":false,"h1":false,"description":false,"first100words":false}},{"id":"tech-html-lang","title":"<html lang> 声明页面语言","status":"fail","detail":"/: no <html lang> | /page.html: no <html lang> | /index.html: no <html lang>"},{"id":"tech-viewport","title":"移动端 viewport 与响应式布局","status":"fail","detail":"/: no responsive viewport meta | /page.html: no responsive viewport meta | /index.html: no responsive viewport meta"},{"id":"tech-canonical","title":"每个可索引页面有自引用的绝对 canonical","status":"fail","detail":"/: no canonical | /page.html: no canonical | /index.html: no canonical"},{"id":"tech-indexable","title":"重要页面没有误加 noindex","status":"pass","detail":"no important page carries noindex"},{"id":"tech-ssr-content","title":"正文在不执行 JS 的 HTML 中就存在（SSR / SSG）","status":"fail","detail":"/: only 1 words in HTML before JavaScript runs (rendered: 11) | /page.html: only 11 words in HTML before JavaScript runs (rendered: 11) | /index.html: only 1 words in HTML before JavaScript runs (rendered: 11)"},{"id":"tech-clean-urls","title":"URL 干净：小写、连字符、无参数、有层级","status":"fail","detail":"non-clean internal URLs: /page.html?id=2&ref=home"},{"id":"tech-robots-txt","title":"robots.txt 允许抓取并声明 Sitemap","status":"fail","detail":"robots.txt returned HTTP 404"},{"id":"tech-xml-sitemap","title":"XML sitemap：只含可索引的规范 URL，lastmod 真实","status":"fail","detail":"no valid sitemap.xml (HTTP 404)"},{"id":"tech-hreflang","title":"多语言页面 hreflang 互相指向并带 x-default","status":"na","detail":"single-language site (no hreflang needed)"},{"id":"tech-404","title":"不存在的 URL 返回真实 404 状态码，并有引导链接","status":"pass","detail":"missing URL returned HTTP 404 with links back into the site"},{"id":"tech-favicon","title":"favicon（Google 结果里显示的站点图标）","status":"fail","detail":"no <link rel=\"icon\"> (browser tab + Google result icon)"},{"id":"social-open-graph","title":"Open Graph 社交卡片（og:title / description / image / url）","status":"fail","detail":"/: missing og:title, og:description, og:image, og:url | /page.html: missing og:title, og:description, og:image, og:url | /index.html: missing og:title, og:description, og:image, og:url"},{"id":"social-twitter-card","title":"Twitter / X card 标签","status":"fail","detail":"/: no twitter:card | /page.html: no twitter:card | /index.html: no twitter:card"},{"id":"serp-structured-data","title":"JSON-LD 结构化数据合法且与页面内容一致","status":"fail","detail":"/: no JSON-LD | /page.html: no JSON-LD | /index.html: no JSON-LD"},{"id":"serp-breadcrumbs","title":"BreadcrumbList 面包屑","status":"fail","detail":"no BreadcrumbList schema"},{"id":"serp-entity-schema","title":"Organization + WebSite 实体（站点名、logo、sameAs）","status":"fail","detail":"Organization: false, WebSite: false"},{"id":"img-alt","title":"所有图片有描述性 alt","status":"fail","detail":"/: 1 <img> without alt | /index.html: 1 <img> without alt"},{"id":"img-dimensions","title":"图片声明 width / height，避免布局偏移（CLS）","status":"fail","detail":"/: 1 <img> without width/height (layout shift) | /index.html: 1 <img> without width/height (layout shift)"},{"id":"img-optimized","title":"图片压缩并使用 WebP / AVIF，首屏外懒加载","status":"fail","detail":"/hero.png 3356KB image/png | /hero.png 3356KB image/png"},{"id":"links-internal","title":"每个页面至少有 2 个指向其他页面的内链，没有孤立页面","status":"fail","detail":"/: only 1 internal links to other pages | /page.html: only 1 internal links to other pages | /index.html: only 1 internal links to other pages"},{"id":"links-anchor-text","title":"锚文本有描述性，不用\"点击这里\"","status":"fail","detail":"/: generic anchors: click here | /page.html: generic anchors: click here | /index.html: generic anchors: click here"},{"id":"links-external-citation","title":"引用权威外部来源","status":"fail","detail":"cites at least one external authoritative source"},{"id":"content-depth","title":"核心页面内容足够回答搜索意图（不是薄内容）","status":"fail","detail":"11 words of visible main content on the homepage"},{"id":"content-eeat-signals","title":"E-E-A-T 信号：About 页、作者署名、更新日期、联系方式","status":"fail","detail":"no About page and/or no visible dates/authorship"},{"id":"geo-faq-blocks","title":"FAQ / 问答式小标题","status":"fail","detail":"no Q&A-format content"},{"id":"geo-answer-first","title":"答案先行：H1 后第一段直接给出定义 / 结论","status":"fail","detail":"no concise definitional answer right after the H1"},{"id":"geo-llms-txt","title":"根目录提供 /llms.txt","status":"fail","detail":"llms.txt HTTP 404"},{"id":"geo-ai-crawlers","title":"robots.txt 没有屏蔽 AI 搜索爬虫","status":"warn","detail":"no robots.txt — AI crawlers allowed by default but not explicitly"},{"id":"analytics-installed","title":"安装网站统计（GA4 / Plausible / Umami / Clarity）","status":"manual","detail":"no analytics detected — add GA4 / Plausible / Umami / Clarity ID at build time (needs your account)"},{"id":"indexing-gsc","title":"验证 Google Search Console 并提交 sitemap","status":"manual","detail":"verify the property in Google Search Console (needs your Google account)"},{"id":"perf-lighthouse","title":"Lighthouse 移动端：性能 ≥90，SEO / 无障碍 / 最佳实践 ≥90","status":"warn","detail":"mobile Lighthouse performance 64, SEO 73, accessibility 51, best practices 96"},{"id":"perf-core-web-vitals","title":"Core Web Vitals 达标：LCP ≤2.5s · INP ≤200ms · CLS ≤0.1","status":"fail","detail":"lab LCP 18.1s (≤2.5s), CLS 0 (≤0.1), TBT 0ms (≤200ms; proxy for INP)"},{"id":"perf-page-weight","title":"首页总传输体积 ≤1MB","status":"fail","detail":"homepage transfers 3361 KB (budget ≤1000 KB)"}],"lighthouse":{"mobile":{"performance":64,"accessibility":51,"bestPractices":96,"seo":73,"lcpMs":18086,"fcpMs":4597,"tbtMs":0,"cls":0,"totalKB":3361,"failedSeoAudits":["Document does not have a meta description","Links do not have descriptive text","Image elements do not have `[alt]` attributes"]},"desktop":{"performance":39,"accessibility":51,"bestPractices":100,"seo":73,"lcpMs":17967,"fcpMs":4616,"tbtMs":0,"cls":0.334,"totalKB":3360,"failedSeoAudits":["Document does not have a meta description","Links do not have descriptive text","Image elements do not have `[alt]` attributes"]}},"serp":{"title":"Home","description":"(no meta description — Google picks page text) vexlora Vexlora Calc acct risk in sl GO Our tool helps traders. For more info click here . © vexlora","url":"https://arcueidshiki.github.io/seo/demos/before/","siteName":null,"favicon":false,"breadcrumbs":false,"richResultTypes":[],"ogImage":false}},"after":{"name":"after","url":"http://localhost:8080/seo/demos/after/","publicUrl":"https://arcueidshiki.github.io/seo/demos/after/","keyword":"vexlora position size calculator","date":"2026-11-01T05:16:34.625Z","pagesCrawled":["/","/guide/position-sizing-rules/","/about/","/zh/"],"score":100,"counts":{"pass":37,"warn":0,"fail":0,"manual":2,"na":0},"checks":[{"id":"onpage-title","title":"每个页面有独立、含关键词的 <title>","status":"pass","detail":"all 4 pages have unique-looking 15–65 char titles"},{"id":"onpage-title-unique","title":"全站没有重复的 title","status":"pass","detail":"no duplicate titles"},{"id":"onpage-meta-description","title":"每个页面有 meta description","status":"pass","detail":"every indexable page has a 50–165 char meta description"},{"id":"onpage-h1","title":"每页恰好 1 个 H1，且在服务端 HTML 中","status":"pass","detail":"exactly one H1 in the server-rendered HTML of every page"},{"id":"onpage-heading-hierarchy","title":"标题层级 H1→H2→H3 不跳级","status":"pass","detail":"headings never skip a level"},{"id":"onpage-keyword-placement","title":"主关键词出现在 title、H1、description、首段、URL","status":"pass","detail":"\"vexlora position size calculator\" appears in title, H1, description and opening text","where":{"title":true,"h1":true,"description":true,"first100words":true}},{"id":"tech-html-lang","title":"<html lang> 声明页面语言","status":"pass","detail":"every page declares <html lang>"},{"id":"tech-viewport","title":"移动端 viewport 与响应式布局","status":"pass","detail":"responsive viewport on every page"},{"id":"tech-canonical","title":"每个可索引页面有自引用的绝对 canonical","status":"pass","detail":"every indexable page has an absolute, self-referencing canonical"},{"id":"tech-indexable","title":"重要页面没有误加 noindex","status":"pass","detail":"no important page carries noindex"},{"id":"tech-ssr-content","title":"正文在不执行 JS 的 HTML 中就存在（SSR / SSG）","status":"pass","detail":"main content is present in the HTML without JavaScript (SSR/SSG)"},{"id":"tech-clean-urls","title":"URL 干净：小写、连字符、无参数、有层级","status":"pass","detail":"internal URLs are lowercase, hyphenated, no query strings"},{"id":"tech-robots-txt","title":"robots.txt 允许抓取并声明 Sitemap","status":"pass","detail":"robots.txt present, allows crawling, declares Sitemap"},{"id":"tech-xml-sitemap","title":"XML sitemap：只含可索引的规范 URL，lastmod 真实","status":"pass","detail":"4 URLs, with <lastmod>"},{"id":"tech-hreflang","title":"多语言页面 hreflang 互相指向并带 x-default","status":"pass","detail":"hreflang tags are reciprocal with x-default"},{"id":"tech-404","title":"不存在的 URL 返回真实 404 状态码，并有引导链接","status":"pass","detail":"missing URL returned HTTP 404 with links back into the site"},{"id":"tech-favicon","title":"favicon（Google 结果里显示的站点图标）","status":"pass","detail":"favicon declared"},{"id":"social-open-graph","title":"Open Graph 社交卡片（og:title / description / image / url）","status":"pass","detail":"og:title / og:description / og:image / og:url on every page"},{"id":"social-twitter-card","title":"Twitter / X card 标签","status":"pass","detail":"twitter:card on every page"},{"id":"serp-structured-data","title":"JSON-LD 结构化数据合法且与页面内容一致","status":"pass","detail":"valid JSON-LD on every page; types: Organization, WebSite, WebApplication, Offer, BreadcrumbList, ListItem, FAQPage, Question, Answer, Article, ImageObject, AboutPage"},{"id":"serp-breadcrumbs","title":"BreadcrumbList 面包屑","status":"pass","detail":"BreadcrumbList schema present"},{"id":"serp-entity-schema","title":"Organization + WebSite 实体（站点名、logo、sameAs）","status":"pass","detail":"Organization: true, WebSite: true"},{"id":"img-alt","title":"所有图片有描述性 alt","status":"pass","detail":"every image has descriptive alt text"},{"id":"img-dimensions","title":"图片声明 width / height，避免布局偏移（CLS）","status":"pass","detail":"every image declares width/height"},{"id":"img-optimized","title":"图片压缩并使用 WebP / AVIF，首屏外懒加载","status":"pass","detail":"all images ≤200KB, modern formats"},{"id":"links-internal","title":"每个页面至少有 2 个指向其他页面的内链，没有孤立页面","status":"pass","detail":"every page links to ≥2 other internal pages"},{"id":"links-anchor-text","title":"锚文本有描述性，不用\"点击这里\"","status":"pass","detail":"no \"click here\"-style anchor text"},{"id":"links-external-citation","title":"引用权威外部来源","status":"pass","detail":"cites at least one external authoritative source"},{"id":"content-depth","title":"核心页面内容足够回答搜索意图（不是薄内容）","status":"pass","detail":"525 words of visible main content on the homepage"},{"id":"content-eeat-signals","title":"E-E-A-T 信号：About 页、作者署名、更新日期、联系方式","status":"pass","detail":"About page + visible updated dates found"},{"id":"geo-faq-blocks","title":"FAQ / 问答式小标题","status":"pass","detail":"question-style headings / FAQPage found (easy for AI answers to quote)"},{"id":"geo-answer-first","title":"答案先行：H1 后第一段直接给出定义 / 结论","status":"pass","detail":"opening paragraph answers directly: \"Position size = (account size × risk %) ÷ (entry price − stop-loss price).\n      Enter four numbers below and …\""},{"id":"geo-llms-txt","title":"根目录提供 /llms.txt","status":"pass","detail":"llms.txt present with title and links"},{"id":"geo-ai-crawlers","title":"robots.txt 没有屏蔽 AI 搜索爬虫","status":"pass","detail":"AI crawlers allowed (5 named explicitly)"},{"id":"analytics-installed","title":"安装网站统计（GA4 / Plausible / Umami / Clarity）","status":"manual","detail":"no analytics detected — add GA4 / Plausible / Umami / Clarity ID at build time (needs your account)"},{"id":"indexing-gsc","title":"验证 Google Search Console 并提交 sitemap","status":"manual","detail":"verify the property in Google Search Console (needs your Google account)"},{"id":"perf-lighthouse","title":"Lighthouse 移动端：性能 ≥90，SEO / 无障碍 / 最佳实践 ≥90","status":"pass","detail":"mobile Lighthouse performance 100, SEO 100, accessibility 100, best practices 100"},{"id":"perf-core-web-vitals","title":"Core Web Vitals 达标：LCP ≤2.5s · INP ≤200ms · CLS ≤0.1","status":"pass","detail":"lab LCP 1.4s (≤2.5s), CLS 0 (≤0.1), TBT 21ms (≤200ms; proxy for INP)"},{"id":"perf-page-weight","title":"首页总传输体积 ≤1MB","status":"pass","detail":"homepage transfers 47 KB (budget ≤1000 KB)"}],"lighthouse":{"mobile":{"performance":100,"accessibility":100,"bestPractices":100,"seo":100,"lcpMs":1354,"fcpMs":911,"tbtMs":21,"cls":0,"totalKB":47,"failedSeoAudits":[]},"desktop":{"performance":94,"accessibility":100,"bestPractices":100,"seo":100,"lcpMs":1308,"fcpMs":1115,"tbtMs":4,"cls":0,"totalKB":47,"failedSeoAudits":[]}},"serp":{"title":"Vexlora Position Size Calculator – Free Risk-Based Tool","description":"Free Vexlora position size calculator: enter account size, risk % and stop-loss to get the exact number of shares to buy. Formula, worked examples and FAQ.","url":"https://arcueidshiki.github.io/seo/demos/after/","siteName":"Vexlora","favicon":true,"breadcrumbs":true,"richResultTypes":["Organization","WebSite","WebApplication","Offer","BreadcrumbList","ListItem","FAQPage","Question","Answer","Article","ImageObject","AboutPage"],"ogImage":true}}};
+const ICONS = {"circle":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <circle cx=\"12\" cy=\"12\" r=\"10\" /> </svg>","globe":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <circle cx=\"12\" cy=\"12\" r=\"10\" /> <path d=\"M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20\" /> <path d=\"M2 12h20\" /> </svg>","layers":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z\" /> <path d=\"M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12\" /> <path d=\"M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17\" /> </svg>","list-checks":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M13 5h8\" /> <path d=\"M13 12h8\" /> <path d=\"M13 19h8\" /> <path d=\"m3 17 2 2 4-4\" /> <path d=\"m3 7 2 2 4-4\" /> </svg>","file-down":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" /> <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" /> <path d=\"M12 18v-6\" /> <path d=\"m9 15 3 3 3-3\" /> </svg>","download":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M12 15V3\" /> <path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\" /> <path d=\"m7 10 5 5 5-5\" /> </svg>","rotate-ccw":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\" /> <path d=\"M3 3v5h5\" /> </svg>","wrench":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z\" /> </svg>","flag":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528\" /> </svg>","search":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"m21 21-4.34-4.34\" /> <circle cx=\"11\" cy=\"11\" r=\"8\" /> </svg>","network":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <rect x=\"16\" y=\"16\" width=\"6\" height=\"6\" rx=\"1\" /> <rect x=\"2\" y=\"16\" width=\"6\" height=\"6\" rx=\"1\" /> <rect x=\"9\" y=\"2\" width=\"6\" height=\"6\" rx=\"1\" /> <path d=\"M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3\" /> <path d=\"M12 12V8\" /> </svg>","tags":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M13.172 2a2 2 0 0 1 1.414.586l6.71 6.71a2.4 2.4 0 0 1 0 3.408l-4.592 4.592a2.4 2.4 0 0 1-3.408 0l-6.71-6.71A2 2 0 0 1 6 9.172V3a1 1 0 0 1 1-1z\" /> <path d=\"M2 7v6.172a2 2 0 0 0 .586 1.414l6.71 6.71a2.4 2.4 0 0 0 3.191.193\" /> <circle cx=\"10.5\" cy=\"6.5\" r=\".5\" fill=\"currentColor\" /> </svg>","settings":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915\" /> <circle cx=\"12\" cy=\"12\" r=\"3\" /> </svg>","gauge":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"m12 14 4-4\" /> <path d=\"M3.34 19a10 10 0 1 1 17.32 0\" /> </svg>","shield-check":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" /> <path d=\"m9 12 2 2 4-4\" /> </svg>","send":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z\" /> <path d=\"m21.854 2.147-10.94 10.939\" /> </svg>","pen-line":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M13 21h8\" /> <path d=\"M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z\" /> </svg>","star":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z\" /> </svg>","bot":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M12 8V4H8\" /> <rect width=\"16\" height=\"12\" x=\"4\" y=\"8\" rx=\"2\" /> <path d=\"M2 14h2\" /> <path d=\"M20 14h2\" /> <path d=\"M15 13v2\" /> <path d=\"M9 13v2\" /> </svg>","link":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71\" /> <path d=\"M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71\" /> </svg>","chart-line":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M3 3v16a2 2 0 0 0 2 2h16\" /> <path d=\"m19 9-5 5-4-4-3 3\" /> </svg>","rocket":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5\" /> <path d=\"M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09\" /> <path d=\"M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z\" /> <path d=\"M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05\" /> </svg>","megaphone":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z\" /> <path d=\"M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14\" /> <path d=\"M8 6v8\" /> </svg>","languages":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"m5 8 6 6\" /> <path d=\"m4 14 6-6 2-3\" /> <path d=\"M2 5h12\" /> <path d=\"M7 2h1\" /> <path d=\"m22 22-5-10-5 10\" /> <path d=\"M14 18h6\" /> </svg>","wallet":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1\" /> <path d=\"M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4\" /> </svg>","compass":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <circle cx=\"12\" cy=\"12\" r=\"10\" /> <path d=\"m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z\" /> </svg>","code":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"m16 18 6-6-6-6\" /> <path d=\"m8 6-6 6 6 6\" /> </svg>","trending-up":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M16 7h6v6\" /> <path d=\"m22 7-8.5 8.5-5-5L2 17\" /> </svg>","repeat":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"m17 2 4 4-4 4\" /> <path d=\"M3 11v-1a4 4 0 0 1 4-4h14\" /> <path d=\"m7 22-4-4 4-4\" /> <path d=\"M21 13v1a4 4 0 0 1-4 4H3\" /> </svg>","scan-search":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M3 7V5a2 2 0 0 1 2-2h2\" /> <path d=\"M17 3h2a2 2 0 0 1 2 2v2\" /> <path d=\"M21 17v2a2 2 0 0 1-2 2h-2\" /> <path d=\"M7 21H5a2 2 0 0 1-2-2v-2\" /> <circle cx=\"12\" cy=\"12\" r=\"3\" /> <path d=\"m16 16-1.9-1.9\" /> </svg>"};
+const KEY = 'seo-handbook-checklist-v1';
+let state = {};
+try { state = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { state = {}; }
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} };
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const icon = (name, color) => { const s = (ICONS && (ICONS[name] || ICONS['circle'])) || ''; return s.replace('<svg', `<svg class="i"${color ? ` style="color:${color}"` : ''}`); };
+document.querySelectorAll('[data-i]').forEach(e => e.outerHTML = icon(e.dataset.i));
+document.getElementById('logo').innerHTML = icon('list-checks', '#4f46e5');
+
+const cats = Object.fromEntries(DATA.categories.map(c => [c.id, c]));
+const phases = Object.fromEntries(DATA.phases.map(p => [p.id, p]));
+const P = DATA.platforms;
+const favicon = d => `https://www.google.com/s2/favicons?domain=${encodeURIComponent(d)}&sz=64`;
+function toolChip(t) {
+  const p = typeof t === 'string' ? P[t] : t;
+  if (!p) return '';
+  const img = p.domain ? `<img src="${favicon(p.domain)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.outerHTML=window.__globe">` : icon(p.icon || 'globe');
+  return `<a class="tool" href="${esc(p.url || ('https://' + p.domain))}" target="_blank" rel="noopener">${img}${esc(p.name)}</a>`;
+}
+window.__globe = icon('globe');
+
+const F = { cat: 'all', phase: new Set(), pri: new Set(), type: '', done: '', q: '' };
+function chips(el, opts, set, single) {
+  el.innerHTML = opts.map(([v, l]) => `<span class="chip" data-v="${v}">${l}</span>`).join(' ');
+  el.querySelectorAll('.chip').forEach(c => c.onclick = () => {
+    const v = c.dataset.v;
+    if (single) { F[set] = F[set] === v ? '' : v; } else { F[set].has(v) ? F[set].delete(v) : F[set].add(v); }
+    render();
+  });
+}
+chips(document.getElementById('fPhase'), DATA.phases.map(p => [p.id, p.name]), 'phase');
+chips(document.getElementById('fPri'), [['P0', 'P0 必做'], ['P1', 'P1 重要'], ['P2', 'P2 加分']], 'pri');
+chips(document.getElementById('fType'), [['auto', '可自动检测'], ['manual', '人工检查']], 'type', true);
+chips(document.getElementById('fDone'), [['todo', '未完成'], ['done', '已完成']], 'done', true);
+document.getElementById('q').oninput = e => { F.q = e.target.value.trim().toLowerCase(); render(); };
+const ov = document.getElementById('overlay');
+Object.entries(REPORTS || {}).forEach(([k, r]) => ov.insertAdjacentHTML('beforeend', `<option value="${k}">${k === 'before' ? 'Demo A · 优化前' : k === 'after' ? 'Demo B · 优化后' : k} (${r.score}/100)</option>`));
+ov.onchange = render;
+document.getElementById('groupBy').onchange = render;
+
+function matches(it) {
+  if (F.cat !== 'all' && it.cat !== F.cat) return false;
+  if (F.phase.size && !F.phase.has(it.phase)) return false;
+  if (F.pri.size && !F.pri.has(it.priority)) return false;
+  if (F.type === 'auto' && !it.auto) return false;
+  if (F.type === 'manual' && it.auto) return false;
+  if (F.done === 'done' && !state[it.id]) return false;
+  if (F.done === 'todo' && state[it.id]) return false;
+  if (F.q) {
+    const hay = [it.title, it.why, it.how, ...(it.checkAgainst || []), ...(it.tools || []).map(t => (P[t] || t).name || t)].join(' ').toLowerCase();
+    if (!hay.includes(F.q)) return false;
+  }
+  return true;
+}
+function itemHtml(it, rep) {
+  const c = cats[it.cat];
+  const res = rep && rep.checks.find(x => x.id === it.id);
+  const status = res ? `<span class="status s-${res.status}">${{pass:'通过',fail:'未通过',warn:'部分',manual:'需人工',na:'不适用'}[res.status]}</span>` : '<span></span>';
+  return `<div class="item ${state[it.id] ? 'done' : ''}" id="${it.id}">
+    <input type="checkbox" ${state[it.id] ? 'checked' : ''} data-id="${it.id}" aria-label="完成：${esc(it.title)}">
+    <div>
+      <div class="t">${esc(it.title)}</div>
+      <div class="meta"><span class="badge p${it.priority[1].toLowerCase() === '0' ? '0' : it.priority[1]}">${it.priority}</span>
+        <span class="badge">${esc(phases[it.phase]?.name || it.phase)}</span>
+        <span class="badge" style="background:${c.color}1a;color:${c.color}">${icon(c.icon, c.color).replace('class="i"', 'class="i" width="12" height="12"')} ${esc(c.name)}</span>
+        ${it.auto ? `<span class="badge auto">🤖 auditor 自动检测 · ${it.id}</span>` : ''}</div>
+      ${it.why ? `<p class="why">${esc(it.why)}</p>` : ''}
+      <div class="ca"><b>✅ 检查标准（check against）</b><ul>${(it.checkAgainst || []).map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>
+      ${it.how ? `<details class="more"><summary>怎么检查 / 怎么做</summary><p>${esc(it.how)}</p></details>` : ''}
+      ${(it.tools || []).length ? `<div class="tools">${it.tools.map(toolChip).join('')}</div>` : ''}
+    </div>
+    ${status}
+    ${res ? `<div class="sdetail ${res.status}">${esc(res.detail)}</div>` : ''}
+  </div>`;
+}
+function render() {
+  const items = DATA.items;
+  const done = items.filter(i => state[i.id]).length;
+  document.getElementById('pbar').style.width = (done / items.length * 100) + '%';
+  document.getElementById('ptext').textContent = `${done} / ${items.length} 已完成`;
+  // sidebar
+  const catHtml = [`<div class="cat ${F.cat === 'all' ? 'on' : ''}" data-c="all"><span class="ico" style="background:#eef2ff">${icon('layers', '#4f46e5')}</span>全部<span class="n">${done}/${items.length}</span></div>`]
+    .concat(DATA.categories.map(c => {
+      const its = items.filter(i => i.cat === c.id);
+      return `<div class="cat ${F.cat === c.id ? 'on' : ''}" data-c="${c.id}"><span class="ico" style="background:${c.color}1a">${icon(c.icon, c.color)}</span>${esc(c.name)}<span class="n">${its.filter(i => state[i.id]).length}/${its.length}</span></div>`;
+    }));
+  const cel = document.getElementById('cats'); cel.innerHTML = catHtml.join('');
+  cel.querySelectorAll('.cat').forEach(e => e.onclick = () => { F.cat = e.dataset.c; render(); window.scrollTo({ top: 0 }); });
+  document.querySelectorAll('#filters .chip').forEach(ch => {
+    const box = ch.parentElement.id, v = ch.dataset.v;
+    const on = box === 'fPhase' ? F.phase.has(v) : box === 'fPri' ? F.pri.has(v) : box === 'fType' ? F.type === v : F.done === v;
+    ch.classList.toggle('on', on);
+  });
+  // overlay score
+  const rep = REPORTS && REPORTS[ov.value];
+  document.getElementById('scorebox').innerHTML = rep ? `<div class="score"><span class="big">${rep.score}</span>/100 · ${ov.value === 'before' ? 'Demo A 优化前' : 'Demo B 优化后'}：
+    <span class="status s-pass">${rep.counts.pass} 通过</span><span class="status s-warn">${rep.counts.warn} 部分</span><span class="status s-fail">${rep.counts.fail} 未通过</span><span class="status s-manual">${rep.counts.manual} 需人工</span>
+    ${rep.lighthouse ? `<span class="badge">Lighthouse 移动端 性能 ${rep.lighthouse.mobile.performance} · SEO ${rep.lighthouse.mobile.seo}</span>` : ''}
+    <a href="/seo/reports/">完整对比报告 →</a></div>` : '';
+  // groups
+  const vis = items.filter(matches);
+  const gb = document.getElementById('groupBy').value;
+  let groups;
+  if (gb === 'platform') {
+    const m = new Map();
+    vis.forEach(it => (it.tools && it.tools.length ? it.tools : ['_none']).forEach(t => { const k = typeof t === 'string' ? t : t.name; if (!m.has(k)) m.set(k, []); m.get(k).push(it); }));
+    groups = [...m.entries()].sort((a, b) => b[1].length - a[1].length).map(([k, its]) => {
+      const p = P[k] || { name: k === '_none' ? '无需工具' : k };
+      return { head: `${p.domain ? `<img src="${favicon(p.domain)}" width="22" height="22" alt="" style="border-radius:5px" onerror="this.outerHTML=window.__globe">` : icon('wrench')} ${esc(p.name)}`, desc: p.desc || '', items: its };
+    });
+  } else if (gb === 'phase') {
+    groups = DATA.phases.map(p => ({ head: `${icon(p.icon || 'flag', '#4f46e5')} ${esc(p.name)}`, desc: p.desc || '', items: vis.filter(i => i.phase === p.id) })).filter(g => g.items.length);
+  } else {
+    groups = DATA.categories.map(c => ({ head: `<span class="ghead-ico" style="background:${c.color}1a">${icon(c.icon, c.color)}</span>${esc(c.name)} <small style="color:var(--muted);font-weight:400">${esc(c.nameEn || '')}</small>`, desc: c.desc, items: vis.filter(i => i.cat === c.id) })).filter(g => g.items.length);
+  }
+  document.getElementById('list').innerHTML = groups.length ? groups.map(g => `<section class="group"><h2>${g.head}</h2>${g.desc ? `<p>${esc(g.desc)}</p>` : ''}${g.items.map(i => itemHtml(i, rep)).join('')}</section>`).join('') : '<div class="empty">没有符合筛选条件的条目</div>';
+  document.querySelectorAll('#list input[type=checkbox]').forEach(cb => cb.onchange = () => { if (cb.checked) state[cb.dataset.id] = Date.now(); else delete state[cb.dataset.id]; save(); render(); });
+}
+function download(name, text, type) {
+  const m = document.getElementById('modal');
+  m.querySelector('h3').textContent = '导出 ' + name;
+  const ta = m.querySelector('textarea'); ta.value = text;
+  const a = m.querySelector('a.dl'); a.href = URL.createObjectURL(new Blob([text], { type })); a.download = name;
+  m.hidden = false; ta.focus(); ta.select();
+}
+document.getElementById('exportMd').onclick = () => {
+  const md = ['# SEO / GEO / 增长 Checklist', '', `导出时间：${new Date().toLocaleString()}`, ''];
+  DATA.categories.forEach(c => {
+    const its = DATA.items.filter(i => i.cat === c.id); if (!its.length) return;
+    md.push(`## ${c.name}`, '');
+    its.forEach(i => { md.push(`- [${state[i.id] ? 'x' : ' '}] **${i.title}** (${i.priority}, ${phases[i.phase]?.name || i.phase})`); (i.checkAgainst || []).forEach(x => md.push(`  - ${x}`)); });
+    md.push('');
+  });
+  download('seo-checklist.md', md.join('\n'), 'text/markdown');
+};
+document.getElementById('exportJson').onclick = () => download('seo-checklist-progress.json', JSON.stringify(state, null, 2), 'application/json');
+(() => { const btn = document.getElementById('reset'); let armed = null;
+  btn.onclick = () => {
+    if (!armed) { btn.dataset.label = btn.innerHTML; btn.innerHTML = '再点一次确认清空'; btn.classList.add('primary'); armed = setTimeout(() => { btn.innerHTML = btn.dataset.label; btn.classList.remove('primary'); armed = null; }, 3000); return; }
+    clearTimeout(armed); armed = null; btn.innerHTML = btn.dataset.label; btn.classList.remove('primary'); state = {}; save(); render();
+  }; })();
+
+document.getElementById('mclose').onclick = () => { document.getElementById('modal').hidden = true; };
+document.getElementById('mcopy').onclick = async () => {
+  const ta = document.querySelector('#modal textarea'), msg = document.getElementById('mmsg');
+  try { await navigator.clipboard.writeText(ta.value); msg.textContent = '已复制 ✓'; }
+  catch (e) { ta.select(); msg.textContent = '请按 Ctrl/Cmd + C 复制'; }
+};
+render();
+</script>
+</body>
+</html>

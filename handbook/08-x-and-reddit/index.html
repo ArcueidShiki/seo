@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>X（Twitter）与 Reddit 运营 – SEO Handbook</title>
+<meta name="description" content="SEO handbook chapter: X（Twitter）与 Reddit 运营">
+<link rel="canonical" href="https://ArcueidShiki.github.io/seo/handbook/08-x-and-reddit/">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/seo/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="X（Twitter）与 Reddit 运营 – SEO Handbook">
+<meta property="og:description" content="SEO handbook chapter: X（Twitter）与 Reddit 运营">
+<meta property="og:url" content="https://ArcueidShiki.github.io/seo/handbook/08-x-and-reddit/">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--brand:#4f46e5;--bg:#fafafa}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.75 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--brand)}
+.top{border-bottom:1px solid var(--line);background:#fff}
+.top div{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;gap:18px;align-items:center}
+.top a{text-decoration:none;color:var(--muted)}.top .brand{font-weight:700;color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:20px;display:grid;grid-template-columns:240px 1fr;gap:32px}
+aside nav{position:sticky;top:16px;display:flex;flex-direction:column;gap:4px;font-size:14px}
+aside a{text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:8px}
+aside a[aria-current]{background:#eef2ff;color:var(--brand);font-weight:600}
+article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 36px;min-width:0}
+article h1{margin-top:0;line-height:1.25}
+article h2{margin-top:2em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
+article table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow:auto}
+article th,article td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+article th{background:#f9fafb}
+article code{background:#f3f4f6;padding:1px 5px;border-radius:4px;font-size:.92em}
+article pre{background:#111827;color:#e5e7eb;padding:14px;border-radius:8px;overflow:auto}
+article pre code{background:none;padding:0}
+article blockquote{margin:1em 0;padding:.5em 1em;border-left:4px solid var(--brand);background:#f5f3ff;color:#374151}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}aside nav{position:static}article{padding:20px}}
+</style>
+</head>
+<body>
+<div class="top"><div><a class="brand" href="/seo/">SEO Handbook</a><a href="/seo/tool/">Checklist 工具</a><a href="/seo/handbook/00-overview/">手册</a><a href="/seo/reports/">Before/After 报告</a></div></div>
+<div class="wrap">
+<aside><nav aria-label="手册目录"><a href="/seo/handbook/00-overview/">总览</a><a href="/seo/handbook/01-keyword-research/">关键词研究与选题</a><a href="/seo/handbook/02-page-structure-and-tags/">页面结构与 SEO 标签</a><a href="/seo/handbook/03-technical-seo-and-infra/">技术 SEO 与基础设施</a><a href="/seo/handbook/04-content-and-eeat/">内容与 E-E-A-T</a><a href="/seo/handbook/05-backlinks/">外链建设</a><a href="/seo/handbook/06-geo-ai-search/">GEO / AI 搜索优化</a><a href="/seo/handbook/07-launch-and-distribution/">发布与冷启动：推广策略、发布平台与品牌</a><a href="/seo/handbook/08-x-and-reddit/" aria-current="page">X（Twitter）与 Reddit 运营</a><a href="/seo/handbook/09-xiaohongshu/">小红书运营全指南</a><a href="/seo/handbook/10-douyin-video-wechat/">抖音、短视频与微信生态</a><a href="/seo/handbook/11-analytics-and-tools/">数据统计与 SEO 工具箱</a><a href="/seo/handbook/12-monetization/">变现：广告、订阅、支付与联盟营销</a><a href="/seo/handbook/13-mindset-and-case-studies/">独立开发者方法论与案例</a><a href="/seo/handbook/99-glossary/">SEO 名词解释</a></nav></aside>
+<article><h1>X（Twitter）与 Reddit 运营</h1>
+<blockquote>
+<p>X 适合做个人品牌和 #buildinpublic，Reddit 适合找第一批真实用户和验证需求。两者规则差异很大：X 鼓励你持续表达，Reddit 默认反感营销。
+相关章节：发布平台见 <a href="../07-launch-and-distribution/">07</a>；外链见 <a href="../05-backlinks/">05</a>；Reddit 与 AI 搜索的关系见 <a href="../06-geo-ai-search/">06 GEO</a>。</p>
+</blockquote>
+<h2>1. 为什么独立开发者首选 X</h2>
+<p>原文把独立开发者的流量来源分成 5 类：</p>
+<table>
+<thead>
+<tr>
+<th>来源</th>
+<th>特点</th>
+<th>能否马上开始</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SEO</td>
+<td>慢、长期、结果不确定，但会复利</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>社交媒体</td>
+<td>快，有机会爆</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>KOL 推荐</td>
+<td>靠运气和人脉</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>自然口碑</td>
+<td>需要非常出色的产品</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>付费广告</td>
+<td>需要很强的变现能力</td>
+<td>❌</td>
+</tr>
+</tbody></table>
+<p>结论：<strong>SEO + 社交从第一天并行</strong>。如果社交平台只能做一个，选 X。原因有三：</p>
+<ol>
+<li><strong>受众质量高</strong>：中文 X 上聚集了大量独立开发者，介绍自己的产品容易被转发和推荐。</li>
+<li><strong>链接限制少</strong>：简介和推文里都能放可点击链接，流量能直达产品。国内平台普遍不行。</li>
+<li><strong>作者的对照实验</strong>：同一份内容同时发 B 站、小红书、公众号和 X，X 的互动始终最好。作者断断续续发了约 5 个月，从 0 涨到约 7000 粉。</li>
+</ol>
+<blockquote>
+<p>⚠️ 注意：近年不少人观察到，X 对<strong>正文带外链</strong>的帖子分发偏少。常见做法是正文不放链接，把链接放在首条回复或个人简介里。X 的推荐策略经常调整，请用自己的数据对比&quot;带链接 / 不带链接&quot;两种发法。</p>
+</blockquote>
+<h2>2. 账号设置清单</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>怎么做</th>
+<th>检查标准</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>头像</td>
+<td>清晰的单人正脸，或统一风格的 Logo / 插画</td>
+<td>在时间线的小尺寸下能认出来</td>
+</tr>
+<tr>
+<td>名字栏</td>
+<td>名字 + 标签，例如&quot;名字｜独立开发&quot;</td>
+<td>别人一眼能看出你做什么</td>
+</tr>
+<tr>
+<td>简介（Bio）</td>
+<td>你是谁 + 在做什么产品 + 关注你能得到什么；自然地放 1–2 个领域关键词（主页可以在站内和 Google 被搜到）</td>
+<td>陌生人读完能复述你的定位</td>
+</tr>
+<tr>
+<td>位置</td>
+<td>填写真实城市或时区</td>
+<td>方便本地和同时区用户找到你</td>
+</tr>
+<tr>
+<td>链接</td>
+<td>产品或落地页地址，带 UTM，例如 <code>?utm_source=x&amp;utm_medium=social</code></td>
+<td>在 GA4 里能看到 x.com / t.co 来源</td>
+</tr>
+<tr>
+<td>置顶推文</td>
+<td>放产品介绍或表现最好的长帖 / Thread</td>
+<td>最近 30 天内更新过</td>
+</tr>
+<tr>
+<td>横幅图</td>
+<td>产品截图或一句价值主张</td>
+<td>与头像风格统一</td>
+</tr>
+<tr>
+<td>认证</td>
+<td>原文建议拿蓝标来增加可信度</td>
+<td>见下方说明</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>⚠️ 注意：&quot;30 个涨粉技巧&quot;一文是机翻的 Hootsuite 风格旧文。其中&quot;去拿认证蓝标&quot;在今天的意思是订阅 X Premium（付费）。Premium 的回复会被优先展示，也能发长帖。值不值得订，要看你的回复引流占比，并非必需。文中的 Twitter Chats、&quot;关注 @Twitter 获取公告&quot;等做法也已明显过时。</p>
+</blockquote>
+<h2>3. 30 个涨粉技巧（按主题分组浓缩）</h2>
+<p><strong>A. 定位与主页</strong></p>
+<ul>
+<li>先定品牌语气：目标受众画像、愿景、核心信息，并选定细分领域。</li>
+<li>主页填写完整（头像、关键词简介、位置、链接、置顶）。</li>
+<li>跨平台推广 X 账号：其他社交平台、邮件签名、Newsletter 页脚、官网页脚、名片都放上 X 账号。</li>
+</ul>
+<p><strong>B. 内容形式</strong></p>
+<ul>
+<li>多发图片、短视频、GIF、信息图、金句卡。图片不占字数，而且更抓眼球（原文引用的数据是 97% 的用户先看视觉内容）。</li>
+<li>&quot;好推文&quot;公式：1–2 个 hashtag、口语化、尽量短（原文称 140 字符以内表现最好）、配图，再结合数据测试。</li>
+<li>用 1–2 个 emoji 增加辨识度。</li>
+<li>长故事拆成 Thread，按 1/6、2/6 编号。</li>
+<li>多发帖：发得越多，总曝光越高。</li>
+<li>定期发投票（Poll）、优惠信息；把常青的旧帖转发或引用一次再发。</li>
+</ul>
+<p><strong>C. 发帖时间</strong></p>
+<ul>
+<li>原文引用 Hootsuite 的研究：周一、周四早上 8 点最好。</li>
+<li>30 天后改用自己账号的数据，找出最佳发帖时间。</li>
+</ul>
+<p><strong>D. 互动</strong></p>
+<ul>
+<li>每天固定一段时间做互动：回复粉丝、关注品牌提及、在同领域的非竞品账号下认真评论、点赞。</li>
+<li>建 X Lists 来管理互动对象：竞品、常转发你的人、客户、意见领袖、潜在用户、行业新闻源。</li>
+<li>加入或发起话题讨论；行业活动时带活动 hashtag 实时发帖；加入 Communities。</li>
+<li>@ 相关的人或品牌，但不要刷屏。</li>
+<li>关注 Explore / 趋势，用自己的角度参与热点。</li>
+</ul>
+<p><strong>E. 合作与放大</strong></p>
+<ul>
+<li>和同领域小 KOL 合作：搜索领域关键词，找互动最高的账号。</li>
+<li>预算充足时可以用 Promoted 推广。</li>
+<li>尽早使用新功能（Spaces 等），新功能常有流量倾斜。</li>
+</ul>
+<p><strong>F. 数据与底线</strong></p>
+<ul>
+<li>每月看一次 X Analytics（曝光、互动率、爆款帖），把表现好的内容改写后再发。</li>
+<li><strong>绝不买粉</strong>：机器人粉会被清理，不互动的粉丝还会拉低算法评分。</li>
+</ul>
+<h2>4. #buildinpublic：独立开发者的内容主线</h2>
+<p>原文的建议是：真诚分享有用的信息、有趣的产品和自己的开发进展。可以关注 #buildinpublic 标签，以及作者整理的<a href="https://x.com/i/lists/1742859529241624647">中文推特值得关注列表</a>找灵感。</p>
+<table>
+<thead>
+<tr>
+<th>内容类型</th>
+<th>示例</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>进度</td>
+<td>&quot;今天上线了批量导出，用户 A 一天用了 300 次&quot;</td>
+<td>让人持续关注</td>
+</tr>
+<tr>
+<td>数据</td>
+<td>收入、用户数、流量的增长曲线截图（上线清单第 15 步）</td>
+<td>建立信任，吸引同行</td>
+</tr>
+<tr>
+<td>失败 / 踩坑</td>
+<td>&quot;PH 发布只拿到 30 票，复盘 5 点&quot;</td>
+<td>真实感，互动最高</td>
+</tr>
+<tr>
+<td>决策</td>
+<td>定价怎么定、为什么砍掉某功能</td>
+<td>引发讨论</td>
+</tr>
+<tr>
+<td>资源</td>
+<td>工具清单、外链清单、教程</td>
+<td>被收藏、转发</td>
+</tr>
+<tr>
+<td>里程碑</td>
+<td>第一个付费用户、MRR 破 $1k</td>
+<td>适合置顶</td>
+</tr>
+</tbody></table>
+<h2>5. 发帖节奏与内容配比</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>建议</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>频率</td>
+<td>每周至少 3 条，连续 4 周以上；能做到每天 1–3 条更好</td>
+<td>原文检查项 + 通用经验</td>
+</tr>
+<tr>
+<td>配比</td>
+<td><strong>80% 对用户有用 / 10% 产品 / 10% 个人生活</strong></td>
+<td>原文（社交引流篇）</td>
+</tr>
+<tr>
+<td>结构</td>
+<td>观点 / 结论放第一行，细节放 Thread 后面</td>
+<td>通用经验</td>
+</tr>
+<tr>
+<td>复用</td>
+<td>爆款帖改写成长文、小红书笔记、博客</td>
+<td>原文（一稿多发）</td>
+</tr>
+<tr>
+<td>时间</td>
+<td>先按周一 / 周四早 8 点（目标时区）发，30 天后看数据调整</td>
+<td>原文</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>⚠️ 注意：80/10/10 是&quot;内容用途&quot;的比例；小红书章节的 50/30/20 是&quot;内容主题&quot;的比例（垂直 / 延伸 / 生活）。两者描述的维度不同，可以同时使用。</p>
+</blockquote>
+<h2>6. 互动策略</h2>
+<ol>
+<li><strong>每日互动块</strong>：每天固定 20–30 分钟，先回复自己帖子下的评论，再去 5–10 个同领域账号下写有信息量的评论（补充数据、反问、分享经验），不写&quot;Great post!&quot;。</li>
+<li><strong>Lists 分层管理</strong>：至少建 3 个 List：竞品、意见领袖、客户 / 潜在用户。每天按 List 刷，而不是刷推荐流。</li>
+<li><strong>私信要克制</strong>：只在对方公开表达过相关需求时私信，内容要个性化。</li>
+<li><strong>提及要追踪</strong>：有人提到你的产品时，当天回复并转发。</li>
+<li><strong>追踪导流效果</strong>：在 GA4 里看 x.com / t.co 来源的会话和转化。</li>
+</ol>
+<h2>7. Reddit：先理解它的文化</h2>
+<p>Reddit 的价值排序是：<strong>社区 &gt; 内容 &gt; 个人 &gt; 商业</strong>。它天然反感营销，所以 Reddit 营销的本质是<strong>长期养号 + 真实参与</strong>。Reddit 适合找第一批用户、验证需求、收集反馈，不适合快速导流。</p>
+<h2>8. 新号养号：两篇文档的分歧</h2>
+<p>知识库里有两篇 Reddit 文档，门槛数字和对 SEO 的看法都不一样。下面并列对比：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>观点 A（《Reddit》篇）</th>
+<th>观点 B（《怎么在 Reddit 发帖不容易被删》，作者欧维 Ove）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>前期</td>
+<td>注册后第 1–14 天只评论不发帖，每天 3–5 条，不带链接、不提产品</td>
+<td>保持活跃，多在别人帖子下评论攒 karma</td>
+</tr>
+<tr>
+<td>能发帖的门槛</td>
+<td>karma 30–50 可以在小版块活动</td>
+<td>karma &lt; 30 不发帖；≥ 50 可在宽松版块发帖，但仍不带链接</td>
+</tr>
+<tr>
+<td>何时安全</td>
+<td>karma 100+ 相对安全，300+ 看起来像正常账号</td>
+<td>—</td>
+</tr>
+<tr>
+<td>何时能带链接</td>
+<td>始终不发裸链；只在评论里、上下文自然、讲清楚时才放</td>
+<td>karma ≥ 500 后帖子里才可以带链接</td>
+</tr>
+<tr>
+<td>版块内资历</td>
+<td>—</td>
+<td>进一个版块后先评论 10 条以上，加入满 1 周再推广</td>
+</tr>
+<tr>
+<td>刷 karma</td>
+<td><strong>绝不刷</strong>（不去 karma 互刷版块、不用投票脚本）</td>
+<td>提到 r/NewToReddit、r/Karmabooster 等互刷版块，承认有风险，建议控制频率</td>
+</tr>
+<tr>
+<td>私信</td>
+<td>—</td>
+<td>每天最多 3–5 条，不用同一模板，先确认对方是目标用户</td>
+</tr>
+<tr>
+<td>对 SEO 的看法</td>
+<td>不要指望 Reddit 带来 SEO 外链</td>
+<td>Reddit 在 Google 权重高，高互动帖子能明显带动网站排名和流量</td>
+</tr>
+</tbody></table>
+<p><strong>本手册的取舍</strong>：</p>
+<ul>
+<li>养号节奏取两者中更保守的：<strong>前 14 天只评论；karma ≥ 100 才开始发与产品相关的内容；帖子里放链接等到 karma 较高（参考 500）以后，并以各版块规则为准。</strong></li>
+<li>每个版块的最低 karma、账号年龄、是否允许自我推广，写在侧边栏和 AutoModerator 规则里，比通用门槛更重要。</li>
+</ul>
+<blockquote>
+<p>⚠️ 注意：观点 B 提到的 karma 互刷属于<strong>投票操纵</strong>，违反 Reddit 站点规则，可能导致封号或影子封禁（shadowban）。观点 A 也指出影子封禁基本无法恢复，只能换号。本手册不推荐刷 karma。</p>
+</blockquote>
+<h2>9. 选 subreddit</h2>
+<table>
+<thead>
+<tr>
+<th>原则</th>
+<th>做法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>选版块比写内容更重要</td>
+<td>新号不要去 r/Entrepreneur、r/Startups、r/Marketing 这类大而严的版块</td>
+</tr>
+<tr>
+<td>规模</td>
+<td>优先 5k–50k 成员的细分版块</td>
+</tr>
+<tr>
+<td>候选</td>
+<td>r/SideProject、r/SaaS、r/NoCode、r/IndieDev（偏独立游戏开发，非游戏产品先看版规），以及你的<strong>用户</strong>所在的行业版块（比&quot;开发者版块&quot;更能找到付费用户）</td>
+</tr>
+<tr>
+<td>先读规则</td>
+<td>侧边栏、置顶帖、Wiki：是否允许自我推广、是否有固定的推广帖</td>
+</tr>
+<tr>
+<td>名单</td>
+<td>准备 3–5 个目标版块，记录各自的规则和最低 karma</td>
+</tr>
+</tbody></table>
+<h2>10. 不被删帖的写法</h2>
+<ol>
+<li><strong>写故事，不写功能</strong>：为什么做、真实问题、踩过的坑。例如&quot;我花 3 个月做了个 X，只赚了 $40，复盘&quot;。</li>
+<li><strong>第一批帖子不带链接</strong>：经验分享、失败复盘、提问、征求建议，先埋下种子。</li>
+<li><strong>评论区才是&quot;广告位&quot;</strong>：有人问&quot;你用什么工具&quot;时再自然地分享，例如&quot;我自己做了个小工具，需要的话可以发你&quot;。</li>
+<li><strong>链接放评论，并说清楚</strong>：不发裸链，链接前后要有完整解释。</li>
+<li><strong>读起来要像人写的</strong>：第一人称、具体数字、不完美的细节。避免 AI 腔，可以先用中文写好，再翻译并人工润色。</li>
+<li><strong>发帖后留在帖子里互动</strong>：互动越多，越不容易被删。</li>
+<li><strong>风控红线</strong>：<ul>
+<li>同一 IP 不要多账号做相同的行为；</li>
+<li>不要同一天把相似内容发到多个版块；</li>
+<li>被踩的帖子不要删（显得可疑）；</li>
+<li>每次推广前，先用未登录状态或另一个账号检查自己是否被影子封禁。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>通用经验：Reddit 社区长期流行&quot;自我推广不超过 10%&quot;的说法，即你的发帖和评论里，和自己产品相关的不超过一成。许多版块仍以此为执行标准。</p>
+</blockquote>
+<h2>11. Reddit 对 SEO / GEO 的作用：分歧并列</h2>
+<table>
+<thead>
+<tr>
+<th>观点</th>
+<th>依据</th>
+<th>实际意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>不是外链渠道</strong>（观点 A）</td>
+<td>Reddit 上用户发的链接带 <code>nofollow</code> / <code>ugc</code>，不传权重；硬推还会被删帖封号</td>
+<td>别把 Reddit 记进外链 KPI</td>
+</tr>
+<tr>
+<td><strong>能带动排名</strong>（观点 B）</td>
+<td>Reddit 页面本身在 Google 排名很好，高互动帖子会带来持续的引荐流量和品牌搜索</td>
+<td>追踪 Reddit 引荐流量，以及被讨论的页面的排名变化</td>
+</tr>
+<tr>
+<td><strong>AI 搜索语料</strong>（GEO 篇）</td>
+<td>多轮追问、反驳、补充的真实讨论，是大模型高度依赖的语料（同类还有百度贴吧）</td>
+<td>在细分版块长期认真回答，有助于让 AI 把品牌和话题关联起来</td>
+</tr>
+<tr>
+<td><strong>关键词机会信号</strong>（关键词篇）</td>
+<td>SERP 前 5 名出现 Reddit / Quora / 论坛，说明商业内容供给不足</td>
+<td>这类词适合独立站切入</td>
+</tr>
+</tbody></table>
+<p>补充背景（非原文）：2023 年以来，Reddit 帖子在 Google 结果中的曝光明显上升。2024 年 Reddit 先后与 Google、OpenAI 达成数据合作。所以 B 和 GEO 两种观点在今天更有现实依据。但 A 的结论&quot;不要靠 Reddit 拿外链权重&quot;依然成立。</p>
+<p><strong>综合建议</strong>：把 Reddit 当作<strong>用户获取 + 需求验证 + 品牌语料</strong>渠道，评估指标用引荐会话、注册数、品牌被提及次数，而不是外链数。</p>
+<h2>12. 工具与参考</h2>
+<table>
+<thead>
+<tr>
+<th>工具 / 资源</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://www.google.com/s2/favicons?domain=hootsuite.com&sz=32" width="16" height="16" alt=""> <a href="https://www.hootsuite.com/">Hootsuite</a></td>
+<td>定时发布、统一收件箱、最佳发帖时间、管理 Lists（付费）；另有<a href="https://www.hootsuite.com/social-media-tools/ai-tweet-generator">免费 AI 推文生成器</a></td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=x.com&sz=32" width="16" height="16" alt=""> <a href="https://x.com/">X Analytics</a></td>
+<td>曝光、互动率、爆款帖（在账号后台查看；部分功能可能需要 Premium）</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=x.com&sz=32" width="16" height="16" alt=""> <a href="https://x.com/i/lists/1742859529241624647">中文推特值得关注列表</a></td>
+<td>原文推荐的中文独立开发者 List</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=business.x.com&sz=32" width="16" height="16" alt=""> <a href="https://business.twitter.com/en/basics/what-to-tweet.html">X 官方：发什么推文</a></td>
+<td>官方推文最佳实践（原文引用）</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=reddit.com&sz=32" width="16" height="16" alt=""> <a href="https://www.reddit.com/r/SideProject/">r/SideProject</a> · <img src="https://www.google.com/s2/favicons?domain=reddit.com&sz=32" width="16" height="16" alt=""> <a href="https://www.reddit.com/r/SaaS/">r/SaaS</a> · <img src="https://www.google.com/s2/favicons?domain=reddit.com&sz=32" width="16" height="16" alt=""> <a href="https://www.reddit.com/r/nocode/">r/NoCode</a></td>
+<td>新号首选的细分版块（先读版规）</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=reddit.com&sz=32" width="16" height="16" alt=""> <a href="https://www.redditinc.com/policies/content-policy">Reddit 站点规则</a></td>
+<td>了解禁止投票操纵、刷屏等底线</td>
+</tr>
+</tbody></table>
+<h2>13. 检查清单</h2>
+<ul>
+<li><input disabled="" type="checkbox"> X 主页：头像清晰、简介含关键词、链接带 UTM、置顶帖 30 天内更新过</li>
+<li><input disabled="" type="checkbox"> X：每周 ≥ 3 条，连续 4 周；内容配比约 80/10/10</li>
+<li><input disabled="" type="checkbox"> X：已建 ≥ 3 个 Lists；每天有固定互动时间</li>
+<li><input disabled="" type="checkbox"> X：每月看一次数据，把爆款帖改写再发；粉丝增长没有异常的突增</li>
+<li><input disabled="" type="checkbox"> Reddit：新号前 14 天只评论、零链接；karma ≥ 100 才发与产品相关的内容</li>
+<li><input disabled="" type="checkbox"> Reddit：目标版块 3–5 个（5k–50k 成员），规则和最低 karma 已记录</li>
+<li><input disabled="" type="checkbox"> Reddit：首批帖子是不带链接的故事或提问；只在被问到时才提产品</li>
+<li><input disabled="" type="checkbox"> Reddit：推广前做过影子封禁检查；不跨版块同日重复发帖</li>
+<li><input disabled="" type="checkbox"> GA4：X、Reddit 来源单独分组，统计注册和付费转化</li>
+</ul>
+<h2>来源</h2>
+<ul>
+<li><a href="https://lownrain.feishu.cn/wiki/WaQVw7ktYiP4S7kSbssc89tan8d">推特是独立开发者最值得经营的社交媒体平台</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/OPqlwI0iuiw1nqk35e8cxUxzn6c">30个Twitter涨粉技巧</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/TIMjws34Ji0r2DkIBu6cIJICnUi">如何用内容从社交媒体为产品引流</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/FHOCwhu0uii39nkFwuVcaVLenSe">产品上线TodoList</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/BIaBw3hHPi5iDykSwEJccVqfn6f">Reddit</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/UOCFw85YSi1pGZkAVj9crK8nnwW">怎么在Reddit发帖不容易被删</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/MxxPwa7Owiv0wek3DXecgavAnbK">独立开发者出海产品发布平台</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/L7VTwkIxRitca7kIQNAc4n7nnHg">GEO</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Rn58w7M9iiIwVbkdev7cfJFknAd">SEO关键词研究策略</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Lx9CwNJ0HiiJ4kki1XCcLmhnngr">外链建设策略</a>（独立开发前线｜SEO从0到100）</li>
+</ul>
+</article>
+</div>
+</body>
+</html>

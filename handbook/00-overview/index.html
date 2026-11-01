@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>总览 – SEO Handbook</title>
+<meta name="description" content="SEO handbook chapter: 总览">
+<link rel="canonical" href="https://ArcueidShiki.github.io/seo/handbook/00-overview/">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/seo/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="总览 – SEO Handbook">
+<meta property="og:description" content="SEO handbook chapter: 总览">
+<meta property="og:url" content="https://ArcueidShiki.github.io/seo/handbook/00-overview/">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--brand:#4f46e5;--bg:#fafafa}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.75 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--brand)}
+.top{border-bottom:1px solid var(--line);background:#fff}
+.top div{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;gap:18px;align-items:center}
+.top a{text-decoration:none;color:var(--muted)}.top .brand{font-weight:700;color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:20px;display:grid;grid-template-columns:240px 1fr;gap:32px}
+aside nav{position:sticky;top:16px;display:flex;flex-direction:column;gap:4px;font-size:14px}
+aside a{text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:8px}
+aside a[aria-current]{background:#eef2ff;color:var(--brand);font-weight:600}
+article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 36px;min-width:0}
+article h1{margin-top:0;line-height:1.25}
+article h2{margin-top:2em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
+article table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow:auto}
+article th,article td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+article th{background:#f9fafb}
+article code{background:#f3f4f6;padding:1px 5px;border-radius:4px;font-size:.92em}
+article pre{background:#111827;color:#e5e7eb;padding:14px;border-radius:8px;overflow:auto}
+article pre code{background:none;padding:0}
+article blockquote{margin:1em 0;padding:.5em 1em;border-left:4px solid var(--brand);background:#f5f3ff;color:#374151}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}aside nav{position:static}article{padding:20px}}
+</style>
+</head>
+<body>
+<div class="top"><div><a class="brand" href="/seo/">SEO Handbook</a><a href="/seo/tool/">Checklist 工具</a><a href="/seo/handbook/00-overview/">手册</a><a href="/seo/reports/">Before/After 报告</a></div></div>
+<div class="wrap">
+<aside><nav aria-label="手册目录"><a href="/seo/handbook/00-overview/" aria-current="page">总览</a><a href="/seo/handbook/01-keyword-research/">关键词研究与选题</a><a href="/seo/handbook/02-page-structure-and-tags/">页面结构与 SEO 标签</a><a href="/seo/handbook/03-technical-seo-and-infra/">技术 SEO 与基础设施</a><a href="/seo/handbook/04-content-and-eeat/">内容与 E-E-A-T</a><a href="/seo/handbook/05-backlinks/">外链建设</a><a href="/seo/handbook/06-geo-ai-search/">GEO / AI 搜索优化</a><a href="/seo/handbook/07-launch-and-distribution/">发布与冷启动：推广策略、发布平台与品牌</a><a href="/seo/handbook/08-x-and-reddit/">X（Twitter）与 Reddit 运营</a><a href="/seo/handbook/09-xiaohongshu/">小红书运营全指南</a><a href="/seo/handbook/10-douyin-video-wechat/">抖音、短视频与微信生态</a><a href="/seo/handbook/11-analytics-and-tools/">数据统计与 SEO 工具箱</a><a href="/seo/handbook/12-monetization/">变现：广告、订阅、支付与联盟营销</a><a href="/seo/handbook/13-mindset-and-case-studies/">独立开发者方法论与案例</a><a href="/seo/handbook/99-glossary/">SEO 名词解释</a></nav></aside>
+<article><h1>总览</h1>
+<blockquote>
+<p>这是一本给<strong>独立开发者和小团队</strong>用的 SEO / GEO 实战手册。内容整理自公开的飞书知识库「独立开发前线｜SEO从0到100」的 91 篇文档：按主题重新编排，用自己的话转述，标出各篇文档之间互相矛盾的地方，并补上到 2026 年为止已经变化的做法（用 <strong>⚠️ 2026 更新</strong> 标注）。</p>
+</blockquote>
+<hr>
+<h2>1. 这本手册是什么，怎么和工具配合使用</h2>
+<p>本仓库由三部分组成，分工如下：</p>
+<table>
+<thead>
+<tr>
+<th>组成</th>
+<th>位置</th>
+<th>回答的问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>📘 <strong>知识手册</strong>（本手册）</td>
+<td><code>handbook/*.md</code> → 站点 <code>/handbook/</code></td>
+<td><strong>为什么</strong>要这样做、<strong>怎么</strong>做、数字门槛是多少、哪些做法已经过时</td>
+</tr>
+<tr>
+<td>✅ <strong>交互式 Checklist 工具</strong></td>
+<td><a href="../../tool/"><code>/tool/</code></a></td>
+<td><strong>要检查什么</strong>：每一条都有类别、阶段、优先级、检查标准和工具。可以按阶段、优先级、自动 / 人工筛选，勾选状态保存在本地，支持导出 Markdown</td>
+</tr>
+<tr>
+<td>🤖 <strong>auditor 审计脚本</strong></td>
+<td><code>auditor/audit.mjs</code></td>
+<td><strong>现在做到了几分</strong>：爬取你的网站，自动判定 39 条可检测的条目，并跑 Lighthouse（移动端 + 桌面端）。结果可以叠加显示在 Checklist 工具里</td>
+</tr>
+</tbody></table>
+<p><strong>推荐用法</strong></p>
+<ol>
+<li><p>先看本章第 3 节的<strong>路线图</strong>，确定你现在处在哪个阶段。</p>
+</li>
+<li><p>打开 <a href="../../tool/">Checklist 工具</a>，按&quot;阶段&quot;筛选出当前要做的条目。</p>
+</li>
+<li><p>用 auditor 给自己的网站打分：</p>
+<pre><code class="language-bash">node auditor/audit.mjs --url https://your-site.com/ --name mysite --keyword &quot;your main keyword&quot;
+# 可选参数：--max-pages 30  --no-lighthouse
+# 输出到 reports/mysite.json，重新构建之后就能在 Checklist 工具里叠加查看
+</code></pre>
+</li>
+<li><p>遇到没通过的条目，用它的 id（手册里用反引号标注，例如 <code>tech-canonical</code>、<code>geo-answer-first</code>）在对应章节里搜索，就能找到原因和修复方法。</p>
+</li>
+<li><p>关键词研究、外链、发布、平台运营、变现这类<strong>没法自动检测</strong>的条目，按手册的做法完成后在工具里人工勾选。</p>
+</li>
+<li><p>每个月重新跑一次 auditor，再对照路线图里的指标做一次复盘。</p>
+</li>
+</ol>
+<p><strong>手册里的符号</strong></p>
+<ul>
+<li><code>onpage-title</code> 这种反引号里的 id，是 Checklist / auditor 的条目编号。</li>
+<li><strong>⚠️ 2026 更新</strong>：原文的建议已经过时、和其他文档冲突，或者存在争议。</li>
+<li>文中的 DR、价格、流量等数字都是<strong>原文撰写时的快照</strong>，使用前请自己核实。</li>
+<li>每章末尾的&quot;来源&quot;列出了用到的原文档，可以点进飞书看原文。</li>
+</ul>
+<hr>
+<h2>2. 知识地图</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>章节</th>
+<th>解决什么问题</th>
+<th>关键产出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>00</td>
+<td><a href="../00-overview/">总览</a></td>
+<td>手册怎么用、从哪开始、核心原则</td>
+<td>路线图、30 条原则、过时做法对照表</td>
+</tr>
+<tr>
+<td>01</td>
+<td><a href="../01-keyword-research/">关键词研究与选题</a></td>
+<td>做哪些词？能不能做？做成什么页面？</td>
+<td>选词门槛、SERP 判断规则、&quot;一页一词&quot;规划表</td>
+</tr>
+<tr>
+<td>02</td>
+<td><a href="../02-page-structure-and-tags/">页面结构与 SEO 标签</a></td>
+<td>一个页面应该长什么样，标签怎么写</td>
+<td>高转化页面模板、TDK 公式、JSON-LD 示例、URL / 内链规范</td>
+</tr>
+<tr>
+<td>03</td>
+<td><a href="../03-technical-seo-and-infra/">技术 SEO 与基础设施</a></td>
+<td>能不能被抓取、被收录，网站快不快、安不安全</td>
+<td>sitemap / robots、SSR、CWV、域名和邮箱、Cloudflare 配置、站长后台提交</td>
+</tr>
+<tr>
+<td>04</td>
+<td><a href="../04-content-and-eeat/">内容与 E-E-A-T</a></td>
+<td>写什么、怎么写、怎么让人信</td>
+<td>选题检查表、内容模板、5 篇文章法、AI 内容规则、内容更新 SOP</td>
+</tr>
+<tr>
+<td>05</td>
+<td><a href="../05-backlinks/">外链建设</a></td>
+<td>外链从哪来、值不值、怎么避坑</td>
+<td>分阶段打法、免费和付费资源表、冷启动外链分析、外链追踪表</td>
+</tr>
+<tr>
+<td>06</td>
+<td><a href="../06-geo-ai-search/">GEO / AI 搜索优化</a></td>
+<td>怎么被 ChatGPT、Perplexity、AI Overviews 引用</td>
+<td>引用路径、AI 爬虫放行表、llms.txt、每月 prompt 测试表</td>
+</tr>
+<tr>
+<td>07</td>
+<td><a href="../07-launch-and-distribution/">发布与冷启动</a></td>
+<td>第一批用户从哪来，渠道怎么排优先级</td>
+<td>获客杠杆优先级、发布平台和发布素材包、上线 TodoList</td>
+</tr>
+<tr>
+<td>08</td>
+<td><a href="../08-x-and-reddit/">X 与 Reddit</a></td>
+<td>海外社交平台怎么做才不被封、能带来流量</td>
+<td>Build in public、Reddit 养号和 karma 门槛</td>
+</tr>
+<tr>
+<td>09</td>
+<td><a href="../09-xiaohongshu/">小红书</a></td>
+<td>站内搜索驱动的种草平台怎么起号</td>
+<td>定位、封面和标题、发布节奏、限流自查</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="../10-douyin-video-wechat/">抖音、短视频与微信生态</a></td>
+<td>短视频搜索和推荐、公众号、小程序 SEO</td>
+<td>抖音 SEO、流量池机制、小程序搜一搜</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="../11-analytics-and-tools/">数据分析与工具</a></td>
+<td>怎么装统计、看哪些数据、用哪些工具</td>
+<td>统计方案对比、流量查询工具、复盘指标</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="../12-monetization/">变现</a></td>
+<td>流量怎么变成收入</td>
+<td>广告、订阅、支付渠道、付费客户</td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="../13-mindset-and-case-studies/">心法与案例</a></td>
+<td>做什么产品、怎么坚持、怎么建立壁垒</td>
+<td>做到 TOP1、新手建议、增长系统、高分网站案例</td>
+</tr>
+<tr>
+<td>99</td>
+<td><a href="../99-glossary/">术语表</a></td>
+<td>看不懂的名词</td>
+<td>SEO / Ahrefs 指标 / GEO 术语速查</td>
+</tr>
+</tbody></table>
+<p><strong>按场景选择阅读路线</strong></p>
+<table>
+<thead>
+<tr>
+<th>你的情况</th>
+<th>建议路线</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>还没上线，正在选方向</td>
+<td>13 → 01 → 02 → 03</td>
+</tr>
+<tr>
+<td>已经上线，但几乎没有自然流量</td>
+<td>03（先查收录）→ 01（找排名&quot;差一口气&quot;的词）→ 04 → 05</td>
+</tr>
+<tr>
+<td>有排名，但是转化低</td>
+<td>02（页面模板、CTA）→ 04（E-E-A-T）→ 12</td>
+</tr>
+<tr>
+<td>想被 AI 推荐</td>
+<td>06 → 02（Schema）→ 05（站外提及）→ 08</td>
+</tr>
+<tr>
+<td>主要做中文用户</td>
+<td>01（全渠道长尾）→ 09 → 10 → 03（百度等后台）</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. 新站 0→12 个月路线图</h2>
+<blockquote>
+<p>时间预期：《通过SEO打造自然增长产品》认为 Google 通常要 <strong>约 3 个月</strong> 才开始带来有意义的流量；《SEO经验分享》认为新站要 <strong>至少 6 个月</strong> 才看得到成效。两者并不矛盾：<strong>3 个月左右开始起量，6–12 个月才进入稳定期。</strong> 这段时间里要同时做社交渠道，拿早期流量，也验证产品。</p>
+</blockquote>
+<h3>第 0 周：上线之前</h3>
+<table>
+<thead>
+<tr>
+<th>做什么</th>
+<th>看什么指标</th>
+<th>预期</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用数据选方向：核心词 <strong>KD &lt; 20、月搜索量 &gt; 500、相关词 &gt; 100</strong>（<a href="../01-keyword-research/">01</a>）</td>
+<td>候选词表有 50 个左右，选出 5 个核心词</td>
+<td>还没有流量，这个阶段决定了天花板</td>
+</tr>
+<tr>
+<td>选域名（短、清楚、品牌化），www 和裸域 301 合一，博客放在 <code>/blog</code>（<a href="../03-technical-seo-and-infra/">03</a>）</td>
+<td><code>curl -I</code> 检查所有变体都一跳到达主域名</td>
+<td>—</td>
+</tr>
+<tr>
+<td>按&quot;一页一词&quot;搭建页面：首页 + 核心场景页，用高转化页面模板（<a href="../02-page-structure-and-tags/">02</a>）</td>
+<td>auditor 分数 <strong>≥ 90</strong>；<code>onpage-*</code> 和 <code>tech-*</code> 全部通过</td>
+<td>—</td>
+</tr>
+<tr>
+<td>SSR/SSG、sitemap、robots、canonical、OG、JSON-LD</td>
+<td><code>tech-ssr-content</code>、<code>tech-xml-sitemap</code>、<code>serp-structured-data</code> 通过</td>
+<td>—</td>
+</tr>
+<tr>
+<td>性能达标，Cloudflare 分层配置好</td>
+<td>Lighthouse 移动端 <strong>≥ 90</strong>；LCP ≤ 2.5s</td>
+<td>—</td>
+</tr>
+<tr>
+<td>装好 GA4 / Plausible，以及 GSC 和 Bing；配置域名邮箱（SPF / DKIM / DMARC）；跑通支付</td>
+<td><code>analytics-installed</code>、<code>indexing-gsc</code> 通过；测试支付成功</td>
+<td>—</td>
+</tr>
+<tr>
+<td>准备发布素材包（slogan、介绍、Logo、约 5 张图、视频、FAQ），开好 X 账号</td>
+<td>素材包齐全</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<h3>第 1 周：上线周</h3>
+<table>
+<thead>
+<tr>
+<th>做什么</th>
+<th>看什么指标</th>
+<th>预期</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>在 GSC 和 Bing 提交 sitemap，核心页面&quot;请求编入索引&quot;；接入 IndexNow；面向中文用户的话加上百度等后台</td>
+<td>sitemap 状态&quot;成功&quot;；已编入索引的页面数</td>
+<td>品牌词和首页通常几天内被收录</td>
+</tr>
+<tr>
+<td>在 Product Hunt、Hacker News（Show HN）、Uneed、BetaList 等平台发布（<a href="../07-launch-and-distribution/">07</a>）</td>
+<td>每个平台的 listing URL；引荐会话；注册数</td>
+<td>流量主要来自发布平台，是一波脉冲</td>
+</tr>
+<tr>
+<td>第一轮目录提交：10 个以上 AI / SaaS 目录，描述不用模板，类目选对（<a href="../05-backlinks/">05</a>）</td>
+<td>上线的 listing 数量；实测的 <code>rel</code> 属性</td>
+<td>外链开始出现在 GSC 的链接报告里，有延迟</td>
+</tr>
+<tr>
+<td>在 X、独立开发社区发 build in public 帖子（<a href="../08-x-and-reddit/">08</a>）</td>
+<td>互动量、引荐点击</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<h3>第 1 个月：建立信任</h3>
+<table>
+<thead>
+<tr>
+<th>做什么</th>
+<th>看什么指标</th>
+<th>预期</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>外链阶段 1：目录、发布平台、少量社区分享，<strong>来源类型要分散</strong></td>
+<td>引用域名（RD）数量；DR 从 0 慢慢到 10 左右</td>
+<td>不要追 DR</td>
+</tr>
+<tr>
+<td>写 5–10 篇深度文章 / 场景页（四类常青内容），再写竞品替代品页（<a href="../04-content-and-eeat/">04</a>）</td>
+<td>已发布数；每篇都有第一手素材</td>
+<td>长尾词开始有<strong>展示</strong>，点击很少</td>
+</tr>
+<tr>
+<td>新站每周看一次 GSC 的&quot;网页索引编制&quot;报告</td>
+<td>&quot;已抓取 – 尚未编入索引&quot;的数量逐步减少</td>
+<td>—</td>
+</tr>
+<tr>
+<td>GEO 基线：定下 10–20 条固定 prompt，跑第一轮（<a href="../06-geo-ai-search/">06</a>）</td>
+<td>提及率、引用率（基线）</td>
+<td>大概率还是 0</td>
+</tr>
+<tr>
+<td>和首批用户聊天，收集反馈并迭代</td>
+<td>反馈记录、更新日志</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<h3>第 3 个月：开始起量</h3>
+<table>
+<thead>
+<tr>
+<th>做什么</th>
+<th>看什么指标</th>
+<th>预期</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>从 GSC 找出排名 11–30 的词，用&quot;5 篇文章法&quot;集中推</td>
+<td>这些词的平均排名</td>
+<td><strong>Google 通常在这时开始带来稳定的自然流量</strong></td>
+</tr>
+<tr>
+<td>外链阶段 2：场景文章、可引用的资产（模板 / Prompt 库 / 参数表）、builder story</td>
+<td>RD 增速；品牌词展示量</td>
+<td>DR 大约 10–20</td>
+</tr>
+<tr>
+<td>内容更新 SOP：补 FAQ、改写低点击率的标题和描述</td>
+<td>GSC 点击、点击率；进入前 10 的词数</td>
+<td>至少 1 个核心词进入前 3</td>
+</tr>
+<tr>
+<td>验证产品：留存 <strong>D1 ≥ 40%、D7 ≥ 20%、D30 ≥ 10%</strong>；每次访问带来的收入对比关键词 CPC</td>
+<td>留存分组数据、付费率</td>
+<td>留存不达标就先改产品，SEO 流量不会复利</td>
+</tr>
+</tbody></table>
+<h3>第 6–12 个月：复利期</h3>
+<table>
+<thead>
+<tr>
+<th>做什么</th>
+<th>看什么指标</th>
+<th>预期</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>外链阶段 3：来自被提及的自然外链、客座文章、采访；每个大版本重新发布一次</td>
+<td>自然获得的 RD 占比；DR <strong>20–40</strong></td>
+<td>外链从&quot;主动去建&quot;变成&quot;被动获得&quot;</td>
+</tr>
+<tr>
+<td>扩充到 50 个以上的页面；开始挑战 KD 30–50 的词；谨慎做程序化页面（每一页都要有独立价值）</td>
+<td>自然会话、注册数、带来转化的着陆页</td>
+<td>自然流量成为主要渠道之一</td>
+</tr>
+<tr>
+<td>每季度做一次内容复盘：合并内耗页面、更新过时内容、清理单薄页面</td>
+<td>有展示的页面占比</td>
+<td>—</td>
+</tr>
+<tr>
+<td>每月做一次 GEO 测试，补上被竞品抢走引用的那部分内容</td>
+<td>提及率、引用率、AI 引荐流量</td>
+<td>AI 推荐开始出现</td>
+</tr>
+<tr>
+<td>留存和付费率都达标之后，再考虑 KOL 和付费投放（<a href="../12-monetization/">12</a>）</td>
+<td>CAC、回本周期</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. 30 条最重要的原则</h2>
+<ol>
+<li><strong>先有搜索需求，再有页面</strong>：每个页面都要对应一个真实的查询（工具数据或搜索框联想词）。</li>
+<li><strong>一页一词</strong>：一个主关键词只对应一个 URL，用规划表防止多页争同一个词。</li>
+<li>新站从 <strong>KD &lt; 20、月搜索量 &gt; 500</strong> 的词起步，有了外链基础再挑战 KD 30–50。</li>
+<li><strong>页面类型跟着 SERP 走</strong>：Top 10 是教程就写文章，是工具页就做工具页。</li>
+<li>做不到第一就继续缩小范围：流量向第一名集中，第二名以后能分到的很少。</li>
+<li>选词先看 7 / 30 / 90 天和 5 年的趋势：选平稳或上升的词，不追一次性的尖峰。</li>
+<li><strong>核心价值不设门槛</strong>：主要功能免登录就能用，内容不锁在注册或付费墙后面。</li>
+<li>每个页面的 title 都不一样（主关键词靠前，中文 ≤ 30 字 / 英文 ≤ 60 字符），description 也每页单独写。</li>
+<li>每个页面<strong>只有一个 H1</strong>，用大白话写清楚&quot;它能做什么&quot;，不用&quot;赋能&quot;&quot;重新定义&quot;这类词。</li>
+<li>每个可索引页面有一个自引用的绝对 canonical；www / 裸域、http / https <strong>一跳 301</strong> 合一。</li>
+<li><strong>正文必须在 HTML 源码里</strong>（SSR/SSG），Googlebot 和 AI 爬虫都依赖它。</li>
+<li>sitemap 只放希望被收录、返回 200 的规范 URL，<code>lastmod</code> 写真实日期；robots.txt 要声明 Sitemap。</li>
+<li>上线当天就验证 GSC 和 Bing 并提交 sitemap，新站每周看一次索引报告。</li>
+<li>Core Web Vitals 要达标：<strong>LCP ≤ 2.5s、INP ≤ 200ms、CLS ≤ 0.1</strong>。</li>
+<li>Cloudflare 分层配置：营销页 HTML 走边缘缓存；API、认证接口、回调不缓存；花钱的接口加限流。</li>
+<li>结构化数据只标记页面上<strong>能看到的真实信息</strong>，绝不伪造评分和评论。</li>
+<li>博客放在子目录 <code>/blog</code>；首页链到重要子页面，分类页链到所有子页面，不留孤儿页。</li>
+<li><strong>站在用户的角度写内容</strong>：写用户最关心的 10 个问题，不写你的技术架构。</li>
+<li>每篇支柱文章至少有一个<strong>第一手证据</strong>：截图、数字、踩过的坑、&quot;不适合谁&quot;。</li>
+<li>AI 可以起草，但<strong>不能直接发布原稿</strong>；规模化灌水会导致整站被降权。</li>
+<li>用&quot;5 篇文章法&quot;集中火力，推一个已经排在 11–30 名的长尾词。</li>
+<li>每月根据 GSC 查询词更新内容、改写点击率低的标题；<strong>只有内容真的改了才更新日期</strong>。</li>
+<li><strong>外链是信任票，不是权重果汁</strong>：来源多样比数量重要，RD 比 DR 重要。</li>
+<li>对独立开发者来说，DR 20–40 已经够用了；真正的 KPI 是排名、自然流量和转化。</li>
+<li>评估一条外链，要把四个要素一起看：<strong>DR、相关性、真实流量、dofollow</strong>。</li>
+<li>外部锚文本以品牌词和 URL 为主，精确匹配的关键词锚文本只占少数。</li>
+<li>每次发布（上线、大版本、新功能）都是一次新的提及机会；先做低成本渠道，再考虑付费渠道。</li>
+<li><strong>答案先行</strong>：H1 下面第一段用 ≤ 80 个词直接给出结论，每个小节都能单独被引用。</li>
+<li>放行 AI 搜索爬虫，确保被 Bing 收录，每月用固定 prompt 测一次自己有没有被 AI 引用。</li>
+<li>SEO 要按季度来算：大约 3 个月起量，期间用社交渠道拿早期流量，用留存数据验证产品。</li>
+</ol>
+<hr>
+<h2>5. 过时做法 vs 2026 做法</h2>
+<table>
+<thead>
+<tr>
+<th>主题</th>
+<th>过时做法（原文里出现过，或者行业常见的老说法）</th>
+<th>2026 做法</th>
+<th>详见</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>关键词密度</td>
+<td>密度保持在 2%–8%；description 里关键词出现约 3 次</td>
+<td>关键词在 title、H1、首段、description 里各自然出现一次，用同义词和相关实体覆盖主题</td>
+<td><a href="../02-page-structure-and-tags/">02</a>、<a href="../04-content-and-eeat/">04</a></td>
+</tr>
+<tr>
+<td>meta keywords</td>
+<td>每页必须写 3–5 个</td>
+<td>Google 忽略，Bing 大幅降权；只在面向百度时可写可不写</td>
+<td><a href="../02-page-structure-and-tags/">02</a></td>
+</tr>
+<tr>
+<td>FAQ / HowTo 富结果</td>
+<td>加 FAQ schema 抢占 SERP 上的折叠问答位；加 HowTo 标记</td>
+<td>2023 年起 FAQ 富结果只给权威的政府和健康网站，HowTo 已经停止展示；FAQ 内容保留下来，用于语义理解和 AI 引用</td>
+<td><a href="../02-page-structure-and-tags/">02</a>、<a href="../06-geo-ai-search/">06</a></td>
+</tr>
+<tr>
+<td>AI 内容</td>
+<td>用&quot;去 AI 味&quot;工具把 GPTZero 分数压到 40% 以下就发</td>
+<td>Google 看质量不看来源；加入第一手信息，人工审核；避开&quot;规模化内容滥用&quot;</td>
+<td><a href="../04-content-and-eeat/">04</a></td>
+</tr>
+<tr>
+<td>DR 迷信</td>
+<td>把 DR 当 KPI，追求 DR 快速上涨</td>
+<td>看引用域名的多样性、相关性和真实流量；KPI 是排名、流量和转化</td>
+<td><a href="../05-backlinks/">05</a></td>
+</tr>
+<tr>
+<td>购买外链</td>
+<td>批量外链包、PBN、按 DR 定价的客座文章</td>
+<td>付费只买&quot;审核收录 + 曝光 + 归类&quot;（目录本身要有真实用户）；买卖传递 PageRank 的链接违反政策</td>
+<td><a href="../05-backlinks/">05</a></td>
+</tr>
+<tr>
+<td>只做 Google</td>
+<td>只盯着蓝色链接的排名</td>
+<td>同时做 GEO：放行 AI 爬虫、确保 Bing 收录、答案先行、站外讨论、每月 prompt 测试</td>
+<td><a href="../06-geo-ai-search/">06</a></td>
+</tr>
+<tr>
+<td>只做百度</td>
+<td>中文 SEO = 百度 SEO</td>
+<td>全渠道 SEO：小红书、抖音、知乎、B 站、微信搜一搜都是搜索入口；百度上主攻品牌词</td>
+<td><a href="../01-keyword-research/">01</a>、<a href="../09-xiaohongshu/">09</a>、<a href="../10-douyin-video-wechat/">10</a></td>
+</tr>
+<tr>
+<td>屏蔽 AI 爬虫</td>
+<td>在 Cloudflare 里一键屏蔽所有 AI bot</td>
+<td>营销内容对 AI 搜索和训练爬虫放行，只对 API 和应用路径做限流</td>
+<td><a href="../03-technical-seo-and-infra/">03</a>、<a href="../06-geo-ai-search/">06</a></td>
+</tr>
+<tr>
+<td>交互指标</td>
+<td>FID</td>
+<td>2024 年 3 月起改为 <strong>INP</strong>（≤ 200ms）</td>
+<td><a href="../03-technical-seo-and-infra/">03</a></td>
+</tr>
+<tr>
+<td>GSC 设置</td>
+<td>在后台设置首选域名、配置 URL 参数</td>
+<td>这两个功能都已下线；改用 301 + canonical + noindex</td>
+<td><a href="../03-technical-seo-and-infra/">03</a></td>
+</tr>
+<tr>
+<td>代码压缩</td>
+<td>开启 Cloudflare Auto Minify</td>
+<td>这个功能已经下线；改在构建阶段压缩</td>
+<td><a href="../03-technical-seo-and-infra/">03</a></td>
+</tr>
+<tr>
+<td>查外链</td>
+<td>用 Google 的 <code>link:</code> 指令</td>
+<td>这个指令早已停用；改用 Ahrefs / Semrush / Moz 和 GSC 的链接报告</td>
+<td><a href="../05-backlinks/">05</a></td>
+</tr>
+<tr>
+<td>域名</td>
+<td>用完全匹配域名、买过期域名来借权重</td>
+<td>用品牌化、好记的域名；&quot;过期域名滥用&quot;已被写进 Google 的政策</td>
+<td><a href="../03-technical-seo-and-infra/">03</a></td>
+</tr>
+<tr>
+<td>寄生内容</td>
+<td>在高权重平台上用关键词堆砌的帖子、借别人网站发不相关内容</td>
+<td>在平台上发自己的原创内容没问题；借权重属于&quot;网站声誉滥用&quot;</td>
+<td><a href="../04-content-and-eeat/">04</a></td>
+</tr>
+<tr>
+<td>长文分页</td>
+<td>超长文章分成多页，每页单独写描述</td>
+<td>一页写完，配目录锚点</td>
+<td><a href="../04-content-and-eeat/">04</a></td>
+</tr>
+<tr>
+<td>sitemap lastmod</td>
+<td>每次构建都把所有 URL 的日期改成今天</td>
+<td>写真实的修改日期，否则会被搜索引擎忽略</td>
+<td><a href="../03-technical-seo-and-infra/">03</a></td>
+</tr>
+<tr>
+<td>X 卡片调试</td>
+<td>用 Twitter Card Validator 预览</td>
+<td>这个工具已经不提供预览；在发帖框里直接看</td>
+<td><a href="../02-page-structure-and-tags/">02</a></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>来源</h2>
+<ul>
+<li><a href="https://lownrain.feishu.cn/wiki/B2MLwCgXBisanqkZNyCcXDP6nqh">SEO经验分享</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/T3mnwUqeRiqfOyk8XBBc2zmHnpf">通过SEO打造自然增长产品</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/FHOCwhu0uii39nkFwuVcaVLenSe">产品上线TodoList</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/LpunwNX0citrl1kmB5TcIDJAnU5">SEO优化SOP</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Ry3Gwhjm4i06wbkUEu2cBdJyn7c">海外博客精华</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Y6VuwpuuGidf6pkS4oRcPCfenph">SEO博客</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/SXgew9A8jihj2uk4oMlcRCZYnUb">如何获取流量？SEO依然是性价比最高的方式</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/MWv9wFf4liIQ8sk1qtIct7zQnlh">获取流量的最有效方式就是成为TOP1</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Yj5QwQGv4iQ6LmkihUKcUKYsnLe">给新手独立开发者的建议</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Lx9CwNJ0HiiJ4kki1XCcLmhnngr">外链建设策略</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/L7VTwkIxRitca7kIQNAc4n7nnHg">GEO</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/WaQVw7ktYiP4S7kSbssc89tan8d">推特是独立开发者最值得经营的社交媒体平台</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/JIDxwzVjBiLMbFkvBcociSllnEb">出海产品推广方案</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/HFt6wEYNOiVdWSk9pBfc5GaSnwb">网站加速和防攻击</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/QMDhwR8QOifSxvkhmzTcPC06nrb">什么样的文章容易获得排名</a>（独立开发前线｜SEO从0到100）</li>
+</ul>
+</article>
+</div>
+</body>
+</html>

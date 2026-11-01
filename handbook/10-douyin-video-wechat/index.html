@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>抖音、短视频与微信生态 – SEO Handbook</title>
+<meta name="description" content="SEO handbook chapter: 抖音、短视频与微信生态">
+<link rel="canonical" href="https://ArcueidShiki.github.io/seo/handbook/10-douyin-video-wechat/">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/seo/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="抖音、短视频与微信生态 – SEO Handbook">
+<meta property="og:description" content="SEO handbook chapter: 抖音、短视频与微信生态">
+<meta property="og:url" content="https://ArcueidShiki.github.io/seo/handbook/10-douyin-video-wechat/">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--brand:#4f46e5;--bg:#fafafa}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.75 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--brand)}
+.top{border-bottom:1px solid var(--line);background:#fff}
+.top div{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;gap:18px;align-items:center}
+.top a{text-decoration:none;color:var(--muted)}.top .brand{font-weight:700;color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:20px;display:grid;grid-template-columns:240px 1fr;gap:32px}
+aside nav{position:sticky;top:16px;display:flex;flex-direction:column;gap:4px;font-size:14px}
+aside a{text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:8px}
+aside a[aria-current]{background:#eef2ff;color:var(--brand);font-weight:600}
+article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 36px;min-width:0}
+article h1{margin-top:0;line-height:1.25}
+article h2{margin-top:2em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
+article table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow:auto}
+article th,article td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+article th{background:#f9fafb}
+article code{background:#f3f4f6;padding:1px 5px;border-radius:4px;font-size:.92em}
+article pre{background:#111827;color:#e5e7eb;padding:14px;border-radius:8px;overflow:auto}
+article pre code{background:none;padding:0}
+article blockquote{margin:1em 0;padding:.5em 1em;border-left:4px solid var(--brand);background:#f5f3ff;color:#374151}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}aside nav{position:static}article{padding:20px}}
+</style>
+</head>
+<body>
+<div class="top"><div><a class="brand" href="/seo/">SEO Handbook</a><a href="/seo/tool/">Checklist 工具</a><a href="/seo/handbook/00-overview/">手册</a><a href="/seo/reports/">Before/After 报告</a></div></div>
+<div class="wrap">
+<aside><nav aria-label="手册目录"><a href="/seo/handbook/00-overview/">总览</a><a href="/seo/handbook/01-keyword-research/">关键词研究与选题</a><a href="/seo/handbook/02-page-structure-and-tags/">页面结构与 SEO 标签</a><a href="/seo/handbook/03-technical-seo-and-infra/">技术 SEO 与基础设施</a><a href="/seo/handbook/04-content-and-eeat/">内容与 E-E-A-T</a><a href="/seo/handbook/05-backlinks/">外链建设</a><a href="/seo/handbook/06-geo-ai-search/">GEO / AI 搜索优化</a><a href="/seo/handbook/07-launch-and-distribution/">发布与冷启动：推广策略、发布平台与品牌</a><a href="/seo/handbook/08-x-and-reddit/">X（Twitter）与 Reddit 运营</a><a href="/seo/handbook/09-xiaohongshu/">小红书运营全指南</a><a href="/seo/handbook/10-douyin-video-wechat/" aria-current="page">抖音、短视频与微信生态</a><a href="/seo/handbook/11-analytics-and-tools/">数据统计与 SEO 工具箱</a><a href="/seo/handbook/12-monetization/">变现：广告、订阅、支付与联盟营销</a><a href="/seo/handbook/13-mindset-and-case-studies/">独立开发者方法论与案例</a><a href="/seo/handbook/99-glossary/">SEO 名词解释</a></nav></aside>
+<article><h1>抖音、短视频与微信生态</h1>
+<blockquote>
+<p>短视频平台同时有<strong>推荐流</strong>和<strong>搜索</strong>两套分发逻辑。推荐流靠完播和互动在流量池里逐级晋升；搜索靠关键词长期带来访问。微信生态的自然流量主要来自&quot;搜一搜&quot;，并能把用户沉淀到私域。
+相关：小红书见 <a href="../09-xiaohongshu/">09</a>；内容引流漏斗见 <a href="../07-launch-and-distribution/">07</a>；全站关键词方法见 <a href="../01-keyword-research/">01</a>。</p>
+</blockquote>
+<h2>1. 抖音的两套流量逻辑</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>推荐流（Feed）</th>
+<th>搜索</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>本质</td>
+<td>抖音把视频推给可能感兴趣的人</td>
+<td>用户自己搜到你</td>
+</tr>
+<tr>
+<td>决定因素</td>
+<td>完播率、停留、互动、内容标签、账号信用</td>
+<td>标题、视频内语义（语音 + 字幕）、话题、账号垂直度</td>
+</tr>
+<tr>
+<td>生命周期</td>
+<td>爆发快，衰减快</td>
+<td>起量慢，但可以持续数月</td>
+</tr>
+<tr>
+<td>优化目标</td>
+<td>前 3 秒钩子 + 完播</td>
+<td>一条视频锁定一个关键词</td>
+</tr>
+</tbody></table>
+<p>原文观察：一些点赞很少的老视频仍有稳定访问，几乎都来自搜索。两套逻辑可以在同一条视频里同时优化。</p>
+<blockquote>
+<p>⚠️ 注意：《SEO 经验分享》认为抖音和微信的内容大约 10 天就&quot;死了&quot;，不适合做长期流量。《抖音 SEO》则认为搜索流量能持续几个月。两者并不矛盾：<strong>只靠推荐流的内容确实很快衰减，针对搜索词制作的视频才有长尾</strong>。想要长期流量，就要有意识地做搜索型视频。</p>
+</blockquote>
+<h2>2. 抖音 SEO：让视频被搜到</h2>
+<h3>2.1 排名四要素</h3>
+<ol>
+<li>视频标题</li>
+<li>视频内的语义：抖音会做语音识别（ASR）和画面文字识别（OCR）</li>
+<li>话题标签</li>
+<li>账号的垂直度和历史内容</li>
+</ol>
+<h3>2.2 找关键词的三种方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>做法</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>搜索联想</td>
+<td>在抖音搜索框输入种子词，看下拉建议（例如&quot;抖音 SEO 怎么做 / 教程 / 关键词&quot;）</td>
+<td>下拉词基本就是抖音上的需求清单</td>
+</tr>
+<tr>
+<td>前 10 视频</td>
+<td>看搜索结果前 10 个视频标题里反复出现的词，以及它们的角度（教程型还是避坑型）</td>
+<td>很多视频用同一种说法，说明这个词已被验证</td>
+</tr>
+<tr>
+<td>评论区提问</td>
+<td>&quot;适合新手吗？&quot;&quot;有免费工具吗？&quot;&quot;能一步步教吗？&quot;</td>
+<td>每个问题都可以是下一条视频的关键词</td>
+</tr>
+</tbody></table>
+<h3>2.3 标题公式</h3>
+<p><code>核心关键词 + 明确的场景 / 人群 / 结果</code>，例如&quot;抖音 SEO 新手教程：3 步让视频被搜到&quot;。</p>
+<ul>
+<li>关键词必须<strong>原样出现</strong>：不拆开，不换同义词。</li>
+<li>一条视频只服务一个关键词，主题清晰、单一、容易被归类。</li>
+</ul>
+<h3>2.4 视频内语义：说出来 + 写出来</h3>
+<table>
+<thead>
+<tr>
+<th>位置</th>
+<th>要求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>口播</td>
+<td><strong>前 5 秒内</strong>把关键词说出来（发布后检查自动字幕是否识别正确）</td>
+</tr>
+<tr>
+<td>封面</td>
+<td>封面上有关键词文字</td>
+</tr>
+<tr>
+<td>字幕</td>
+<td>前 3 秒的字幕里出现关键词</td>
+</tr>
+<tr>
+<td>中段</td>
+<td>放一张总结卡片，再次出现关键词</td>
+</tr>
+</tbody></table>
+<p>语音和文字同时出现，相当于对算法做了&quot;双重确认&quot;。</p>
+<h3>2.5 话题标签：3–5 个</h3>
+<ul>
+<li>组合：1 个核心关键词话题 + 1–2 个细分长尾话题 + 1 个人群 / 场景话题。</li>
+<li>不蹭无关热门话题；<strong>不要 10 个以上</strong>，会稀释分类。</li>
+</ul>
+<h3>2.6 账号层面</h3>
+<ul>
+<li>昵称、简介里有领域关键词。</li>
+<li>长期只做一个主题（不要今天讲副业、明天讲情感）。≥ 80% 的历史视频在同一主题。</li>
+<li>搜索更偏爱&quot;专家型账号&quot;。</li>
+</ul>
+<h3>2.7 预期</h3>
+<p>慢，但会复利。很多搜索型视频几个月后才开始稳定带量，之后即使不更新也会持续带来访问。评估时在创作者后台看<strong>搜索来源播放占比</strong>，按月看，不按天看。</p>
+<h2>3. 影响抖音推荐分发的因素</h2>
+<h3>3.1 流量池机制</h3>
+<p>新视频先进入一个小流量池。数据好就晋级到更大的池子，数据差就停止推送。每一级都在回答同一个问题：<strong>推这条视频会不会浪费用户的时间？</strong></p>
+<h3>3.2 互动指标（按权重从高到低）</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>原文的标准 / 说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1. 完播率</td>
+<td>权重最高。10 秒的视频要看完 8–10 秒；30 秒的视频平均看到 ≥ 25 秒算&quot;好&quot;</td>
+</tr>
+<tr>
+<td>2. 停留时长</td>
+<td>很快划走，说明推给了错误的人（标签不清）</td>
+</tr>
+<tr>
+<td>3. 点赞率</td>
+<td>不需要很高，但异常低会触发限流</td>
+</tr>
+<tr>
+<td>4. 评论率</td>
+<td>强信号，尤其是追问、争论、互动型评论（&quot;哈哈哈&quot;不算）</td>
+</tr>
+<tr>
+<td>5. 转发 / 收藏</td>
+<td>权重高于点赞；教程、方法、工具类内容容易被收藏</td>
+</tr>
+</tbody></table>
+<h3>3.3 内容打标签</h3>
+<p>抖音综合以下信息判断一条视频&quot;给谁看&quot;：语音（ASR）、画面识别、文案、话题，以及<strong>最早约 1000 名观众是谁</strong>。</p>
+<p><strong>常见的打标签杀手</strong>：</p>
+<ul>
+<li>频繁换主题（今天讲钱，明天讲感情，后天讲段子）；</li>
+<li>标题和内容不符；</li>
+<li>蹭无关热点。</li>
+</ul>
+<p>结果就是算法不知道推给谁，最后谁也不推。</p>
+<h3>3.4 账号权重 ≈ 信用分</h3>
+<ul>
+<li><strong>会降低信用分的行为</strong>：违规（哪怕是轻微的）、频繁删视频、搬运 / 盗用内容、重复上传同一内容、不垂直。</li>
+<li><strong>起号更快的账号</strong>：干净、垂直、稳定更新。</li>
+</ul>
+<h3>3.5 前 3 秒</h3>
+<ul>
+<li><strong>避免</strong>：废话、长自我介绍、低价值铺垫、平淡的情绪。</li>
+<li><strong>有效的开头</strong>：反常识观点、先给结果、制造矛盾、直击痛点。例如&quot;我做了 3 个抖音号，只有这个活下来了&quot;远好于&quot;大家好，我是……&quot;。</li>
+</ul>
+<h3>3.6 内容安全（隐性限流）</h3>
+<p>以下内容不会被封号，但会拿不到流量：贩卖焦虑、极端对立、引战攻击、灰色赚钱项目、擦边内容、暗示违规。</p>
+<h3>3.7 时间与频率</h3>
+<ul>
+<li><strong>推荐时段</strong>：11:30–13:00、18:00–20:00、21:00–23:00。好内容什么时候发都能起来，普通内容发错时间就没了。</li>
+<li><strong>频率</strong>：新号每天 1 条；成熟号以稳定为主，不追求条数。</li>
+</ul>
+<h3>3.8 隐藏因素：&quot;像人&quot;</h3>
+<p>真人出镜、真实的语气、有瑕疵、有情绪的视频更容易被推荐；模板化或明显由 AI 生成的视频容易不被推荐。</p>
+<p><strong>发布前自问三个问题</strong>：用户为什么不划走？为什么会看完？看完为什么要互动？</p>
+<h2>4. 如何做出有流量的视频</h2>
+<p>原文案例&quot;程序员豆腐&quot;：一个月内抖音 +130 万粉、小红书 +22 万粉，每期介绍一个有趣的网站。</p>
+<h3>4.1 三要素：知识、趣味、共鸣</h3>
+<ul>
+<li>命中 1 个：流量尚可；</li>
+<li>命中 2 个：爆款；</li>
+<li>命中 3 个：超级爆款。</li>
+</ul>
+<p>发布前给每条视频标注它命中了哪几个。</p>
+<h3>4.2 七个执行要点</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>要点</th>
+<th>具体做法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>垂直定位 + 系列化</td>
+<td>每期标题格式相同、开场相同（强记忆点）；人设名称体现身份（&quot;程序员&quot;）；按期编号，暗示持续更新、风格稳定，给用户关注的理由</td>
+</tr>
+<tr>
+<td>2</td>
+<td>节奏快</td>
+<td>不说废话，一句话讲一个功能；剪辑时可加速到 ≥ 1.2 倍</td>
+</tr>
+<tr>
+<td>3</td>
+<td>画面丰富</td>
+<td><strong>每 1–2 秒换一个镜头</strong>，提高信息密度</td>
+</tr>
+<tr>
+<td>4</td>
+<td>用手机拍屏幕，不录屏</td>
+<td>更真实；<strong>画面里不露网址</strong>（站外导流会被限流）；方便切到真人镜头</td>
+</tr>
+<tr>
+<td>5</td>
+<td>真人出镜</td>
+<td>抖音、小红书对真人出镜的视频有额外流量；穿插口播镜头</td>
+</tr>
+<tr>
+<td>6</td>
+<td>前 3 秒</td>
+<td>酷炫转场 + 固定片头；把最精彩的部分放在最前面</td>
+</tr>
+<tr>
+<td>7</td>
+<td>完播率</td>
+<td>节奏快 + 时长短，大多数视频 &lt; 1 分钟</td>
+</tr>
+</tbody></table>
+<h3>4.3 60 秒脚本模板（结合 SEO 与推荐）</h3>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0–3 秒</td>
+<td>钩子：结果先行或反常识观点 + 固定片头</td>
+</tr>
+<tr>
+<td>3–5 秒</td>
+<td>口播关键词，屏幕上显示关键词字幕</td>
+</tr>
+<tr>
+<td>5–45 秒</td>
+<td>3–5 个要点，每个 1–2 句话，每 1–2 秒换一次画面</td>
+</tr>
+<tr>
+<td>45–55 秒</td>
+<td>总结卡片（再次出现关键词）</td>
+</tr>
+<tr>
+<td>55–60 秒</td>
+<td>互动：抛一个问题 / &quot;下一期讲 X&quot;</td>
+</tr>
+</tbody></table>
+<h2>5. TikTok / YouTube Shorts：可迁移的做法</h2>
+<p>原知识库只把 TikTok、YouTube Shorts、Instagram、Lemon8、Pinterest 列为出海的社交渠道。具体做法是：发场景视频和挑战活动；自然数据高于中位数的帖子再付费加热；持续合作新的创作者。下表是从抖音经验迁移过来的推断，标注为&quot;通用&quot;，请以平台当前规则为准。</p>
+<table>
+<thead>
+<tr>
+<th>做法</th>
+<th>迁移性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>前 3 秒钩子、短时长、高完播</td>
+<td>高</td>
+<td>三个平台的推荐机制都依赖观看时长和完播</td>
+</tr>
+<tr>
+<td>一个账号一个主题、系列编号</td>
+<td>高</td>
+<td>帮算法建立标签，也给用户关注的理由</td>
+</tr>
+<tr>
+<td>关键词同时出现在文案、屏幕文字和口播里</td>
+<td>高</td>
+<td>TikTok 和 YouTube 的站内搜索都会参考这些信号（通用）</td>
+</tr>
+<tr>
+<td>真人出镜、真实语气</td>
+<td>高</td>
+<td>模板化、AI 腔的内容普遍表现差</td>
+</tr>
+<tr>
+<td>画面不露网址</td>
+<td>中</td>
+<td>海外平台对此相对宽松，但用户更习惯点主页链接</td>
+</tr>
+<tr>
+<td>链接放哪里</td>
+<td>平台各异</td>
+<td>TikTok 主页链接有开通条件；YouTube Shorts 自 2023 年起描述 / 评论区的链接不可点击，可以用&quot;相关视频&quot;把流量导到长视频（通用）</td>
+</tr>
+<tr>
+<td>加热 / 投放</td>
+<td>高</td>
+<td>只给自然数据好的帖子加预算（原文）</td>
+</tr>
+<tr>
+<td>时长</td>
+<td>平台各异</td>
+<td>YouTube Shorts 自 2024 年 10 月起最长 3 分钟；发现型内容仍以 1 分钟内为主</td>
+</tr>
+</tbody></table>
+<h2>6. 微信生态</h2>
+<h3>6.1 微信公众号</h3>
+<ul>
+<li><strong>原文案例</strong>：日更 60 天，收入 1 万+，涨粉 9000+，出了 6 篇 10 万+。</li>
+<li><strong>编辑器</strong>：<img src="https://www.google.com/s2/favicons?domain=yiban.io&sz=32" width="16" height="16" alt=""> <a href="https://yiban.io/">壹伴</a>（公众号编辑插件，付费）。</li>
+<li><strong>导流</strong>：公众号正文不能放外链，可以用文末的&quot;阅读原文&quot;链接到网站；在文章里插入小程序卡片。</li>
+<li><strong>搜一搜</strong>：标题和正文里放用户会搜的词（通用做法），公众号文章会出现在搜一搜的内容结果里。</li>
+</ul>
+<blockquote>
+<p>⚠️ 注意：原文提到有人把公众号起名为&quot;知名品牌 + 品类&quot;来蹭品牌搜索流量（每天自然涨粉数百），再用 CPS 链接变现。这存在商标侵权和平台处罚风险，<strong>不要模仿</strong>。名称应该用你自己的品类词，而不是别人的品牌词。</p>
+</blockquote>
+<h3>6.2 微信小程序 SEO</h3>
+<p>小程序发布后默认没有流量。<strong>搜一搜是唯一可持续的免费自然流量来源</strong>。</p>
+<p><strong>流量层级</strong>：搜索框顶部结果 → 搜一搜的&quot;小程序&quot;标签页 → 搜一搜的内容结果（公众号 / 视频号 / 小程序页面）→ 聊天记录、收藏、最近使用。小程序 SEO 主要争前两层。</p>
+<table>
+<thead>
+<tr>
+<th>因素</th>
+<th>权重</th>
+<th>做法</th>
+<th>反例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>名称</strong></td>
+<td>最高</td>
+<td>直接用用户搜的词，例如&quot;图片压缩工具&quot;&quot;PDF 转换助手&quot;；核心词放主名称，功能词放副标题。微信搜索对名称的关键词精确匹配非常敏感</td>
+<td>&quot;星图 Pro&quot;这类只有品牌名、英文或缩写的名称</td>
+</tr>
+<tr>
+<td>简介</td>
+<td>高</td>
+<td>第一行包含核心词，写成完整的一句话</td>
+<td>广告文案、关键词堆砌</td>
+</tr>
+<tr>
+<td>服务类目</td>
+<td>高</td>
+<td>与核心功能一致（类目选错，推荐对象就错）</td>
+<td>随便选一个能过审的类目</td>
+</tr>
+<tr>
+<td><strong>页面文字</strong></td>
+<td>最大盲区</td>
+<td>每个核心页面都有文字标题；功能页加一段&quot;功能说明&quot;文字；结果页加一句解释。这些文字主要是给搜索系统看的</td>
+<td>只有图标、没有文字的页面</td>
+</tr>
+<tr>
+<td>行为信号</td>
+<td>中</td>
+<td>搜索点击率、停留时长、重复使用；在任务完成后、成功页、或第 2–3 次使用时提示&quot;添加到我的小程序&quot;</td>
+<td>一打开就弹窗</td>
+</tr>
+<tr>
+<td>外部导入</td>
+<td>中</td>
+<td>在公众号文章里插入小程序、视频号挂载小程序、在群里告诉用户&quot;搜索 XX 进入&quot;。目标是强化&quot;搜关键词 → 点进来&quot;这条路径</td>
+<td>只发直达链接</td>
+</tr>
+</tbody></table>
+<p><strong>找词</strong>：</p>
+<ol>
+<li>微信搜索框的下拉联想词；</li>
+<li>在搜一搜 → 小程序里搜目标词，研究前 10 名的名称和简介写法。</li>
+</ol>
+<p><strong>致命错误</strong>：只有品牌名、简介写成广告、类目选错、页面没有文字、功能太多却没有核心词。这些前期错误后期很难改。</p>
+<p><strong>预期</strong>：不会 7 天起量，也不会有上线爆发，只会慢慢爬升。一旦稳定，流量干净、意图强，转化往往好于信息流流量，对独立开发者是会复利的资产。</p>
+<h3>6.3 私域：微信是承接的终点</h3>
+<ul>
+<li><strong>原文算账</strong>：2 个微信号约 2 万好友，朋友圈持续发有价值的内容 → 1% 转化 × ¥200 ≈ ¥4 万。</li>
+<li><strong>&quot;群响&quot;模式</strong>：抖音短视频 / 直播做公域获客 → 导入微信 → 朋友圈只分享生活、思考和价值，不硬卖 → 用户被打动后主动咨询，成交率高。</li>
+</ul>
+<h2>7. 全平台 SEO：搜索已经分散到各个平台</h2>
+<p>原文的核心观点：SEO 仍是性价比最高的获客方式，但已经变成了<strong>全平台 SEO</strong>。用户在知乎、B 站、抖音、微信、小红书上搜索，不再只用百度。</p>
+<h3>7.1 各平台怎么做</h3>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>搜索入口</th>
+<th>关键词放在哪里</th>
+<th>内容寿命</th>
+<th>外链 / 导流</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>百度</td>
+<td>网页搜索</td>
+<td>网站 TDK、正文</td>
+<td>长</td>
+<td>通用商业词被广告和大站占据；新站主攻<strong>品牌词</strong></td>
+</tr>
+<tr>
+<td>知乎</td>
+<td>站内搜索 + 在百度排名好</td>
+<td>问题标题、回答首段</td>
+<td>长</td>
+<td>链接为 nofollow；靠主页和文末引导</td>
+</tr>
+<tr>
+<td>B 站</td>
+<td>站内搜索</td>
+<td>标题、简介、标签</td>
+<td>长（适合教程）</td>
+<td>简介可以放链接（以平台规则为准）</td>
+</tr>
+<tr>
+<td>抖音</td>
+<td>搜索 + 推荐</td>
+<td>标题、口播、字幕、话题</td>
+<td>推荐短，搜索长</td>
+<td>画面不露网址，导流到主页</td>
+</tr>
+<tr>
+<td>微信</td>
+<td>搜一搜</td>
+<td>公众号标题、小程序名称 / 页面文字</td>
+<td>中–长</td>
+<td>阅读原文、小程序卡片</td>
+</tr>
+<tr>
+<td>小红书</td>
+<td>站内搜索</td>
+<td>标题、正文、标签</td>
+<td>长（原文认为它最接近搜索引擎）</td>
+<td>严禁导流，用主页承接（见 <a href="../09-xiaohongshu/">09</a>）</td>
+</tr>
+</tbody></table>
+<h3>7.2 垂直深耕五步法（原文）</h3>
+<ol>
+<li>选一个细分垂直领域。</li>
+<li>挖长尾关键词，每个词做一篇内容，并把关键词放进标题和正文。</li>
+<li>按固定节奏持续发布。</li>
+<li>每篇都埋一个指向网站或私域的钩子。</li>
+<li>坚持。增长是指数型的，前面有很长的平坦期，大多数人在起飞前就放弃了。</li>
+</ol>
+<p>每个平台都要维护一份长尾词表，词的来源是该平台搜索框的下拉联想。</p>
+<h3>7.3 百度：用品牌词取胜</h3>
+<p>原文建议不要在百度追通用商业词（不透明、被付费结果主导）。更好的做法是起一个<strong>不常见、好记、国内其他站没用过的品牌名</strong>（英文也可以）。由于同名的海外竞品不在国内托管，品牌词搜索能稳定排在前 3。</p>
+<h3>7.4 高权重平台的关键词长文</h3>
+<p>原文的做法：用爱站 / 站长之家选一个高搜索量的词，在知乎、豆瓣、简书、Lofter 写一篇围绕这个词的原创长文（≥ 3000 字，结构清晰）。1–2 个月后有机会进入百度首页，再编辑加入网站链接，获取引荐流量。</p>
+<blockquote>
+<p>⚠️ 注意：原文要求关键词出现 ≥ 20 次，这属于旧式的关键词密度思路，读起来不自然，容易被判为堆砌。按自然行文出现即可。&quot;排名后再改文加链接&quot;也可能被平台判为营销，而且这些平台的外链多为 nofollow，主要价值是引荐流量，不是权重。</p>
+</blockquote>
+<h3>7.5 App：ASO</h3>
+<table>
+<thead>
+<tr>
+<th>要点</th>
+<th>做法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>副标题</td>
+<td>放核心关键词（标题和副标题一起规划）</td>
+</tr>
+<tr>
+<td>描述</td>
+<td>自然地嵌入中高热度关键词（用 <img src="https://www.google.com/s2/favicons?domain=qimai.cn&sz=32" width="16" height="16" alt=""> <a href="https://www.qimai.cn/">七麦数据</a>、<img src="https://www.google.com/s2/favicons?domain=chandashi.com&sz=32" width="16" height="16" alt=""> <a href="https://www.chandashi.com/">蝉大师</a> 查热度），保证可读</td>
+</tr>
+<tr>
+<td>截图</td>
+<td>前 2–3 张各讲一个卖点</td>
+</tr>
+<tr>
+<td>评论</td>
+<td>在应用内设计合适时机引导评分；评论里的关键词和持续的新评论都有助于排名</td>
+</tr>
+<tr>
+<td>原文数据</td>
+<td>App Store 上&quot;短视频&quot;排第 1，每天自然新增 1 万+ 用户</td>
+</tr>
+</tbody></table>
+<h2>8. 检查清单</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 每条视频锁定一个关键词（来自搜索联想 / 前 10 标题 / 评论提问）</li>
+<li><input disabled="" type="checkbox"> 标题原样包含关键词 + 场景 / 人群 / 结果</li>
+<li><input disabled="" type="checkbox"> 前 5 秒口播关键词；封面、前 3 秒字幕、总结卡片都出现关键词</li>
+<li><input disabled="" type="checkbox"> 话题 3–5 个（1 核心 + 1–2 长尾 + 1 人群），不蹭无关热点</li>
+<li><input disabled="" type="checkbox"> 昵称 / 简介有领域词；≥ 80% 的视频在同一主题</li>
+<li><input disabled="" type="checkbox"> 前 3 秒用反常识 / 结果先行 / 冲突 / 痛点开场，不做自我介绍</li>
+<li><input disabled="" type="checkbox"> 完播目标：10 秒视频 ≥ 80%，30 秒视频平均 ≥ 25 秒</li>
+<li><input disabled="" type="checkbox"> 每 1–2 秒换镜头；真人出镜；画面不露网址</li>
+<li><input disabled="" type="checkbox"> 新号每天 1 条，在 11:30–13:00 / 18–20 / 21–23 发布</li>
+<li><input disabled="" type="checkbox"> 账号零违规：不删视频、不搬运、不重复上传</li>
+<li><input disabled="" type="checkbox"> 小程序：名称含核心词，简介首行有核心词，类目正确，每个页面有文字说明</li>
+<li><input disabled="" type="checkbox"> 各平台的长尾词表已建立；每篇内容都有指向网站或私域的合规钩子</li>
+</ul>
+<h2>来源</h2>
+<ul>
+<li><a href="https://lownrain.feishu.cn/wiki/JYqwwxtL1iCCRKku2XlcuyA4nRf">抖音SEO</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/XRQBwJiKZil09skOsiCc6ZXLnjf">影响抖音流量分发的因素</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/LVCqwMDqWidl47kbpFBcirOrnOb">如何做出有流量的视频</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/MMpwwWVMUioPlqk8gGocOsconjd">微信公众号</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/ZD2jwGgS0i8cZKk0HC1cuQNanIh">微信小程序 SEO 指南：如何提升搜索排名与自然流量？</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/SXgew9A8jihj2uk4oMlcRCZYnUb">如何获取流量？SEO依然是性价比最高的方式</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/B2MLwCgXBisanqkZNyCcXDP6nqh">SEO经验分享</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/ZObbwCFH1i7RvVknVEUcF9uDnMh">如何为你的产品获取免费流量？</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/RUgJwOgDOiEwRdkmK1DcPsqvnKb">为什么你需要持续为你的产品创造内容</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/VsCcwVKTNiCJmlkKymNcIpxJn9d">如何用内容为产品持续引流</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/QKvawusbDi77XzkYtC0cZHvynXc">什么是品牌？如何建立个人品牌？品牌定位的关键是什么？</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/EgKEwabgAirGwRk5mOIcqvfanse">出海产品的推广策略</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/ZE3IwvFg0iG15zkVRGycidCynkf">App数据查询</a>（独立开发前线｜SEO从0到100）</li>
+</ul>
+</article>
+</div>
+</body>
+</html>

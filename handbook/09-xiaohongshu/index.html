@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小红书运营全指南 – SEO Handbook</title>
+<meta name="description" content="SEO handbook chapter: 小红书运营全指南">
+<link rel="canonical" href="https://ArcueidShiki.github.io/seo/handbook/09-xiaohongshu/">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/seo/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="小红书运营全指南 – SEO Handbook">
+<meta property="og:description" content="SEO handbook chapter: 小红书运营全指南">
+<meta property="og:url" content="https://ArcueidShiki.github.io/seo/handbook/09-xiaohongshu/">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--brand:#4f46e5;--bg:#fafafa}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.75 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--brand)}
+.top{border-bottom:1px solid var(--line);background:#fff}
+.top div{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;gap:18px;align-items:center}
+.top a{text-decoration:none;color:var(--muted)}.top .brand{font-weight:700;color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:20px;display:grid;grid-template-columns:240px 1fr;gap:32px}
+aside nav{position:sticky;top:16px;display:flex;flex-direction:column;gap:4px;font-size:14px}
+aside a{text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:8px}
+aside a[aria-current]{background:#eef2ff;color:var(--brand);font-weight:600}
+article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 36px;min-width:0}
+article h1{margin-top:0;line-height:1.25}
+article h2{margin-top:2em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
+article table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow:auto}
+article th,article td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+article th{background:#f9fafb}
+article code{background:#f3f4f6;padding:1px 5px;border-radius:4px;font-size:.92em}
+article pre{background:#111827;color:#e5e7eb;padding:14px;border-radius:8px;overflow:auto}
+article pre code{background:none;padding:0}
+article blockquote{margin:1em 0;padding:.5em 1em;border-left:4px solid var(--brand);background:#f5f3ff;color:#374151}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}aside nav{position:static}article{padding:20px}}
+</style>
+</head>
+<body>
+<div class="top"><div><a class="brand" href="/seo/">SEO Handbook</a><a href="/seo/tool/">Checklist 工具</a><a href="/seo/handbook/00-overview/">手册</a><a href="/seo/reports/">Before/After 报告</a></div></div>
+<div class="wrap">
+<aside><nav aria-label="手册目录"><a href="/seo/handbook/00-overview/">总览</a><a href="/seo/handbook/01-keyword-research/">关键词研究与选题</a><a href="/seo/handbook/02-page-structure-and-tags/">页面结构与 SEO 标签</a><a href="/seo/handbook/03-technical-seo-and-infra/">技术 SEO 与基础设施</a><a href="/seo/handbook/04-content-and-eeat/">内容与 E-E-A-T</a><a href="/seo/handbook/05-backlinks/">外链建设</a><a href="/seo/handbook/06-geo-ai-search/">GEO / AI 搜索优化</a><a href="/seo/handbook/07-launch-and-distribution/">发布与冷启动：推广策略、发布平台与品牌</a><a href="/seo/handbook/08-x-and-reddit/">X（Twitter）与 Reddit 运营</a><a href="/seo/handbook/09-xiaohongshu/" aria-current="page">小红书运营全指南</a><a href="/seo/handbook/10-douyin-video-wechat/">抖音、短视频与微信生态</a><a href="/seo/handbook/11-analytics-and-tools/">数据统计与 SEO 工具箱</a><a href="/seo/handbook/12-monetization/">变现：广告、订阅、支付与联盟营销</a><a href="/seo/handbook/13-mindset-and-case-studies/">独立开发者方法论与案例</a><a href="/seo/handbook/99-glossary/">SEO 名词解释</a></nav></aside>
+<article><h1>小红书运营全指南</h1>
+<blockquote>
+<p>小红书不是朋友圈式的社交流，而是<strong>搜索驱动的内容平台</strong>。用户带着问题来搜，笔记被搜到后会长期带来流量。原文一位作者用约 6 个月从 0 涨到 1 万粉；另一篇经验文认为，小红书是国内最接近&quot;搜索引擎&quot;的内容平台。
+本章顺序：定位 → 主页 → 选题 → 封面 → 标题文案 → 发布 → 涨粉 → IP → 变现 → 限流 → 工具。相关：抖音 / 视频见 <a href="../10-douyin-video-wechat/">10</a>，引流漏斗见 <a href="../07-launch-and-distribution/">07</a>。</p>
+</blockquote>
+<h2>1. 账号定位</h2>
+<h3>1.1 定位是&quot;关注者能得到什么&quot;，不是&quot;我是谁&quot;</h3>
+<table>
+<thead>
+<tr>
+<th>原则</th>
+<th>说明</th>
+<th>反例 → 正例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>找到最自然的表达点</td>
+<td>如果内容要&quot;挤&quot;才写得出来，说明定位错了</td>
+<td>硬做读书号 2 周就停更 → 随手发的&quot;租房省钱&quot;反而爆了</td>
+</tr>
+<tr>
+<td>回答&quot;为什么关注我&quot;</td>
+<td>定位描述的是用户收获</td>
+<td>&quot;我是程序员&quot; → &quot;程序员的 10 分钟高效晚餐&quot;</td>
+</tr>
+<tr>
+<td>敢于做小</td>
+<td>具体比宽泛更好记、更易被关注</td>
+<td>&quot;美食分享&quot; → &quot;只做泡面的 100 种吃法&quot;</td>
+</tr>
+<tr>
+<td>用数据收窄</td>
+<td>按互动数据持续微调方向</td>
+<td>每月复盘爆款笔记</td>
+</tr>
+<tr>
+<td>离钱近</td>
+<td>优先选有搜索量、竞争小、容易变现的赛道</td>
+<td>先想清楚以后卖什么</td>
+</tr>
+</tbody></table>
+<h3>1.2 定位三问 + 九宫格</h3>
+<ol>
+<li><strong>受众是谁</strong>：用户画像、需求场景。</li>
+<li><strong>用什么内容 / 服务解决什么问题</strong>：你交付的价值。</li>
+<li><strong>最后卖什么</strong>：变现产品（这一问必须写下答案）。</li>
+</ol>
+<p>九宫格：中心是核心价值观，四周依次填写&quot;我是谁（职业、外形、性格）&quot;&quot;需要谁（粉丝画像、需求场景）&quot;&quot;记忆点（一个词、口头禅、标志性道具）&quot;&quot;差异化（优势、专业角度）&quot;&quot;我能做什么（交付的价值）&quot;。</p>
+<h3>1.3 两项检验</h3>
+<ul>
+<li><strong>可持续</strong>：能立刻列出 ≥ 30 个选题。</li>
+<li><strong>有区分度</strong>：在小红书搜索你的细分词，直接竞品不多。</li>
+</ul>
+<p><strong>一句话定位模板</strong>：<code>给【谁】分享【什么具体内容】，让他们【得到什么结果】</code>。检验方法：陌生人读完简介和 3 篇笔记后，能说出你是做什么的。</p>
+<p>原文的案例都只做一件事：</p>
+<ul>
+<li>&quot;爱吃蛋&quot;：只讲鸡蛋，比如鸡蛋煮几分钟最好，涨到约 48 万粉。</li>
+<li>&quot;程序员豆腐&quot;：每期介绍一个有趣的网站，连更 100 多期，内容短、信息密，真人出镜，涨到约 29 万粉。</li>
+</ul>
+<h2>2. 主页四件套：头像、昵称、签名、背景图</h2>
+<p>主页就是名片。在信息流里，用户点进主页前只能看到头像和昵称。</p>
+<table>
+<thead>
+<tr>
+<th>元素</th>
+<th>要点</th>
+<th>避免</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>头像</td>
+<td>自然光下的清晰半身照（真人更容易建立信任），或统一风格的插画 / 虚拟 IP。原文作者换成白底半身照后，第二天多涨了几十个粉</td>
+<td>合照、模糊、背景杂乱、侵权图片</td>
+</tr>
+<tr>
+<td>昵称</td>
+<td>好记、好搜，带上赛道词（例如&quot;某某穿搭&quot;）。常见组合：名字 + 性格 / 城市 / 职业 / 价值观</td>
+<td>下划线、数字、emoji、生僻字（原文的&quot;Lynn__2333🍒&quot;搜不到）；&quot;momo&quot;这类泛名</td>
+</tr>
+<tr>
+<td>签名</td>
+<td>核心信息约 8–15 字。四要素：背景（如&quot;90 后程序员&quot;）、内容方向、一句钩子、商务邮箱。另一种公式：你是谁 → 一项成绩 → 关注能得到什么。不要谦虚</td>
+<td>空泛口号；签名弱时，爆文也很难转化成粉丝</td>
+</tr>
+<tr>
+<td>背景图</td>
+<td>和内容调性一致（美食用餐桌图，旅行用风景），色调和头像统一</td>
+<td>与定位无关的图片</td>
+</tr>
+<tr>
+<td>主页封面墙</td>
+<td>统一模板和色系，不要天天换风格</td>
+<td>每篇封面风格都不一样</td>
+</tr>
+<tr>
+<td>&quot;瞬间&quot;</td>
+<td>当朋友圈用，发与定位相关的日常打卡</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>⚠️ 注意：联系方式只写邮箱。签名、笔记、评论里直接写微信号、手机号、二维码，很容易被判为站外导流（见第 11 节）。</p>
+</blockquote>
+<h2>3. 选题方法</h2>
+<h3>3.1 好选题 = 用户需求 ∩ 你的优势</h3>
+<p><strong>五个选题来源</strong>：</p>
+<ol>
+<li><strong>搜索框下拉词</strong>：例如输入&quot;秋天穿搭&quot;，会联想出&quot;小个子 / 职场 / 显瘦&quot;等长尾词，这些词自带流量。</li>
+<li><strong>拆解同领域爆款</strong>：看标题关键词、切入角度、形式（清单 / 测评 / 故事）。例如护肤类爆款常用&quot;平价替代 / 避坑指南 / 好物推荐&quot;。</li>
+<li><strong>节日与购物节日历</strong>：9 月秋冬穿搭需求上涨；618、双 11 发购物清单；520、七夕、圣诞、新年发礼物指南。原文一篇 520 约会穿搭的点赞是平时的 3 倍。</li>
+<li><strong>评论区和私信</strong>：粉丝追问的问题，原文中做成续篇后比原帖还火。</li>
+<li><strong>跨平台</strong>：微博热搜看趋势，抖音看什么内容最直观易懂，知乎看深度问题。</li>
+</ol>
+<p><strong>选题池</strong>（SOP 做法）：先攒 100 个选题，统计其中重复出现最多的关键词，那就是这个赛道的核心需求。</p>
+<h3>3.2 四项检验（全部通过才写）</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检验问题</th>
+<th>怎么验证</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>受众够大吗？</td>
+<td>搜索下拉词多、相关笔记多</td>
+</tr>
+<tr>
+<td>2</td>
+<td>痛点是真的吗？</td>
+<td>评论区有人在问、在抱怨</td>
+</tr>
+<tr>
+<td>3</td>
+<td>站内有热搜词或爆款吗？</td>
+<td>搜索结果里有高赞笔记</td>
+</tr>
+<tr>
+<td>4</td>
+<td>我有资格说吗？</td>
+<td>有亲身经历、实测、案例或独到观点</td>
+</tr>
+</tbody></table>
+<p>另外，内容至少要命中以下 4 项中的 2 项：<strong>有用、有趣、有情绪价值、有品位 / 专业感</strong>。</p>
+<h3>3.3 五种高表现选题类型（轮换使用）</h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>标题方向示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>清单</td>
+<td>&quot;通勤包里的 10 件小物&quot;</td>
+</tr>
+<tr>
+<td>避坑</td>
+<td>&quot;租房前不看这 5 点会后悔&quot;</td>
+</tr>
+<tr>
+<td>教程</td>
+<td>&quot;3 步做出高点击封面&quot;</td>
+</tr>
+<tr>
+<td>对比</td>
+<td>&quot;百元 vs 千元，差别到底在哪&quot;</td>
+</tr>
+<tr>
+<td>故事</td>
+<td>&quot;从不看书到一年读完 10 本经典&quot;</td>
+</tr>
+</tbody></table>
+<p><strong>习惯</strong>：看到有意思的评论立刻截图；每周末花 30 分钟研究搜索框和爆款；节日内容提前 1 周准备。系列选题动笔前，先用百度指数、360 趋势或 Google Trends 看近 12 个月的走势，平稳或上升才做。</p>
+<h2>4. 高点击率封面</h2>
+<p>原文认为，用户是否点开一篇笔记，约 80% 取决于封面：<strong>封面决定点击，内容决定留存</strong>。</p>
+<h3>4.1 CTR 基准（原文）</h3>
+<table>
+<thead>
+<tr>
+<th>点击率</th>
+<th>判断</th>
+<th>动作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt; 3%</td>
+<td>差</td>
+<td>必须换封面 / 标题</td>
+</tr>
+<tr>
+<td>≥ 5%</td>
+<td>及格线</td>
+<td>继续优化</td>
+</tr>
+<tr>
+<td>8–15%</td>
+<td>同领域优秀创作者的常见水平</td>
+<td>复用模板</td>
+</tr>
+</tbody></table>
+<h3>4.2 三要素</h3>
+<ol>
+<li><strong>画面里有真人或真实场景</strong>：同一个包，平铺拍点击率 3.6%，上身街拍 9%。</li>
+<li><strong>短文字讲价值</strong>：6–10 个字（工具篇的说法是 ≤ 10 字），颜色要和背景形成强对比，例如&quot;30㎡小家收纳全攻略&quot;。</li>
+<li><strong>明亮干净</strong>：避免大面积灰色和黑色；居中或对称构图，给文字留出位置。</li>
+</ol>
+<h3>4.3 检验与流程</h3>
+<ul>
+<li><strong>缩略图测试</strong>：缩到手机信息流里的最小尺寸，重点信息仍要看得清。</li>
+<li><strong>3 秒测试</strong>：一个核心钩子，3 秒内能看懂，带冲突、对比或结果。封面的任务是被点开，不是好看。</li>
+<li><strong>流程</strong>：拍 3–5 张光线好的清晰照片 → 选最能表达主题的一张 → 加标题字（简单设计、美图秀秀等）→ 保持版面干净，不铺满文字 → 在手机上预览。</li>
+<li>每个封面至少花 10 分钟；全号使用统一模板，方便粉丝认出你；可以对封面做 A/B 测试。</li>
+<li>原文改造案例：模糊截图 + 无字 + 杂乱背景，点击率 2.8% → 清晰实拍 + 8 字标题 + 统一背景，点击率 9.5%。</li>
+</ul>
+<h2>5. 爆款标题公式与文案</h2>
+<h3>5.1 四个基础公式（附模板）</h3>
+<table>
+<thead>
+<tr>
+<th>公式</th>
+<th>模板</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数字 + 结果</td>
+<td><code>【人群】+【数字】+【做法】+【结果】</code></td>
+<td>&quot;小个子 3 套通勤穿搭，一周不重样&quot;</td>
+</tr>
+<tr>
+<td>提问</td>
+<td><code>为什么【常见做法】，却【反直觉结果】？</code></td>
+<td>&quot;为什么天天护肤，皮肤却越来越差？&quot;</td>
+</tr>
+<tr>
+<td>反差</td>
+<td><code>【小投入】做出【大效果】</code></td>
+<td>&quot;200 元改出 2 万的效果&quot;</td>
+</tr>
+<tr>
+<td>情绪</td>
+<td><code>别再【错误行为】了！【后果 / 解法】</code></td>
+<td>&quot;别再乱买收纳盒了！3 个够用&quot;</td>
+</tr>
+</tbody></table>
+<p><strong>进阶公式</strong>：</p>
+<ul>
+<li><strong>七要素公式</strong>（SOP）：人群 + 场景 + 痛点 + 解决方案 + 情绪 + 行动号召 + 冲突，标题至少用上 4 个。例如&quot;我踩过的 3 个坑，90% 新人都中招&quot;。</li>
+<li><strong>二极管标题法</strong>：<ul>
+<li>正向刺激：方法 / 产品 + 极小的投入 + 夸张的结果；</li>
+<li>负向刺激：不做 X 就会后悔 + 紧迫感（利用损失厌恶）。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>⚠️ 注意：标题的承诺必须在正文兑现。标题党会消耗信任，评论区一旦出现&quot;标题党&quot;就会伤害账号。避免虚假、绝对化的功效承诺。</p>
+</blockquote>
+<h3>5.2 改标题的威力（原文案例）</h3>
+<ul>
+<li>&quot;如何收纳小户型卧室&quot;约 500 阅读 → 改成&quot;30㎡ 能塞下 100 件衣服？&quot;并改短句后约 2 万阅读，+300 粉。</li>
+<li>&quot;小个子秋季穿搭分享&quot;不到 800 阅读 → 加上&quot;158cm、3 套、通勤、显高不踩雷&quot;等具体信息后，2.5 万+ 阅读。</li>
+</ul>
+<p><strong>规律</strong>：越具体越好（身高、数字、时间、场景），并且把搜索下拉词放进标题。</p>
+<h3>5.3 正文写法</h3>
+<ul>
+<li>第一行直接点出痛点，让人留下来。</li>
+<li>正文至少写 2 个具体的个人细节（数字、尺寸、时间、前后变化），用&quot;聊天体&quot;，不用&quot;说明书体&quot;。</li>
+<li>结构：总-分-总，短段落，适量 emoji，体现人设和立场；发布前检查错别字。</li>
+<li>结尾抛一个问题或给一个福利，引导评论（例如&quot;要不要我整理一份清单？&quot;）。</li>
+<li>避免：广告腔（&quot;强烈推荐&quot;&quot;性价比超高&quot;）、空洞开场、标题和内容不符、没有情绪。</li>
+</ul>
+<h3>5.4 20 种文案风格速查</h3>
+<table>
+<thead>
+<tr>
+<th>风格</th>
+<th>结构</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>种草 / 安利</td>
+<td>痛点或真实使用 → 细节 / 对比 → 适合谁 + 价值</td>
+</tr>
+<tr>
+<td>干货 / 教程</td>
+<td>数字 + 关键词标题 → 清晰步骤 → 引导收藏关注</td>
+</tr>
+<tr>
+<td>反差</td>
+<td>冲突 → 转折 → 呼应</td>
+</tr>
+<tr>
+<td>前后对比</td>
+<td>先放结果 → 讲方法 → &quot;你也可以&quot;</td>
+</tr>
+<tr>
+<td>模板清单</td>
+<td>可直接套用的清单，主打被收藏</td>
+</tr>
+<tr>
+<td>踩坑避雷</td>
+<td>&quot;千万别买 / 别做&quot; + 原因</td>
+</tr>
+<tr>
+<td>低成本 / 平替</td>
+<td>便宜方案达到同等效果</td>
+</tr>
+<tr>
+<td>挑战打卡</td>
+<td>30 天挑战 + 每日清单</td>
+</tr>
+<tr>
+<td>AIGC 效率风</td>
+<td>冷静、高效，例如&quot;三个工具解决九成问题&quot;</td>
+</tr>
+<tr>
+<td>打脸反转</td>
+<td>&quot;我以前也觉得……直到……&quot;</td>
+</tr>
+<tr>
+<td>其余 10 种</td>
+<td>情绪共鸣、搞笑、故事纪录片、揭秘、人设标签、时光记录、新手心声、情境代入、自我对话、反套路</td>
+</tr>
+</tbody></table>
+<p><strong>迭代</strong>：每篇发完看点击率、互动率、转化率，维护一份&quot;本号高效词表&quot;（原文作者的是&quot;省钱 / 小个子 / 通勤&quot;），每月更新一次。</p>
+<h2>6. 发布策略与频率</h2>
+<h3>6.1 形式</h3>
+<ul>
+<li><strong>图文</strong>：适合清单、教程、测评，门槛低，容易被收藏。</li>
+<li><strong>视频</strong>：适合氛围和场景展示，制作成本高。</li>
+<li><strong>组合打法</strong>：先用一篇图文讲清思路，下一篇用视频展示结果。</li>
+</ul>
+<h3>6.2 发布时间（三篇文档的说法）</h3>
+<table>
+<thead>
+<tr>
+<th>来源</th>
+<th>工作日</th>
+<th>周末</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内容发布策略</td>
+<td>12:00、20:00–22:00</td>
+<td>10:00、21:00 前后</td>
+</tr>
+<tr>
+<td>涨粉技巧</td>
+<td>12:00、20:00–22:00</td>
+<td>10:00–11:00</td>
+</tr>
+<tr>
+<td>图文笔记 SOP</td>
+<td>8–10 点、12–14 点、18–22 点任选</td>
+<td>同左</td>
+</tr>
+</tbody></table>
+<p>原文对比：同一篇内容早上 7:30 发不到 200 阅读，周五晚 9 点发 5000+。三份时间表都覆盖了午间和晚间，可以先按这两个时段发，再用自己的数据校准。</p>
+<h3>6.3 频率</h3>
+<ul>
+<li>新号：每周 3–4 篇。稳定期：每周 2 篇高质量 + 1 篇轻内容。</li>
+<li>稳定持续比集中爆发更有效。</li>
+<li>至少坚持&quot;每周 ≥ 3 篇 × 3 个月&quot;再判断成败。原文的说法是：一篇不火发十篇，十篇不火发五十篇。</li>
+</ul>
+<h2>7. 图文笔记创作 SOP</h2>
+<ol>
+<li><strong>选题</strong>：从选题池里挑出通过&quot;四项检验&quot;的题。</li>
+<li><strong>拍摄前定 4 个要素</strong>：主题、场景、风格、形式（干货 / 经验 / 对比）。</li>
+<li><strong>图片优先，文字为辅</strong>：产品图 + 过程图、前后对比、结果图、细节图。</li>
+<li><strong>封面</strong>：按第 4 节检查。</li>
+<li><strong>标题</strong>：写 2–3 个备选，找 3 个人投票。</li>
+<li><strong>正文</strong>：按第 5.3 节写，总-分-总，检查错别字。</li>
+<li><strong>标签</strong>：1 个核心关键词标签 + 1 个热门话题标签 + 1 个垂直细分标签。标签是为了被搜到，不在于数量多。</li>
+<li><strong>敏感词扫描</strong>（第 12 节）。</li>
+<li><strong>发布</strong>：选一个高峰时段；商家 / 接单类账号要加定位。</li>
+<li><strong>评论区运营</strong>：当天回复评论；引导领取资源或模板。</li>
+<li><strong>7 天复盘</strong>：浏览、点赞 / 评论 / 收藏，<strong>搜索流量与推荐流量的占比</strong>；写下这篇&quot;什么有效、什么拖后腿、下一篇改什么&quot;。</li>
+</ol>
+<blockquote>
+<p>⚠️ 注意：原 SOP 建议发布后&quot;用小号在评论区带节奏&quot;。这和限流文档&quot;一机一号、避免多账号&quot;的原则冲突，也属于平台禁止的虚假互动，<strong>不建议</strong>。评论区引导用主号自己的置顶评论来做。</p>
+</blockquote>
+<h2>8. 从 0 到 1 起号手册</h2>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>时间</th>
+<th>重点</th>
+<th>目标</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>探索</td>
+<td>第 1–2 月</td>
+<td>定位、主页四件套；每周 3–4 篇；尝试 2–3 种风格</td>
+<td>找到点击率 ≥ 5% 的封面 / 标题模式</td>
+</tr>
+<tr>
+<td>定型</td>
+<td>第 3–4 月</td>
+<td>固定人设、视觉模板、系列栏目</td>
+<td>0 → 约 3k 粉，只做内容</td>
+</tr>
+<tr>
+<td>系统化</td>
+<td>第 5–6 月</td>
+<td>系统地产出内容和故事；接小品牌合作</td>
+<td>约 5k 粉时有第一笔广告收入</td>
+</tr>
+<tr>
+<td>产品化</td>
+<td>第 7–9 月</td>
+<td>推出自有付费内容（清单、模板、课程）</td>
+<td>第二条收入线</td>
+</tr>
+<tr>
+<td>稳定</td>
+<td>第 10 月起</td>
+<td>品牌合作、自有产品、引流三条线并行</td>
+<td>稳定增长</td>
+</tr>
+</tbody></table>
+<p><strong>起号的内容生产</strong>：用模板工具提高效率。原文还提到&quot;参考爆款封面生成相似封面&quot;&quot;文案仿写&quot;。</p>
+<blockquote>
+<p>⚠️ 注意：仿写只能学结构和角度，不能照搬文字和图片。非原创是导致不被收录（掉收录）的原因之一（见第 11 节），也可能涉及侵权。</p>
+</blockquote>
+<h2>9. 涨粉技巧</h2>
+<ol>
+<li><strong>收藏型&quot;资源钩子&quot;</strong>：例如&quot;50 个封面制作工具&quot;&quot;10 套上班穿搭&quot;。很多人怕错过而收藏，即使以后不再翻看。收藏会提升分发。每周至少发 1 篇。</li>
+<li><strong>做连载系列</strong>：统一的封面和标题格式，让人为了下一期关注你。</li>
+<li><strong>真人出镜</strong>：带人脸的视频流量更好。</li>
+<li><strong>信息密度高、节奏快</strong>：程序员豆腐的成功因素是单一精准的定位、真人出镜、快剪辑、真实的主页、系列化。</li>
+<li><strong>互动</strong>：结尾提问或给福利；24 小时内回复评论（算法会看点赞、收藏、评论、关注）；关注同行学习；参加官方话题活动拿曝光。</li>
+<li><strong>每周数据诊断</strong>：见下表。</li>
+</ol>
+<h3>9.1 数据诊断矩阵（两篇文档的口径不同，合并如下）</h3>
+<table>
+<thead>
+<tr>
+<th>现象</th>
+<th>诊断</th>
+<th>动作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>曝光高，点击率低</td>
+<td>封面 / 标题没抓住人</td>
+<td>换封面，重写标题</td>
+</tr>
+<tr>
+<td>点击高，点赞收藏评论少</td>
+<td>内容没兑现标题承诺，或价值不足</td>
+<td>加干货密度、具体细节</td>
+</tr>
+<tr>
+<td>曝光低，但看过的人互动率高</td>
+<td>内容好，没被分发 / 搜到</td>
+<td>标题和正文补搜索关键词，换封面重试</td>
+</tr>
+<tr>
+<td>收藏远高于点赞（如 2000 曝光、400+ 收藏）</td>
+<td>实用型内容</td>
+<td>拆成系列续篇（原文从一篇做成了 3 篇）</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>⚠️ 注意：&quot;曝光高 + 互动低&quot;这个现象，《内容发布策略》判为&quot;标题好、内容弱&quot;，《运营必备工具》判为&quot;封面 / 标题问题&quot;。分歧来自它们没有区分&quot;曝光 → 点击&quot;和&quot;点击 → 互动&quot;两个环节。按上表先看点击率，再看互动率，就能消除歧义。</p>
+</blockquote>
+<h2>10. 真实感 IP 与内容配比</h2>
+<p><strong>三个特征</strong>：</p>
+<ul>
+<li><strong>可识别</strong>：头像、昵称、封面风格、文案语气保持一致。</li>
+<li><strong>有温度和故事</strong>：分享个人经历、感受、偏好。</li>
+<li><strong>有价值</strong>：提供知识、经验、工具或娱乐。</li>
+</ul>
+<p><strong>打造方法</strong>：</p>
+<ul>
+<li>写一句人设陈述：我是谁、擅长什么、什么语气。</li>
+<li>统一视觉规范：封面配色、字体、版式、滤镜。</li>
+<li>用第一人称讲故事，持续输出价值，根据粉丝反馈调整。</li>
+<li>原文案例&quot;简小喵&quot;：卡通猫 IP 贯穿头像、封面和插图，用幽默的文案推荐设计和 AI 工具，辨识度很高。</li>
+</ul>
+<p><strong>不要做</strong>：</p>
+<ul>
+<li>完全虚构的人设，被拆穿后信任崩塌；</li>
+<li>追求完美（小失误反而拉近距离）；</li>
+<li>成熟后频繁改变风格。</li>
+</ul>
+<h3>10.1 内容配比：5-3-2</h3>
+<table>
+<thead>
+<tr>
+<th>比例</th>
+<th>内容</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>50%</td>
+<td>与定位强相关的垂直内容</td>
+<td>让算法和用户给你打上清晰的标签</td>
+</tr>
+<tr>
+<td>30%</td>
+<td>相邻 / 延伸内容</td>
+<td>拓宽账号边界</td>
+</tr>
+<tr>
+<td>20%</td>
+<td>个人生活</td>
+<td>展示账号背后的人</td>
+</tr>
+</tbody></table>
+<p>每月按标签统计实际比例，偏差控制在 ±10% 以内。</p>
+<blockquote>
+<p>提醒：社交引流篇的 80/10/10（有用 / 产品 / 个人）是按&quot;用途&quot;划分，5-3-2 是按&quot;主题&quot;划分，两者可以叠加使用。</p>
+</blockquote>
+<h2>11. 限流（流量异常）与检测</h2>
+<p>小红书官方的说法是&quot;流量异常&quot;，不叫&quot;限流&quot;。判断时<strong>只和自己账号的历史基线比</strong>。</p>
+<h3>11.1 类型与阈值</h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>表现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单篇异常</td>
+<td>浏览量远低于平均（例如平时 1000，这篇只有 40–50）；或者互动突然停止、浏览断崖下跌</td>
+</tr>
+<tr>
+<td>账号异常</td>
+<td>近期所有笔记都很差；或者无法点赞、评论（被禁言 / 限制）。封禁通常会收到站内信，但也存在静默限流</td>
+</tr>
+<tr>
+<td>经验阈值</td>
+<td><strong>发布 24 小时后浏览 &lt; 50</strong>，大概率异常（对平时上千浏览的老号尤其明显）</td>
+</tr>
+</tbody></table>
+<h3>11.2 三个自检方法</h3>
+<ol>
+<li><strong>分享测试</strong>：把笔记转发到微信打开。如果提示&quot;笔记正在审核&quot;或&quot;无法展示&quot;，说明没过审或受限。常见原因：违禁 / 敏感词、低俗内容、站外导流。</li>
+<li><strong>搜号测试</strong>：<strong>用另一个账号</strong>搜你的小红书号，正常时会显示主页卡片和笔记。自己的账号能看到自己的内容，没有参考意义。</li>
+<li><strong>搜标题测试</strong>：用另一个账号搜笔记的完整标题，切换&quot;最新&quot;和&quot;最热&quot;排序，看能不能搜到。</li>
+</ol>
+<h3>11.3 不被收录（掉收录）的原因</h3>
+<p>账号违规；笔记太旧；仍在审核中；非原创；标题和正文里没有关键词；关键词堆砌。</p>
+<h3>11.4 处理</h3>
+<ul>
+<li><strong>知道违规点</strong>：直接编辑修改（会重新进入审核）。</li>
+<li><strong>不知道违规点</strong>：删掉，不要盲改（改错了会再次触发违规）。</li>
+<li><strong>账号违规</strong>：停止违规行为（站外导流、未报备的软广），正常发几篇笔记，通常 7 天左右恢复。</li>
+<li><strong>处罚逐级加重</strong>：例如禁言 2 天 → 7 天 → 1 个月 → 封号。</li>
+<li><strong>一机一号</strong>：同一台手机来回切账号，容易被识别为营销号；一个号被封，可能牵连同设备的其他账号。</li>
+</ul>
+<h2>12. 敏感词</h2>
+<p>发布前<strong>每一篇</strong>都做敏感词扫描（例如简单设计的免费敏感词检测，会高亮违禁词），零高亮再发。重点排查：</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>例子</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>站外导流</td>
+<td>微信号、二维码、网址、&quot;私信领取&quot;&quot;加 V&quot;</td>
+<td>原文：导流是常见违规原因</td>
+</tr>
+<tr>
+<td>广告腔 / 软广</td>
+<td>&quot;强烈推荐&quot;&quot;性价比超高&quot;、未报备的商业合作</td>
+<td>原文：广告腔和软广</td>
+</tr>
+<tr>
+<td>绝对化用语</td>
+<td>&quot;最好&quot;&quot;第一&quot;&quot;国家级&quot;等</td>
+<td>通用：《广告法》禁止绝对化用语</td>
+</tr>
+<tr>
+<td>功效夸大</td>
+<td>医疗、减肥、美白的确定性承诺</td>
+<td>通用：平台对功效宣称审核严格</td>
+</tr>
+<tr>
+<td>低俗 / 擦边</td>
+<td>—</td>
+<td>原文：未过审原因之一</td>
+</tr>
+</tbody></table>
+<h2>13. 变现策略</h2>
+<table>
+<thead>
+<tr>
+<th>路径</th>
+<th>起点</th>
+<th>做法</th>
+<th>原文数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>品牌合作</td>
+<td>约 1k–5 万粉的小号也可以接</td>
+<td>只接和账号调性相符、自己用过的产品；先讲痛点，再引出产品，保持真实</td>
+<td>作者 3k 粉时接第一单，互动比平时高 50%，+200 粉</td>
+</tr>
+<tr>
+<td>自有产品 / 服务</td>
+<td>约 1k 有互动的粉丝即可</td>
+<td>清单、模板、课程、咨询、周边、店铺链接</td>
+<td>1k 粉时卖付费&quot;小个子通勤清单&quot;，一周卖出 20 份</td>
+</tr>
+<tr>
+<td>引流变现</td>
+<td>有稳定内容后</td>
+<td>结尾自然地给出口；免费资料 → 小程序 / 私域 → 付费内容；配合优惠券、限时优惠</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<p>原文案例：参考答案阅览室（读书会员，销售额超千万）；一个 iPhone 快捷指令记账工具（零开发成本，把成熟方案包装好，卖得很好）。</p>
+<blockquote>
+<p>⚠️ 注意：商业合作建议走小红书官方的蒲公英平台报备。未报备的软广是账号违规的常见原因。引流话术越&quot;硬&quot;，限流风险越高，详见第 11、12 节。</p>
+</blockquote>
+<h2>14. 工具大全</h2>
+<h3>14.1 按运营流程的必备工具</h3>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>工具</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>选题</td>
+<td><img src="https://www.google.com/s2/favicons?domain=xiaohongshu.com&sz=32" width="16" height="16" alt=""> <a href="https://www.xiaohongshu.com/">小红书搜索联想词</a></td>
+<td>下拉词就是真实需求，攒成选题库</td>
+</tr>
+<tr>
+<td>选题 / 竞品</td>
+<td><img src="https://www.google.com/s2/favicons?domain=newrank.cn&sz=32" width="16" height="16" alt=""> <a href="https://www.newrank.cn/">新榜</a>、<img src="https://www.google.com/s2/favicons?domain=feigua.cn&sz=32" width="16" height="16" alt=""> <a href="https://www.feigua.cn/">飞瓜数据</a>、<img src="https://www.google.com/s2/favicons?domain=chandashi.com&sz=32" width="16" height="16" alt=""> <a href="https://www.chandashi.com/">蝉大师</a></td>
+<td>热门笔记、竞品和关键词监控，每周看一次竞品爆款</td>
+</tr>
+<tr>
+<td>灵感库</td>
+<td><img src="https://www.google.com/s2/favicons?domain=notion.so&sz=32" width="16" height="16" alt=""> <a href="https://www.notion.so/">Notion</a>、<img src="https://www.google.com/s2/favicons?domain=yinxiang.com&sz=32" width="16" height="16" alt=""> <a href="https://www.yinxiang.com/">印象笔记</a></td>
+<td>选题库 + 灵感库 + 标题模板库 + 开头钩子库</td>
+</tr>
+<tr>
+<td>封面 / 排版</td>
+<td><img src="https://www.google.com/s2/favicons?domain=jiandan.link&sz=32" width="16" height="16" alt=""> <a href="https://jiandan.link/">简单设计</a>、<img src="https://www.google.com/s2/favicons?domain=canva.com&sz=32" width="16" height="16" alt=""> <a href="https://www.canva.com/">Canva</a>、<img src="https://www.google.com/s2/favicons?domain=gaoding.com&sz=32" width="16" height="16" alt=""> <a href="https://www.gaoding.com/">稿定设计</a></td>
+<td>封面模板，封面字 ≤ 10 字</td>
+</tr>
+<tr>
+<td>视频</td>
+<td><img src="https://www.google.com/s2/favicons?domain=capcut.cn&sz=32" width="16" height="16" alt=""> <a href="https://www.capcut.cn/">剪映</a>、<img src="https://www.google.com/s2/favicons?domain=capcut.com&sz=32" width="16" height="16" alt=""> <a href="https://www.capcut.com/">CapCut</a></td>
+<td>剪辑、字幕</td>
+</tr>
+<tr>
+<td>修图</td>
+<td><img src="https://www.google.com/s2/favicons?domain=meitu.com&sz=32" width="16" height="16" alt=""> <a href="https://web.meitu.com/">美图秀秀</a></td>
+<td>修图、加字</td>
+</tr>
+<tr>
+<td>文案</td>
+<td><img src="https://www.google.com/s2/favicons?domain=chatgpt.com&sz=32" width="16" height="16" alt=""> <a href="https://chatgpt.com/">ChatGPT</a></td>
+<td>标题和文案构思（需人工改写成自己的语气）</td>
+</tr>
+<tr>
+<td>数据</td>
+<td><img src="https://www.google.com/s2/favicons?domain=xiaohongshu.com&sz=32" width="16" height="16" alt=""> <a href="https://creator.xiaohongshu.com/">创作者中心</a></td>
+<td>曝光、点击率、互动、粉丝画像</td>
+</tr>
+<tr>
+<td>排期</td>
+<td><img src="https://www.google.com/s2/favicons?domain=dida365.com&sz=32" width="16" height="16" alt=""> <a href="https://dida365.com/">滴答清单</a>、<img src="https://www.google.com/s2/favicons?domain=calendar.google.com&sz=32" width="16" height="16" alt=""> <a href="https://calendar.google.com/">Google Calendar</a></td>
+<td>每周固定&quot;选题 → 排期 → 复盘&quot;</td>
+</tr>
+<tr>
+<td>素材存储</td>
+<td><img src="https://www.google.com/s2/favicons?domain=pan.baidu.com&sz=32" width="16" height="16" alt=""> <a href="https://pan.baidu.com/">百度网盘</a>、<img src="https://www.google.com/s2/favicons?domain=jianguoyun.com&sz=32" width="16" height="16" alt=""> <a href="https://www.jianguoyun.com/">坚果云</a></td>
+<td>素材集中存放</td>
+</tr>
+<tr>
+<td>社群</td>
+<td><img src="https://www.google.com/s2/favicons?domain=dingtalk.com&sz=32" width="16" height="16" alt=""> <a href="https://www.dingtalk.com/">钉钉</a>、<img src="https://www.google.com/s2/favicons?domain=telegram.org&sz=32" width="16" height="16" alt=""> <a href="https://telegram.org/">Telegram</a>、微信群</td>
+<td>粉丝群提前看内容，帮忙二次传播</td>
+</tr>
+</tbody></table>
+<p><strong>上手节奏</strong>（原文）：第 1 月学拍摄和排版 → 第 2–3 月熟练 Canva / 剪映 → 第 4 月用数据工具做选题和竞品分析 → 第 5 月起用全套工具。</p>
+<h3>14.2 50+ 工具合集（按环节）</h3>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>工具（用途）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>趋势 / 热点</td>
+<td><img src="https://www.google.com/s2/favicons?domain=index.baidu.com&sz=32" width="16" height="16" alt=""> <a href="https://index.baidu.com/">百度指数</a>（关注度）· <img src="https://www.google.com/s2/favicons?domain=trend.so.com&sz=32" width="16" height="16" alt=""> <a href="https://trend.so.com/">360 趋势</a>（生命周期）· <img src="https://www.google.com/s2/favicons?domain=wrd.cn&sz=32" width="16" height="16" alt=""> <a href="https://www.wrd.cn/">微热点</a>（热点舆情）· <img src="https://www.google.com/s2/favicons?domain=index.toutiao.com&sz=32" width="16" height="16" alt=""> <a href="https://index.toutiao.com/">头条指数</a>（跨平台灵感）· <img src="https://www.google.com/s2/favicons?domain=trends.google.com&sz=32" width="16" height="16" alt=""> <a href="https://trends.google.com/">Google Trends</a>（海外选题）</td>
+</tr>
+<tr>
+<td>选题库 / 协作</td>
+<td><img src="https://www.google.com/s2/favicons?domain=shimo.im&sz=32" width="16" height="16" alt=""> <a href="https://shimo.im/">石墨文档</a>（团队选题库）· <img src="https://www.google.com/s2/favicons?domain=feishu.cn&sz=32" width="16" height="16" alt=""> <a href="https://www.feishu.cn/">飞书</a>（排期、自动化）</td>
+</tr>
+<tr>
+<td>AI 文案</td>
+<td><img src="https://www.google.com/s2/favicons?domain=prompthub.us&sz=32" width="16" height="16" alt=""> <a href="https://www.prompthub.us/">PromptHub</a> · <img src="https://www.google.com/s2/favicons?domain=openprompt.co&sz=32" width="16" height="16" alt=""> <a href="https://openprompt.co/">OpenPrompt</a>（提示词库）· <img src="https://www.google.com/s2/favicons?domain=xiezuocat.com&sz=32" width="16" height="16" alt=""> <a href="https://xiezuocat.com/">秘塔写作猫</a>（润色）· <img src="https://www.google.com/s2/favicons?domain=writingo.net&sz=32" width="16" height="16" alt=""> <a href="https://www.writingo.net/">火山写作</a>（标题优化）</td>
+</tr>
+<tr>
+<td>封面设计</td>
+<td><img src="https://www.google.com/s2/favicons?domain=jiandan.link&sz=32" width="16" height="16" alt=""> <a href="https://jiandan.link/">简单设计</a>（封面模板、AI 图文、定位 / 选题 / 文案生成、敏感词检测，原文首推）· <img src="https://www.google.com/s2/favicons?domain=canva.cn&sz=32" width="16" height="16" alt=""> <a href="https://www.canva.cn/">可画</a> · <img src="https://www.google.com/s2/favicons?domain=figma.com&sz=32" width="16" height="16" alt=""> <a href="https://www.figma.com/">Figma</a></td>
+</tr>
+<tr>
+<td>修图 / AI 图像</td>
+<td><img src="https://www.google.com/s2/favicons?domain=photopea.com&sz=32" width="16" height="16" alt=""> <a href="https://www.photopea.com/">Photopea</a>（在线 PS）· <img src="https://www.google.com/s2/favicons?domain=remove.bg&sz=32" width="16" height="16" alt=""> <a href="https://www.remove.bg/">Remove.bg</a>（抠图）· <img src="https://www.google.com/s2/favicons?domain=cleanup.pictures&sz=32" width="16" height="16" alt=""> <a href="https://cleanup.pictures/">Cleanup.pictures</a>（去杂物）· <img src="https://www.google.com/s2/favicons?domain=upscale.media&sz=32" width="16" height="16" alt=""> <a href="https://www.upscale.media/">Upscale.media</a>（超分）· <img src="https://www.google.com/s2/favicons?domain=clipdrop.co&sz=32" width="16" height="16" alt=""> <a href="https://clipdrop.co/">ClipDrop</a>（重打光）· <img src="https://www.google.com/s2/favicons?domain=vsco.co&sz=32" width="16" height="16" alt=""> <a href="https://www.vsco.co/">VSCO</a> / <img src="https://www.google.com/s2/favicons?domain=adobe.com&sz=32" width="16" height="16" alt=""> <a href="https://lightroom.adobe.com/">Lightroom</a>（滤镜调色）</td>
+</tr>
+<tr>
+<td>头像</td>
+<td><img src="https://www.google.com/s2/favicons?domain=jimeng.jianying.com&sz=32" width="16" height="16" alt=""> <a href="https://jimeng.jianying.com/">即梦</a> · <img src="https://www.google.com/s2/favicons?domain=monica.im&sz=32" width="16" height="16" alt=""> <a href="https://monica.im/">Monica</a> · <img src="https://www.google.com/s2/favicons?domain=notion.so&sz=32" width="16" height="16" alt=""> <a href="https://faces.notion.com/">Notion Faces</a> · 可画 AI 头像</td>
+</tr>
+<tr>
+<td>长图 / 信息图</td>
+<td><img src="https://www.google.com/s2/favicons?domain=xiumi.us&sz=32" width="16" height="16" alt=""> <a href="https://xiumi.us/">秀米</a> · <img src="https://www.google.com/s2/favicons?domain=135editor.com&sz=32" width="16" height="16" alt=""> <a href="https://www.135editor.com/">135 编辑器</a> · <img src="https://www.google.com/s2/favicons?domain=818ps.com&sz=32" width="16" height="16" alt=""> <a href="https://818ps.com/">图怪兽</a> · <img src="https://www.google.com/s2/favicons?domain=ipiccy.com&sz=32" width="16" height="16" alt=""> <a href="https://ipiccy.com/">iPiccy</a> · <img src="https://www.google.com/s2/favicons?domain=piktochart.com&sz=32" width="16" height="16" alt=""> <a href="https://piktochart.com/">Piktochart</a> · <img src="https://www.google.com/s2/favicons?domain=infogram.com&sz=32" width="16" height="16" alt=""> <a href="https://infogram.com/">Infogram</a> · <img src="https://www.google.com/s2/favicons?domain=visme.co&sz=32" width="16" height="16" alt=""> <a href="https://www.visme.co/">Visme</a> · <img src="https://www.google.com/s2/favicons?domain=buffer.com&sz=32" width="16" height="16" alt=""> <a href="https://pablo.buffer.com/">Pablo</a>（金句卡）· <img src="https://www.google.com/s2/favicons?domain=creatopy.com&sz=32" width="16" height="16" alt=""> <a href="https://www.creatopy.com/">Creatopy</a></td>
+</tr>
+<tr>
+<td>数据分析</td>
+<td><img src="https://www.google.com/s2/favicons?domain=xiaohongshu.com&sz=32" width="16" height="16" alt=""> <a href="https://creator.xiaohongshu.com/">创作者中心</a>（官方数据）· <img src="https://www.google.com/s2/favicons?domain=newrank.cn&sz=32" width="16" height="16" alt=""> <a href="https://www.newrank.cn/">新榜</a> · <img src="https://www.google.com/s2/favicons?domain=feigua.cn&sz=32" width="16" height="16" alt=""> <a href="https://www.feigua.cn/">飞瓜</a> · <img src="https://www.google.com/s2/favicons?domain=oceanengine.com&sz=32" width="16" height="16" alt=""> <a href="https://trendinsight.oceanengine.com/">巨量算数</a>（抖音系趋势）· <img src="https://www.google.com/s2/favicons?domain=xingtu.cn&sz=32" width="16" height="16" alt=""> <a href="https://www.xingtu.cn/">巨量星图</a>（达人合作）· <img src="https://www.google.com/s2/favicons?domain=data.ai&sz=32" width="16" height="16" alt=""> <a href="https://www.data.ai/">Data.ai</a>（海外 App，已并入 Sensor Tower）· <img src="https://www.google.com/s2/favicons?domain=neilpatel.com&sz=32" width="16" height="16" alt=""> <a href="https://neilpatel.com/ubersuggest/">Ubersuggest</a>（检查选题在搜索引擎和小红书是否都有需求）</td>
+</tr>
+<tr>
+<td>私域 / 变现</td>
+<td><img src="https://www.google.com/s2/favicons?domain=work.weixin.qq.com&sz=32" width="16" height="16" alt=""> <a href="https://work.weixin.qq.com/">企业微信</a>（私域）· <img src="https://www.google.com/s2/favicons?domain=youzan.com&sz=32" width="16" height="16" alt=""> <a href="https://www.youzan.com/">有赞</a> / <img src="https://www.google.com/s2/favicons?domain=weidian.com&sz=32" width="16" height="16" alt=""> <a href="https://www.weidian.com/">微店</a>（电商）· <img src="https://www.google.com/s2/favicons?domain=xiaoe-tech.com&sz=32" width="16" height="16" alt=""> <a href="https://www.xiaoe-tech.com/">小鹅通</a>（课程）</td>
+</tr>
+<tr>
+<td>效率辅助</td>
+<td><img src="https://www.google.com/s2/favicons?domain=tinypng.com&sz=32" width="16" height="16" alt=""> <a href="https://tinypng.com/">TinyPNG</a>（上传前压缩）· <img src="https://www.google.com/s2/favicons?domain=eagle.cool&sz=32" width="16" height="16" alt=""> <a href="https://eagle.cool/">Eagle</a>（素材库）· <img src="https://www.google.com/s2/favicons?domain=loom.com&sz=32" width="16" height="16" alt=""> <a href="https://www.loom.com/">Loom</a> / <img src="https://www.google.com/s2/favicons?domain=screen.studio&sz=32" width="16" height="16" alt=""> <a href="https://www.screen.studio/">Screen Studio</a>（录屏）· <img src="https://www.google.com/s2/favicons?domain=cowtransfer.com&sz=32" width="16" height="16" alt=""> <a href="https://cowtransfer.com/">奶牛快传</a>（传文件）· <img src="https://www.google.com/s2/favicons?domain=keepass.info&sz=32" width="16" height="16" alt=""> <a href="https://keepass.info/">KeePass</a>（多账号密码）</td>
+</tr>
+</tbody></table>
+<p>原文还提到以下工具（未附链接）：克劳锐指数、秘塔翻译、万兴 PDF、字体管家、字由、Snapseed、黄油相机、PR / Final Cut、Bannersnack。</p>
+<p><strong>组合建议</strong>：</p>
+<ul>
+<li><strong>个人创作者</strong>：小红书搜索 + 简单设计 / Canva + 剪映 + 创作者中心。</li>
+<li><strong>小团队</strong>：再加新榜 / 飞瓜 + 飞书排期 + Eagle 素材库。</li>
+<li><strong>品牌方</strong>：再加星图类达人平台 + 企业微信私域。</li>
+</ul>
+<h2>15. 检查清单</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 一句话定位写好，能列出 ≥ 30 个选题</li>
+<li><input disabled="" type="checkbox"> 昵称带赛道词、无数字下划线；签名四要素齐全；联系方式只写邮箱</li>
+<li><input disabled="" type="checkbox"> 每篇的选题都来自搜索下拉词或爆款，并通过四项检验</li>
+<li><input disabled="" type="checkbox"> 封面有真人或真实场景，6–10 字对比色文字，通过缩略图测试；点击率 &lt; 3% 的笔记换封面</li>
+<li><input disabled="" type="checkbox"> 标题使用一种公式，含搜索长尾词，正文兑现标题承诺</li>
+<li><input disabled="" type="checkbox"> 第一行点出痛点，结尾提问；24 小时内回复评论</li>
+<li><input disabled="" type="checkbox"> 每篇发布前做敏感词扫描，零高亮</li>
+<li><input disabled="" type="checkbox"> 前 3 个月每周 ≥ 3 篇；每周按诊断矩阵复盘</li>
+<li><input disabled="" type="checkbox"> 内容配比 5-3-2，每月核对</li>
+<li><input disabled="" type="checkbox"> 新笔记 24 小时内能被另一个账号按完整标题搜到；浏览 &lt; 50 时走自检流程</li>
+<li><input disabled="" type="checkbox"> 一机一号；无站外导流和未报备软广</li>
+</ul>
+<h2>来源</h2>
+<ul>
+<li><a href="https://lownrain.feishu.cn/wiki/X7ulwJljjiplMMk7brTc4OQnnCg">小红书运营指南：小红书账号定位</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/YNJYwlve4is75nkGvy4cx5N6n1o">小红书运营指南：小红书的头像、昵称、个性签名、背景图</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/FexJwXbnWi3KDokJKO3cC4Lknde">小红书运营指南：小红书内容发布策略</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/UGJkwAsQqi3nPtkyExqcDIilnRf">小红书运营指南：如何找内容选题</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/KgslwsvqTiPG4JkDiGucswyrn7d">小红书运营指南：如何制作高点击率封面</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/DMBHwY7zsiykSFklRGWcOUX0nvh">小红书运营指南：如何制作小红书爆款文案</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/KM8jwDUw2i6GCmkG0aucz91pnoh">小红书运营指南：小红书涨粉技巧</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/PmMnwU62ziEW5SkOg20cahxgnDf">小红书运营指南：小红书变现策略</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/HKvbwo8iMit7MtkHlzRctulnnDb">小红书运营指南：如何打造真实感 IP</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/NM5Ww0WnZiy0KwkAzMOcCoCTn0d">小红书运营指南：小红书运营必备工具</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/OgnLwvA8xiJWeKknCWWcBUm5nUf">50+ 小红书运营工具合集：选题、设计、排版、数据分析全指南</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/CPIXwf9lei8rxnk1sBZcbcKTnyd">小红书图文笔记创作SOP</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/ZWSkwIwEgiF2ylkt9TFcVfcvnmd">小红书运营手册：如何从0到1完成起号</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/CNZZwQogjikAgakVMWDc2dPpn3f">小红书账号限流与检测</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/TIMjws34Ji0r2DkIBu6cIJICnUi">如何用内容从社交媒体为产品引流</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/B2MLwCgXBisanqkZNyCcXDP6nqh">SEO经验分享</a>（独立开发前线｜SEO从0到100）</li>
+</ul>
+</article>
+</div>
+</body>
+</html>

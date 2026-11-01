@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>数据统计与 SEO 工具箱 – SEO Handbook</title>
+<meta name="description" content="SEO handbook chapter: 数据统计与 SEO 工具箱">
+<link rel="canonical" href="https://ArcueidShiki.github.io/seo/handbook/11-analytics-and-tools/">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/seo/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="数据统计与 SEO 工具箱 – SEO Handbook">
+<meta property="og:description" content="SEO handbook chapter: 数据统计与 SEO 工具箱">
+<meta property="og:url" content="https://ArcueidShiki.github.io/seo/handbook/11-analytics-and-tools/">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--brand:#4f46e5;--bg:#fafafa}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.75 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--brand)}
+.top{border-bottom:1px solid var(--line);background:#fff}
+.top div{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;gap:18px;align-items:center}
+.top a{text-decoration:none;color:var(--muted)}.top .brand{font-weight:700;color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:20px;display:grid;grid-template-columns:240px 1fr;gap:32px}
+aside nav{position:sticky;top:16px;display:flex;flex-direction:column;gap:4px;font-size:14px}
+aside a{text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:8px}
+aside a[aria-current]{background:#eef2ff;color:var(--brand);font-weight:600}
+article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 36px;min-width:0}
+article h1{margin-top:0;line-height:1.25}
+article h2{margin-top:2em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
+article table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow:auto}
+article th,article td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+article th{background:#f9fafb}
+article code{background:#f3f4f6;padding:1px 5px;border-radius:4px;font-size:.92em}
+article pre{background:#111827;color:#e5e7eb;padding:14px;border-radius:8px;overflow:auto}
+article pre code{background:none;padding:0}
+article blockquote{margin:1em 0;padding:.5em 1em;border-left:4px solid var(--brand);background:#f5f3ff;color:#374151}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}aside nav{position:static}article{padding:20px}}
+</style>
+</head>
+<body>
+<div class="top"><div><a class="brand" href="/seo/">SEO Handbook</a><a href="/seo/tool/">Checklist 工具</a><a href="/seo/handbook/00-overview/">手册</a><a href="/seo/reports/">Before/After 报告</a></div></div>
+<div class="wrap">
+<aside><nav aria-label="手册目录"><a href="/seo/handbook/00-overview/">总览</a><a href="/seo/handbook/01-keyword-research/">关键词研究与选题</a><a href="/seo/handbook/02-page-structure-and-tags/">页面结构与 SEO 标签</a><a href="/seo/handbook/03-technical-seo-and-infra/">技术 SEO 与基础设施</a><a href="/seo/handbook/04-content-and-eeat/">内容与 E-E-A-T</a><a href="/seo/handbook/05-backlinks/">外链建设</a><a href="/seo/handbook/06-geo-ai-search/">GEO / AI 搜索优化</a><a href="/seo/handbook/07-launch-and-distribution/">发布与冷启动：推广策略、发布平台与品牌</a><a href="/seo/handbook/08-x-and-reddit/">X（Twitter）与 Reddit 运营</a><a href="/seo/handbook/09-xiaohongshu/">小红书运营全指南</a><a href="/seo/handbook/10-douyin-video-wechat/">抖音、短视频与微信生态</a><a href="/seo/handbook/11-analytics-and-tools/" aria-current="page">数据统计与 SEO 工具箱</a><a href="/seo/handbook/12-monetization/">变现：广告、订阅、支付与联盟营销</a><a href="/seo/handbook/13-mindset-and-case-studies/">独立开发者方法论与案例</a><a href="/seo/handbook/99-glossary/">SEO 名词解释</a></nav></aside>
+<article><h1>数据统计与 SEO 工具箱</h1>
+<blockquote>
+<p>本章收集原知识库各篇提到的统计、查询、外链、内容和体检工具，并给出每周、每月该看哪些指标，以及 Google Search Console（GSC）的常用报告和排查流程。
+术语（DR、KD、CPS、Parent Topic、CTR 等）的详细解释见 <a href="../99-glossary/">99 SEO 名词解释</a>。工具价格和免费额度以原文为准，可能已经变化。</p>
+</blockquote>
+<h2>1. 网站流量统计工具对比</h2>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>类型</th>
+<th>开源 / 自托管</th>
+<th>价格</th>
+<th>适合</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://www.google.com/s2/favicons?domain=analytics.google.com&sz=32" width="16" height="16" alt=""> <a href="https://analytics.google.com/">Google Analytics 4</a></td>
+<td>全功能行为分析</td>
+<td>否</td>
+<td>免费</td>
+<td>默认选择；能和 GSC、Google Ads 打通；可配置转化事件</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=tongji.baidu.com&sz=32" width="16" height="16" alt=""> <a href="https://tongji.baidu.com/">百度统计</a></td>
+<td>全功能</td>
+<td>否</td>
+<td>免费</td>
+<td>面向中国大陆的流量</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=plausible.io&sz=32" width="16" height="16" alt=""> <a href="https://plausible.io/">Plausible</a></td>
+<td>轻量、注重隐私</td>
+<td>是（<a href="https://github.com/plausible/analytics">GitHub</a>）</td>
+<td>云版付费 / 自托管免费</td>
+<td>不用 Cookie、脚本小；有<a href="https://plausible.io/plausible.io">公开 Demo</a></td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=umami.is&sz=32" width="16" height="16" alt=""> <a href="https://umami.is/">Umami</a></td>
+<td>轻量、注重隐私</td>
+<td>是（<a href="https://github.com/umami-software/umami">GitHub</a>）</td>
+<td>自托管免费</td>
+<td>独立开发者自托管的热门选择</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=github.com&sz=32" width="16" height="16" alt=""> <a href="https://github.com/milesmcc/shynet">Shynet</a></td>
+<td>轻量</td>
+<td>是</td>
+<td>自托管免费</td>
+<td>极简统计</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=usefathom.com&sz=32" width="16" height="16" alt=""> <a href="https://usefathom.com/">Fathom</a></td>
+<td>轻量、注重隐私</td>
+<td>旧版开源</td>
+<td>付费云服务</td>
+<td>想要省心的隐私统计</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=electerious.com&sz=32" width="16" height="16" alt=""> <a href="https://ackee.electerious.com/">Ackee</a></td>
+<td>轻量</td>
+<td>是（<a href="https://github.com/electerious/Ackee">GitHub</a>）</td>
+<td>自托管免费</td>
+<td>Node.js 技术栈</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=ahrefs.com&sz=32" width="16" height="16" alt=""> <a href="https://ahrefs.com/zh/web-analytics">Ahrefs Web Analytics</a></td>
+<td>轻量</td>
+<td>否</td>
+<td>免费（原文在 DR 篇提及）</td>
+<td>已经在用 Ahrefs 的人</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=clarity.microsoft.com&sz=32" width="16" height="16" alt=""> <a href="https://clarity.microsoft.com/">Microsoft Clarity</a></td>
+<td>热力图、会话录屏</td>
+<td>否</td>
+<td>免费</td>
+<td><strong>补充（非原文）</strong>：和 GA4 搭配，排查落地页哪里流失</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=cloudflare.com&sz=32" width="16" height="16" alt=""> <a href="https://www.cloudflare.com/web-analytics/">Cloudflare Web Analytics</a></td>
+<td>轻量、无 Cookie</td>
+<td>否</td>
+<td>免费</td>
+<td><strong>补充（非原文）</strong>：已用 Cloudflare 的站点零成本接入</td>
+</tr>
+</tbody></table>
+<p><strong>选型建议</strong>：</p>
+<ul>
+<li><strong>最低配置</strong>：GSC + GA4（都免费）。面向中国大陆的站点再加百度统计。</li>
+<li><strong>注重隐私或面向欧盟</strong>：Plausible / Umami 替代 GA4，不用 Cookie，可以免去大部分 Cookie 弹窗。如果在 GDPR 地区使用 GA4，需要做 Cookie 同意。</li>
+<li><strong>排查转化问题</strong>：再加 Clarity 看热力图和录屏。</li>
+</ul>
+<p><strong>接入检查</strong>：</p>
+<ol>
+<li>每个页面模板都加载统计脚本（在开发者工具的 Network 面板里能看到请求发出）。</li>
+<li>脚本异步加载，不影响 Core Web Vitals（在 Lighthouse 里看第三方脚本的影响）。</li>
+<li>注册、试用、付款都配置为转化事件（GA4 叫 Key events），在实时报告里能看到测试事件。</li>
+<li>GA4 和 GSC 已关联，可以把搜索词和站内行为放在一起分析。</li>
+</ol>
+<blockquote>
+<p>⚠️ 注意：原文把 Fathom 标为开源。实际上开源的是已停止维护的旧版（Fathom Lite），现在的 Fathom 是闭源的付费云服务。</p>
+</blockquote>
+<h2>2. 搜索引擎站长后台</h2>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>地址</th>
+<th>必做</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://www.google.com/s2/favicons?domain=search.google.com&sz=32" width="16" height="16" alt=""> <a href="https://search.google.com/search-console/about">Google Search Console</a></td>
+<td>全球</td>
+<td>用域名资源验证，提交 sitemap，用&quot;网址检查&quot;请求编入索引</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=bing.com&sz=32" width="16" height="16" alt=""> <a href="https://www.bing.com/webmasters">Bing Webmaster Tools</a></td>
+<td>全球（Bing / DuckDuckGo 等）</td>
+<td>可以从 GSC 一键导入；支持 IndexNow 主动推送</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=baidu.com&sz=32" width="16" height="16" alt=""> <a href="https://ziyuan.baidu.com/site/index">百度搜索资源平台</a></td>
+<td>中国大陆</td>
+<td>面向国内用户时必做</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=sogou.com&sz=32" width="16" height="16" alt=""> <a href="https://zhanzhang.sogou.com/">搜狗站长平台</a></td>
+<td>中国大陆</td>
+<td>可选</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=so.com&sz=32" width="16" height="16" alt=""> <a href="https://zhanzhang.so.com/">360 站长平台</a></td>
+<td>中国大陆</td>
+<td>可选</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=toutiao.com&sz=32" width="16" height="16" alt=""> <a href="https://zhanzhang.toutiao.com/">头条站长平台</a></td>
+<td>中国大陆</td>
+<td>可选</td>
+</tr>
+</tbody></table>
+<p>主动提交可以把收录时间从&quot;等自然抓取，几天到几周&quot;缩短。站长后台同时也是查看收录、搜索词、点击率、抓取错误和安全警告的数据中心（技术细节见 <a href="../03-technical-seo-and-infra/">03</a>）。</p>
+<h2>3. 网站 / 关键词流量查询</h2>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>用途</th>
+<th>免费情况</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://www.google.com/s2/favicons?domain=similarweb.com&sz=32" width="16" height="16" alt=""> <a href="https://www.similarweb.com/">Similarweb</a></td>
+<td>竞品整站流量、渠道构成</td>
+<td>免费可看概览</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=semrush.com&sz=32" width="16" height="16" alt=""> <a href="https://www.semrush.com/">Semrush</a></td>
+<td>网站 / 关键词流量、KD、相关词、竞品关键词</td>
+<td>免费约 10 次 / 天</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=ahrefs.com&sz=32" width="16" height="16" alt=""> <a href="https://ahrefs.com/">Ahrefs</a></td>
+<td>关键词、自然流量、Top Pages、外链</td>
+<td>付费（部分免费小工具）</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=moz.com&sz=32" width="16" height="16" alt=""> <a href="https://moz.com/">Moz</a></td>
+<td>网站 / 关键词数据、DA</td>
+<td>有限免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=neilpatel.com&sz=32" width="16" height="16" alt=""> <a href="https://app.neilpatel.com/en/ai-keyword-overview">Ubersuggest</a></td>
+<td>关键词、内容灵感、竞品域名</td>
+<td>有免费额度</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=traffic.cv&sz=32" width="16" height="16" alt=""> <a href="https://traffic.cv/">traffic.cv</a></td>
+<td>网站流量查询；<a href="https://traffic.cv/leaderboard/traffic/2025/12/trending">流量飙升榜</a>用来发现新词</td>
+<td>免费查看</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=aitdk.com&sz=32" width="16" height="16" alt=""> <a href="https://aitdk.com/">AITDK</a></td>
+<td>浏览器插件，一键看流量和 SEO 数据</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=sitedata.dev&sz=32" width="16" height="16" alt=""> <a href="https://sitedata.dev/zh-cn">SiteData</a></td>
+<td>浏览器插件，流量分析</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=trends.google.com&sz=32" width="16" height="16" alt=""> <a href="https://trends.google.com/trends/">Google Trends</a></td>
+<td>关键词趋势、Rising 上升词、相对搜索量</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=chromewebstore.google.com&sz=32" width="16" height="16" alt=""> <a href="https://chromewebstore.google.com/detail/lkjapnejglpmnnpljfnnpndjbbopddge">Google Trends Everywhere</a></td>
+<td>在任意页面显示 Trends 数据的 Chrome 插件</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=trendsbar.net&sz=32" width="16" height="16" alt=""> <a href="https://trendsbar.net/zh">TrendsBar</a></td>
+<td>关键词趋势插件</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=ads.google.com&sz=32" width="16" height="16" alt=""> <a href="https://ads.google.com/home/tools/keyword-planner/">Google 关键词规划师</a></td>
+<td>搜索量区间、发现新词</td>
+<td>免费（需 Google Ads 账号）</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=lowfruits.io&sz=32" width="16" height="16" alt=""> <a href="https://lowfruits.io/">LowFruits</a></td>
+<td>找低竞争长尾词</td>
+<td>付费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=explodingtopics.com&sz=32" width="16" height="16" alt=""> <a href="https://explodingtopics.com/">Exploding Topics</a></td>
+<td>发现上升趋势</td>
+<td>免费 / 付费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=aizhan.com&sz=32" width="16" height="16" alt=""> <a href="https://www.aizhan.com/">爱站网</a></td>
+<td>百度 SEO 数据</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=chinaz.com&sz=32" width="16" height="16" alt=""> <a href="https://seo.chinaz.com/">站长之家 SEO 查询</a></td>
+<td>百度 SEO 数据</td>
+<td>免费</td>
+</tr>
+</tbody></table>
+<p><strong>用法</strong>：</p>
+<ul>
+<li><strong>竞品规模</strong>：对 SERP 前 3–5 名的竞品记录月访问量和主要渠道（Similarweb / Semrush / traffic.cv）。</li>
+<li><strong>趋势方向</strong>：看 Google Trends 近 12 个月和 5 年的走势。平稳或上升才做，只有一个尖峰的词不做。</li>
+<li><strong>估算搜索量</strong>：用 Trends 的相对指数和一个已知搜索量的基准词对比，再交叉 Semrush 和关键词规划师（详见 <a href="../01-keyword-research/">01</a>）。</li>
+<li><strong>Semrush 免费额度</strong>：每天约 10 次，留给最重要的竞品。</li>
+<li><strong>中国市场</strong>：查百度数据用爱站 / 站长之家，不用 Ahrefs / Semrush。</li>
+</ul>
+<h2>4. 反链查询</h2>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>免费额度（原文）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://www.google.com/s2/favicons?domain=ahrefs.com&sz=32" width="16" height="16" alt=""> <a href="https://ahrefs.com/zh/backlink-checker">Ahrefs Backlink Checker</a></td>
+<td>付费（免费版只显示少量结果）</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=semrush.com&sz=32" width="16" height="16" alt=""> <a href="https://www.semrush.com/">Semrush</a></td>
+<td>10 次 / 天，数据有限</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=moz.com&sz=32" width="16" height="16" alt=""> <a href="https://moz.com/link-explorer">Moz Link Explorer</a></td>
+<td>10 次 / 天，每次 50 行</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=seranking.com&sz=32" width="16" height="16" alt=""> <a href="https://seranking.com/backlink-checker.html">SE Ranking</a></td>
+<td>免费 20 行</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=smallseotools.com&sz=32" width="16" height="16" alt=""> <a href="https://smallseotools.com/backlink-checker/">SmallSEOTools</a></td>
+<td>免费 10 行</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=neilpatel.com&sz=32" width="16" height="16" alt=""> <a href="https://neilpatel.com/backlinks/">Neil Patel Backlinks</a></td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=seoreviewtools.com&sz=32" width="16" height="16" alt=""> <a href="https://www.seoreviewtools.com/valuable-backlinks-checker/">SEOReviewTools</a></td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=seobility.net&sz=32" width="16" height="16" alt=""> <a href="https://www.seobility.net/en/backlinkchecker/check">Seobility</a></td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=linkody.com&sz=32" width="16" height="16" alt=""> <a href="https://www.linkody.com/en/seo-tools/free-backlink-checker">Linkody</a></td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=majestic.com&sz=32" width="16" height="16" alt=""> <a href="https://majestic.com/">Majestic</a></td>
+<td>付费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=backlinko.com&sz=32" width="16" height="16" alt=""> <a href="https://backlinko.com/tools/backlink-checker">Backlinko</a></td>
+<td>付费（另有免费的网站权威度查询，基于 Semrush AS）</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>Google 搜索指令</strong>：<code>&quot;example.com&quot; -site:example.com</code> 加上时间筛选，可以找提及和冷启动期的外链。<code>link:</code> 指令早已不可靠，只能当参考。</li>
+<li><strong>每月一次</strong>：用至少一个免费工具记录引用域名数（RD）和新增 / 丢失的链接；顺便查竞品的外链，列出你也能拿到的（目录、发布站、文章）。</li>
+<li>外链质量的 6 个因素（权威度、相关性、自然程度、正文位置、锚文本、follow 属性）见 <a href="../05-backlinks/">05</a>。</li>
+</ul>
+<h2>5. DR 查询与解读</h2>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://www.google.com/s2/favicons?domain=frogdr.com&sz=32" width="16" height="16" alt=""> <a href="https://frogdr.com/">FrogDR</a></td>
+<td>监控 DR，免费可监控 3 个站</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=ahrefs.com&sz=32" width="16" height="16" alt=""> <a href="https://ahrefs.com/">Ahrefs</a></td>
+<td>DR、UR、RD 的权威来源</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>DR 区间</th>
+<th>含义（从业者经验，非官方）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0–10</td>
+<td>新站，几乎没有外链</td>
+</tr>
+<tr>
+<td>10–30</td>
+<td>小站，典型的独立开发者站点</td>
+</tr>
+<tr>
+<td>30–50</td>
+<td>做过系统的外链建设</td>
+</tr>
+<tr>
+<td>50–70</td>
+<td>细分领域里的强站</td>
+</tr>
+<tr>
+<td>70–90</td>
+<td>大媒体 / 平台</td>
+</tr>
+<tr>
+<td>90+</td>
+<td>Wikipedia、Google 级别</td>
+</tr>
+</tbody></table>
+<p><strong>独立开发者目标：DR 20–40 已经很有竞争力。</strong> 里程碑可以设为 10 → 20 → 30–40。</p>
+<p><strong>常见误区</strong>：</p>
+<ul>
+<li>把 DR 当 KPI。DR 是&quot;外链健康报告&quot;。真正的 KPI 是关键词排名、自然流量和转化。</li>
+<li>只看 DR 不看 RD。DR 是结果，RD 是过程。</li>
+<li>DR 涨得越快越好。外链突增反而显得不自然。</li>
+<li>DR 高就等于流量大。DR 80+ 的站可能几乎没流量，DR 20 的站也可能月访问几十万。</li>
+</ul>
+<h2>6. App 数据查询</h2>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://www.google.com/s2/favicons?domain=qimai.cn&sz=32" width="16" height="16" alt=""> <a href="https://www.qimai.cn/">七麦数据</a></td>
+<td>中国 App Store / 安卓榜单、下载估算、ASO 关键词</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=chandashi.com&sz=32" width="16" height="16" alt=""> <a href="https://www.chandashi.com/">蝉大师</a></td>
+<td>ASO 关键词热度</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=sensortower.com&sz=32" width="16" height="16" alt=""> <a href="https://app.sensortower.com/">Sensor Tower</a></td>
+<td>全球应用趋势、品类数据</td>
+</tr>
+</tbody></table>
+<p>App 上线前先查竞品的排名、下载估算和商店关键词。</p>
+<h2>7. 内容优化与写作工具</h2>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>用途</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://www.google.com/s2/favicons?domain=chatgpt.com&sz=32" width="16" height="16" alt=""> <a href="https://chatgpt.com/">ChatGPT</a></td>
+<td>起草、扩写关键词</td>
+<td>必须人工改写，补充一手细节</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=grok.com&sz=32" width="16" height="16" alt=""> <a href="https://grok.com/">Grok</a></td>
+<td>AI 写作</td>
+<td>同上</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=jasper.ai&sz=32" width="16" height="16" alt=""> <a href="https://www.jasper.ai/">Jasper</a></td>
+<td>AI 营销文案</td>
+<td>付费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=copy.ai&sz=32" width="16" height="16" alt=""> <a href="https://www.copy.ai/">Copy.ai</a></td>
+<td>AI 营销文案</td>
+<td>付费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=surferseo.com&sz=32" width="16" height="16" alt=""> <a href="https://surferseo.com/">Surfer SEO</a></td>
+<td>对照 SERP 竞品检查术语覆盖、结构和长度</td>
+<td>付费；用于发布前的优化</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=gptzero.me&sz=32" width="16" height="16" alt=""> <a href="https://gptzero.me/">GPTZero</a></td>
+<td>AI 内容检测</td>
+<td>见下方注意</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>⚠️ 注意：《SEO 经验分享》建议用 GPTZero 把 AI 检测分数降到 40% 以下再发。AI 检测器误判率高，Google 的公开立场是看内容是否有帮助，而不是看内容由谁或什么生成。不要以&quot;骗过检测器&quot;为目标。真正要做的是加入一手经验、截图、数据和明确结论（见 <a href="../04-content-and-eeat/">04</a>）。</p>
+</blockquote>
+<h2>8. 站点体检与技术工具</h2>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://www.google.com/s2/favicons?domain=pagespeed.web.dev&sz=32" width="16" height="16" alt=""> <a href="https://pagespeed.web.dev/">PageSpeed Insights</a></td>
+<td>实验室 + 真实用户的 Core Web Vitals</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=screamingfrog.co.uk&sz=32" width="16" height="16" alt=""> <a href="https://www.screamingfrog.co.uk/seo-spider/">Screaming Frog</a></td>
+<td>全站爬取：title、H1、canonical、alt、死链、重定向（免费版 500 URL）</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=seositecheckup.com&sz=32" width="16" height="16" alt=""> <a href="https://seositecheckup.com/">SEO Site Checkup</a></td>
+<td>在线 SEO 体检</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=seoptimer.com&sz=32" width="16" height="16" alt=""> <a href="https://www.seoptimer.com/">SEOptimer</a></td>
+<td>在线 SEO 体检</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=search.google.com&sz=32" width="16" height="16" alt=""> <a href="https://search.google.com/test/rich-results">Rich Results Test</a></td>
+<td>结构化数据和富结果资格</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=schema.org&sz=32" width="16" height="16" alt=""> <a href="https://validator.schema.org/">Schema Markup Validator</a></td>
+<td>Schema 语法校验</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=facebook.com&sz=32" width="16" height="16" alt=""> <a href="https://developers.facebook.com/tools/debug/">Sharing Debugger</a></td>
+<td>刷新、预览 OG 卡片</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=ogimage.click&sz=32" width="16" height="16" alt=""> <a href="https://ogimage.click/">OGImage</a> · <img src="https://www.google.com/s2/favicons?domain=ogimagemaker.com&sz=32" width="16" height="16" alt=""> <a href="https://ogimagemaker.com/">OGImageMaker</a></td>
+<td>生成 OG 图</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=xml-sitemaps.com&sz=32" width="16" height="16" alt=""> <a href="https://www.xml-sitemaps.com/">XML-Sitemaps</a> · <img src="https://www.google.com/s2/favicons?domain=sitemap-generator.org&sz=32" width="16" height="16" alt=""> <a href="https://sitemap-generator.org/">sitemap-generator.org</a></td>
+<td>在线生成 sitemap</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=mxtoolbox.com&sz=32" width="16" height="16" alt=""> <a href="https://mxtoolbox.com/">MXToolbox</a></td>
+<td>检查域名邮箱的 MX / SPF / DKIM / DMARC</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=web.archive.org&sz=32" width="16" height="16" alt=""> <a href="https://web.archive.org/">Wayback Machine</a></td>
+<td>查看历史快照、竞品早期的&quot;Featured on&quot;徽章、域名历史</td>
+</tr>
+</tbody></table>
+<p>另有外链管理工具 <img src="https://www.google.com/s2/favicons?domain=backlinkdirs.com&sz=32" width="16" height="16" alt=""> <a href="https://backlinkdirs.com/">BacklinkDirs</a>、<img src="https://www.google.com/s2/favicons?domain=mkdollar.com&sz=32" width="16" height="16" alt=""> <a href="https://mkdollar.com/">Mkdollar</a> 等，见 <a href="../05-backlinks/">05</a>。配套的<a href="../../tool/">交互式 Checklist 工具</a>可以逐条勾选这些检查项。</p>
+<h2>9. SEO 名词与 Ahrefs 指标怎么读</h2>
+<table>
+<thead>
+<tr>
+<th>看到</th>
+<th>先问</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DR</td>
+<td>引用域名（RD）在涨吗？</td>
+<td>DR 是结果，RD 是过程；独立站做到 20–40 已经不错</td>
+</tr>
+<tr>
+<td>KD</td>
+<td>用的是哪个工具的 KD？</td>
+<td>不同工具的算法不同，不能横向比较。新站起步：KD &lt; 20（Postma 打法），宽松上限 &lt; 50</td>
+</tr>
+<tr>
+<td>Volume</td>
+<td>是哪个国家？是月均吗？</td>
+<td>≥ 500（Postma）/ ≥ 1000（潜力关键词篇）。还要看 Clicks</td>
+</tr>
+<tr>
+<td>CPS</td>
+<td>每次搜索带来几次点击？</td>
+<td>明显 &lt; 1，说明广告或 SERP 功能吃掉了点击，降低优先级（推断阈值）</td>
+</tr>
+<tr>
+<td>Parent Topic</td>
+<td>和目标词一样吗？</td>
+<td>不一样时，优先在 Parent Topic 的页面里覆盖，不新开页面</td>
+</tr>
+<tr>
+<td>Organic Traffic</td>
+<td>是估算值吗？</td>
+<td>是。用来判断量级，不是精确数</td>
+</tr>
+<tr>
+<td>Anchors</td>
+<td>精确匹配锚文本的占比？</td>
+<td>大多数应是品牌词、URL 或自然描述</td>
+</tr>
+<tr>
+<td>Link Growth</td>
+<td>有没有突增？</td>
+<td>突增多半是批量买链</td>
+</tr>
+</tbody></table>
+<p>完整定义见 <a href="../99-glossary/">99 SEO 名词解释</a>。</p>
+<h2>10. 指标仪表板模板</h2>
+<h3>10.1 每周（约 30 分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数据源</th>
+<th>目标 / 阈值</th>
+<th>异常时的动作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自然点击、展示、CTR、平均排名（周环比）</td>
+<td>GSC → 效果</td>
+<td>趋势向上</td>
+<td>按页面 / 查询 / 国家 / 设备拆分定位原因</td>
+</tr>
+<tr>
+<td>新出现的查询词</td>
+<td>GSC → 效果 → 查询</td>
+<td>—</td>
+<td>给页面补 FAQ 或段落，或者新开长尾页</td>
+</tr>
+<tr>
+<td>排名 11–30 且有展示的词</td>
+<td>GSC 筛选排名</td>
+<td>—</td>
+<td>优先优化：内链 + 补内容（&quot;差一点上首页&quot;的词）</td>
+</tr>
+<tr>
+<td>已发现 / 已抓取但未编入索引</td>
+<td>GSC → 网页</td>
+<td>逐周下降</td>
+<td>改进内容质量和内链，提交 sitemap</td>
+</tr>
+<tr>
+<td>各渠道会话（自然搜索 / 引荐 / 社交 / 直接）</td>
+<td>GA4</td>
+<td>—</td>
+<td>看哪个渠道在涨，加大投入</td>
+</tr>
+<tr>
+<td>转化：注册 / 试用 / 付费</td>
+<td>GA4 Key events</td>
+<td>周环比</td>
+<td>检查落地页和结账漏斗</td>
+</tr>
+<tr>
+<td>发布平台引荐（发布后 30 天）</td>
+<td>GA4 引荐来源</td>
+<td>—</td>
+<td>有效的平台在下次发版时重发</td>
+</tr>
+<tr>
+<td>社交：X 曝光和粉丝；小红书 CTR ≥ 5%；抖音完播和搜索播放</td>
+<td>各平台后台</td>
+<td>见 08–10 章</td>
+<td>换封面、改标题、调整节奏</td>
+</tr>
+</tbody></table>
+<h3>10.2 每月（约 1–2 小时）</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数据源</th>
+<th>目标 / 阈值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DR、引用域名新增 / 丢失</td>
+<td>FrogDR / Ahrefs / Moz</td>
+<td>RD 稳步增长，没有突增</td>
+</tr>
+<tr>
+<td>锚文本分布</td>
+<td>Ahrefs Anchors</td>
+<td>品牌词 / URL 占多数</td>
+</tr>
+<tr>
+<td>品牌词展示量</td>
+<td>GSC 查询包含品牌名</td>
+<td>上升（代表权威度和&quot;有兴趣的用户&quot;在增长）</td>
+</tr>
+<tr>
+<td>Core Web Vitals（真实用户）</td>
+<td>GSC / PageSpeed</td>
+<td>LCP ≤ 2.5 秒、INP ≤ 200 毫秒、CLS ≤ 0.1</td>
+</tr>
+<tr>
+<td>留存 D1 / D7 / D30</td>
+<td>GA4 / 产品分析工具</td>
+<td>≥ 40% / 20% / 10%（见 <a href="../12-monetization/">12</a>）</td>
+</tr>
+<tr>
+<td>单次自然访问收益 vs 核心词平均 CPC</td>
+<td>收入 ÷ 自然会话</td>
+<td>≥ CPC 说明付费率很好</td>
+</tr>
+<tr>
+<td>竞品排名变化、流量飙升的站</td>
+<td>Semrush / Ahrefs / traffic.cv</td>
+<td>每次排名变化都要找到原因</td>
+</tr>
+<tr>
+<td>AI 搜索引用</td>
+<td>定期用 ChatGPT / Gemini / Perplexity 问目标问题</td>
+<td>品牌被提及或引用（见 <a href="../06-geo-ai-search/">06</a>）</td>
+</tr>
+<tr>
+<td>人工处置、安全问题</td>
+<td>GSC</td>
+<td>&quot;未发现问题&quot;</td>
+</tr>
+<tr>
+<td>页面查询复盘</td>
+<td>GSC 按页面看查询</td>
+<td>每个页面补上没回答到的问题</td>
+</tr>
+</tbody></table>
+<h2>11. GSC 常用报告</h2>
+<table>
+<thead>
+<tr>
+<th>报告</th>
+<th>看什么</th>
+<th>常用动作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>效果（Performance）</td>
+<td>查询、页面、国家、设备、搜索外观；点击、展示、CTR、排名</td>
+<td>高展示低 CTR 的页面 → 重写 title 和 description；排名 11–30 的词 → 内链和补内容</td>
+</tr>
+<tr>
+<td>网址检查（URL Inspection）</td>
+<td>是否已编入索引、Google 选择的 canonical 与你声明的是否一致、抓取时间、渲染结果</td>
+<td>新页面发布当天就请求编入索引</td>
+</tr>
+<tr>
+<td>网页（编入索引）</td>
+<td>已编入 / 未编入的数量及原因</td>
+<td>见下表</td>
+</tr>
+<tr>
+<td>站点地图</td>
+<td>提交状态、发现的 URL 数</td>
+<td>状态应为&quot;成功&quot;；发现数 ≈ 可索引页面数</td>
+</tr>
+<tr>
+<td>核心网页指标</td>
+<td>移动端 / 桌面端的不良 URL 组</td>
+<td>按 URL 组修 LCP / INP / CLS</td>
+</tr>
+<tr>
+<td>HTTPS</td>
+<td>非 HTTPS 页面</td>
+<td>应为 0</td>
+</tr>
+<tr>
+<td>增强功能（面包屑、商品等）</td>
+<td>结构化数据的有效 / 错误项</td>
+<td>错误应为 0</td>
+</tr>
+<tr>
+<td>链接</td>
+<td>外部链接最多的页面、引用站点、内部链接</td>
+<td>核对冷启动外链有没有被 Google 看到</td>
+</tr>
+<tr>
+<td>人工处置 / 安全问题</td>
+<td>是否被处罚、被黑</td>
+<td>应为&quot;未发现问题&quot;</td>
+</tr>
+</tbody></table>
+<h3>11.1 &quot;未编入索引&quot;常见原因</h3>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>含义</th>
+<th>处理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>已抓取 - 尚未编入索引</td>
+<td>看过了，但认为不值得收录</td>
+<td>加深内容、补一手信息、增加内链；薄页面考虑合并</td>
+</tr>
+<tr>
+<td>已发现 - 尚未编入索引</td>
+<td>知道这个 URL，还没来抓</td>
+<td>加内链、放进 sitemap；全站质量和抓取预算都有影响</td>
+</tr>
+<tr>
+<td>重复网页，Google 选择的规范网页与用户指定的不同</td>
+<td>你的 canonical 被忽略</td>
+<td>检查内容是否真的不同、canonical 目标是否返回 200、有没有循环</td>
+</tr>
+<tr>
+<td>备用网页（有适当的规范标记）</td>
+<td>正常现象</td>
+<td>无需处理</td>
+</tr>
+<tr>
+<td>被 noindex 标记排除</td>
+<td>页面声明了不收录</td>
+<td>确认是有意的</td>
+</tr>
+<tr>
+<td>未找到（404） / 软 404</td>
+<td>页面不存在，或内容太薄被当成 404</td>
+<td>修复内链或 301；补充内容</td>
+</tr>
+<tr>
+<td>网页会自动重定向</td>
+<td>正常现象</td>
+<td>确保内链直接指向最终 URL</td>
+</tr>
+<tr>
+<td>被 robots.txt 屏蔽</td>
+<td>抓取被禁止</td>
+<td>检查规则是否误伤</td>
+</tr>
+<tr>
+<td>服务器错误（5xx）</td>
+<td>抓取时出错</td>
+<td>检查服务器和 CDN / WAF 是否拦截了 Googlebot</td>
+</tr>
+</tbody></table>
+<h3>11.2 排查流程：自然流量突然下跌</h3>
+<ol>
+<li><strong>先确认是真跌</strong>：GSC 和 GA4 同时下跌吗？统计脚本有没有掉？是不是节假日或季节性因素？</li>
+<li><strong>对齐时间点</strong>：是否碰上 Google 核心算法更新或垃圾内容更新？你自己有没有改版、迁移、改 robots 或 canonical？</li>
+<li><strong>拆维度</strong>：对比前后两段时间，按页面、查询、国家、设备拆分，找到跌幅集中在哪里。</li>
+<li><strong>跌在哪个指标</strong>：<ul>
+<li><strong>展示跌</strong>：排名掉了，或者被收录的页面少了；</li>
+<li><strong>展示没跌但点击跌</strong>：CTR 下降，常见原因是 SERP 出现了 AI 摘要或新的富结果，或者标题被改写。</li>
+</ul>
+</li>
+<li><strong>查收录</strong>：网页报告里&quot;未编入&quot;的数量是否突增，重点页面的网址检查结果。</li>
+<li><strong>查处罚和安全</strong>：人工处置、安全问题报告。</li>
+<li><strong>查技术</strong>：Core Web Vitals、5xx、WAF 是否误拦爬虫（见 <a href="../03-technical-seo-and-infra/">03</a>）。</li>
+<li><strong>看竞品</strong>：同一批关键词现在谁排在前面，对方的页面比你的好在哪里。</li>
+</ol>
+<h3>11.3 排查流程：新页面不收录</h3>
+<ol>
+<li>网址检查：是否被 robots.txt 或 noindex 拦截？canonical 是否指向自己？</li>
+<li>是否在 sitemap 里？是否有至少 1–2 条来自已收录页面的内链？</li>
+<li>是否是薄内容，或者和站内其他页面高度重复？</li>
+<li>请求编入索引后，最多等 1–2 周。</li>
+<li>仍不收录：加强内链，或者从目录、社区拿一条外链来引导抓取。</li>
+</ol>
+<blockquote>
+<p>说明：截至整理时，Google 把 AI Overviews 和 AI Mode 的展示与点击计入 GSC 效果报告的&quot;网页&quot;搜索类型，但不能单独筛选出来。如果 CTR 下跌但排名不变，要考虑 AI 摘要分流的影响。</p>
+</blockquote>
+<h2>来源</h2>
+<ul>
+<li><a href="https://lownrain.feishu.cn/wiki/Y5l2wrWD9itTurk9weJcf1uInJ4">网站流量统计</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Vp9hww9hiifABkkytd5cxrKxnzd">网站/关键词流量查询</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/QgnEw53QbicKk6kx9ImcteXPn1g">反链查询</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/DgBWwJfadiRW4fkRltwcg2nBnaf">DR查询</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/ZE3IwvFg0iG15zkVRGycidCynkf">App数据查询</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/TnMLw8Xe9iF8KWklW9jcMBDGnee">内容优化</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/STTgwwwfKiP6hHk87gtcW0rSnXd">关键词研究</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/ABWzwVvQTiPWdeknyLeclLdFnTh">SEO名词解释</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/QpsGwfHUkiF08hkLqcxc2lRQnGh">Ahrefs Seo名词</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/YGGDwLYhtitfK5kBao0cd4Bsnme">搜索引擎后台提交</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Rn58w7M9iiIwVbkdev7cfJFknAd">SEO关键词研究策略</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/M4Dtwgynwi4R5FkHXcjcZVeZnRb">如何利用内链优化SEO排名</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/B2MLwCgXBisanqkZNyCcXDP6nqh">SEO经验分享</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/DA5nwtLEoiE7yDkFPjgcqMwPnme">寻找小众市场做出自己产品的七个步骤</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Ih19wKCldio7j9kmKp2cdyAinrf">外链建设工具</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Kpubwg4KtiVssdkCLNHcmZ2anme">OG标签</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/KnACwgXa7iFmcvkvbdac09CTnVh">站点地图</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/QuOxwc3oBiUHOKktrGbcI9sAnqd">Canonical标签</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/MxfOwgvDHiDeDPkaQ0dcu4cMnIe">网站页面结构设计</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Yj5QwQGv4iQ6LmkihUKcUKYsnLe">给新手独立开发者的建议</a>（独立开发前线｜SEO从0到100）</li>
+</ul>
+</article>
+</div>
+</body>
+</html>

@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>外链建设 – SEO Handbook</title>
+<meta name="description" content="SEO handbook chapter: 外链建设">
+<link rel="canonical" href="https://ArcueidShiki.github.io/seo/handbook/05-backlinks/">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/seo/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="外链建设 – SEO Handbook">
+<meta property="og:description" content="SEO handbook chapter: 外链建设">
+<meta property="og:url" content="https://ArcueidShiki.github.io/seo/handbook/05-backlinks/">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--brand:#4f46e5;--bg:#fafafa}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.75 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--brand)}
+.top{border-bottom:1px solid var(--line);background:#fff}
+.top div{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;gap:18px;align-items:center}
+.top a{text-decoration:none;color:var(--muted)}.top .brand{font-weight:700;color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:20px;display:grid;grid-template-columns:240px 1fr;gap:32px}
+aside nav{position:sticky;top:16px;display:flex;flex-direction:column;gap:4px;font-size:14px}
+aside a{text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:8px}
+aside a[aria-current]{background:#eef2ff;color:var(--brand);font-weight:600}
+article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 36px;min-width:0}
+article h1{margin-top:0;line-height:1.25}
+article h2{margin-top:2em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
+article table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow:auto}
+article th,article td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+article th{background:#f9fafb}
+article code{background:#f3f4f6;padding:1px 5px;border-radius:4px;font-size:.92em}
+article pre{background:#111827;color:#e5e7eb;padding:14px;border-radius:8px;overflow:auto}
+article pre code{background:none;padding:0}
+article blockquote{margin:1em 0;padding:.5em 1em;border-left:4px solid var(--brand);background:#f5f3ff;color:#374151}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}aside nav{position:static}article{padding:20px}}
+</style>
+</head>
+<body>
+<div class="top"><div><a class="brand" href="/seo/">SEO Handbook</a><a href="/seo/tool/">Checklist 工具</a><a href="/seo/handbook/00-overview/">手册</a><a href="/seo/reports/">Before/After 报告</a></div></div>
+<div class="wrap">
+<aside><nav aria-label="手册目录"><a href="/seo/handbook/00-overview/">总览</a><a href="/seo/handbook/01-keyword-research/">关键词研究与选题</a><a href="/seo/handbook/02-page-structure-and-tags/">页面结构与 SEO 标签</a><a href="/seo/handbook/03-technical-seo-and-infra/">技术 SEO 与基础设施</a><a href="/seo/handbook/04-content-and-eeat/">内容与 E-E-A-T</a><a href="/seo/handbook/05-backlinks/" aria-current="page">外链建设</a><a href="/seo/handbook/06-geo-ai-search/">GEO / AI 搜索优化</a><a href="/seo/handbook/07-launch-and-distribution/">发布与冷启动：推广策略、发布平台与品牌</a><a href="/seo/handbook/08-x-and-reddit/">X（Twitter）与 Reddit 运营</a><a href="/seo/handbook/09-xiaohongshu/">小红书运营全指南</a><a href="/seo/handbook/10-douyin-video-wechat/">抖音、短视频与微信生态</a><a href="/seo/handbook/11-analytics-and-tools/">数据统计与 SEO 工具箱</a><a href="/seo/handbook/12-monetization/">变现：广告、订阅、支付与联盟营销</a><a href="/seo/handbook/13-mindset-and-case-studies/">独立开发者方法论与案例</a><a href="/seo/handbook/99-glossary/">SEO 名词解释</a></nav></aside>
+<article><h1>外链建设</h1>
+<blockquote>
+<p>一句话：<strong>2026 年，外链对新产品的意义是第三方的&quot;信任票&quot;，不是&quot;权重果汁&quot;</strong>。外链要证明三件事：你是一个真实存在、有人在用的产品；你属于哪一类 AI 工具（语义归类）；它能带来真实的、会转化的用户。</p>
+<p>外链放大的是你已有的基础。技术 SEO 和页面优化（见 <a href="../02-page-structure-and-tags/">02</a>、<a href="../03-technical-seo-and-infra/">03 章</a>）没做好之前，不要急着大规模建外链。外链大多不能被 auditor 自动检测，要在 <a href="../../tool/">Checklist 工具</a> 里人工勾选；站内相关的条目是 <code>links-anchor-text</code>、<code>links-external-citation</code>。</p>
+</blockquote>
+<hr>
+<h2>1. 2026 年怎么看外链</h2>
+<table>
+<thead>
+<tr>
+<th>❌ 错误目标</th>
+<th>✅ 正确目标</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>把 DR 冲上去</td>
+<td>证明产品真实存在、可以验证</td>
+</tr>
+<tr>
+<td>把外链数量刷上去</td>
+<td>来源足够多样（目录、社区、发布平台、博客、媒体）</td>
+</tr>
+<tr>
+<td>用关键词锚文本堆排名</td>
+<td>帮搜索引擎把你<strong>归到正确的类目</strong>（例如 &quot;AI Poster Generator&quot;）</td>
+</tr>
+<tr>
+<td>只要 SEO 链接</td>
+<td>每条链接最好满足至少一条：带来注册、有真实点击、在社区里长期可见</td>
+</tr>
+</tbody></table>
+<p>搜索引擎警惕的是：AI 批量生成的工具站、换皮抄袭的产品、没有用户却从第一天就收费的 SaaS。外链要能证明<strong>有人在用你、提到你、讨论你</strong>。</p>
+<p><strong>外链为什么仍然重要</strong>（《反链查询》）：① 它是信任票，和 E-E-A-T 相关；② 它影响排名，原文引用的数据是自然结果第 1 名的平均点击率约 27.6%，大约是第 10 名的 10 倍，而排名靠前的页面通常外链更多；③ 它带来引荐流量，nofollow 和 sponsored 链接也会带流量。</p>
+<blockquote>
+<p>判断标准：<strong>一个在 2015 年看起来很合理的外链手法，到 2026 年很可能是有毒的。</strong></p>
+</blockquote>
+<hr>
+<h2>2. 分阶段打法</h2>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>目标</th>
+<th>做什么</th>
+<th>看什么指标</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>第 0–1 个月</strong>：建立信任</td>
+<td>让搜索引擎知道你存在，并且给你归好类</td>
+<td>提交到 AI 工具目录、SaaS 目录、独立开发工具清单；上发布平台（Product Hunt、Hacker News &quot;Show HN&quot;、Uneed、BetaList 等）；在少量社区里分享。<strong>链接不多，但来源类型要尽量分散</strong></td>
+<td>收录页数、上线的 listing 数量、引用域名（RD）数量、引荐流量</td>
+</tr>
+<tr>
+<td><strong>第 1–3 个月</strong>：强化语义</td>
+<td>明确&quot;你是哪一类 AI 工具&quot;，开始拿长尾词</td>
+<td>写场景文章、用例和可引用的内容（模板库、Prompt 库、参数对照表）；在独立开发社区写 builder story；对比 / 替代品页（见 <a href="../01-keyword-research/">01 章</a>）</td>
+<td>长尾词排名、RD 增速、品牌词展示量</td>
+</tr>
+<tr>
+<td><strong>第 3 个月以后</strong>：自然增长</td>
+<td>让外链越来越多地来自&quot;被提到&quot;</td>
+<td>提升内容质量和用户留存；每次发布大版本都重新做一次发布；客座文章、采访；持续产出可引用的资产</td>
+<td>自然获得的 RD 占比、关键词排名、自然流量、转化</td>
+</tr>
+</tbody></table>
+<p><strong>7 类外链来源（风险低、性价比高）</strong></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>来源</th>
+<th>要点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>AI / SaaS / 无代码 / 独立开发工具目录（<strong>必做</strong>）</td>
+<td>dofollow 还是 nofollow 都可以，目的是&quot;被收录 + 被归类&quot;；描述不要用模板，类目要选对，优先选会显示上线和更新日期的平台</td>
+</tr>
+<tr>
+<td>2</td>
+<td>独立开发者 / builder 社区（Indie Hackers 这类）</td>
+<td>写原创内容：为什么做这个产品、要解决的真实问题、踩过的坑。链接自然出现在&quot;最后我做了 XXX 来解决这个问题&quot;这种语境里</td>
+</tr>
+<tr>
+<td>3</td>
+<td>用例型博客文章</td>
+<td>不写&quot;10 个 AI 海报工具对比&quot;，写&quot;我是怎么 10 分钟做出 50 张营销海报的&quot;。这种文章能长期带来长尾流量，也容易被引用</td>
+</tr>
+<tr>
+<td>4</td>
+<td>工具型、可引用的内容</td>
+<td>Prompt 库、免费模板、参数 / 规格表、行业标准汇总。不推销、方便引用、看起来不像在做 SEO</td>
+</tr>
+<tr>
+<td>5</td>
+<td>发布平台（&quot;节奏型&quot;外链）</td>
+<td>每一次发布、大版本、新功能都是一条新的提及记录</td>
+</tr>
+<tr>
+<td>6</td>
+<td>对比 / 替代品内容</td>
+<td>第三方提到你最有价值，<strong>不要自己批量制造这类链接</strong></td>
+</tr>
+<tr>
+<td>7</td>
+<td>被动的自然外链（终极目标）</td>
+<td>来自真实使用 + 文档 / 模板 / 案例被引用 + 内容长期被搜到</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. 链接质量：四要素 + 三个细节</h2>
+<p><strong>四要素</strong>（《DR查询》，评估链接交换或客座文章时<strong>四项一起看</strong>）：</p>
+<table>
+<thead>
+<tr>
+<th>要素</th>
+<th>问题</th>
+<th>怎么查</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>① DR / 权威度</td>
+<td>来源域名的外链强度</td>
+<td>Ahrefs DR、Semrush AS、Moz DA（都是第三方代理指标，Google 不用这些分数）</td>
+</tr>
+<tr>
+<td>② 相关性</td>
+<td>同行业或相关行业？受众重合吗？</td>
+<td>看对方网站的主题和受众。最好是主题相关的网站，其次是受众相关的网站</td>
+</tr>
+<tr>
+<td>③ 真实流量</td>
+<td>对方网站有没有自然流量</td>
+<td>Semrush / Similarweb 的流量曲线 &gt; 0 并且稳定</td>
+</tr>
+<tr>
+<td>④ dofollow</td>
+<td>链接是否传递权重</td>
+<td>在 DevTools 里看 <code>rel</code> 属性；<code>nofollow</code> / <code>sponsored</code> / <code>ugc</code> 表示&quot;不背书&quot;</td>
+</tr>
+</tbody></table>
+<p><strong>三个细节</strong>（《反链查询》）：</p>
+<ul>
+<li><strong>位置</strong>：放在正文里最好；页脚、侧边栏全站链接、论坛签名几乎没有权重。</li>
+<li><strong>自然</strong>：好的链接不突兀，锚文本像作者自己会写的话。</li>
+<li><strong>锚文本</strong>：给出目标页面的明确语境，能引起好奇、让人知道点进去有什么价值。不要用堆满关键词的锚文本。</li>
+</ul>
+<blockquote>
+<p><strong>一个 DR 70、没有流量也没有用户的&quot;SEO 链接农场&quot;，价值可能还不如一个 DR 25 的垂直博客。</strong>
+nofollow 链接如果来自高度相关、能带来流量的页面，照样值得做，用引荐会话数（referral sessions）来衡量它的价值。</p>
+</blockquote>
+<hr>
+<h2>4. 怎么读懂 DR</h2>
+<p>DR（Domain Rating，Ahrefs 推出）是一个 0–100 的<strong>相对分数</strong>，只衡量外链强度，不看内容、流量和排名。它的大致计算依据是：有多少个不同的引用域名、这些域名自身的 DR、每个域名能传出多少权重（会被它的所有出站链接分摊），并且只算 dofollow 链接。来自同一个域名的重复链接边际收益递减，所以关键是&quot;<strong>谁给你投票</strong>&quot;，而不是&quot;投了多少票&quot;。</p>
+<table>
+<thead>
+<tr>
+<th>DR 区间</th>
+<th>一般是什么网站（经验划分，非官方）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0–10</td>
+<td>新站，几乎没有外链</td>
+</tr>
+<tr>
+<td>10–30</td>
+<td>小站，典型的独立开发者网站</td>
+</tr>
+<tr>
+<td>30–50</td>
+<td>做过系统性的外链建设</td>
+</tr>
+<tr>
+<td>50–70</td>
+<td>细分领域里的强站</td>
+</tr>
+<tr>
+<td>70–90</td>
+<td>大媒体、大平台</td>
+</tr>
+<tr>
+<td>90+</td>
+<td>维基百科、Google 这一级别</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>独立开发者的目标：DR 20–40 就已经很有竞争力了</strong>。里程碑可以设成 10 → 20 → 30–40。</li>
+<li>DR ≠ 排名（Google 不用 DR，只是 DR 高的网站排名往往更容易）；DR ≠ 流量（DR 80+ 的网站也可能没什么流量，DR 20 的网站也可能有几十万访问）；DR ≠ 内容质量（垃圾站也能靠刷外链把 DR 抬上去）。</li>
+<li><strong>误区</strong>：DR 涨得越快越好（突然暴涨看起来很不正常）；只看 DR 不看 RD（<strong>DR 是结果，RD 是过程</strong>）；把 DR 当成 KPI（真正的 KPI 是关键词排名、自然流量和转化）。</li>
+<li>每月监控一次：<img src="https://www.google.com/s2/favicons?domain=frogdr.com&sz=32" width="16" height="16" alt=""> <a href="https://frogdr.com/">FrogDR</a>（免费监控 3 个网站）或 Ahrefs。</li>
+</ul>
+<hr>
+<h2>5. 免费外链资源</h2>
+<blockquote>
+<p>下表的 DR 和链接属性来自《免费外链资源》，是原文撰写时的快照，<strong>会变化</strong>。rel 一栏的&quot;—&quot;表示原文没有标注。提交之后一定要在线上 listing 页面实测 <code>rel</code> 属性。</p>
+</blockquote>
+<p><strong>发布平台与综合目录</strong></p>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>DR</th>
+<th>rel</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://www.google.com/s2/favicons?domain=news.ycombinator.com&sz=32" width="16" height="16" alt=""> <a href="https://news.ycombinator.com/">Hacker News</a></td>
+<td>91</td>
+<td>—</td>
+<td>发 &quot;Show HN&quot;</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=producthunt.com&sz=32" width="16" height="16" alt=""> <a href="https://www.producthunt.com/">Product Hunt</a></td>
+<td>91</td>
+<td>—</td>
+<td>最大的发布平台，支持多次发布（每次要展示不同的功能），见 <a href="../07-launch-and-distribution/">07 章</a></td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=devpost.com&sz=32" width="16" height="16" alt=""> <a href="https://devpost.com/">Devpost</a></td>
+<td>87</td>
+<td>—</td>
+<td>listing 页面本身就是一条外链</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=goodfirms.co&sz=32" width="16" height="16" alt=""> <a href="https://www.goodfirms.co/">GoodFirms</a></td>
+<td>86</td>
+<td>—</td>
+<td>软件目录</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=startupfa.me&sz=32" width="16" height="16" alt=""> <a href="https://startupfa.me/">Startupfa.me</a></td>
+<td>82</td>
+<td>—</td>
+<td>也有付费档</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=alternativeto.net&sz=32" width="16" height="16" alt=""> <a href="https://alternativeto.net/">AlternativeTo</a></td>
+<td>79</td>
+<td>—</td>
+<td>替代品目录，能带来很精准的流量</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=fazier.com&sz=32" width="16" height="16" alt=""> <a href="https://fazier.com/">Fazier</a></td>
+<td>79</td>
+<td>—</td>
+<td>发布平台</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=stackshare.io&sz=32" width="16" height="16" alt=""> <a href="https://stackshare.io/">StackShare</a></td>
+<td>79</td>
+<td>—</td>
+<td>技术栈目录</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=saashub.com&sz=32" width="16" height="16" alt=""> <a href="https://www.saashub.com/">SaaSHub</a></td>
+<td>75</td>
+<td>—</td>
+<td>SaaS 目录</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=peerlist.io&sz=32" width="16" height="16" alt=""> <a href="https://peerlist.io/">Peerlist</a></td>
+<td>75</td>
+<td>—</td>
+<td>开发者社区 + 发布</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=tinylaunch.com&sz=32" width="16" height="16" alt=""> <a href="https://www.tinylaunch.com/">TinyLaunch</a></td>
+<td>70</td>
+<td>—</td>
+<td>发布平台</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=devhunt.org&sz=32" width="16" height="16" alt=""> <a href="https://devhunt.org/">DevHunt</a></td>
+<td>59</td>
+<td>—</td>
+<td>开发者工具发布</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=open-launch.com&sz=32" width="16" height="16" alt=""> <a href="https://open-launch.com/">Open-Launch</a></td>
+<td>52–58</td>
+<td>—</td>
+<td>发布平台</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=startupfa.st&sz=32" width="16" height="16" alt=""> <a href="https://startupfa.st/">Startupfast</a></td>
+<td>57</td>
+<td>—</td>
+<td>发布平台</td>
+</tr>
+<tr>
+<td>Microlaunch</td>
+<td>55</td>
+<td>—</td>
+<td>发布平台</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=launchitx.com&sz=32" width="16" height="16" alt=""> <a href="https://launchitx.com/">Launchitx</a></td>
+<td>49</td>
+<td>—</td>
+<td>发布平台</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=appsumo.com&sz=32" width="16" height="16" alt=""> <a href="https://appsumo.com/">AppSumo</a></td>
+<td>—</td>
+<td>—</td>
+<td>买断制（LTD）推广渠道，主要换现金和曝光，不是为了外链</td>
+</tr>
+</tbody></table>
+<p><strong>AI 工具目录</strong></p>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>DR</th>
+<th>rel</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://www.google.com/s2/favicons?domain=dang.ai&sz=32" width="16" height="16" alt=""> <a href="https://dang.ai/">Dang.ai</a></td>
+<td>79</td>
+<td>—</td>
+<td>也有付费加速</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=oecd.ai&sz=32" width="16" height="16" alt=""> <a href="https://oecd.ai/">OECD.AI 目录</a></td>
+<td>79</td>
+<td>—</td>
+<td>政策机构的 AI 工具目录</td>
+</tr>
+<tr>
+<td>Twelve Tools</td>
+<td>79</td>
+<td>—</td>
+<td>AI 工具目录</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=towardsai.net&sz=32" width="16" height="16" alt=""> <a href="https://towardsai.net/">Towards AI</a></td>
+<td>72</td>
+<td>—</td>
+<td>投稿形式</td>
+</tr>
+<tr>
+<td>Goodaitools</td>
+<td>72</td>
+<td>—</td>
+<td>AI 工具目录</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=aitools.inc&sz=32" width="16" height="16" alt=""> <a href="https://aitools.inc/">aitools.inc</a></td>
+<td>70</td>
+<td>—</td>
+<td>AI 工具目录</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=futuretools.io&sz=32" width="16" height="16" alt=""> <a href="https://www.futuretools.io/">Futuretools</a></td>
+<td>68</td>
+<td>—</td>
+<td>AI 工具目录</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=aigc.cn&sz=32" width="16" height="16" alt=""> <a href="https://www.aigc.cn/">AIGC.cn</a></td>
+<td>61</td>
+<td>—</td>
+<td>中文 AI 导航</td>
+</tr>
+<tr>
+<td>ai138</td>
+<td>61</td>
+<td>—</td>
+<td>中文 AI 导航</td>
+</tr>
+<tr>
+<td>Saasaitools</td>
+<td>56</td>
+<td>—</td>
+<td>AI 工具目录</td>
+</tr>
+<tr>
+<td>Aitoolsdirectory</td>
+<td>49</td>
+<td>—</td>
+<td>AI 工具目录</td>
+</tr>
+</tbody></table>
+<p><strong>中文社区</strong>（流量和品牌曝光价值高，大多数<strong>不传递权重</strong>）</p>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>DR</th>
+<th>rel</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://www.google.com/s2/favicons?domain=zhihu.com&sz=32" width="16" height="16" alt=""> <a href="https://www.zhihu.com/">知乎</a></td>
+<td>91</td>
+<td>nofollow</td>
+<td>长文 + 回答，百度收录好</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=juejin.cn&sz=32" width="16" height="16" alt=""> <a href="https://juejin.cn/">掘金</a></td>
+<td>84</td>
+<td>nofollow</td>
+<td>技术文章</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=v2ex.com&sz=32" width="16" height="16" alt=""> <a href="https://v2ex.com/">V2EX</a></td>
+<td>78</td>
+<td>nofollow</td>
+<td>&quot;分享创造&quot;节点</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=sspai.com&sz=32" width="16" height="16" alt=""> <a href="https://sspai.com/">少数派</a></td>
+<td>76</td>
+<td>nofollow</td>
+<td>效率工具类</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=linux.do&sz=32" width="16" height="16" alt=""> <a href="https://linux.do/">Linux.do</a></td>
+<td>73</td>
+<td>nofollow</td>
+<td>开发者社区</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=linktr.ee&sz=32" width="16" height="16" alt=""> <a href="https://linktr.ee/">Linktree</a></td>
+<td>94</td>
+<td>nofollow</td>
+<td>个人主页聚合链接</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=91wink.com&sz=32" width="16" height="16" alt=""> <a href="https://91wink.com/">独立开发前线</a></td>
+<td>28</td>
+<td><strong>dofollow</strong></td>
+<td>原文作者的社区</td>
+</tr>
+</tbody></table>
+<p><strong>其余免费目录</strong>（DR 来自原文）：Rundown 40、10words 32、Indietools 31、Tipseason 31、Insanelycooltools（邮件通讯）25、dropyourai 24、Barndoor 22、AiStart 22、Apprater 15、Simplifyaitools 12、Gptbot.io 27、AI Center 35、Grabon 66、Phygital library 57、Solopush 46、Nxgntools 54、ProjectHunt 49、Ufind 46、PromoteProject 47、Similarlabs 62、Code.market 71、Moss AI 73、Gamsgo 70、Backlinkdirs 47。</p>
+<p><strong>冲刺策略</strong>：先做 DR 高的发布平台，再做 dofollow 且 DR ≥ 50 的目录（第一轮目标是至少 10 条）。如果是 AI 产品，要把主要的 AI 目录都覆盖到。中文社区不是为了权重，而是为了流量，用统计工具里的引荐会话数来衡量。</p>
+<hr>
+<h2>6. 付费外链资源</h2>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>DR</th>
+<th>价格（原文）</th>
+<th>月 UV（《出海产品的推广策略》快照）</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Toolfame</td>
+<td>70</td>
+<td>$9.9</td>
+<td>—</td>
+<td>DR / 价格比高</td>
+</tr>
+<tr>
+<td>Aistage</td>
+<td>73</td>
+<td>$9.9</td>
+<td>—</td>
+<td>DR / 价格比高</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=magicbox.tools&sz=32" width="16" height="16" alt=""> <a href="https://magicbox.tools/">Magicbox.tools</a></td>
+<td>72</td>
+<td>$15.9</td>
+<td>—</td>
+<td>DR / 价格比高</td>
+</tr>
+<tr>
+<td>Turbo0</td>
+<td>76</td>
+<td>$16.9</td>
+<td>—</td>
+<td>DR / 价格比高</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=startupfa.me&sz=32" width="16" height="16" alt=""> <a href="https://startupfa.me/">Startupfa.me</a></td>
+<td>82</td>
+<td>$19 / $49</td>
+<td>—</td>
+<td>DR 最高的低价选项</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=500.tools&sz=32" width="16" height="16" alt=""> <a href="https://500.tools/">500.tools</a></td>
+<td>48</td>
+<td>$19</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Seektool</td>
+<td>50</td>
+<td>$19.9</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=dang.ai&sz=32" width="16" height="16" alt=""> <a href="https://dang.ai/">Dang.ai</a></td>
+<td>80</td>
+<td>$29</td>
+<td>—</td>
+<td>也可以免费提交</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=uneed.best&sz=32" width="16" height="16" alt=""> <a href="https://www.uneed.best/">Uneed</a></td>
+<td>73</td>
+<td>$29.99</td>
+<td>约 76k–91k</td>
+<td>免费发布要排很久，付费可以插队；拿到当日第一大约需要 40–50 票</td>
+</tr>
+<tr>
+<td>Toolfolio</td>
+<td>35</td>
+<td>$42</td>
+<td>—</td>
+<td>DR 低，性价比一般</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=topai.tools&sz=32" width="16" height="16" alt=""> <a href="https://topai.tools/">TopAI.tools</a></td>
+<td>61</td>
+<td>$47</td>
+<td>约 1.3M</td>
+<td>流量大</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=toolify.ai&sz=32" width="16" height="16" alt=""> <a href="https://www.toolify.ai/">Toolify</a></td>
+<td>73</td>
+<td>$99</td>
+<td>约 2.3M</td>
+<td>流量大</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=toolpilot.ai&sz=32" width="16" height="16" alt=""> <a href="https://www.toolpilot.ai/">Toolpilot.ai</a></td>
+<td>76</td>
+<td>$99</td>
+<td>约 130k</td>
+<td>—</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=yeschat.ai&sz=32" width="16" height="16" alt=""> <a href="https://www.yeschat.ai/">YesChat.ai</a></td>
+<td>—</td>
+<td>$99</td>
+<td>约 4M</td>
+<td>只出现在推广策略文中</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=aitools.fyi&sz=32" width="16" height="16" alt=""> <a href="https://aitools.fyi/">aitools.fyi</a></td>
+<td>46</td>
+<td>$197（推广策略文写 $30）</td>
+<td>约 180k</td>
+<td><strong>两篇文档价格不一致，以官网为准</strong></td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=theresanaiforthat.com&sz=32" width="16" height="16" alt=""> <a href="https://theresanaiforthat.com/">There&#39;s An AI For That</a></td>
+<td>77</td>
+<td>$299</td>
+<td>约 5.4M</td>
+<td>贵，但流量最大</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=whatsthebigdata.com&sz=32" width="16" height="16" alt=""> <a href="https://whatsthebigdata.com/">WhatsTheBigData</a></td>
+<td>75</td>
+<td>$599（推广策略文写 $499）</td>
+<td>约 570k</td>
+<td>贵</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=ai-bot.cn&sz=32" width="16" height="16" alt=""> <a href="https://ai-bot.cn/">AI-Bot.cn</a></td>
+<td>71</td>
+<td>¥399（推广策略文写 ¥300）</td>
+<td>约 1.4M PV</td>
+<td>中文 AI 导航</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=openfuture.ai&sz=32" width="16" height="16" alt=""> <a href="https://openfuture.ai/">OpenFuture</a></td>
+<td>35</td>
+<td>免费</td>
+<td>约 250k</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Launchboard / Askaiforit / GptDemo</td>
+<td>48 / 36 / 26</td>
+<td>$5 / $5 / $9.9</td>
+<td>—</td>
+<td>便宜，但 DR 低</td>
+</tr>
+</tbody></table>
+<p><strong>花钱之前</strong></p>
+<ol>
+<li>先算 <strong>DR / 美元</strong>，再看对方网站的<strong>自然流量</strong>是否大于 0 且稳定。没有流量的目录直接跳过。</li>
+<li>确认付费 listing 是不是 dofollow（有些平台把 dofollow 作为加价项来卖）。</li>
+<li>定一个固定预算，比如上线时先花大约 $100 在&quot;≤ $30、DR 70+&quot;这一档上。在追踪表里记录花费和收获。</li>
+<li>$299–599 的高价目录，只有在它<strong>能带来真实流量</strong>的时候才值得。</li>
+</ol>
+<blockquote>
+<p>⚠️ <strong>2026 更新（两篇文档的冲突）</strong>：《外链建设策略》说&quot;不要买看起来像 SEO 的链接&quot;，《付费外链资源》又列出了付费目录。两者的边界是：<strong>花钱买的是&quot;审核收录 + 曝光 + 归类&quot;，而且这个目录本身就有真实用户</strong>，这属于正常的营销支出。<strong>花钱买的是&quot;传递 PageRank 的链接&quot;</strong>（PBN、链接农场、按 DR 卖的客座文章、批量链接包），违反 Google 的链接垃圾政策。如果你不确定，就用一个问题来判断：如果这个网站对 Google 完全不可见，你还愿意花这笔钱吗？</p>
+</blockquote>
+<hr>
+<h2>7. 外链导航站与代提交服务</h2>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>类型</th>
+<th>链接</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BacklinkDirs</td>
+<td>免费导航 + 管理</td>
+<td><img src="https://www.google.com/s2/favicons?domain=backlinkdirs.com&sz=32" width="16" height="16" alt=""> <a href="https://backlinkdirs.com/">backlinkdirs.com</a></td>
+</tr>
+<tr>
+<td>Launchpointzero</td>
+<td>免费，发布站推荐清单</td>
+<td><img src="https://www.google.com/s2/favicons?domain=launchpointzero.com&sz=32" width="16" height="16" alt=""> <a href="https://launchpointzero.com/launchsites/recommended">launchpointzero.com</a></td>
+</tr>
+<tr>
+<td>1000UserGuide</td>
+<td>免费，获取前 1000 个用户的渠道清单</td>
+<td><img src="https://www.google.com/s2/favicons?domain=1000userguide.com&sz=32" width="16" height="16" alt=""> <a href="https://1000userguide.com/">1000userguide.com</a></td>
+</tr>
+<tr>
+<td>独立开发前线 SEO 外链资源目录</td>
+<td>免费</td>
+<td><img src="https://www.google.com/s2/favicons?domain=91wink.com&sz=32" width="16" height="16" alt=""> <a href="https://91wink.com/special/seoresourcedirectory/">91wink.com</a></td>
+</tr>
+<tr>
+<td>SubmitAI</td>
+<td>免费浏览 / 付费代提交（.pro）</td>
+<td><img src="https://www.google.com/s2/favicons?domain=submitai.vercel.app&sz=32" width="16" height="16" alt=""> <a href="https://submitai.vercel.app/explore">submitai.vercel.app</a></td>
+</tr>
+<tr>
+<td>DomainRank</td>
+<td>免费导航</td>
+<td><img src="https://www.google.com/s2/favicons?domain=domainrank.app&sz=32" width="16" height="16" alt=""> <a href="https://domainrank.app/">domainrank.app</a></td>
+</tr>
+<tr>
+<td>Aimaker directory</td>
+<td>免费导航</td>
+<td><img src="https://www.google.com/s2/favicons?domain=aimaker.dev&sz=32" width="16" height="16" alt=""> <a href="https://aimaker.dev/directory">aimaker.dev</a></td>
+</tr>
+<tr>
+<td>WebDirectoryCenter</td>
+<td>免费导航</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Submitdirs / SubmitSaas / Submitmatic / Getmorebacklinks</td>
+<td><strong>付费代提交</strong></td>
+<td>—</td>
+</tr>
+</tbody></table>
+<p><strong>做法</strong>：把 2–3 个导航站的清单合并、去重，加上 DR、rel、价格三列，整理成一张总表。如果外包提交，要求对方交付<strong>上线后的 listing URL 清单</strong>，并且至少抽查 20%，确认页面在线、链接指向你的网站。</p>
+<hr>
+<h2>8. 外链工具</h2>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>用途</th>
+<th>免费额度（原文）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://www.google.com/s2/favicons?domain=ahrefs.com&sz=32" width="16" height="16" alt=""> <a href="https://ahrefs.com/zh/backlink-checker">Ahrefs Backlink Checker</a></td>
+<td>外链、DR、锚文本、新增 / 丢失外链</td>
+<td>付费（有免费的有限版本）</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=semrush.com&sz=32" width="16" height="16" alt=""> <a href="https://www.semrush.com/">Semrush</a></td>
+<td>外链、Authority Score</td>
+<td>每天 10 次，数据有限</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=moz.com&sz=32" width="16" height="16" alt=""> <a href="https://moz.com/link-explorer">Moz Link Explorer</a></td>
+<td>外链、DA</td>
+<td>每天 10 次 × 每次 50 行</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=seranking.com&sz=32" width="16" height="16" alt=""> <a href="https://seranking.com/backlink-checker.html">SE Ranking</a></td>
+<td>外链</td>
+<td>20 行</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=seobility.net&sz=32" width="16" height="16" alt=""> <a href="https://www.seobility.net/en/backlinkchecker/check">Seobility</a></td>
+<td>外链</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=linkody.com&sz=32" width="16" height="16" alt=""> <a href="https://www.linkody.com/en/seo-tools/free-backlink-checker">Linkody</a></td>
+<td>外链</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=neilpatel.com&sz=32" width="16" height="16" alt=""> <a href="https://neilpatel.com/backlinks/">Neil Patel Backlinks</a></td>
+<td>外链</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=seoreviewtools.com&sz=32" width="16" height="16" alt=""> <a href="https://www.seoreviewtools.com/valuable-backlinks-checker/">SEOReviewTools</a></td>
+<td>有价值的外链</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=smallseotools.com&sz=32" width="16" height="16" alt=""> <a href="https://smallseotools.com/backlink-checker/">SmallSEOTools</a></td>
+<td>外链</td>
+<td>10 行</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=majestic.com&sz=32" width="16" height="16" alt=""> <a href="https://zh.majestic.com/backlink-checker">Majestic</a></td>
+<td>外链（Trust Flow）</td>
+<td>付费</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=frogdr.com&sz=32" width="16" height="16" alt=""> <a href="https://frogdr.com/">FrogDR</a></td>
+<td>DR 监控</td>
+<td>免费 3 个网站</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=mkdollar.com&sz=32" width="16" height="16" alt=""> <a href="https://mkdollar.com/">Mkdollar</a></td>
+<td>外链建设管理</td>
+<td>—</td>
+</tr>
+<tr>
+<td><img src="https://www.google.com/s2/favicons?domain=search.google.com&sz=32" width="16" height="16" alt=""> <a href="https://search.google.com/search-console/about">Google Search Console</a> → 链接报告</td>
+<td>自己网站的外链（最权威）</td>
+<td>免费</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>⚠️ <strong>2026 更新</strong>：《反链查询》提到用 Google 搜索指令 <code>link:xxx.com</code> 和 <code>domain:xxx.com</code> 查外链。<code>link:</code> 早在 2017 年就被 Google 停用了，<code>domain:</code> 也不是 Google 支持的指令。现在要查外链，请用上表里的工具和 GSC 的链接报告。</p>
+</blockquote>
+<hr>
+<h2>9. 竞品冷启动外链分析</h2>
+<p>目标：找到竞品<strong>上线后 0–30 天</strong>里带来第一波流量的 5–20 条链接或提及。其中很多现在已经不存在了，Ahrefs / Semrush 也抓不全（质量低、存活时间短、抓取优先级低）。所以要<strong>手工取证，工具只用来兜底验证</strong>。</p>
+<p>需要收集三类信号：<strong>直接外链 : 只提 URL 不加链接 : 只提名字（产品或创始人）不带 URL ≈ 2 : 4 : 4</strong>，三类都要找。</p>
+<pre><code class="language-text">Step 1  确定冷启动窗口
+        whois 注册日期 + Wayback Machine 最早快照 + Product Hunt / BetaList 发布日期
+        → 例如 Day 0–30 或 Day 0–60
+
+Step 2  Google 按时间筛选（最重要的一步）
+        &quot;competitor.com&quot; -site:competitor.com
+        → 工具 → 时间 → 自定义日期范围 = 冷启动窗口
+        手动剔除聚合站、镜像站、SEO 垃圾页、whois/DNS 缓存页，只保留明显是人写的内容
+
+Step 3  不带域名的提及（同样限定时间）
+        &quot;Product Name&quot;
+        &quot;Product Name&quot; AI
+        &quot;Product Name&quot; tool
+
+Step 4  发布平台反查（必做），同时找&quot;二次传播&quot;的页面
+        site:producthunt.com &quot;Product Name&quot;
+        site:reddit.com &quot;Product Name&quot;
+        site:news.ycombinator.com &quot;Product Name&quot;
+        site:indiehackers.com &quot;Product Name&quot;
+        site:betalist.com &quot;Product Name&quot;
+
+Step 5  Wayback 最早 2–3 个快照里的&quot;自我披露&quot;
+        首页 / 页脚 / About 页上的 &quot;Featured on&quot;、&quot;As seen on&quot;、发布徽章、媒体 Logo
+
+Step 6  换搜索引擎再查一遍：Bing、DuckDuckGo（历史残留不同，通常能多找回 10–20%）
+
+Step 7  用 Ahrefs / Semrush（以及自己网站的 GSC）验证和补充还存活的链接
+</code></pre>
+<p><strong>判断是不是核心冷启动链接（满足 ≥ 2 条）</strong>：上线 30 天内出现；明显是人写的；是第一个系统介绍这个产品的；带有主观评价（好、坏、惊喜）；后来被别人引用。</p>
+<p><strong>整理成路径，不要只列清单</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>链接类型</th>
+<th>来源平台</th>
+<th>时间</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>社区发布</td>
+<td>Product Hunt</td>
+<td>Day 1</td>
+<td>第一波曝光</td>
+</tr>
+<tr>
+<td>博客评测</td>
+<td>独立博客</td>
+<td>Day 7</td>
+<td>开始拿搜索长尾</td>
+</tr>
+<tr>
+<td>推荐清单</td>
+<td>工具目录</td>
+<td>Day 14</td>
+<td>持续带来引荐流量</td>
+</tr>
+</tbody></table>
+<p>最有价值的链接往往来自<strong>转述者</strong>，而不是原始的发布平台。现实目标是找回大约 70%，弄清&quot;是谁第一个为这个产品背书的&quot;，然后照着这条路径给自己的产品排一个带日期的发布计划。</p>
+<hr>
+<h2>10. 锚文本分布</h2>
+<table>
+<thead>
+<tr>
+<th>锚文本类型</th>
+<th>例子</th>
+<th>建议占比（经验区间，非官方）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>品牌词</td>
+<td><code>ExampleAI</code>、<code>ExampleAI 海报工具</code></td>
+<td>最大的一类，约 40–60%</td>
+</tr>
+<tr>
+<td>裸 URL</td>
+<td><code>example.com</code>、<code>https://example.com/pdf-to-excel</code></td>
+<td>约 15–25%</td>
+</tr>
+<tr>
+<td>通用 / 自然语句</td>
+<td>&quot;这个工具&quot;、&quot;他们的教程&quot;、&quot;这里&quot;</td>
+<td>约 10–20%</td>
+</tr>
+<tr>
+<td>部分匹配</td>
+<td>&quot;一个能批量做海报的 AI 工具&quot;</td>
+<td>约 10–15%</td>
+</tr>
+<tr>
+<td>精确匹配关键词</td>
+<td><code>ai poster generator</code></td>
+<td><strong>少数，≤ 5–10%</strong></td>
+</tr>
+</tbody></table>
+<p>原文只说了&quot;大多数应该是品牌、URL 或自然锚文本，精确匹配只占少数&quot;。上面的区间是行业里常见的经验值，用来帮你判断是否过度优化。站内链接正好相反，<strong>应该用描述性的关键词锚文本</strong>（<code>links-anchor-text</code>），见 <a href="../02-page-structure-and-tags/">02 章</a>。</p>
+<hr>
+<h2>11. 不要做的事</h2>
+<ol>
+<li>从第一天就追 DR。</li>
+<li>锚文本过度优化（大量精确匹配的关键词）。</li>
+<li>只提交同一类目录网站，来源单一。</li>
+<li>购买&quot;看起来像 SEO&quot;的链接：PBN、链接农场、批量外链包、按 DR 卖的客座文章。</li>
+<li>拿和产品无关的网站的链接。</li>
+<li>短时间内外链暴涨，看起来不自然（RD 增长曲线出现尖峰）。</li>
+<li>在 Reddit 上发裸链接、刷 karma（见 <a href="../08-x-and-reddit/">08 章</a>）。Reddit 更适合用来获取用户和验证需求，不要指望它带来 SEO 外链。</li>
+<li>灰帽 / 黑帽手法：伪造来路的 referrer spam、蹭别人品牌名、买赞冲评论区。原文作者也提到过这些，但都有平台规则或法律风险，不要碰。</li>
+</ol>
+<p>真的遭到人工处置，或者突然多出一批有毒外链时，再考虑用 disavow（拒绝外链）工具。平时不需要。</p>
+<hr>
+<h2>12. 外链追踪表模板</h2>
+<table>
+<thead>
+<tr>
+<th>资源</th>
+<th>类型</th>
+<th>提交 URL</th>
+<th>DR</th>
+<th>rel（实测）</th>
+<th>价格</th>
+<th>提交日期</th>
+<th>上线日期</th>
+<th>listing URL</th>
+<th>锚文本</th>
+<th>90 天引荐会话</th>
+<th>注册数</th>
+<th>状态</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Product Hunt</td>
+<td>发布平台</td>
+<td>producthunt.com/…</td>
+<td>91</td>
+<td>nofollow</td>
+<td>0</td>
+<td>2026-11-04</td>
+<td>2026-11-04</td>
+<td>…</td>
+<td>ExampleAI</td>
+<td>1,240</td>
+<td>63</td>
+<td>上线</td>
+<td>当日 #4</td>
+</tr>
+<tr>
+<td>Toolify</td>
+<td>AI 目录</td>
+<td>toolify.ai/submit</td>
+<td>73</td>
+<td>dofollow</td>
+<td>$99</td>
+<td>2026-11-05</td>
+<td>2026-11-12</td>
+<td>…</td>
+<td>ExampleAI</td>
+<td>210</td>
+<td>9</td>
+<td>上线</td>
+<td>—</td>
+</tr>
+<tr>
+<td>独立博客评测</td>
+<td>博客</td>
+<td>—</td>
+<td>24</td>
+<td>dofollow</td>
+<td>0</td>
+<td>—</td>
+<td>2026-11-20</td>
+<td>…</td>
+<td>批量做海报的工具</td>
+<td>85</td>
+<td>6</td>
+<td>自然获得</td>
+<td>主动联系过作者</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>表中数字是示例。每月复盘一次：引用域名（RD）有没有增长、新增和丢失的外链、按来源统计的引荐会话和注册数。<strong>90 天都没有带来点击的链接来源，下次就降低优先级。</strong></p>
+</blockquote>
+<hr>
+<h2>来源</h2>
+<ul>
+<li><a href="https://lownrain.feishu.cn/wiki/Lx9CwNJ0HiiJ4kki1XCcLmhnngr">外链建设策略</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Nbh6wxW8XiBBZ3kGz3wckP8Pnah">免费外链资源</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/CRMTwsEOli71kJkd07BcvPAHnJY">付费外链资源</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/ScG2wuL2CizJbVkiXf3cIyltnrf">外链导航</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Ih19wKCldio7j9kmKp2cdyAinrf">外链建设工具</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/QgnEw53QbicKk6kx9ImcteXPn1g">反链查询</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/DgBWwJfadiRW4fkRltwcg2nBnaf">DR查询</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/ZeIWwX2wriiHy1kNxbgcB51En4f">怎么分析一个网站的冷启动外链是什么？</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/EgKEwabgAirGwRk5mOIcqvfanse">出海产品的推广策略</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/MxxPwa7Owiv0wek3DXecgavAnbK">独立开发者出海产品发布平台</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/D6aUwmc55i3alckkM5Pcq7snnKg">品牌营销</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/T3mnwUqeRiqfOyk8XBBc2zmHnpf">通过SEO打造自然增长产品</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/B2MLwCgXBisanqkZNyCcXDP6nqh">SEO经验分享</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/ZObbwCFH1i7RvVknVEUcF9uDnMh">如何为你的产品获取免费流量？</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/QpsGwfHUkiF08hkLqcxc2lRQnGh">Ahrefs Seo名词</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/ABWzwVvQTiPWdeknyLeclLdFnTh">SEO名词解释</a>（独立开发前线｜SEO从0到100）</li>
+</ul>
+</article>
+</div>
+</body>
+</html>

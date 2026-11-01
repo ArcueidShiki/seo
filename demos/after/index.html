@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vexlora Position Size Calculator – Free Risk-Based Tool</title>
+<meta name="description" content="Free Vexlora position size calculator: enter account size, risk % and stop-loss to get the exact number of shares to buy. Formula, worked examples and FAQ.">
+<link rel="canonical" href="https://ArcueidShiki.github.io/seo/demos/after/">
+<link rel="alternate" hreflang="en" href="https://ArcueidShiki.github.io/seo/demos/after/">
+<link rel="alternate" hreflang="zh-CN" href="https://ArcueidShiki.github.io/seo/demos/after/zh/">
+<link rel="alternate" hreflang="x-default" href="https://ArcueidShiki.github.io/seo/demos/after/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<meta name="theme-color" content="#0f766e">
+<link rel="icon" href="/seo/demos/after/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/seo/demos/after/assets/apple-touch-icon.png">
+<link rel="manifest" href="/seo/demos/after/manifest.webmanifest">
+<!-- Open Graph / social cards -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vexlora">
+<meta property="og:title" content="Vexlora Position Size Calculator – Free Risk-Based Tool">
+<meta property="og:description" content="Enter account size, risk % and stop-loss — get the exact share count in one second.">
+<meta property="og:url" content="https://ArcueidShiki.github.io/seo/demos/after/">
+<meta property="og:image" content="https://ArcueidShiki.github.io/seo/demos/after/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Vexlora position size calculator showing a 1% risk trade">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vexlora Position Size Calculator">
+<meta name="twitter:description" content="Risk-based position sizing in one second. Free, no sign-up.">
+<meta name="twitter:image" content="https://ArcueidShiki.github.io/seo/demos/after/assets/og-image.png">
+<link rel="preload" href="/seo/demos/after/assets/hero.webp" as="image" fetchpriority="high">
+<style>
+/* Critical CSS inlined: no render-blocking stylesheet */
+:root{--ink:#0f172a;--muted:#475569;--line:#e2e8f0;--brand:#0f766e;--bg:#f8fafc}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,"PingFang SC",sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--brand)}
+header,main,footer{max-width:960px;margin:0 auto;padding:0 20px}
+header{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px}
+header nav a{margin-left:16px;text-decoration:none;color:var(--muted)}
+.logo{font-weight:700;text-decoration:none;color:var(--ink);display:flex;gap:8px;align-items:center}
+.crumbs{font-size:14px;color:var(--muted)}
+.crumbs a{color:var(--muted)}
+h1{font-size:clamp(28px,4vw,40px);line-height:1.2;margin:8px 0 12px}
+.lead{font-size:18px;color:var(--muted);max-width:720px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;margin:20px 0 8px}
+.hero img{width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin:22px 0}
+form.calc{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+form.calc label{font-size:14px;font-weight:600;display:block}
+form.calc input,form.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px}
+form.calc button{grid-column:1/-1;background:var(--brand);color:#fff;border:0;border-radius:8px;padding:12px;font-size:16px;font-weight:600;cursor:pointer}
+output{display:block;grid-column:1/-1;background:#f0fdfa;border:1px solid #99f6e4;border-radius:8px;padding:14px;font-size:17px;min-height:56px}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{border-bottom:1px solid var(--line);padding:9px;text-align:left}
+details{border-bottom:1px solid var(--line);padding:10px 0}
+summary{font-weight:600;cursor:pointer}
+.formula{font-family:ui-monospace,Menlo,monospace;background:#0f172a;color:#e2e8f0;padding:14px;border-radius:8px;overflow:auto}
+.author{display:flex;gap:14px;align-items:center;font-size:14px;color:var(--muted)}
+.author img{border-radius:50%}
+footer{color:var(--muted);font-size:14px;padding-top:30px;padding-bottom:40px;border-top:1px solid var(--line);margin-top:40px}
+@media(max-width:720px){.hero{grid-template-columns:1fr}form.calc{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ArcueidShiki.github.io/seo/demos/after/#org",
+      "name": "Vexlora",
+      "url": "https://ArcueidShiki.github.io/seo/demos/after/",
+      "logo": "https://ArcueidShiki.github.io/seo/demos/after/assets/logo-512.png",
+      "sameAs": ["https://github.com/ArcueidShiki/seo"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ArcueidShiki.github.io/seo/demos/after/#website",
+      "url": "https://ArcueidShiki.github.io/seo/demos/after/",
+      "name": "Vexlora",
+      "inLanguage": "en",
+      "publisher": {"@id": "https://ArcueidShiki.github.io/seo/demos/after/#org"}
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://ArcueidShiki.github.io/seo/demos/after/#app",
+      "name": "Vexlora Position Size Calculator",
+      "url": "https://ArcueidShiki.github.io/seo/demos/after/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any (web browser)",
+      "description": "Calculates how many shares to buy from account size, risk percentage, entry and stop-loss price.",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+      "publisher": {"@id": "https://ArcueidShiki.github.io/seo/demos/after/#org"}
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Vexlora", "item": "https://ArcueidShiki.github.io/seo/demos/after/"},
+        {"@type": "ListItem", "position": 2, "name": "Position Size Calculator", "item": "https://ArcueidShiki.github.io/seo/demos/after/"}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "How do I calculate position size?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Multiply your account size by the percentage you are willing to risk, then divide by the distance between your entry price and stop-loss price. The result is the number of shares to buy."}},
+        {"@type": "Question", "name": "What percentage of my account should I risk per trade?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Many risk-management frameworks cap the loss on a single trade at 0.5%–2% of account equity so that a losing streak does not cause a large drawdown. Choose a figure that fits your strategy's win rate and volatility."}},
+        {"@type": "Question", "name": "Does the calculator work for short positions?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Yes. The calculator uses the absolute distance between entry and stop, so a stop above the entry (short trade) gives the same share count logic."}},
+        {"@type": "Question", "name": "Does position size change when I use leverage or margin?",
+         "acceptedAnswer": {"@type": "Answer", "text": "No. Risk-based sizing is set by the dollar amount you can lose at the stop. Leverage only changes how much buying power is needed, which the calculator shows as position value."}},
+        {"@type": "Question", "name": "Is Vexlora free?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Yes. The calculator is free, needs no sign-up and runs entirely in your browser."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header>
+  <a class="logo" href="/seo/demos/after/"><img src="/seo/demos/after/favicon.svg" width="28" height="28" alt="Vexlora logo"> Vexlora</a>
+  <nav aria-label="Main">
+    <a href="/seo/demos/after/guide/position-sizing-rules/">Position sizing guide</a>
+    <a href="/seo/demos/after/about/">About</a>
+    <a href="/seo/demos/after/zh/" hreflang="zh-CN" lang="zh-CN">中文</a>
+  </nav>
+</header>
+<main>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/seo/demos/after/">Vexlora</a> › Position Size Calculator</nav>
+  <section class="hero">
+    <div>
+      <h1>Vexlora Position Size Calculator</h1>
+      <p class="lead"><strong>Position size = (account size × risk %) ÷ (entry price − stop-loss price).</strong>
+      Enter four numbers below and the calculator tells you exactly how many shares to buy so a stopped-out trade never costs more than the risk you chose.</p>
+      <p class="crumbs">Free · No sign-up · Runs in your browser · Updated <time datetime="2026-11-01">1 November 2026</time></p>
+    </div>
+    <img src="/seo/demos/after/assets/hero.webp" width="640" height="420" alt="Chart showing entry, stop-loss and the dollar risk used by the position size calculator" fetchpriority="high">
+  </section>
+
+  <section class="card" aria-labelledby="calc-h">
+    <h2 id="calc-h">Calculate your position size</h2>
+    <form class="calc" id="calc">
+      <div><label for="acct">Account size ($)</label><input id="acct" name="acct" type="number" inputmode="decimal" value="10000" min="0" step="any"></div>
+      <div><label for="risk">Risk per trade (%)</label><input id="risk" name="risk" type="number" inputmode="decimal" value="1" min="0" step="any"></div>
+      <div><label for="entry">Entry price ($)</label><input id="entry" name="entry" type="number" inputmode="decimal" value="50" min="0" step="any"></div>
+      <div><label for="stop">Stop-loss price ($)</label><input id="stop" name="stop" type="number" inputmode="decimal" value="48" min="0" step="any"></div>
+      <button type="submit">Calculate position size</button>
+      <output id="out" for="acct risk entry stop" aria-live="polite">Risk $100 · Buy <strong>50 shares</strong> · Position value $2,500 (25% of account)</output>
+    </form>
+  </section>
+
+  <section>
+    <h2>How to calculate position size (formula)</h2>
+    <p>Risk-based position sizing fixes the <em>dollar loss</em> you accept before you enter a trade, then works backwards to the share count:</p>
+    <pre class="formula">dollar risk     = account size × risk %
+risk per share  = |entry price − stop-loss price|
+position size   = dollar risk ÷ risk per share   (round down)</pre>
+    <h3>Worked example</h3>
+    <table>
+      <caption class="crumbs">A $10,000 account risking 1% on a $50 stock with a $48 stop</caption>
+      <thead><tr><th scope="col">Step</th><th scope="col">Calculation</th><th scope="col">Result</th></tr></thead>
+      <tbody>
+        <tr><td>Dollar risk</td><td>$10,000 × 1%</td><td>$100</td></tr>
+        <tr><td>Risk per share</td><td>$50 − $48</td><td>$2</td></tr>
+        <tr><td>Position size</td><td>$100 ÷ $2</td><td>50 shares</td></tr>
+        <tr><td>Position value</td><td>50 × $50</td><td>$2,500 (25% of account)</td></tr>
+      </tbody>
+    </table>
+    <p>If the stop is hit you lose about $100 (plus slippage and fees), no matter how far away the stop is — a wider stop simply means fewer shares. Read the full <a href="/seo/demos/after/guide/position-sizing-rules/">position sizing rules guide</a> for how to choose the risk percentage and stop distance.</p>
+  </section>
+
+  <section>
+    <h2>Why size positions by risk instead of by dollar amount?</h2>
+    <ul>
+      <li><strong>Losses stay comparable.</strong> Every losing trade costs roughly the same fraction of your account, so one bad trade cannot wipe out weeks of gains.</li>
+      <li><strong>Volatility is built in.</strong> Volatile stocks need wider stops, which automatically reduces the share count.</li>
+      <li><strong>Results become measurable.</strong> When each trade risks "1R", you can track performance in R-multiples and compare strategies fairly.</li>
+    </ul>
+    <p>The approach is a standard part of trading risk management; TradingView's education page on <a href="https://www.tradingview.com/education/equitytips/" rel="noopener">position sizing</a> covers the same principle.</p>
+  </section>
+
+  <section>
+    <h2>Frequently asked questions</h2>
+    <details open><summary>How do I calculate position size?</summary><p>Multiply your account size by the percentage you are willing to risk, then divide by the distance between your entry price and stop-loss price. The result is the number of shares to buy.</p></details>
+    <details><summary>What percentage of my account should I risk per trade?</summary><p>Many risk-management frameworks cap the loss on a single trade at 0.5%–2% of account equity so that a losing streak does not cause a large drawdown. Choose a figure that fits your strategy's win rate and volatility.</p></details>
+    <details><summary>Does the calculator work for short positions?</summary><p>Yes. The calculator uses the absolute distance between entry and stop, so a stop above the entry (short trade) gives the same share count logic.</p></details>
+    <details><summary>Does position size change when I use leverage or margin?</summary><p>No. Risk-based sizing is set by the dollar amount you can lose at the stop. Leverage only changes how much buying power is needed, which the calculator shows as position value.</p></details>
+    <details><summary>Is Vexlora free?</summary><p>Yes. The calculator is free, needs no sign-up and runs entirely in your browser.</p></details>
+  </section>
+
+  <section class="card author">
+    <img src="/seo/demos/after/assets/author.webp" width="64" height="64" alt="Portrait placeholder of the Vexlora author" loading="lazy">
+    <p>Written by the <a href="/seo/demos/after/about/">Vexlora team</a> — software engineers who trade US equities systematically. This page is an educational tool, not financial advice. Last reviewed <time datetime="2026-11-01">1 November 2026</time>.</p>
+  </section>
+</main>
+<footer>
+  <p><a href="/seo/demos/after/">Position size calculator</a> · <a href="/seo/demos/after/guide/position-sizing-rules/">Position sizing rules</a> · <a href="/seo/demos/after/about/">About Vexlora</a> · <a href="/seo/demos/after/zh/" hreflang="zh-CN">仓位计算器（中文）</a></p>
+  <p>© <span>2026</span> Vexlora. Demo site for the <a href="https://github.com/ArcueidShiki/seo">seo-handbook</a> project.</p>
+</footer>
+<script src="/seo/demos/after/assets/calc.js" defer></script>
+
+</body>
+</html>

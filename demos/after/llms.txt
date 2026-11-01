@@ -1,0 +1,14 @@
+# Vexlora
+
+> Vexlora is a free, browser-based position size calculator for stock traders. It answers "how many shares should I buy?" from account size, risk %, entry price and stop-loss price.
+
+Key facts:
+- Formula: position size = (account size × risk %) ÷ |entry − stop-loss|, rounded down.
+- Free, no sign-up, calculations run locally in the browser.
+- Available in English and Simplified Chinese.
+
+## Pages
+- [Position size calculator](https://ArcueidShiki.github.io/seo/demos/after/): the tool, formula, worked example and FAQ
+- [Position sizing rules](https://ArcueidShiki.github.io/seo/demos/after/guide/position-sizing-rules/): how to choose risk %, stop distance and position caps
+- [仓位计算器（中文）](https://ArcueidShiki.github.io/seo/demos/after/zh/): Chinese version of the calculator
+- [About](https://ArcueidShiki.github.io/seo/demos/after/about/): who builds Vexlora and editorial policy

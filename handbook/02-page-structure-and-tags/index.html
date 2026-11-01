@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>页面结构与 SEO 标签 – SEO Handbook</title>
+<meta name="description" content="SEO handbook chapter: 页面结构与 SEO 标签">
+<link rel="canonical" href="https://ArcueidShiki.github.io/seo/handbook/02-page-structure-and-tags/">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/seo/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="页面结构与 SEO 标签 – SEO Handbook">
+<meta property="og:description" content="SEO handbook chapter: 页面结构与 SEO 标签">
+<meta property="og:url" content="https://ArcueidShiki.github.io/seo/handbook/02-page-structure-and-tags/">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--brand:#4f46e5;--bg:#fafafa}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.75 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--brand)}
+.top{border-bottom:1px solid var(--line);background:#fff}
+.top div{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;gap:18px;align-items:center}
+.top a{text-decoration:none;color:var(--muted)}.top .brand{font-weight:700;color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:20px;display:grid;grid-template-columns:240px 1fr;gap:32px}
+aside nav{position:sticky;top:16px;display:flex;flex-direction:column;gap:4px;font-size:14px}
+aside a{text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:8px}
+aside a[aria-current]{background:#eef2ff;color:var(--brand);font-weight:600}
+article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 36px;min-width:0}
+article h1{margin-top:0;line-height:1.25}
+article h2{margin-top:2em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
+article table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow:auto}
+article th,article td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+article th{background:#f9fafb}
+article code{background:#f3f4f6;padding:1px 5px;border-radius:4px;font-size:.92em}
+article pre{background:#111827;color:#e5e7eb;padding:14px;border-radius:8px;overflow:auto}
+article pre code{background:none;padding:0}
+article blockquote{margin:1em 0;padding:.5em 1em;border-left:4px solid var(--brand);background:#f5f3ff;color:#374151}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}aside nav{position:static}article{padding:20px}}
+</style>
+</head>
+<body>
+<div class="top"><div><a class="brand" href="/seo/">SEO Handbook</a><a href="/seo/tool/">Checklist 工具</a><a href="/seo/handbook/00-overview/">手册</a><a href="/seo/reports/">Before/After 报告</a></div></div>
+<div class="wrap">
+<aside><nav aria-label="手册目录"><a href="/seo/handbook/00-overview/">总览</a><a href="/seo/handbook/01-keyword-research/">关键词研究与选题</a><a href="/seo/handbook/02-page-structure-and-tags/" aria-current="page">页面结构与 SEO 标签</a><a href="/seo/handbook/03-technical-seo-and-infra/">技术 SEO 与基础设施</a><a href="/seo/handbook/04-content-and-eeat/">内容与 E-E-A-T</a><a href="/seo/handbook/05-backlinks/">外链建设</a><a href="/seo/handbook/06-geo-ai-search/">GEO / AI 搜索优化</a><a href="/seo/handbook/07-launch-and-distribution/">发布与冷启动：推广策略、发布平台与品牌</a><a href="/seo/handbook/08-x-and-reddit/">X（Twitter）与 Reddit 运营</a><a href="/seo/handbook/09-xiaohongshu/">小红书运营全指南</a><a href="/seo/handbook/10-douyin-video-wechat/">抖音、短视频与微信生态</a><a href="/seo/handbook/11-analytics-and-tools/">数据统计与 SEO 工具箱</a><a href="/seo/handbook/12-monetization/">变现：广告、订阅、支付与联盟营销</a><a href="/seo/handbook/13-mindset-and-case-studies/">独立开发者方法论与案例</a><a href="/seo/handbook/99-glossary/">SEO 名词解释</a></nav></aside>
+<article><h1>页面结构与 SEO 标签</h1>
+<blockquote>
+<p>一句话：<strong>一个好的 SEO 页面，本质上是一份&quot;解决某个问题的高质量文档&quot;，顺带完成转化</strong>，不是产品宣传册。页面结构要同时贴合两条路径：用户的思考顺序，以及搜索引擎理解页面的顺序。</p>
+<p>相关 Checklist 条目：<code>onpage-title</code>、<code>onpage-title-unique</code>、<code>onpage-meta-description</code>、<code>onpage-h1</code>、<code>onpage-heading-hierarchy</code>、<code>onpage-keyword-placement</code>、<code>img-alt</code>、<code>img-dimensions</code>、<code>tech-canonical</code>、<code>tech-indexable</code>、<code>tech-clean-urls</code>、<code>social-open-graph</code>、<code>social-twitter-card</code>、<code>serp-structured-data</code>、<code>serp-breadcrumbs</code>、<code>serp-entity-schema</code>、<code>links-internal</code>、<code>links-anchor-text</code>。</p>
+</blockquote>
+<hr>
+<h2>1. 高转化 SEO 页面模板（模块顺序）</h2>
+<p>适用于 AI SaaS / 工具站的首页和场景落地页。整合了《网站页面结构设计》中的 8 段式结构，以及《页面结构示例》里的页头和页脚部分：</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>模块</th>
+<th>推荐标签</th>
+<th>写什么</th>
+<th>SEO / 转化作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>页头导航</td>
+<td><code>&lt;header&gt;</code> + <code>&lt;nav&gt;</code></td>
+<td>Logo（链接到 <code>/</code>，alt 写品牌 + 定位）、功能、使用场景、价格、FAQ、博客、注册 / 免费试用 CTA</td>
+<td>描述性锚文本，帮助抓取和权重分配</td>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>Hero 首屏</strong></td>
+<td>唯一的 <code>&lt;h1&gt;</code> + 副标题 + CTA</td>
+<td>H1 用大白话说清楚&quot;它能做什么&quot;，并包含主关键词；副标题写场景或目标人群；CTA 选低门槛动作（&quot;免费生成第一版&quot;，不要写&quot;立即购买&quot;）</td>
+<td>主关键词信号；让用户一眼判断是否相关</td>
+</tr>
+<tr>
+<td>2</td>
+<td>痛点</td>
+<td><code>&lt;h2&gt;</code> 为什么你需要 [方案]</td>
+<td>3 个具体痛点</td>
+<td>覆盖长尾词，贴合搜索意图</td>
+</tr>
+<tr>
+<td>3</td>
+<td>解决方案</td>
+<td><code>&lt;h2&gt;</code> + 每个能力一个 <code>&lt;h3&gt;</code></td>
+<td>每个 H3 写&quot;解决了什么问题&quot;，不要只列&quot;支持多模型&quot;这类功能点</td>
+<td>语义丰富，自然覆盖次要词</td>
+</tr>
+<tr>
+<td>4</td>
+<td>使用步骤</td>
+<td><code>&lt;h2&gt;</code> 如何使用 [产品] + <code>&lt;ol&gt;</code></td>
+<td>Step 1 你做什么 → Step 2 AI 做什么 → Step 3 你得到什么，配截图 / GIF</td>
+<td>命中 &quot;how to&quot; 类查询；流程清楚的页面即使没有外链也有机会排名</td>
+</tr>
+<tr>
+<td>5</td>
+<td>案例 / 效果</td>
+<td><code>&lt;figure&gt;</code>、<code>&lt;blockquote&gt;</code></td>
+<td>真实输出、前后对比、小规模数据（几十个用户也可以）</td>
+<td>E-E-A-T 的核心；不完美但真实的案例比精修的营销图更有说服力</td>
+</tr>
+<tr>
+<td>6</td>
+<td>对比</td>
+<td><code>&lt;h2&gt;</code> [产品] vs 传统方式 / 竞品 + <code>&lt;table&gt;</code></td>
+<td>对比表</td>
+<td>覆盖 &quot;X alternatives&quot; 和 &quot;X vs Y&quot; 查询，转化率高</td>
+</tr>
+<tr>
+<td>7</td>
+<td>FAQ</td>
+<td><code>&lt;h2&gt;</code> + 问句式 <code>&lt;h3&gt;</code> 或 <code>&lt;details&gt;</code></td>
+<td>按用户真实的搜索措辞提问，答案第一句就给结论，持续补充</td>
+<td>长尾词、AI 引用（<code>geo-faq-blocks</code>）</td>
+</tr>
+<tr>
+<td>8</td>
+<td>结尾 CTA</td>
+<td><code>&lt;section&gt;</code></td>
+<td>不需要总结，直接给出下一步</td>
+<td>转化</td>
+</tr>
+<tr>
+<td>9</td>
+<td>相关内容</td>
+<td><code>&lt;aside&gt;</code> 或 <code>&lt;section&gt;</code></td>
+<td>相关功能页、相关文章</td>
+<td>内链和权重分配，延长停留时间</td>
+</tr>
+<tr>
+<td>10</td>
+<td>页脚</td>
+<td><code>&lt;footer&gt;</code></td>
+<td>公司信息和联系方式、隐私 / 条款 / Cookie、社交账号、邮件订阅、重复导航</td>
+<td>信任信号；Organization schema</td>
+</tr>
+</tbody></table>
+<p><strong>三个常见坑</strong></p>
+<ol>
+<li><strong>一个页面想讲完所有功能</strong> → 规则是&quot;一个场景 = 一个页面&quot;。</li>
+<li><strong>只说&quot;AI 很强大&quot;</strong> → 要写清楚能力边界、不适合哪些人、什么情况下效果最好。</li>
+<li><strong>上线后再也不改</strong> → 每月看一次这个页面在 GSC 里的查询词，把还没回答到的问题补进 FAQ 或正文。</li>
+</ol>
+<p><strong>语义化骨架</strong></p>
+<pre><code class="language-html">&lt;header&gt;&lt;nav aria-label=&quot;主导航&quot;&gt;…&lt;/nav&gt;&lt;/header&gt;
+&lt;main&gt;
+  &lt;section class=&quot;hero&quot;&gt;
+    &lt;h1&gt;AI 海报生成器：输入一句话，30 秒得到可商用海报&lt;/h1&gt;
+    &lt;p&gt;给小红书、电商和活动运营用的海报工具，免登录先试 3 张。&lt;/p&gt;
+    &lt;a href=&quot;/app&quot;&gt;免费生成第一版&lt;/a&gt;
+  &lt;/section&gt;
+  &lt;section&gt;&lt;h2&gt;为什么手动做海报总是来不及？&lt;/h2&gt;…&lt;/section&gt;
+  &lt;section&gt;&lt;h2&gt;我们怎么解决&lt;/h2&gt;&lt;h3&gt;批量生成同系列海报&lt;/h3&gt;…&lt;/section&gt;
+  &lt;section&gt;&lt;h2&gt;如何使用 AI 海报生成器&lt;/h2&gt;&lt;ol&gt;&lt;li&gt;…&lt;/li&gt;&lt;li&gt;…&lt;/li&gt;&lt;li&gt;…&lt;/li&gt;&lt;/ol&gt;&lt;/section&gt;
+  &lt;section&gt;&lt;h2&gt;真实案例&lt;/h2&gt;&lt;figure&gt;…&lt;/figure&gt;&lt;blockquote&gt;…&lt;/blockquote&gt;&lt;/section&gt;
+  &lt;section&gt;&lt;h2&gt;AI 海报生成器 vs 传统设计流程&lt;/h2&gt;&lt;table&gt;…&lt;/table&gt;&lt;/section&gt;
+  &lt;section&gt;&lt;h2&gt;常见问题&lt;/h2&gt;&lt;h3&gt;生成的海报可以商用吗？&lt;/h3&gt;&lt;p&gt;可以。……&lt;/p&gt;&lt;/section&gt;
+&lt;/main&gt;
+&lt;footer&gt;…&lt;/footer&gt;
+</code></pre>
+<hr>
+<h2>2. 标签重要性评分表</h2>
+<p>综合《SEO 中最重要的标签详解》的评分和《SEO中的重要标签》速查表（分数为原文的主观评分，满分 5）：</p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>作用对象</th>
+<th>排名影响</th>
+<th>难度</th>
+<th>优先级</th>
+<th>2026 备注</th>
+<th>auditor</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;title&gt;</code></td>
+<td>搜索引擎</td>
+<td>5</td>
+<td>1</td>
+<td>5</td>
+<td>页面上权重最高的相关性信号 + 点击率</td>
+<td><code>onpage-title</code></td>
+</tr>
+<tr>
+<td>meta description</td>
+<td>SERP 摘要</td>
+<td>3（通过点击率间接影响）</td>
+<td>1</td>
+<td>4</td>
+<td>经常被 Google 改写</td>
+<td><code>onpage-meta-description</code></td>
+</tr>
+<tr>
+<td>img <code>alt</code></td>
+<td>图片搜索、无障碍</td>
+<td>4</td>
+<td>2</td>
+<td>4</td>
+<td>原文称 Google 图片约占总搜索流量的 20–25%（原文数字，请谨慎引用）</td>
+<td><code>img-alt</code></td>
+</tr>
+<tr>
+<td>Schema / JSON-LD</td>
+<td>富结果、实体、AI</td>
+<td>3（直接影响 2，富结果点击率 4）</td>
+<td>3</td>
+<td>4</td>
+<td>FAQ / HowTo 富结果已大幅收缩，见第 9 节</td>
+<td><code>serp-structured-data</code></td>
+</tr>
+<tr>
+<td>H1–H6</td>
+<td>内容层级</td>
+<td>高</td>
+<td>1</td>
+<td>5</td>
+<td>每页一个 H1，层级不要跳级</td>
+<td><code>onpage-h1</code></td>
+</tr>
+<tr>
+<td>canonical</td>
+<td>去重</td>
+<td>间接</td>
+<td>2</td>
+<td>5</td>
+<td>每页指向自己（自引用）</td>
+<td><code>tech-canonical</code></td>
+</tr>
+<tr>
+<td>meta robots</td>
+<td>是否收录</td>
+<td>决定性</td>
+<td>1</td>
+<td>5</td>
+<td>重要页面不能出现 noindex</td>
+<td><code>tech-indexable</code></td>
+</tr>
+<tr>
+<td>Open Graph</td>
+<td>社交分享卡片</td>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td>影响分享点击率和可信度</td>
+<td><code>social-open-graph</code></td>
+</tr>
+<tr>
+<td>Twitter Card</td>
+<td>X 分享卡片</td>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td>—</td>
+<td><code>social-twitter-card</code></td>
+</tr>
+<tr>
+<td>hreflang</td>
+<td>多语言 / 多地区</td>
+<td>间接</td>
+<td>3</td>
+<td>视情况</td>
+<td>必须双向引用 + x-default</td>
+<td><code>tech-hreflang</code></td>
+</tr>
+<tr>
+<td>viewport</td>
+<td>移动端友好</td>
+<td>间接（移动优先索引）</td>
+<td>1</td>
+<td>5</td>
+<td>—</td>
+<td><code>tech-viewport</code></td>
+</tr>
+<tr>
+<td>meta keywords</td>
+<td>—</td>
+<td>1（可以忽略）</td>
+<td>1</td>
+<td>1</td>
+<td>Google 不读取；百度权重极低</td>
+<td>—</td>
+</tr>
+<tr>
+<td>meta refresh</td>
+<td>—</td>
+<td>负面</td>
+<td>—</td>
+<td>不要用</td>
+<td>改用服务端 301 / 302</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. TDK：Title / Description / Keywords</h2>
+<p>TDK 是搜索引擎理解页面的&quot;第一入口&quot;，不是排名捷径。<strong>Title、H1、description、正文主题、内链锚文本、Schema 必须讲的是同一件事</strong>，这种一致性能让主题理解更稳定。</p>
+<h3>3.1 Title</h3>
+<table>
+<thead>
+<tr>
+<th>规则</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>长度</td>
+<td>英文 <strong>约 50–60 个字符（约 580px）</strong>；中文 <strong>约 30 个汉字以内</strong>（中文按像素宽度算，一个汉字约等于两个英文字符）。auditor 的容忍范围是 15–65 个字符</td>
+</tr>
+<tr>
+<td>关键词位置</td>
+<td>主关键词放在 <strong>前半部分</strong>，越靠前越好</td>
+</tr>
+<tr>
+<td>唯一性</td>
+<td>全站每个可索引页面的 title 都不一样（<code>onpage-title-unique</code>）；大量重复的 title 会削弱全站表现</td>
+</tr>
+<tr>
+<td>分隔符</td>
+<td>两段式标题用 <code>｜</code>、<code>-</code> 或 <code>，</code> 分隔，品牌名放最后</td>
+</tr>
+<tr>
+<td>禁止</td>
+<td>堆砌关键词（同一个词出现两次以上）、和内容不符（会被 Google 改写，也会损失点击）</td>
+</tr>
+</tbody></table>
+<p><strong>写法公式</strong></p>
+<pre><code class="language-text">工具 / 落地页：主关键词 + 核心利益 / 场景 ｜ 品牌
+文章：        主关键词（问题或数字）+ 具体收获（补充说明）
+对比页：      X vs Y：差异点 + 适合谁（年份）
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>❌ 差</th>
+<th>✅ 好</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>首页</td>
+<td>AI 海报生成器：30 秒生成可商用海报 ｜ ExampleAI</td>
+<td>有关键词和利益点</td>
+</tr>
+<tr>
+<td>AI海报,AI设计,AI生成海报,海报生成器,免费海报</td>
+<td>免费 AI 海报生成器（无需登录）</td>
+<td>不堆砌</td>
+</tr>
+<tr>
+<td>The Best Revolutionary Next-Gen AI Image Platform</td>
+<td>AI Image Editor – Edit Photos with Text Prompts, Free</td>
+<td>用大白话、带关键词</td>
+</tr>
+<tr>
+<td>2025 年最全 SEO 指南</td>
+<td>SEO 入门指南：从 0 到第一批自然流量（含 12 个实战案例）</td>
+<td>不靠堆年份和形容词；如果写了年份，就要每年真的更新内容</td>
+</tr>
+</tbody></table>
+<h3>3.2 Meta description</h3>
+<ul>
+<li>不直接影响排名，但决定点击率。和查询匹配时 Google 倾向于直接使用它，否则会从正文里截取一段。</li>
+<li>长度：英文约 <strong>120–155 个字符</strong>，中文约 <strong>70–80 个汉字</strong>（auditor 范围 50–165）。</li>
+<li>当成广告文案来写：<strong>解决什么问题 + 怎么解决 / 差异点 + 行动</strong>，主关键词自然出现一次。</li>
+<li>每页唯一，不要全站共用一段。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>❌ 差</th>
+<th>✅ 好</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ExampleAI 是一个 AI 设计工具，AI 设计，AI 海报，AI 封面，AI 图片……</td>
+<td>输入一句话，30 秒生成小红书、电商、活动海报。支持批量生成和高清导出，免登录先试 3 张。</td>
+</tr>
+<tr>
+<td>Welcome to our website. We offer the best solutions.</td>
+<td>Convert bank statement PDFs to Excel in seconds. Keeps tables and dates intact, works with 500+ banks. Try 3 files free.</td>
+</tr>
+</tbody></table>
+<h3>3.3 Keywords</h3>
+<p>Google 忽略，Bing 大幅降权，百度权重也很低。只有在面向百度、或者站内 CMS / 站内搜索需要的时候才写：3–5 个和本页相关的词，用英文逗号分隔。</p>
+<blockquote>
+<p>⚠️ <strong>2026 更新</strong>：《什么样的文章容易获得排名》中提到的&quot;description 里关键词出现约 3 次&quot;&quot;关键词密度 2%–8%&quot;&quot;必须写 meta keywords&quot;都是百度时代的老规则，放到今天容易变成关键词堆砌。现在的标准是：<strong>关键词在 title、H1、开头段落、description 里各自然出现一次，正文用同义词和相关实体去覆盖主题</strong>。另外，Google 从 2021 年起会大规模改写 title 链接，description 被改写的比例更高。可以在 GSC 里找点击率偏低的页面，优先改写它们的 title 和 description。</p>
+</blockquote>
+<hr>
+<h2>4. H 标签</h2>
+<ul>
+<li><strong>每页只有一个 H1</strong>，包含主关键词，用大白话写。避免&quot;重新定义&quot;&quot;赋能&quot;&quot;下一代&quot;这类空洞词。</li>
+<li>H2 对应页面模块（痛点、方案、步骤、对比、FAQ），H3 对应模块内的子项。<strong>不要跳级</strong>，比如 H2 后面直接接 H4（<code>onpage-heading-hierarchy</code>）。</li>
+<li>目录结构要围绕主关键词展开。SERP 分析时我们也是用&quot;Title 完整包含关键词、H1 直接命中、目录围绕它&quot;来判断竞品是否专门为这个词而写的。</li>
+<li>不要为了样式滥用 H 标签，字号用 CSS 控制。</li>
+</ul>
+<hr>
+<h2>5. 图片与 Alt</h2>
+<table>
+<thead>
+<tr>
+<th>图片类型</th>
+<th>alt 怎么写</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>信息类（产品图、信息图、图表、截图）</td>
+<td>用一句话描述<strong>图片传达的关键信息</strong>，关键词自然出现</td>
+<td><code>alt=&quot;AI 海报生成器批量生成 6 张同系列促销海报的界面&quot;</code></td>
+</tr>
+<tr>
+<td>UI 截图 / 功能演示</td>
+<td>写清楚展示的是哪个功能</td>
+<td><code>alt=&quot;PDF 转 Excel 后保留原表格结构的对比截图&quot;</code></td>
+</tr>
+<tr>
+<td>Logo</td>
+<td>品牌 + 定位</td>
+<td><code>alt=&quot;ExampleAI – AI 设计工具&quot;</code></td>
+</tr>
+<tr>
+<td>装饰性图片（背景、分隔线）</td>
+<td><strong><code>alt=&quot;&quot;</code></strong>（保留属性，内容为空），让屏幕阅读器跳过</td>
+<td><code>alt=&quot;&quot;</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li>❌ 常见错误：不写 alt、堆砌关键词（&quot;AI工具 AI设计 AI生成 Logo设计…&quot;）、写成&quot;图片1&quot;&quot;img123&quot;、所有图片共用同一段 alt。</li>
+<li>alt 和 title 属性的区别：alt 是替代文本，影响无障碍和 SEO，非装饰图片必须写；title 只是悬停提示，对 SEO 作用很小，可写可不写。</li>
+<li><strong>文件名</strong>也要描述内容，例如 <code>ai-poster-batch-generation.webp</code>，不要用 <code>IMG_1234.png</code>。</li>
+<li>必须写 <code>width</code> 和 <code>height</code>，防止布局偏移（<code>img-dimensions</code>）。体积 ≤ 200KB，优先用 WebP / AVIF（<code>img-optimized</code>）。</li>
+<li>首屏以下的图片加 <code>loading=&quot;lazy&quot;</code>；<strong>首屏主图（LCP 元素）不要懒加载</strong>。</li>
+<li>图片较多的网站（设计、素材类）可以加图片 sitemap（见 <a href="../03-technical-seo-and-infra/">03 章</a>）。</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>2026 更新</strong>：《Alt标签》中的建议都还有效。需要补充的一点是：《什么样的文章容易获得排名》建议&quot;每张图的 alt 都带页面关键词&quot;。现在更好的做法是<strong>描述图片本身</strong>，关键词只在确实相关时出现。这样也符合 WCAG 1.1.1 的要求。</p>
+</blockquote>
+<hr>
+<h2>6. Canonical vs 301</h2>
+<p><strong>重复 URL 从哪来</strong>：URL 参数（排序、筛选、UTM）、结尾带不带 <code>/</code>、HTTP 和 HTTPS、www 和裸域、分页 / 排序 / 筛选页、同一商品挂在多个分类路径下、A/B 测试 URL、几乎一样的模板页。</p>
+<p>重复内容本身不会被惩罚，真正的问题是<strong>信号分散，搜索引擎不知道该选哪个</strong>。</p>
+<pre><code class="language-html">&lt;!-- 每个可索引页面：一个、绝对地址、指向自己 --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/pdf-to-excel&quot;&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>canonical</th>
+<th>301</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用户会不会被跳转</td>
+<td>不会</td>
+<td>会</td>
+</tr>
+<tr>
+<td>权重合并方式</td>
+<td>信号级（提示，Google 可能不采纳）</td>
+<td>强制</td>
+</tr>
+<tr>
+<td>原页面还能访问吗</td>
+<td>能</td>
+<td>不能</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>内容相似、需要保留的多个版本（参数页、多分类路径、A/B 页、转载）</td>
+<td>内容已经迁移（改域名、改路径、合并文章）</td>
+</tr>
+<tr>
+<td>一句话</td>
+<td>&quot;这一页不是首选版本&quot;</td>
+<td>&quot;这一页已经不存在了&quot;</td>
+</tr>
+</tbody></table>
+<p><strong>Google 可能忽略你的 canonical</strong>：目标页返回 404 或报错；目标页内容明显不同；canonical 互相指向形成循环；页面整体质量太低。</p>
+<p><strong>自查</strong>：</p>
+<ul>
+<li>每个可索引页面有 <strong>且只有一个</strong> 自引用的绝对 canonical（<code>tech-canonical</code>）。</li>
+<li>canonical 指向的页面返回 200、可以被索引、没有被重定向。</li>
+<li><code>?utm_source=x</code> 这类变体页面的 canonical 指向干净 URL。</li>
+<li>在 GSC 的网址检查里，&quot;Google 选择的规范网址&quot;和&quot;用户声明的规范网址&quot;一致。</li>
+<li>转载到 Medium / Dev.to / Hashnode 的文章，canonical 指回原文（见 <a href="../04-content-and-eeat/">04 章</a>）。</li>
+</ul>
+<hr>
+<h2>7. meta robots</h2>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;noindex, follow&quot;&gt;   &lt;!-- 内容单薄的页面、工具结果页、站内搜索结果页 --&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;                                &lt;!-- tech-html-lang --&gt;
+</code></pre>
+<ul>
+<li>重要页面<strong>绝对不能</strong>带 <code>noindex</code>（<code>tech-indexable</code>）。上线前要把测试环境的全局 noindex 去掉，这是很常见的事故。</li>
+<li>不要用 <code>&lt;meta http-equiv=&quot;refresh&quot;&gt;</code> 做跳转，改用服务端 301 / 302。</li>
+<li>多语言站点用 hreflang，必须<strong>双向互指</strong>，并加上 <code>x-default</code>（<code>tech-hreflang</code>）：</li>
+</ul>
+<pre><code class="language-html">&lt;link rel=&quot;alternate&quot; hreflang=&quot;en&quot; href=&quot;https://example.com/en/pdf-to-excel&quot;&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;zh-CN&quot; href=&quot;https://example.com/zh/pdf-to-excel&quot;&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;x-default&quot; href=&quot;https://example.com/en/pdf-to-excel&quot;&gt;
+</code></pre>
+<hr>
+<h2>8. Open Graph 与 Twitter 卡片</h2>
+<p>SEO 标签管&quot;搜索&quot;，OG 标签管&quot;传播&quot;。OG 不影响排名，但决定链接在微信、X、Telegram、Slack 里的卡片样式，进而影响点击率和可信度。</p>
+<pre><code class="language-html">&lt;meta property=&quot;og:title&quot; content=&quot;30 秒做一张可商用海报：AI 海报生成器&quot;&gt;
+&lt;meta property=&quot;og:description&quot; content=&quot;输入一句话，批量生成同系列海报，免登录先试 3 张。&quot;&gt;
+&lt;meta property=&quot;og:url&quot; content=&quot;https://example.com/&quot;&gt;          &lt;!-- 等于 canonical，不带参数 --&gt;
+&lt;meta property=&quot;og:type&quot; content=&quot;website&quot;&gt;                       &lt;!-- 首页 website / 文章 article / 产品 product --&gt;
+&lt;meta property=&quot;og:image&quot; content=&quot;https://example.com/og/home.png&quot;&gt;  &lt;!-- 绝对 https 地址，1200×630 --&gt;
+&lt;meta property=&quot;og:image:width&quot; content=&quot;1200&quot;&gt;
+&lt;meta property=&quot;og:image:height&quot; content=&quot;630&quot;&gt;
+&lt;meta name=&quot;twitter:card&quot; content=&quot;summary_large_image&quot;&gt;
+</code></pre>
+<p><strong>og:image 规格</strong>：绝对 https URL；推荐 <strong>1200×630</strong>；体积尽量小（建议 &lt; 1MB）；服务器必须允许外部抓取，防盗链和 Cloudflare 挑战不能拦截平台爬虫。</p>
+<p><strong>常见坑</strong></p>
+<table>
+<thead>
+<tr>
+<th>坑</th>
+<th>解决</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>只有首页配置了 OG</td>
+<td>在模板层面给所有页面输出 OG</td>
+</tr>
+<tr>
+<td>用 Logo 做 og:image（大片留白 + 很小的 Logo）</td>
+<td>文章用封面图，产品页用 UI 截图或场景图</td>
+</tr>
+<tr>
+<td>改了 OG 但平台还显示旧卡片</td>
+<td>用 Facebook Sharing Debugger 强制重新抓取</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>⚠️ <strong>2026 更新</strong>：原文推荐用 Twitter Card Validator 刷新卡片。X 的 Card Validator 从 2022 年起就不再提供预览了，现在只能在发帖编辑框里直接看预览。OG 图片生成器可以用 <img src="https://www.google.com/s2/favicons?domain=ogimage.click&sz=32" width="16" height="16" alt=""> <a href="https://ogimage.click/">OGImage</a> 或 <img src="https://www.google.com/s2/favicons?domain=ogimagemaker.com&sz=32" width="16" height="16" alt=""> <a href="https://ogimagemaker.com/">OGImageMaker</a>，都是免费的。</p>
+</blockquote>
+<hr>
+<h2>9. Schema 结构化数据（JSON-LD）</h2>
+<p>Schema.org 是 2011 年由 Google、Bing、Yahoo 和 Yandex 共同发起的词汇表。它<strong>不是直接的排名因素</strong>，作用是让页面<strong>有资格</strong>获得富结果（但不保证一定有），同时给 AI 搜索和知识图谱提供一份&quot;机器可读的品牌档案&quot;。</p>
+<p><strong>语法选择</strong>：JSON-LD（Google 推荐，和 HTML 分离，好维护）&gt; Microdata（内嵌在 HTML 里，比较乱）&gt; RDFa（SEO 场景很少用）。</p>
+<table>
+<thead>
+<tr>
+<th>页面</th>
+<th>推荐类型</th>
+<th>关键字段</th>
+<th>auditor</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>首页</td>
+<td><code>Organization</code> + <code>WebSite</code></td>
+<td>name、url、logo、sameAs（社交账号）</td>
+<td><code>serp-entity-schema</code></td>
+</tr>
+<tr>
+<td>产品 / 工具页</td>
+<td><code>SoftwareApplication</code>（或 <code>Product</code>）</td>
+<td>name、applicationCategory、operatingSystem、offers（price、priceCurrency）</td>
+<td><code>serp-structured-data</code></td>
+</tr>
+<tr>
+<td>文章</td>
+<td><code>Article</code> / <code>BlogPosting</code></td>
+<td>headline、author（Person）、datePublished、dateModified、image</td>
+<td><code>serp-structured-data</code></td>
+</tr>
+<tr>
+<td>内页</td>
+<td><code>BreadcrumbList</code></td>
+<td>itemListElement（position、name、item）</td>
+<td><code>serp-breadcrumbs</code></td>
+</tr>
+<tr>
+<td>FAQ 区块</td>
+<td><code>FAQPage</code></td>
+<td>mainEntity → Question / acceptedAnswer</td>
+<td><code>geo-faq-blocks</code></td>
+</tr>
+<tr>
+<td>实体店</td>
+<td><code>LocalBusiness</code></td>
+<td>地址、营业时间</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<p><strong>原则</strong>：标记内容必须和页面上可见的内容一致；<strong>禁止伪造评分和评论</strong>（有被处罚的风险）；类型要选对，不要为了富结果乱用类型；优先给首页、文章页和产品页加 Schema，不是每个页面都需要。</p>
+<p><strong>首页：Organization + WebSite</strong></p>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@graph&quot;: [
+    {
+      &quot;@type&quot;: &quot;Organization&quot;,
+      &quot;@id&quot;: &quot;https://example.com/#org&quot;,
+      &quot;name&quot;: &quot;Example AI&quot;,
+      &quot;url&quot;: &quot;https://example.com/&quot;,
+      &quot;logo&quot;: &quot;https://example.com/logo.png&quot;,
+      &quot;sameAs&quot;: [&quot;https://x.com/example&quot;, &quot;https://github.com/example&quot;]
+    },
+    {
+      &quot;@type&quot;: &quot;WebSite&quot;,
+      &quot;@id&quot;: &quot;https://example.com/#website&quot;,
+      &quot;url&quot;: &quot;https://example.com/&quot;,
+      &quot;name&quot;: &quot;Example AI&quot;,
+      &quot;publisher&quot;: { &quot;@id&quot;: &quot;https://example.com/#org&quot; },
+      &quot;inLanguage&quot;: &quot;zh-CN&quot;
+    }
+  ]
+}
+&lt;/script&gt;
+</code></pre>
+<p><strong>产品页：SoftwareApplication</strong></p>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;SoftwareApplication&quot;,
+  &quot;name&quot;: &quot;Example PDF to Excel&quot;,
+  &quot;applicationCategory&quot;: &quot;BusinessApplication&quot;,
+  &quot;operatingSystem&quot;: &quot;Web&quot;,
+  &quot;url&quot;: &quot;https://example.com/pdf-to-excel&quot;,
+  &quot;offers&quot;: { &quot;@type&quot;: &quot;Offer&quot;, &quot;price&quot;: &quot;0&quot;, &quot;priceCurrency&quot;: &quot;USD&quot; },
+  &quot;publisher&quot;: { &quot;@id&quot;: &quot;https://example.com/#org&quot; }
+}
+&lt;/script&gt;
+</code></pre>
+<p><strong>文章页：BlogPosting + BreadcrumbList</strong></p>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@graph&quot;: [
+    {
+      &quot;@type&quot;: &quot;BlogPosting&quot;,
+      &quot;headline&quot;: &quot;如何把银行流水 PDF 转成 Excel&quot;,
+      &quot;author&quot;: { &quot;@type&quot;: &quot;Person&quot;, &quot;name&quot;: &quot;张三&quot;, &quot;url&quot;: &quot;https://example.com/about&quot; },
+      &quot;datePublished&quot;: &quot;2026-03-02&quot;,
+      &quot;dateModified&quot;: &quot;2026-10-20&quot;,
+      &quot;image&quot;: &quot;https://example.com/og/bank-statement.png&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;BreadcrumbList&quot;,
+      &quot;itemListElement&quot;: [
+        { &quot;@type&quot;: &quot;ListItem&quot;, &quot;position&quot;: 1, &quot;name&quot;: &quot;首页&quot;, &quot;item&quot;: &quot;https://example.com/&quot; },
+        { &quot;@type&quot;: &quot;ListItem&quot;, &quot;position&quot;: 2, &quot;name&quot;: &quot;博客&quot;, &quot;item&quot;: &quot;https://example.com/blog/&quot; },
+        { &quot;@type&quot;: &quot;ListItem&quot;, &quot;position&quot;: 3, &quot;name&quot;: &quot;银行流水 PDF 转 Excel&quot; }
+      ]
+    }
+  ]
+}
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>⚠️ <strong>2026 更新（富结果变化）</strong></p>
+<ul>
+<li><strong>FAQ 富结果</strong>：从 2023 年 8 月起，Google 只给少数权威的政府和健康类网站展示 FAQ 折叠问答。原文说的&quot;FAQ schema 能大幅提升点击率&quot;，对普通网站已经不成立了。不过 FAQ 内容和 <code>FAQPage</code> 标记仍然有价值：它们能帮助语义理解、长尾覆盖和 AI 引用。</li>
+<li><strong>HowTo 富结果</strong>：2023 年已经停止展示，不用专门为它加标记。</li>
+<li><strong>SoftwareApplication 富结果</strong>：一般需要 <code>aggregateRating</code> 或 <code>review</code> 才有资格展示。<strong>没有真实评分就不要加</strong>，自己给自己打分（self-serving review）不会被展示，还可能被处罚。</li>
+<li>验证工具：Google Rich Results Test 和 Schema Markup Validator，要求 0 错误。上线后看 GSC&quot;增强功能&quot;报告。</li>
+</ul>
+</blockquote>
+<hr>
+<h2>10. URL 规范</h2>
+<table>
+<thead>
+<tr>
+<th>✅ 好</th>
+<th>❌ 差</th>
+<th>规则</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/pdf-to-excel</code></td>
+<td><code>/tool?id=37&amp;ref=nav</code></td>
+<td>短、有语义、包含关键词 slug，不带参数</td>
+</tr>
+<tr>
+<td><code>/blog/instagram-poster-size</code></td>
+<td><code>/Blog/Instagram_Poster_Size.html</code></td>
+<td>全部小写，用连字符，不用下划线（<code>tech-clean-urls</code>）</td>
+</tr>
+<tr>
+<td><code>/alternatives/canva</code></td>
+<td><code>/2026/10/31/post-12345</code></td>
+<td>不用日期和自增 ID</td>
+</tr>
+<tr>
+<td><code>example.com/blog/</code></td>
+<td><code>blog.example.com</code></td>
+<td>博客放在子目录，权重归属主域名（见 <a href="../03-technical-seo-and-infra/">03 章</a>）</td>
+</tr>
+</tbody></table>
+<ul>
+<li>结尾的 <code>/</code> 全站统一：一个版本返回 200，另一个 301 过去。canonical 也要和它一致。</li>
+<li><strong>URL 一旦发布就不要随便改</strong>。必须改的时候准备一张 301 映射表，内链也同步更新。</li>
+<li>中文 slug 可以用，但 sitemap 里必须做百分号编码。英文站一律用英文 slug。</li>
+</ul>
+<hr>
+<h2>11. 内链与面包屑</h2>
+<p>内链有两个作用：<strong>帮助搜索引擎发现页面，以及在站内分配权重</strong>。</p>
+<ol>
+<li><strong>首页链接到重要子页面</strong>，分类页链接到所有子页面，深层页面至少有一条入口，<strong>不要出现孤儿页</strong>。</li>
+<li>每个功能区块、每个使用场景都链接到对应的详情页或文章；<strong>博客文章和产品页互相链接</strong>。</li>
+<li>每个页面至少链接 2 个站内其他页面（<code>links-internal</code>）。</li>
+<li>锚文本要有描述性，比如&quot;银行流水 PDF 转 Excel 教程&quot;，不要用&quot;点击这里&quot;&quot;了解更多&quot;（<code>links-anchor-text</code>）。</li>
+<li>内链只用主域名（不要混用 www 和裸域），也不要给内链加 <code>nofollow</code>。</li>
+<li>内页加可见的面包屑导航 + <code>BreadcrumbList</code> schema（<code>serp-breadcrumbs</code>）。</li>
+<li>主题集群：用&quot;5 篇文章法&quot;集中推一个长尾词（见 <a href="../04-content-and-eeat/">04 章</a>）。</li>
+</ol>
+<blockquote>
+<p>⚠️ <strong>2026 更新</strong>：Google 从 2025 年起在移动端搜索结果里只显示域名，不再显示面包屑路径。面包屑现在的主要价值在于帮助理解站点结构、桌面端展示和站内导航，标记还是要加的。</p>
+</blockquote>
+<hr>
+<h2>12. 上线前标签自查（10 分钟版）</h2>
+<pre><code class="language-text">[ ] 每页唯一的 &lt;title&gt;，主关键词靠前，长度合规            onpage-title / onpage-title-unique
+[ ] 每页唯一的 meta description，像广告文案              onpage-meta-description
+[ ] 只有一个 H1，H2/H3 不跳级                             onpage-h1 / onpage-heading-hierarchy
+[ ] 关键词出现在 title、H1、description、首段             onpage-keyword-placement
+[ ] 自引用的绝对 canonical；重要页面没有 noindex           tech-canonical / tech-indexable
+[ ] viewport、lang、favicon                               tech-viewport / tech-html-lang / tech-favicon
+[ ] 所有内容图片有 alt + width/height，体积 ≤200KB         img-alt / img-dimensions / img-optimized
+[ ] OG 五件套 + twitter:card，og:image 为 1200×630         social-open-graph / social-twitter-card
+[ ] JSON-LD 有效：Organization+WebSite、页面类型、面包屑    serp-structured-data / serp-entity-schema / serp-breadcrumbs
+[ ] URL 干净；每页 ≥2 条描述性内链                        tech-clean-urls / links-internal / links-anchor-text
+</code></pre>
+<p>可以用 <code>node auditor/audit.mjs --url https://你的站/ --name mysite --keyword &quot;主关键词&quot;</code> 一次性检查上面大部分条目。</p>
+<hr>
+<h2>来源</h2>
+<ul>
+<li><a href="https://lownrain.feishu.cn/wiki/MxfOwgvDHiDeDPkaQ0dcu4cMnIe">网站页面结构设计</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/AEp0wNlm7izUbJkSRhwcYFton3e">页面结构示例</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/L9viw7hpKipIWukIjJVcqDqMnMe">TDK标签</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/GPAqwn5XQiIr0Vk6YYKcN3D9nbf">Schema标签</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/QuOxwc3oBiUHOKktrGbcI9sAnqd">Canonical标签</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/VWqQw8FBCiFOq6khARKcPveTn3c">Alt标签</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/Kpubwg4KtiVssdkCLNHcmZ2anme">OG标签</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/LizRwGMxiiJt1ck2pBOcB2KTnQf">SEO中的重要标签</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/ELffwFhtAiygNtksXDVcFbponub">SEO 中最重要的标签详解：TDK、Alt、Schema 到底怎么影响排名</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/QMDhwR8QOifSxvkhmzTcPC06nrb">什么样的文章容易获得排名</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/T3mnwUqeRiqfOyk8XBBc2zmHnpf">通过SEO打造自然增长产品</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/BBduwEGPLi9LUjkSnyucea3FnYg">域名配置</a>（独立开发前线｜SEO从0到100）</li>
+<li><a href="https://lownrain.feishu.cn/wiki/FHOCwhu0uii39nkFwuVcaVLenSe">产品上线TodoList</a>（独立开发前线｜SEO从0到100）</li>
+</ul>
+</article>
+</div>
+</body>
+</html>
