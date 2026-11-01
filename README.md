@@ -11,6 +11,10 @@
 | 🧪 **Before / After Demo** | `demos/before/` · `demos/after/` | 同一个虚构产品（Vexlora 仓位计算器），未优化 vs 按 checklist 优化 |
 | 📊 **对比报告** | `reports/comparison.html` · `reports/*.json` | 逐条对照、Lighthouse、SERP 预览、Google 排名实验步骤 |
 
+## 离线预览
+
+zip 包里的 `_preview/` 是已构建好的站点（相对链接），直接用浏览器打开 `_preview/index.html` 就能浏览 Checklist 工具、手册、两个 demo 和对比报告，不需要安装任何东西。
+
 ## 快速开始
 
 ```bash
@@ -36,7 +40,7 @@ auditor 能自动判断 39 条（🤖 标记）：title / description / H1 / 关
 |---|---|---|
 | Checklist 自动审计 | 8 / 100 | 100 / 100 |
 | Lighthouse 移动端 性能 / SEO / 无障碍 / 最佳实践 | 64 / 73 / 51 / 96 | 100 / 100 / 100 / 100 |
-| LCP | 18.1 s | 1.4 s |
+| LCP（移动端实验室） | 18.1 s | 1.3 s |
 | 首页体积 | 3.3 MB | 47 KB |
 
 详见 `reports/comparison.md`，以及部署后的 `/reports/` 页面。
