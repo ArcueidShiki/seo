@@ -1,0 +1,40 @@
+# Builds the handbook site + both demos and publishes _site/ to the gh-pages branch.
+# One-time setup: Settings → Pages → Build and deployment → Source: "Deploy from a branch" → gh-pages / (root).
+# Optional repository variables (Settings → Secrets and variables → Actions → Variables):
+#   GSC_VERIFICATION  Google Search Console HTML-tag token
+#   BING_VERIFICATION Bing Webmaster token
+#   GA_ID             GA4 measurement ID (G-XXXXXXX) — injected into Demo B only
+#   PLAUSIBLE_DOMAIN  Plausible site domain
+name: Build & deploy site
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Merge checklist
+        run: node scripts/make-checklist.mjs
+      - name: Build site
+        env:
+          SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+          GSC_VERIFICATION: ${{ vars.GSC_VERIFICATION }}
+          BING_VERIFICATION: ${{ vars.BING_VERIFICATION }}
+          GA_ID: ${{ vars.GA_ID }}
+          PLAUSIBLE_DOMAIN: ${{ vars.PLAUSIBLE_DOMAIN }}
+        run: node scripts/build.mjs
+      - name: Publish to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          force_orphan: true

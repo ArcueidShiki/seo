@@ -1,0 +1,46 @@
+[
+  {"id": "perf-edge-cache-html", "cat": "performance", "phase": "build", "priority": "P1",
+   "title": "营销页 HTML 走 CDN 边缘缓存，海外 TTFB < 200 ms",
+   "why": "只缓存图片和 JS、不缓存 HTML 时，海外用户的 TTFB 常在 800 ms 以上，直接拖慢 LCP。",
+   "checkAgainst": [
+     "/、/blog/*、/pricing、/docs/* 第二次请求的响应头 cf-cache-status: HIT",
+     "Cache Rule：Cache Everything，Edge TTL 6–24 小时，Browser TTL 1–4 小时；发布内容后清对应缓存",
+     "从美国、欧洲、东南亚至少 3 个测试点测 TTFB < 200 ms；≥ 800 ms 为不合格"
+   ],
+   "how": "Cloudflare → Caching → Cache Rules 新建「营销页」规则（按 URI Path 匹配，排在 API 绕过规则之后）；curl -sI 查看 cf-cache-status；WebPageTest 选不同地区测试 TTFB。",
+   "tools": ["cloudflare", "webpagetest", "pagespeed"]},
+
+  {"id": "perf-cdn-protocols", "cat": "performance", "phase": "build", "priority": "P2",
+   "title": "开启 HTTP/3、Early Hints 和 Brotli；代码压缩在构建时完成",
+   "why": "这些开关对 SaaS 没有副作用，对远距离用户收益最大。Cloudflare 的 Auto Minify 已在 2024 年下线，压缩要交给构建工具。",
+   "checkAgainst": [
+     "Cloudflare → Speed → Optimization 中 HTTP/3、Early Hints 已开启",
+     "HTML / CSS / JS 响应头 content-encoding 为 br 或 zstd",
+     "构建产物已压缩（Vite / Next.js / Astro 默认开启），不依赖 CDN 的 Auto Minify",
+     "DevTools → Network 的 Protocol 列显示 h3 或 h2"
+   ],
+   "how": "Cloudflare 后台检查开关；DevTools → Network 右键表头打开 Protocol 列；curl -sI -H 'Accept-Encoding: br' 查看编码。",
+   "tools": ["cloudflare"]},
+
+  {"id": "perf-third-party-budget", "cat": "performance", "phase": "build", "priority": "P1",
+   "title": "第三方脚本（统计、客服、广告、A/B 测试）有预算，每加一个都复测",
+   "why": "第三方脚本是 INP 和 CLS 退化最常见的原因，广告位和聊天插件尤其明显。",
+   "checkAgainst": [
+     "第三方脚本全部 async / defer 或在用户交互后加载；首页第三方域名 ≤ 5 个（经验值）",
+     "广告位、嵌入组件用 min-height 预留空间，加上后 CLS 仍 ≤ 0.1",
+     "每新增一个脚本，PageSpeed 前后对比：移动端性能分下降 ≤ 5、TBT 增加 ≤ 100 ms（经验阈值）"
+   ],
+   "how": "PageSpeed Insights →「减少第三方代码的影响」；DevTools → Network 按域名分组；Performance 面板录制一次交互查看长任务。",
+   "tools": ["pagespeed", "lighthouse"]},
+
+  {"id": "perf-field-data-monitor", "cat": "performance", "phase": "maintain", "priority": "P1",
+   "title": "每月复查真实用户数据（CrUX），流量不够时自己上报 Web Vitals",
+   "why": "排名用的是真实用户 28 天数据的第 75 百分位，实验室满分不代表真实体验好；INP 已于 2024 年 3 月取代 FID。",
+   "checkAgainst": [
+     "GSC → 核心网页指标：移动端和桌面端「较差」网址数 = 0，「需要改进」逐月减少",
+     "PageSpeed Insights 真实用户数据：LCP ≤ 2.5 s、INP ≤ 200 ms、CLS ≤ 0.1",
+     "流量不足、没有 CrUX 数据时，用 web-vitals 库把 INP / LCP / CLS 上报到 GA4 或 Plausible 自定义事件"
+   ],
+   "how": "每月第一周打开 GSC 核心网页指标报告；INP 问题用 DevTools Performance 面板录制交互，找超过 50 ms 的长任务。",
+   "tools": ["gsc", "pagespeed", "ga4"]}
+]

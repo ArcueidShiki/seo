@@ -1,0 +1,120 @@
+[
+  {"id": "infra-domain-choice", "cat": "infra", "phase": "plan", "priority": "P0",
+   "title": "选一个短、好记、好拼写的域名，优先 .com",
+   "why": "域名不是直接排名因素，但影响点击率、信任和口碑传播；上线后再换域名代价很大。",
+   "checkAgainst": [
+     "主体 ≤ 15 个字符，无连字符、无数字，听一遍就能拼出来",
+     "优先 .com；.ai / .io / .co 被 Google 当作通用顶级域，可以用；.cn / .de 等国家域名会被地理定向",
+     "包含主关键词（如 HeadshotPro.com）或是独特好搜的品牌词：在 Google 和百度搜索该词，没有同名大站",
+     "在 USPTO / WIPO 商标库和应用商店搜过，没有明显冲突",
+     "开启自动续费、WHOIS 隐私保护，注册商账号开启 2FA"
+   ],
+   "how": "在 Namecheap / Dynadot / Cloudflare Registrar 查可用性；oneword.domains、expireddomains.net 找短域名；商标查询用 tmsearch.uspto.gov 和 branddb.wipo.int。",
+   "tools": ["namecheap", "dynadot", "cloudflare", "google"]},
+
+  {"id": "infra-domain-due-diligence", "cat": "infra", "phase": "plan", "priority": "P1",
+   "title": "买老域名或二手域名前查历史：没被惩罚、没有垃圾外链",
+   "why": "曾被用作垃圾站或 PBN 的域名带着历史包袱，新内容很难获得排名。",
+   "checkAgainst": [
+     "Wayback Machine 历次快照中没有成人、博彩、药品、仿牌或外语垃圾内容",
+     "Ahrefs / Semrush 外链中没有大量垃圾锚文本，引用域名曲线没有异常暴涨后归零",
+     "Google 搜索 site:该域名 不是完全没有结果（被完全清空可能是惩罚）",
+     "ICANN Lookup 查到注册日期、到期日期和状态正常"
+   ],
+   "how": "web.archive.org 查看最早、中间年份和最近的快照；Ahrefs 免费 Backlink Checker 看前 100 条外链；lookup.icann.org 查 WHOIS。",
+   "tools": ["wayback", "ahrefs", "icann-lookup", "google"]},
+
+  {"id": "infra-single-host-301", "cat": "infra", "phase": "build", "priority": "P0",
+   "title": "www 和裸域只保留一个，另一个一跳 301 过去，并保留路径和参数",
+   "why": "www.example.com 和 example.com 技术上是两个站，不统一就会产生重复内容、分散外链权重。",
+   "checkAgainst": [
+     "curl -I https://www.example.com/blog/x 返回 301，Location 为 https://example.com/blog/x（路径和查询参数都保留）",
+     "两个主机名的 http:// 都一跳 301 到 https:// 主域名",
+     "站内链接、canonical、sitemap、og:url 全部使用主域名，从不混用"
+   ],
+   "how": "Cloudflare → Rules → Redirect Rules 建一条 301 规则（www 的 DNS 记录保持橙云代理，规则才会生效）；或在 Nginx 里 return 301 https://example.com$request_uri。",
+   "tools": ["cloudflare"]},
+
+  {"id": "infra-https-tls", "cat": "infra", "phase": "build", "priority": "P0",
+   "title": "全站 HTTPS：证书覆盖裸域和 www，自动续期，Cloudflare 用 Full (strict)",
+   "why": "HTTPS 是基础信任信号；证书过期会让整站在浏览器里报错，流量瞬间归零。",
+   "checkAgainst": [
+     "SSL Labs 评级 ≥ A，证书覆盖裸域、www 和正在使用的子域名",
+     "证书剩余有效期 > 30 天且配置了自动续期（Cloudflare 边缘证书、Let's Encrypt 或 AllinSSL）",
+     "Cloudflare SSL/TLS 加密模式为 Full (strict)，不是 Flexible（Flexible 容易造成重定向循环，且回源是明文）",
+     "页面无混合内容警告；所有子域名都支持 HTTPS 之后再开启 HSTS"
+   ],
+   "how": "ssllabs.com/ssltest 测试；Cloudflare → SSL/TLS → Overview；Chrome DevTools → Security 面板查看混合内容。",
+   "tools": ["ssllabs", "cloudflare"]},
+
+  {"id": "infra-cf-proxy-plan", "cat": "infra", "phase": "build", "priority": "P0",
+   "title": "按流量类型规划 Cloudflare 代理：人访问的走橙云，API 和 Webhook 走灰云",
+   "why": "Cloudflare 保护的是「人的访问层」；Webhook 和 API 被 WAF / Bot 规则误拦，就会出现「付了钱却没开通」或 OAuth 登录失败。",
+   "checkAgainst": [
+     "DNS 表：裸域、www、营销页、app.（控制台）为橙云；api.、hooks.（Webhook 接收）为灰云（仅 DNS）",
+     "Stripe / Paddle / Creem 等支付平台的 Webhook 投递日志全部 2xx，没有 403 或质询页面",
+     "OAuth 回调路径不缓存、不质询：无痕窗口完整走一遍 Google / GitHub 登录成功",
+     "Bot Fight Mode 无法用 WAF 规则豁免，因此被程序调用的接口不放在开启它的橙云主机名下"
+   ],
+   "how": "Cloudflare → DNS → Records 检查每条记录的代理状态；支付平台后台 → Webhooks 查看最近的投递记录和响应码。",
+   "tools": ["cloudflare", "stripe", "paddle", "creem"]},
+
+  {"id": "infra-cf-no-cache-private", "cat": "infra", "phase": "build", "priority": "P0",
+   "title": "API、登录、控制台、OAuth 回调绝不缓存",
+   "why": "缓存规则写错时，用户 A 会看到用户 B 的数据，这是最严重的事故之一。",
+   "checkAgainst": [
+     "/api/*、/auth/*、/dashboard/*、OAuth 回调的响应头 cf-cache-status 为 DYNAMIC 或 BYPASS",
+     "带 Set-Cookie 或 Authorization 的请求不会命中 Cache Everything 规则",
+     "用两个不同账号同时请求同一接口，返回的数据互不串号"
+   ],
+   "how": "Cloudflare → Caching → Cache Rules：给这些路径加 Bypass cache 规则，并放在营销页缓存规则之前；curl -sI 检查响应头。",
+   "tools": ["cloudflare"]},
+
+  {"id": "infra-cf-bot-waf", "cat": "infra", "phase": "build", "priority": "P1",
+   "title": "开启 Bot Fight Mode，登录 / 注册 / 找回密码加 WAF 质询和人机验证",
+   "why": "对 AI SaaS 来说，被刷意味着模型账单暴涨；批量注册脚本和撞库是最常见的攻击。",
+   "checkAgainst": [
+     "Security → Bots：Bot Fight Mode 已开启（API 主机已改为灰云）",
+     "WAF 自定义规则：/login、/register、/forgot-password 在 UA 异常或请求频率异常时 Managed Challenge，规则有命中日志",
+     "注册表单接入 Cloudflare Turnstile 或同类人机验证",
+     "平时 Under Attack 模式关闭，只在遭受攻击时临时开启"
+   ],
+   "how": "Cloudflare → Security → Bots / WAF → Custom rules（免费版可建 5 条）；Security → Events 查看命中记录。",
+   "tools": ["cloudflare"]},
+
+  {"id": "infra-cf-rate-limit", "cat": "infra", "phase": "build", "priority": "P0",
+   "title": "给昂贵接口加限流：/api、/auth、/generate、/chat",
+   "why": "限流的目的不是完美防御，而是提高攻击成本、保护模型调用费用。",
+   "checkAgainst": [
+     "速率限制规则覆盖 /api/*、/auth/login、/auth/register、/generate、/chat",
+     "参考阈值：单 IP 60 秒内 > 100 次 → Challenge 或 Block（Cloudflare 免费版规则数和计数窗口有限，例如只能用 10 秒窗口时可换算为 10 秒 > 20 次，以当前套餐说明为准）",
+     "应用层另有按用户 / API Key 的额度和每日上限，防止多号白嫖",
+     "压测验证：同一 IP 超过阈值后的请求被拦截或质询"
+   ],
+   "how": "Cloudflare → Security → WAF → Rate limiting rules；在测试环境用 k6 / autocannon / hey 发请求验证；应用层可用 Redis 计数或 Upstash Ratelimit。",
+   "tools": ["cloudflare"]},
+
+  {"id": "infra-domain-email", "cat": "infra", "phase": "launch", "priority": "P1",
+   "title": "配置域名邮箱，并设置 MX / SPF / DKIM / DMARC",
+   "why": "用域名邮箱做客服、外联和发收据更可信；Gmail 和 Yahoo 自 2024 年起要求所有发件人至少配置 SPF 或 DKIM，每天发 5,000 封以上的发件人三者（SPF、DKIM、DMARC）必须齐全，否则容易进垃圾箱或被拒收。",
+   "checkAgainst": [
+     "至少有 hello@ 或 support@ 一个域名地址，出现在页脚、隐私政策和外联邮件中",
+     "DNS 有 MX、SPF（只有一条 v=spf1 记录）、DKIM、DMARC（先用 p=none 并配置 rua 报告，2–4 周报告正常后改为 p=quarantine）",
+     "mail-tester.com 评分 ≥ 9/10；MXToolbox 的 SPF / DKIM / DMARC 检查全部通过",
+     "只收不发可用 Cloudflare Email Routing（免费转发）；需要发信用 Zoho Mail（免费最多 5 个用户）、Google Workspace 或注册商赠送的邮箱"
+   ],
+   "how": "在邮件服务商后台拿到 DNS 记录，填入 Cloudflare DNS；dig TXT _dmarc.example.com 验证；给 mail-tester 提供的地址发一封测试邮件。",
+   "tools": ["cloudflare", "mxtoolbox", "mailtester", "dynadot"]},
+
+  {"id": "infra-security-monitor", "cat": "infra", "phase": "maintain", "priority": "P1",
+   "title": "每月安全与可用性检查：GSC 安全问题、宕机监控、账号 2FA、域名到期",
+   "why": "被黑、被挂恶意代码、长时间宕机或域名过期，都会让排名和信任快速下降，而且往往不是自己最先发现。",
+   "checkAgainst": [
+     "GSC → 安全问题和人工处置：两项都是「未检测到任何问题」",
+     "可用性监控每 5 分钟检测首页和关键 API，宕机即时通知（邮件 / Telegram）",
+     "注册商、Cloudflare、GSC、支付平台、GitHub 账号全部开启 2FA；域名开启注册商锁定",
+     "域名到期日 > 60 天且自动续费开启"
+   ],
+   "how": "每月第一周检查；UptimeRobot 免费版做监控；在 ICANN Lookup 查看域名状态是否包含 clientTransferProhibited。",
+   "tools": ["gsc", "uptimerobot", "icann-lookup"]}
+]

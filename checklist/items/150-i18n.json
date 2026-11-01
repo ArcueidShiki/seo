@@ -1,0 +1,47 @@
+[
+  {"id": "i18n-native-keyword-research", "cat": "i18n", "phase": "plan", "priority": "P0",
+   "title": "每种目标语言单独做关键词研究，不直接翻译关键词",
+   "why": "不同语言的用户用不同说法搜索同一个需求，直译出来的关键词常常没人搜。",
+   "checkAgainst": [
+     "每种语言有独立的关键词表，搜索量按目标国家查询（Keyword Planner / Semrush 的地区设置）",
+     "核心词经过母语者或当地 Google 下拉联想确认",
+     "每种语言的 Top 10 SERP 单独分析（各国的竞争对手不同）"
+   ],
+   "how": "Google Trends 切换国家对比；Google 搜索 URL 加 &hl=ja&gl=jp 等参数查看当地的下拉联想和结果。",
+   "tools": ["keywordplanner", "semrush", "gtrends", "google"]},
+
+  {"id": "i18n-url-structure", "cat": "i18n", "phase": "plan", "priority": "P1",
+   "title": "多语言用子目录（/en/、/ja/），不按 IP 或浏览器语言强制跳转",
+   "why": "Googlebot 主要从美国抓取、不带语言偏好；强制跳转会让其他语言版本无法被抓取。",
+   "checkAgainst": [
+     "语言版本使用子目录（example.com/ja/）或独立域名，不用 ?lang=ja 参数或 Cookie 切换",
+     "不根据 IP 或 Accept-Language 自动跳转；改为页面顶部提示 + 语言切换器",
+     "语言切换器是普通 <a href> 链接，指向当前页面的对应语言版本，而不是首页"
+   ],
+   "how": "用 curl -I -H 'Accept-Language: ja' 测试是否被跳转；hreflang 由 auditor 自动检查。",
+   "tools": ["gsc", "screamingfrog"]},
+
+  {"id": "i18n-localized-content", "cat": "i18n", "phase": "build", "priority": "P1",
+   "title": "本地化而不只是翻译：标题描述、示例、货币、日期、截图都换成当地版本",
+   "why": "机翻页面质量低、转化差；当地用户看到不对的货币、日期格式和例子会直接离开。",
+   "checkAgainst": [
+     "每种语言的 title、description、og 标签单独撰写，包含当地关键词",
+     "价格显示当地货币（或明确标注 USD），日期和数字格式符合当地习惯",
+     "机器翻译后至少经过一轮母语者或专业校对；关键页面没有残留的源语言文字",
+     "截图和示例使用对应语言的界面"
+   ],
+   "how": "每种语言抽查 5 个页面；GSC → 效果 → 按国家筛选，比较各语言页面的展示和 CTR。",
+   "tools": ["gsc"]},
+
+  {"id": "i18n-cn-market-split", "cat": "i18n", "phase": "plan", "priority": "P1",
+   "title": "中文市场单独规划：品牌词策略 + 各平台站内搜索，不只押百度 SEO",
+   "why": "百度首页大量被广告和自家产品占据，新站很难做通用词；境外服务器在国内访问和收录都偏慢，而使用大陆服务器又需要 ICP 备案。",
+   "checkAgainst": [
+     "选用独特、国内没有同名网站的品牌名，目标：百度搜索品牌名排前 3",
+     "部署方案二选一并写进计划：境外站点（无需备案，国内访问较慢）或大陆服务器 + ICP 备案",
+     "中文获客主要放在小红书、知乎、B站、抖音、公众号的站内搜索，每个平台有关键词表",
+     "国内用户的收款方式已考虑（微信支付 / 支付宝，或小报童、爱发电等平台）"
+   ],
+   "how": "百度搜索品牌名检查重名；用国内网络或多地测速工具测试官网打开速度。",
+   "tools": ["baidu", "xiaohongshu", "zhihu"]}
+]

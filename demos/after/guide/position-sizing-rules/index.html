@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Position Sizing Rules: 1% Risk, Stop Distance & Examples</title>
+<meta name="description" content="Practical position sizing rules for stock traders: how to pick a risk %, place the stop-loss, size volatile stocks and avoid over-concentration, with examples.">
+<link rel="canonical" href="{{BASE}}/guide/position-sizing-rules/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="icon" href="{{PATH}}/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Vexlora">
+<meta property="og:title" content="Position Sizing Rules: 1% Risk, Stop Distance & Examples">
+<meta property="og:description" content="How to pick a risk %, place the stop and size volatile stocks — with worked examples.">
+<meta property="og:url" content="{{BASE}}/guide/position-sizing-rules/">
+<meta property="og:image" content="{{BASE}}/assets/og-image.png">
+<meta property="article:published_time" content="{{UPDATED}}">
+<meta property="article:modified_time" content="{{UPDATED}}">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--ink:#0f172a;--muted:#475569;--line:#e2e8f0;--brand:#0f766e;--bg:#f8fafc}
+*{box-sizing:border-box}body{margin:0;font:17px/1.75 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--brand)}header,main,footer{max-width:760px;margin:0 auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;padding-top:16px;padding-bottom:16px}
+header nav a{margin-left:14px;color:var(--muted);text-decoration:none}.logo{font-weight:700;color:var(--ink);text-decoration:none}
+.crumbs,.meta{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+h1{font-size:clamp(28px,4vw,38px);line-height:1.2}
+.tldr{background:#f0fdfa;border:1px solid #99f6e4;border-radius:10px;padding:14px 18px}
+table{border-collapse:collapse;width:100%;font-size:15px}th,td{border-bottom:1px solid var(--line);padding:8px;text-align:left}
+footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);margin-top:40px;padding-top:24px;padding-bottom:40px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Position Sizing Rules: 1% Risk, Stop Distance & Examples",
+      "description": "Practical position sizing rules for stock traders with worked examples.",
+      "datePublished": "{{UPDATED}}",
+      "dateModified": "{{UPDATED}}",
+      "author": {"@type": "Organization", "name": "Vexlora team", "url": "{{BASE}}/about/"},
+      "publisher": {"@type": "Organization", "name": "Vexlora", "logo": {"@type": "ImageObject", "url": "{{BASE}}/assets/logo-512.png"}},
+      "image": "{{BASE}}/assets/og-image.png",
+      "mainEntityOfPage": "{{BASE}}/guide/position-sizing-rules/",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Vexlora", "item": "{{BASE}}/"},
+        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "{{BASE}}/guide/position-sizing-rules/"},
+        {"@type": "ListItem", "position": 3, "name": "Position sizing rules", "item": "{{BASE}}/guide/position-sizing-rules/"}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header>
+  <a class="logo" href="{{PATH}}/">Vexlora</a>
+  <nav aria-label="Main"><a href="{{PATH}}/">Calculator</a><a href="{{PATH}}/about/">About</a></nav>
+</header>
+<main>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="{{PATH}}/">Vexlora</a> › Guides › Position sizing rules</nav>
+  <article>
+    <h1>Position Sizing Rules: 1% Risk, Stop Distance &amp; Examples</h1>
+    <p class="meta">By the <a href="{{PATH}}/about/">Vexlora team</a> · Updated <time datetime="{{UPDATED}}">{{UPDATED_HUMAN}}</time> · 6 min read</p>
+    <div class="tldr"><strong>TL;DR:</strong> Decide the maximum dollar loss first (commonly 0.5–2% of equity), place the stop where the trade idea is proven wrong, then divide the dollar loss by the stop distance to get the share count. Use the <a href="{{PATH}}/">Vexlora position size calculator</a> to do the arithmetic.</div>
+
+    <h2>Rule 1 — Fix the risk percentage before you look at the chart</h2>
+    <p>Choosing the risk first stops you from sizing up on trades you "feel good" about. A fixed fraction such as 1% means ten consecutive losses cost about 9.6% of the account (compounding), which is recoverable.</p>
+    <table>
+      <thead><tr><th scope="col">Risk per trade</th><th scope="col">Equity left after 10 straight losses</th></tr></thead>
+      <tbody><tr><td>0.5%</td><td>95.1%</td></tr><tr><td>1%</td><td>90.4%</td></tr><tr><td>2%</td><td>81.7%</td></tr><tr><td>5%</td><td>59.9%</td></tr></tbody>
+    </table>
+
+    <h2>Rule 2 — Put the stop where the setup fails, not where the loss feels small</h2>
+    <p>A stop belongs below the level that invalidates the idea — for a breakout, typically below the breakout day's low. Moving the stop closer just to buy more shares raises the chance of being shaken out by normal noise.</p>
+
+    <h2>Rule 3 — Let volatility shrink the position</h2>
+    <p>Wide stops on volatile stocks automatically produce smaller positions. Some traders set the stop distance as a multiple of the Average True Range (ATR), for example 1.5 × ATR, so sizing adapts to each stock.</p>
+
+    <h2>Rule 4 — Cap the position value as well as the risk</h2>
+    <p>Tight stops can produce very large positions. Add a second limit — for example no single position above 25% of the account — so a gap through your stop cannot do outsized damage.</p>
+
+    <h2>Rule 5 — Account for fees, slippage and gaps</h2>
+    <p>Your real loss can exceed the planned risk when price gaps past the stop. Treat the calculated risk as a minimum and keep a buffer, especially around earnings releases.</p>
+
+    <h2>Worked example: same risk, different stops</h2>
+    <table>
+      <thead><tr><th scope="col">Account</th><th scope="col">Risk</th><th scope="col">Entry</th><th scope="col">Stop</th><th scope="col">Shares</th></tr></thead>
+      <tbody>
+        <tr><td>$10,000</td><td>1% ($100)</td><td>$50</td><td>$48</td><td>50</td></tr>
+        <tr><td>$10,000</td><td>1% ($100)</td><td>$50</td><td>$45</td><td>20</td></tr>
+        <tr><td>$10,000</td><td>1% ($100)</td><td>$50</td><td>$49.50</td><td>200 → capped at 50 by Rule 4</td></tr>
+      </tbody>
+    </table>
+    <p>Try your own numbers in the <a href="{{PATH}}/">free position size calculator</a>.</p>
+    <p class="meta">Educational content, not financial advice.</p>
+  </article>
+</main>
+<footer><p><a href="{{PATH}}/">Position size calculator</a> · <a href="{{PATH}}/about/">About Vexlora</a> · <a href="{{PATH}}/zh/" hreflang="zh-CN">中文</a></p></footer>
+</body>
+</html>

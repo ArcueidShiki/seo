@@ -1,0 +1,9 @@
+{
+  "name": "Vexlora Position Size Calculator",
+  "short_name": "Vexlora",
+  "start_url": "{{BASE}}/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#0f766e",
+  "icons": [{"src": "{{BASE}}/assets/logo-512.png", "sizes": "512x512", "type": "image/png"}]
+}

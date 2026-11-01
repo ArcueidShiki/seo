@@ -1,0 +1,29 @@
+# Manually re-run the auditor (with Lighthouse) against the live demos and commit fresh reports.
+name: Audit live demos
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci && npx playwright install --with-deps chromium
+      - name: Audit
+        run: |
+          BASE=https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+          node scripts/make-checklist.mjs
+          node auditor/audit.mjs --url $BASE/demos/before/ --name before --keyword "vexlora position size calculator"
+          node auditor/audit.mjs --url $BASE/demos/after/  --name after  --keyword "vexlora position size calculator"
+          node scripts/compare.mjs
+      - name: Commit reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add reports && git commit -m "chore: refresh audit reports" || echo "no changes"
+          git push

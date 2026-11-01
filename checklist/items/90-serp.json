@@ -1,0 +1,58 @@
+[
+  {"id": "serp-rich-results-eligibility", "cat": "serp", "phase": "build", "priority": "P1",
+   "title": "只为仍然有效的富结果类型投入，不再为 FAQ / HowTo 富结果花时间",
+   "why": "FAQ 富结果自 2023 年 8 月起只对政府和医疗权威站显示，HowTo 富结果已经下线，2025 年 Google 又停用了一批类型（如 Course Info、Claim Review、Estimated Salary）。",
+   "checkAgainst": [
+     "优先实现：Organization / WebSite（站点名、logo）、BreadcrumbList、Article、Product 或 SoftwareApplication（价格与页面一致）、VideoObject",
+     "FAQPage 可以保留（帮助 AI 理解问答），但不期待 FAQ 富结果；不为富结果新增 HowTo 标记",
+     "SoftwareApplication 只有在有真实评分时才写 aggregateRating，没有就不写",
+     "所用类型都能在 Google 搜索中心「结构化数据搜索结果库」文档中找到"
+   ],
+   "how": "查阅 developers.google.com/search/docs/appearance/structured-data/search-gallery；Rich Results Test 只会报告当前支持的类型。",
+   "tools": ["richresults", "schemavalidator"]},
+
+  {"id": "serp-ctr-rewrite", "cat": "serp", "phase": "maintain", "priority": "P1",
+   "title": "每月找出「排名不错但点击率低」的页面，改写标题和描述",
+   "why": "点击率决定同样的排名能拿到多少流量；标题与页面不匹配时 Google 还会自行改写。",
+   "checkAgainst": [
+     "GSC 中平均排名 ≤ 5、展示 ≥ 500、CTR < 3% 的页面进入改写清单（经验阈值；有 AI 概览的查询整体 CTR 会更低）",
+     "搜索目标词看实际展示：标题被改写的，调整 title 与 H1 保持一致、去掉冗长的品牌后缀",
+     "新标题用已验证的写法：数字 + 结果、年份、括号补充（如「（含实战案例）」），主关键词靠前",
+     "每次改写记录日期，4 周后对比 CTR"
+   ],
+   "how": "GSC → 效果 → 勾选 CTR 和平均排名 → 网页标签，按展示排序；改写记录写在关键词表里。",
+   "tools": ["gsc", "google"]},
+
+  {"id": "serp-enhancements-monitor", "cat": "serp", "phase": "maintain", "priority": "P2",
+   "title": "每月检查 GSC 增强功能报告，结构化数据错误保持为 0",
+   "why": "模板改版常会悄悄破坏结构化数据；不会有人通知你，富结果只是默默消失。",
+   "checkAgainst": [
+     "GSC 中面包屑、商品摘要、视频、无法解析的结构化数据等报告的「无效」项 = 0",
+     "每次模板改动上线后，抽 3 个页面用 Rich Results Test 复测"
+   ],
+   "how": "GSC 左侧栏下半部分的「购物」「增强功能」逐个打开；修复后点击「验证修正」。",
+   "tools": ["gsc", "richresults"]},
+
+  {"id": "serp-brand-serp", "cat": "serp", "phase": "grow", "priority": "P2",
+   "title": "品牌词搜索结果第一页尽量都是你自己的资产",
+   "why": "搜索品牌名的人意向最高；第一页被官网和自己的账号占满，能提高信任，也挡住仿冒和过时信息。",
+   "checkAgainst": [
+     "搜索品牌名，第一页 ≥ 5 个结果属于你：官网、X、GitHub、LinkedIn、YouTube、Product Hunt、Crunchbase 等",
+     "这些资料页的名称、简介、logo 一致并链接回官网，与 Organization 的 sameAs 列表一致",
+     "前 3 名没有仿冒站或过期信息"
+   ],
+   "how": "无痕窗口搜索品牌名，以及「品牌名 review」「品牌名 pricing」；缺哪个资料页就补哪个。",
+   "tools": ["google", "x", "github", "linkedin", "producthunt", "crunchbase"]},
+
+  {"id": "serp-image-video", "cat": "serp", "phase": "build", "priority": "P2",
+   "title": "争取图片和视频结果：原创图片 + 嵌入页面的演示视频（VideoObject）",
+   "why": "图片和视频结果是额外的流量入口，对设计类、工具类产品尤其明显。",
+   "checkAgainst": [
+     "关键图片原创；以图片为主的网站提供图片 sitemap（image:image）",
+     "每个核心落地页嵌入 1 个演示视频，放在页面主体位置而不是藏在页脚",
+     "VideoObject 包含 name、description、thumbnailUrl、uploadDate、duration；YouTube 视频加章节",
+     "GSC「视频网页」报告中有已编入索引的视频页"
+   ],
+   "how": "Rich Results Test 验证 VideoObject；GSC → 视频网页 查看未编入索引的原因。",
+   "tools": ["youtube", "richresults", "gsc"]}
+]

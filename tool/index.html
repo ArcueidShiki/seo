@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO / GEO / 增长 Checklist 工具 – SEO Handbook</title>
+<meta name="description" content="交互式 SEO、GEO、SERP、外链、流量与账号运营 checklist：每一条都写明检查标准、检查方法和要用的工具，可勾选进度，并能叠加自动审计结果。">
+<link rel="canonical" href="{{SITE_URL}}/tool/">
+<link rel="icon" href="{{PATH}}/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="SEO / GEO / 增长 Checklist 工具">
+<meta property="og:description" content="每一条都写明检查标准、检查方法和要用的工具。">
+<meta property="og:url" content="{{SITE_URL}}/tool/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--brand:#4f46e5;--bg:#f6f7fb;--card:#fff;
+--pass:#059669;--fail:#dc2626;--warn:#d97706;--manual:#6366f1;--na:#9ca3af}
+*{box-sizing:border-box}
+body{margin:0;font:14.5px/1.6 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--brand)}
+svg.i{width:18px;height:18px;flex:none;vertical-align:-3px}
+header.bar{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line)}
+header.bar .in{max-width:1400px;margin:0 auto;padding:10px 18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.brand{font-weight:700;font-size:16px;display:flex;gap:8px;align-items:center;text-decoration:none;color:var(--ink)}
+.prog{display:flex;align-items:center;gap:8px;color:var(--muted)}
+.bar-o{width:160px;height:8px;background:#eef0f4;border-radius:9px;overflow:hidden}.bar-i{height:100%;background:var(--brand);border-radius:9px;transition:width .2s}
+.spacer{flex:1}
+button,select,input[type=search]{font:inherit;border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 10px;color:var(--ink)}
+button{cursor:pointer;display:inline-flex;gap:6px;align-items:center}button:hover{border-color:#c7cbd6}
+button.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.layout{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:270px 1fr;gap:18px;padding:16px 18px 60px}
+aside{position:sticky;top:64px;align-self:start;max-height:calc(100vh - 80px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px}
+.cat{display:flex;gap:10px;align-items:center;padding:7px 9px;border-radius:9px;cursor:pointer;color:#374151}
+.cat:hover{background:#f3f4f6}.cat.on{background:#eef2ff;color:var(--brand);font-weight:600}
+.cat .ico{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none}
+.cat .n{margin-left:auto;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-bottom:14px}
+.chip{border:1px solid var(--line);border-radius:99px;padding:3px 10px;cursor:pointer;font-size:13px;background:#fff;user-select:none}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.flabel{color:var(--muted);font-size:12px;margin-left:6px}
+input[type=search]{min-width:220px}
+section.group{margin-bottom:22px}
+section.group>h2{display:flex;gap:10px;align-items:center;font-size:17px;margin:4px 0 4px}
+section.group>p{color:var(--muted);margin:0 0 10px}
+.ghead-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center}
+.item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px;display:grid;grid-template-columns:26px 1fr auto;gap:10px}
+.item.done{opacity:.62}.item.done .t{text-decoration:line-through}
+.item input[type=checkbox]{width:18px;height:18px;margin-top:2px;accent-color:var(--brand);cursor:pointer}
+.t{font-weight:600;font-size:15px}
+.meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:3px}
+.badge{font-size:11.5px;border-radius:6px;padding:1px 7px;background:#f3f4f6;color:#374151;white-space:nowrap}
+.p0{background:#fee2e2;color:#991b1b}.p1{background:#fef3c7;color:#92400e}.p2{background:#e0e7ff;color:#3730a3}
+.auto{background:#dcfce7;color:#166534}
+.why{color:#4b5563;margin:6px 0 0}
+.ca{margin:8px 0 0;padding:8px 10px;background:#f9fafb;border-radius:8px;border:1px dashed #e5e7eb}
+.ca b{font-size:12px;color:var(--muted);display:block;margin-bottom:2px}
+.ca ul{margin:0;padding-left:18px}
+.tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tool{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:3px 8px;font-size:12.5px;text-decoration:none;color:#374151;background:#fff}
+.tool:hover{border-color:var(--brand)}
+.tool img,.tool svg{width:16px;height:16px;border-radius:3px}
+.status{font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px;color:#fff;white-space:nowrap;height:fit-content}
+.s-pass{background:var(--pass)}.s-fail{background:var(--fail)}.s-warn{background:var(--warn)}.s-manual{background:var(--manual)}.s-na{background:var(--na)}
+.sdetail{grid-column:2/4;font-size:12.5px;color:#374151;background:#f8fafc;border-left:3px solid var(--line);padding:4px 8px;border-radius:4px}
+.sdetail.fail{border-color:var(--fail)}.sdetail.pass{border-color:var(--pass)}.sdetail.warn{border-color:var(--warn)}
+details.more summary{cursor:pointer;color:var(--muted);font-size:13px;margin-top:6px}
+.empty{color:var(--muted);padding:30px;text-align:center}
+.score{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin-bottom:14px}
+.score .big{font-size:26px;font-weight:800}
+#modal{position:fixed;inset:0;background:rgba(17,24,39,.45);z-index:20;display:flex;align-items:center;justify-content:center;padding:20px}
+#modal[hidden]{display:none}
+.mbox{background:#fff;border-radius:14px;padding:18px;width:min(820px,100%);max-height:90vh;display:flex;flex-direction:column;gap:10px}
+.mbox h3{margin:0}.mbox textarea{width:100%;height:55vh;font:12.5px/1.5 ui-monospace,Menlo,monospace;border:1px solid var(--line);border-radius:8px;padding:10px}
+.mact{display:flex;gap:10px;align-items:center}.mact a.dl{font-size:14px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}aside{position:static;max-height:none}}
+@media print{header.bar,aside,.filters{display:none}.layout{display:block}.item{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header class="bar"><div class="in">
+  <a class="brand" href="{{PATH}}/"><span id="logo"></span>SEO Handbook · Checklist</a>
+  <div class="prog"><div class="bar-o"><div class="bar-i" id="pbar"></div></div><span id="ptext"></span></div>
+  <div class="spacer"></div>
+  <label class="flabel" for="overlay">叠加审计结果</label>
+  <select id="overlay"><option value="">不叠加</option></select>
+  <select id="groupBy" aria-label="分组方式"><option value="cat">按类别</option><option value="platform">按平台/工具</option><option value="phase">按阶段</option></select>
+  <button id="exportMd" title="导出 Markdown 清单"><span data-i="file-down"></span>Markdown</button>
+  <button id="exportJson" title="导出勾选状态"><span data-i="download"></span>JSON</button>
+  <button id="reset" title="清空勾选"><span data-i="rotate-ccw"></span>重置</button>
+</div></header>
+
+<div class="layout">
+  <aside><div id="cats"></div></aside>
+  <main>
+    <div class="filters" id="filters">
+      <input type="search" id="q" placeholder="搜索条目 / 工具 / 平台…" aria-label="搜索">
+      <span class="flabel">阶段</span><span id="fPhase"></span>
+      <span class="flabel">优先级</span><span id="fPri"></span>
+      <span class="flabel">类型</span><span id="fType"></span>
+      <span class="flabel">状态</span><span id="fDone"></span>
+    </div>
+    <div id="scorebox"></div>
+    <div id="list"></div>
+  </main>
+</div>
+
+<div id="modal" hidden><div class="mbox"><h3></h3><textarea readonly></textarea>
+<div class="mact"><button class="primary" id="mcopy">复制到剪贴板</button><a class="dl" href="#">下载文件</a><span id="mmsg"></span><span class="spacer"></span><button id="mclose">关闭</button></div></div></div>
+<script>
+const DATA = /*__CHECKLIST__*/null;
+const REPORTS = /*__REPORTS__*/null;
+const ICONS = /*__ICONS__*/null;
+const KEY = 'seo-handbook-checklist-v1';
+let state = {};
+try { state = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { state = {}; }
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} };
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const icon = (name, color) => { const s = (ICONS && (ICONS[name] || ICONS['circle'])) || ''; return s.replace('<svg', `<svg class="i"${color ? ` style="color:${color}"` : ''}`); };
+document.querySelectorAll('[data-i]').forEach(e => e.outerHTML = icon(e.dataset.i));
+document.getElementById('logo').innerHTML = icon('list-checks', '#4f46e5');
+
+const cats = Object.fromEntries(DATA.categories.map(c => [c.id, c]));
+const phases = Object.fromEntries(DATA.phases.map(p => [p.id, p]));
+const P = DATA.platforms;
+const favicon = d => `https://www.google.com/s2/favicons?domain=${encodeURIComponent(d)}&sz=64`;
+function toolChip(t) {
+  const p = typeof t === 'string' ? P[t] : t;
+  if (!p) return '';
+  const img = p.domain ? `<img src="${favicon(p.domain)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.outerHTML=window.__globe">` : icon(p.icon || 'globe');
+  return `<a class="tool" href="${esc(p.url || ('https://' + p.domain))}" target="_blank" rel="noopener">${img}${esc(p.name)}</a>`;
+}
+window.__globe = icon('globe');
+
+const F = { cat: 'all', phase: new Set(), pri: new Set(), type: '', done: '', q: '' };
+function chips(el, opts, set, single) {
+  el.innerHTML = opts.map(([v, l]) => `<span class="chip" data-v="${v}">${l}</span>`).join(' ');
+  el.querySelectorAll('.chip').forEach(c => c.onclick = () => {
+    const v = c.dataset.v;
+    if (single) { F[set] = F[set] === v ? '' : v; } else { F[set].has(v) ? F[set].delete(v) : F[set].add(v); }
+    render();
+  });
+}
+chips(document.getElementById('fPhase'), DATA.phases.map(p => [p.id, p.name]), 'phase');
+chips(document.getElementById('fPri'), [['P0', 'P0 必做'], ['P1', 'P1 重要'], ['P2', 'P2 加分']], 'pri');
+chips(document.getElementById('fType'), [['auto', '可自动检测'], ['manual', '人工检查']], 'type', true);
+chips(document.getElementById('fDone'), [['todo', '未完成'], ['done', '已完成']], 'done', true);
+document.getElementById('q').oninput = e => { F.q = e.target.value.trim().toLowerCase(); render(); };
+const ov = document.getElementById('overlay');
+Object.entries(REPORTS || {}).forEach(([k, r]) => ov.insertAdjacentHTML('beforeend', `<option value="${k}">${k === 'before' ? 'Demo A · 优化前' : k === 'after' ? 'Demo B · 优化后' : k} (${r.score}/100)</option>`));
+ov.onchange = render;
+document.getElementById('groupBy').onchange = render;
+
+function matches(it) {
+  if (F.cat !== 'all' && it.cat !== F.cat) return false;
+  if (F.phase.size && !F.phase.has(it.phase)) return false;
+  if (F.pri.size && !F.pri.has(it.priority)) return false;
+  if (F.type === 'auto' && !it.auto) return false;
+  if (F.type === 'manual' && it.auto) return false;
+  if (F.done === 'done' && !state[it.id]) return false;
+  if (F.done === 'todo' && state[it.id]) return false;
+  if (F.q) {
+    const hay = [it.title, it.why, it.how, ...(it.checkAgainst || []), ...(it.tools || []).map(t => (P[t] || t).name || t)].join(' ').toLowerCase();
+    if (!hay.includes(F.q)) return false;
+  }
+  return true;
+}
+function itemHtml(it, rep) {
+  const c = cats[it.cat];
+  const res = rep && rep.checks.find(x => x.id === it.id);
+  const status = res ? `<span class="status s-${res.status}">${{pass:'通过',fail:'未通过',warn:'部分',manual:'需人工',na:'不适用'}[res.status]}</span>` : '<span></span>';
+  return `<div class="item ${state[it.id] ? 'done' : ''}" id="${it.id}">
+    <input type="checkbox" ${state[it.id] ? 'checked' : ''} data-id="${it.id}" aria-label="完成：${esc(it.title)}">
+    <div>
+      <div class="t">${esc(it.title)}</div>
+      <div class="meta"><span class="badge p${it.priority[1].toLowerCase() === '0' ? '0' : it.priority[1]}">${it.priority}</span>
+        <span class="badge">${esc(phases[it.phase]?.name || it.phase)}</span>
+        <span class="badge" style="background:${c.color}1a;color:${c.color}">${icon(c.icon, c.color).replace('class="i"', 'class="i" width="12" height="12"')} ${esc(c.name)}</span>
+        ${it.auto ? `<span class="badge auto">🤖 auditor 自动检测 · ${it.id}</span>` : ''}</div>
+      ${it.why ? `<p class="why">${esc(it.why)}</p>` : ''}
+      <div class="ca"><b>✅ 检查标准（check against）</b><ul>${(it.checkAgainst || []).map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>
+      ${it.how ? `<details class="more"><summary>怎么检查 / 怎么做</summary><p>${esc(it.how)}</p></details>` : ''}
+      ${(it.tools || []).length ? `<div class="tools">${it.tools.map(toolChip).join('')}</div>` : ''}
+    </div>
+    ${status}
+    ${res ? `<div class="sdetail ${res.status}">${esc(res.detail)}</div>` : ''}
+  </div>`;
+}
+function render() {
+  const items = DATA.items;
+  const done = items.filter(i => state[i.id]).length;
+  document.getElementById('pbar').style.width = (done / items.length * 100) + '%';
+  document.getElementById('ptext').textContent = `${done} / ${items.length} 已完成`;
+  // sidebar
+  const catHtml = [`<div class="cat ${F.cat === 'all' ? 'on' : ''}" data-c="all"><span class="ico" style="background:#eef2ff">${icon('layers', '#4f46e5')}</span>全部<span class="n">${done}/${items.length}</span></div>`]
+    .concat(DATA.categories.map(c => {
+      const its = items.filter(i => i.cat === c.id);
+      return `<div class="cat ${F.cat === c.id ? 'on' : ''}" data-c="${c.id}"><span class="ico" style="background:${c.color}1a">${icon(c.icon, c.color)}</span>${esc(c.name)}<span class="n">${its.filter(i => state[i.id]).length}/${its.length}</span></div>`;
+    }));
+  const cel = document.getElementById('cats'); cel.innerHTML = catHtml.join('');
+  cel.querySelectorAll('.cat').forEach(e => e.onclick = () => { F.cat = e.dataset.c; render(); window.scrollTo({ top: 0 }); });
+  document.querySelectorAll('#filters .chip').forEach(ch => {
+    const box = ch.parentElement.id, v = ch.dataset.v;
+    const on = box === 'fPhase' ? F.phase.has(v) : box === 'fPri' ? F.pri.has(v) : box === 'fType' ? F.type === v : F.done === v;
+    ch.classList.toggle('on', on);
+  });
+  // overlay score
+  const rep = REPORTS && REPORTS[ov.value];
+  document.getElementById('scorebox').innerHTML = rep ? `<div class="score"><span class="big">${rep.score}</span>/100 · ${ov.value === 'before' ? 'Demo A 优化前' : 'Demo B 优化后'}：
+    <span class="status s-pass">${rep.counts.pass} 通过</span><span class="status s-warn">${rep.counts.warn} 部分</span><span class="status s-fail">${rep.counts.fail} 未通过</span><span class="status s-manual">${rep.counts.manual} 需人工</span>
+    ${rep.lighthouse ? `<span class="badge">Lighthouse 移动端 性能 ${rep.lighthouse.mobile.performance} · SEO ${rep.lighthouse.mobile.seo}</span>` : ''}
+    <a href="{{PATH}}/reports/">完整对比报告 →</a></div>` : '';
+  // groups
+  const vis = items.filter(matches);
+  const gb = document.getElementById('groupBy').value;
+  let groups;
+  if (gb === 'platform') {
+    const m = new Map();
+    vis.forEach(it => (it.tools && it.tools.length ? it.tools : ['_none']).forEach(t => { const k = typeof t === 'string' ? t : t.name; if (!m.has(k)) m.set(k, []); m.get(k).push(it); }));
+    groups = [...m.entries()].sort((a, b) => b[1].length - a[1].length).map(([k, its]) => {
+      const p = P[k] || { name: k === '_none' ? '无需工具' : k };
+      return { head: `${p.domain ? `<img src="${favicon(p.domain)}" width="22" height="22" alt="" style="border-radius:5px" onerror="this.outerHTML=window.__globe">` : icon('wrench')} ${esc(p.name)}`, desc: p.desc || '', items: its };
+    });
+  } else if (gb === 'phase') {
+    groups = DATA.phases.map(p => ({ head: `${icon(p.icon || 'flag', '#4f46e5')} ${esc(p.name)}`, desc: p.desc || '', items: vis.filter(i => i.phase === p.id) })).filter(g => g.items.length);
+  } else {
+    groups = DATA.categories.map(c => ({ head: `<span class="ghead-ico" style="background:${c.color}1a">${icon(c.icon, c.color)}</span>${esc(c.name)} <small style="color:var(--muted);font-weight:400">${esc(c.nameEn || '')}</small>`, desc: c.desc, items: vis.filter(i => i.cat === c.id) })).filter(g => g.items.length);
+  }
+  document.getElementById('list').innerHTML = groups.length ? groups.map(g => `<section class="group"><h2>${g.head}</h2>${g.desc ? `<p>${esc(g.desc)}</p>` : ''}${g.items.map(i => itemHtml(i, rep)).join('')}</section>`).join('') : '<div class="empty">没有符合筛选条件的条目</div>';
+  document.querySelectorAll('#list input[type=checkbox]').forEach(cb => cb.onchange = () => { if (cb.checked) state[cb.dataset.id] = Date.now(); else delete state[cb.dataset.id]; save(); render(); });
+}
+function download(name, text, type) {
+  const m = document.getElementById('modal');
+  m.querySelector('h3').textContent = '导出 ' + name;
+  const ta = m.querySelector('textarea'); ta.value = text;
+  const a = m.querySelector('a.dl'); a.href = URL.createObjectURL(new Blob([text], { type })); a.download = name;
+  m.hidden = false; ta.focus(); ta.select();
+}
+document.getElementById('exportMd').onclick = () => {
+  const md = ['# SEO / GEO / 增长 Checklist', '', `导出时间：${new Date().toLocaleString()}`, ''];
+  DATA.categories.forEach(c => {
+    const its = DATA.items.filter(i => i.cat === c.id); if (!its.length) return;
+    md.push(`## ${c.name}`, '');
+    its.forEach(i => { md.push(`- [${state[i.id] ? 'x' : ' '}] **${i.title}** (${i.priority}, ${phases[i.phase]?.name || i.phase})`); (i.checkAgainst || []).forEach(x => md.push(`  - ${x}`)); });
+    md.push('');
+  });
+  download('seo-checklist.md', md.join('\n'), 'text/markdown');
+};
+document.getElementById('exportJson').onclick = () => download('seo-checklist-progress.json', JSON.stringify(state, null, 2), 'application/json');
+(() => { const btn = document.getElementById('reset'); let armed = null;
+  btn.onclick = () => {
+    if (!armed) { btn.dataset.label = btn.innerHTML; btn.innerHTML = '再点一次确认清空'; btn.classList.add('primary'); armed = setTimeout(() => { btn.innerHTML = btn.dataset.label; btn.classList.remove('primary'); armed = null; }, 3000); return; }
+    clearTimeout(armed); armed = null; btn.innerHTML = btn.dataset.label; btn.classList.remove('primary'); state = {}; save(); render();
+  }; })();
+
+document.getElementById('mclose').onclick = () => { document.getElementById('modal').hidden = true; };
+document.getElementById('mcopy').onclick = async () => {
+  const ta = document.querySelector('#modal textarea'), msg = document.getElementById('mmsg');
+  try { await navigator.clipboard.writeText(ta.value); msg.textContent = '已复制 ✓'; }
+  catch (e) { ta.select(); msg.textContent = '请按 Ctrl/Cmd + C 复制'; }
+};
+render();
+</script>
+</body>
+</html>

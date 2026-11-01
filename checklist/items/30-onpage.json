@@ -1,0 +1,48 @@
+[
+  {"id": "onpage-topic-consistency", "cat": "onpage", "phase": "build", "priority": "P1",
+   "title": "Title、H1、Description、正文、锚文本、Schema 讲的是同一个主题",
+   "why": "各处信号一致，搜索引擎才能稳定理解页面主题；标题和内容对不上时，Google 会自己改写标题。",
+   "checkAgainst": [
+     "抽 5 个页面：title、H1、description、首段、指向它的内链锚文本、JSON-LD 的 name / headline 意思一致",
+     "H1 用大白话说清「做什么」，不用 redefine / empower / next-gen / 赋能 / 颠覆 这类空话",
+     "同一页关键词写法统一（缩写和全称不混用）；title 中同一个词不重复出现",
+     "不依赖 meta keywords（Google 忽略；只面向百度的站可选填 3–5 个本页词）"
+   ],
+   "how": "Detailed SEO Extension 或 view-source 并排查看；Screaming Frog → Page Titles / H1 / Meta Description 导出后对照。",
+   "tools": ["screamingfrog"]},
+
+  {"id": "onpage-semantic-html", "cat": "onpage", "phase": "build", "priority": "P2",
+   "title": "用语义化标签组织页面：步骤用 <ol>，对比用 <table>，评价用 <blockquote>",
+   "why": "语义结构帮助搜索引擎和 AI 准确抽取步骤、对比和引用，也是无障碍的基础。",
+   "checkAgainst": [
+     "每页 1 个 <main>；导航在 <nav>，页脚在 <footer>，文章正文在 <article>",
+     "「怎么用」的步骤是 <ol> 列表；对比内容是带 <th> 的真实 <table>，不是图片",
+     "用户评价用 <blockquote> 加署名；日期用 <time datetime>"
+   ],
+   "how": "DevTools → Elements 检查结构；Lighthouse Accessibility 或 axe DevTools 插件。",
+   "tools": ["lighthouse"]},
+
+  {"id": "onpage-image-filenames", "cat": "onpage", "phase": "build", "priority": "P2",
+   "title": "图片文件名有描述性，Logo 和产品截图的 alt 写清楚内容",
+   "why": "文件名和 alt 是图片搜索的主要文本信号；IMG_1234.png 不提供任何信息。",
+   "checkAgainst": [
+     "文件名用连字符描述内容，例如 ai-poster-generator-instagram-example.webp；没有 IMG_1234、screenshot(3)、未命名",
+     "Logo 的 alt = 品牌名 + 定位（如「Vexlora 仓位计算器 logo」），Logo 链接到首页",
+     "产品 UI 截图的 alt 说明截图里展示的功能；同一页没有两张图片用相同的 alt",
+     "纯装饰图片用 alt=\"\"；alt 中同一关键词不重复堆砌"
+   ],
+   "how": "Screaming Frog → Images 导出文件名和 alt 列表人工检查。",
+   "tools": ["screamingfrog"]},
+
+  {"id": "onpage-og-per-page", "cat": "onpage", "phase": "build", "priority": "P1",
+   "title": "每篇文章 / 每个产品页有专属分享封面，修改后强制刷新平台缓存",
+   "why": "用 Logo 当 og:image，分享出去就是一块白底小图；各平台会缓存旧卡片，不刷新就看不到修改。",
+   "checkAgainst": [
+     "文章和产品页的 og:image 是该页专属封面或 UI 截图，不是全站 Logo",
+     "og:type 按模板区分：首页 website、文章 article、产品 product；og:url 等于该页 canonical（不带参数）",
+     "og:image 对外部抓取返回 200，没有被防盗链或 Cloudflare 质询拦截",
+     "修改后用 Facebook Sharing Debugger 重新抓取，并在微信、Telegram、Slack、X 实际发一次看预览"
+   ],
+   "how": "curl -I 请求 og:image 地址；Facebook Sharing Debugger → Scrape Again；X 发帖框粘贴链接预览。",
+   "tools": ["fbdebugger", "opengraph", "x"]}
+]

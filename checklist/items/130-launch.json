@@ -1,0 +1,165 @@
+[
+  {"id": "launch-todolist-order", "cat": "launch", "phase": "plan", "priority": "P0",
+   "title": "按顺序执行上线 TodoList：先基础和追踪，再渠道和内容，付费流量放最后",
+   "why": "顺序错了会浪费发布机会，例如统计还没装就上 Product Hunt，第一波流量无法归因；产品没验证就投广告则是在烧钱。",
+   "checkAgainst": [
+     "1–5 步全部完成后才对外发布：SEO 标签 → 页面结构 → GSC / GA4 / Bing → 域名邮箱 → 支付流程",
+     "6–9：宣传图文 → 选定 1 个主渠道 + 2 个辅助渠道 → 内容更新节奏 → Product Hunt / Hacker News 发布",
+     "10–19：外链 → 联盟计划 → 用户社群 → 按反馈迭代 → 长尾词新页面 → build in public → 产品视频 → 教程文章 → 访谈首个付费用户 → 调整定价",
+     "第 20 步：前面都完成后才开始付费投放"
+   ],
+   "how": "把 20 步复制到项目管理工具，完成一步记一个日期；发布前最后确认 1–5 步全部打勾。",
+   "tools": ["gsc", "ga4", "bing", "producthunt", "hackernews"]},
+
+  {"id": "launch-kit", "cat": "launch", "phase": "launch", "priority": "P0",
+   "title": "准备发布素材包：一句话标语、Logo、宣传图、演示视频、FAQ、联系方式",
+   "why": "各发布平台需要的素材大同小异；提前准备一次，发布周就能在几十个平台快速复用。",
+   "checkAgainst": [
+     "标语 ≤ 60 字符（Product Hunt tagline 上限）；短描述 ≤ 260 字符，另有一版长描述",
+     "方形 Logo 240×240（PNG / GIF）；约 5 张宣传图 1270×760；演示视频 ≤ 2 分钟，已上传 YouTube",
+     "亮点、目标用户、FAQ、使用指南、联系方式（域名邮箱）齐全",
+     "中英文各一版；提交到每个平台时在此基础上改写，不原样复制"
+   ],
+   "how": "放在一个共享文件夹里；宣传图用 Canva 的对应尺寸模板制作。",
+   "tools": ["canva", "producthunt", "youtube"]},
+
+  {"id": "launch-producthunt", "cat": "launch", "phase": "launch", "priority": "P0",
+   "title": "Product Hunt 发布：选好日期，准备 maker 首评，发布当天全程在线",
+   "why": "Product Hunt 是最大的英文产品发布平台（月访问约 300 万），能带来早期用户、反馈和高 DR 外链。",
+   "checkAgainst": [
+     "提前 ≥ 1 周用 maker 账号活跃（点赞、评论别人的产品）；可以自己 hunt，不必找 hunter",
+     "发布时间为太平洋时间 00:01（每日榜单从这时开始）；周二到周四流量大但竞争激烈，周末更容易排进前列",
+     "发布后立刻发 maker 首评：为什么做、解决什么问题、给 PH 用户的优惠",
+     "通知自己的用户和社群「来看看并给反馈」，不直接拉票、不刷票（PH 会检测并降权）",
+     "当天每条评论 1 小时内回复；记录排名、访问、注册和外链"
+   ],
+   "how": "producthunt.com → Launch，按素材包填写；注意并非所有发布都会被 Featured 到首页，素材质量和描述清晰度会影响审核。",
+   "tools": ["producthunt", "x", "ga4"]},
+
+  {"id": "launch-show-hn", "cat": "launch", "phase": "launch", "priority": "P1",
+   "title": "Hacker News「Show HN」：必须是别人能直接上手试用的东西",
+   "why": "HN 读者是技术早期用户，一次成功的 Show HN 能带来大量高质量访问和后续报道；违反规则的帖子会被标记。",
+   "checkAgainst": [
+     "标题以「Show HN: 」开头，平实描述，不用营销词和感叹号",
+     "链接是能直接试用的产品或开源仓库，尽量不要求注册或留邮箱；博客文章、落地页、候补名单不能发 Show HN",
+     "作者本人发帖，正文写一段背景（为什么做、技术取舍），之后在评论区持续回答",
+     "不让朋友集中点赞（投票圈会被检测）；没有反响可以隔一段时间再发，但不频繁重发"
+   ],
+   "how": "先读 news.ycombinator.com/showhn.html 的规则；发帖后前 2 小时保持在线回复。",
+   "tools": ["hackernews"]},
+
+  {"id": "launch-reddit-posts", "cat": "launch", "phase": "launch", "priority": "P1",
+   "title": "Reddit 发布帖：先读版规，用故事和经验开头，产品放在合适的位置",
+   "why": "Reddit 用户反感广告，但会认真对待真实的创作故事；帖子在 Google 和 AI 回答中的可见度都很高。",
+   "checkAgainst": [
+     "账号 karma 已达标（见 Reddit 养号条目）；目标版块 3–5 个，如 r/SideProject、r/IndieDev、r/SaaS、r/NoCode 等 5k–50k 成员的垂直版块",
+     "发帖前读完 sidebar 规则：是否允许自我推广、是否只允许在每周推广帖里发、最低 karma 和账号年龄",
+     "正文讲为什么做、真实问题、踩过的坑，而不是功能清单；允许时链接放在正文末尾或评论中，并附完整说明",
+     "同一天不在多个版块发相同内容；被踩的帖子不删；所有评论 24 小时内回复"
+   ],
+   "how": "发帖前在目标版块搜索同类帖子，参考高赞帖的格式；很多版块仍沿用「自我推广 ≤ 10%」的老规矩。",
+   "tools": ["reddit"]},
+
+  {"id": "launch-indiehackers", "cat": "launch", "phase": "launch", "priority": "P2",
+   "title": "在 Indie Hackers 建产品页，并发一篇「我为什么做它」的创作者故事",
+   "why": "Indie Hackers 鼓励公开收入和过程，帖子长期可见，适合讲构建故事、获得同行反馈。",
+   "checkAgainst": [
+     "产品资料完整：名称、一句话、网址、logo",
+     "发 1 篇构建故事：真实问题、做法、踩坑、真实数字，产品链接自然出现",
+     "之后每个里程碑（首个付费用户、MRR 节点）再发一篇更新"
+   ],
+   "how": "indiehackers.com 注册后创建产品，并在相关分组发帖；每条评论都回复。",
+   "tools": ["indiehackers"]},
+
+  {"id": "launch-betalist", "cat": "launch", "phase": "plan", "priority": "P2",
+   "title": "内测阶段提交 BetaList，收集早期用户邮箱",
+   "why": "BetaList 面向尝鲜用户（月访问约 19 万），适合在正式发布前收集反馈和候补名单。",
+   "checkAgainst": [
+     "产品有可访问的落地页和候补名单 / 内测入口",
+     "提前 4–8 周提交（免费排队时间较长，赶时间再考虑付费加速）",
+     "记录 BetaList 带来的访问和邮箱注册数"
+   ],
+   "how": "betalist.com 提交创业项目；落地页放邮箱收集表单并接入邮件工具。",
+   "tools": ["betalist"]},
+
+  {"id": "launch-uneed", "cat": "launch", "phase": "launch", "priority": "P2",
+   "title": "在 Uneed 发布，争取当日榜单徽章",
+   "why": "Uneed 是社区型发布平台，竞争比 Product Hunt 小，笔记中约 40–50 票常能拿到当日第一，徽章可以放在官网增加信任。",
+   "checkAgainst": [
+     "已排期发布（免费排队较久，付费可快速发布；笔记价格约 $29.99，DR 73）",
+     "发布当天在社群和 X 上告知，回复所有评论",
+     "获得的排名徽章放进官网页脚或「Featured on」区域"
+   ],
+   "how": "uneed.best 提交；发布后在追踪表中记录排名和访问。",
+   "tools": ["uneed", "x"]},
+
+  {"id": "launch-small-launch-sites", "cat": "launch", "phase": "launch", "priority": "P1",
+   "title": "发布后 2 周内，批量提交二线发布平台",
+   "why": "单个平台流量不大，但合起来是一批来源多样的引用域名和持续的长尾访问。",
+   "checkAgainst": [
+     "完成 ≥ 8 个：Fazier、Microlaunch、DevHunt（开发者工具）、Peerlist Launchpad、Tinylaunch、Open-Launch、Startupfa.me、SaaSHub",
+     "要求回链（放徽章）才给 dofollow 的平台，评估后再决定是否放，不在全站页脚堆满徽章",
+     "每个上线页面都登记到外链追踪表"
+   ],
+   "how": "按素材包统一提交，每个平台的描述改写一次。",
+   "tools": ["fazier", "microlaunch", "devhunt", "peerlist", "saashub"]},
+
+  {"id": "launch-ai-directories", "cat": "launch", "phase": "launch", "priority": "P1",
+   "title": "AI 产品提交到 AI 工具导航站，分类选对",
+   "why": "AI 导航站流量大，同时帮搜索引擎和 AI 把你归到正确的 AI 工具品类。",
+   "checkAgainst": [
+     "提交 ≥ 8 个 AI 导航站，如 There's An AI For That、Toolify、Futurepedia、Future Tools、TopAI.tools、dang.ai、AI 工具集（ai-bot.cn）；免费和付费以各站当前政策为准",
+     "付费前看对方流量（笔记快照：TAAFT 月 UV 约 540 万 / $299，Toolify 约 230 万 / $99，TopAI.tools 约 130 万 / $47），按流量 / 价格比排序",
+     "分类和标签准确；描述包含品类词（如 AI poster generator），而不是空泛口号",
+     "30 天后在 GA4 查看每个导航站的引荐访问，0 访问的不续费"
+   ],
+   "how": "统一使用素材包；在追踪表中记录价格、审核时间和上线链接。",
+   "tools": ["theresanaiforthat", "toolify", "futurepedia", "futuretools", "aibot-cn"]},
+
+  {"id": "launch-cn-communities", "cat": "launch", "phase": "launch", "priority": "P1",
+   "title": "中文社区发布：V2EX 分享创造、掘金、少数派、linux.do、即刻、阮一峰周刊",
+   "why": "中文开发者社区流量大（V2EX 月 PV 约 720 万、linux.do 约 430 万）；链接多为 nofollow，但能带来第一批中文用户和反馈。",
+   "checkAgainst": [
+     "V2EX 发在「分享创造」节点，讲清楚做了什么、为什么做，不重复发",
+     "掘金写技术实现文章，少数派投稿 Matrix 社区，linux.do 遵守版块规则，即刻发到独立开发相关圈子",
+     "阮一峰《科技爱好者周刊》：在 GitHub ruanyf/weekly 仓库按格式提交 issue",
+     "GA4 或百度统计中能看到这些域名的引荐访问"
+   ],
+   "how": "每个社区先看置顶规则和近期热门帖的写法；评论 24 小时内回复。",
+   "tools": ["v2ex", "juejin", "sspai", "linuxdo", "jike", "ruanyf-weekly"]},
+
+  {"id": "launch-day-ops", "cat": "launch", "phase": "launch", "priority": "P1",
+   "title": "发布当天值守：回复评论、监控服务、预留额度，一周后复盘",
+   "why": "发布当天的流量峰值最容易暴露 bug、额度上限和支付问题；回复速度直接影响排名和口碑。",
+   "checkAgainst": [
+     "所有平台的评论和私信 24 小时内回复（Product Hunt 当天 1 小时内）",
+     "可用性监控和错误监控已开启；AI 调用额度、数据库连接数、速率限制按日常 5–10 倍流量预留",
+     "反馈集中记录在一张表里（来源、内容、处理状态）",
+     "发布 7 天后写复盘：各平台的访问、注册、付费和外链"
+   ],
+   "how": "提前在 Cloudflare 和云服务商后台检查配额；用 UptimeRobot 做外部监控。",
+   "tools": ["uptimerobot", "cloudflare", "ga4"]},
+
+  {"id": "launch-relaunch-cadence", "cat": "launch", "phase": "grow", "priority": "P2",
+   "title": "每个大版本、每个重要新功能都当作一次新发布",
+   "why": "每次发布都会留下新的提及记录和外链，也能让老用户回流；对新站来说这是持续的外链节奏。",
+   "checkAgainst": [
+     "公开的更新日志页面，每个大版本有一篇更新说明",
+     "每个大版本至少在 2 个渠道发布（X / 社区帖子 + 发布平台），并记录链接",
+     "Product Hunt 再次发布需要有明显不同的新功能（间隔要求以官方当时规则为准）"
+   ],
+   "how": "维护一张「版本 → 发布链接」表，与外链追踪表关联。",
+   "tools": ["producthunt", "x"]},
+
+  {"id": "launch-aso", "cat": "launch", "phase": "launch", "priority": "P1",
+   "title": "App 上架时做 ASO：名称、副标题、关键词字段、截图、评分",
+   "why": "应用商店搜索是 App 最主要的免费流量来源，名称和副标题中的关键词权重最高。",
+   "checkAgainst": [
+     "iOS：名称 ≤ 30 字符、副标题 ≤ 30 字符、关键词字段 ≤ 100 字符，核心词放在名称或副标题中",
+     "Google Play：标题 ≤ 30 字符、简短说明 ≤ 80 字符，完整说明自然包含中高热度关键词",
+     "前 2–3 张截图各传达 1 个核心卖点（截图上有大字标题）",
+     "在用户完成任务后的正向时刻请求评分（iOS 系统评分弹窗一年最多显示 3 次），评分数稳定增长"
+   ],
+   "how": "用七麦数据（国内）或 Sensor Tower（全球）查竞品关键词和排名；在 App Store Connect / Play Console 填写。",
+   "tools": ["qimai", "sensortower", "appstoreconnect", "playconsole"]}
+]

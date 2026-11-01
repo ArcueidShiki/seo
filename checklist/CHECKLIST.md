@@ -1,0 +1,1703 @@
+# SEO / GEO / SERP / 外链 / 流量 / 账号运营 Checklist
+
+> 188 条（39 条可由 `auditor/audit.mjs` 自动检测，标 🤖）。P0 = 必做，P1 = 重要，P2 = 加分。交互版：`tool/index.html`。
+
+## 目录
+
+- [关键词与选题](#keyword) · 11 条
+- [网站结构与内链](#structure) · 9 条
+- [页面标签 On-page](#onpage) · 13 条
+- [技术 SEO](#technical) · 15 条
+- [速度与体验](#performance) · 9 条
+- [域名 / HTTPS / CDN / 安全](#infra) · 10 条
+- [提交与收录](#indexing) · 8 条
+- [内容与 E-E-A-T](#content) · 16 条
+- [SERP 富结果与点击率](#serp) · 8 条
+- [GEO · AI 搜索优化](#geo) · 12 条
+- [外链建设](#backlinks) · 15 条
+- [数据与监测](#analytics) · 8 条
+- [发布与冷启动](#launch) · 14 条
+- [平台账号运营](#social) · 27 条
+- [多语言与本地化](#i18n) · 5 条
+- [变现](#monetize) · 8 条
+
+<a id="keyword"></a>
+## 关键词与选题 · Keyword research
+
+_Google 给单个页面排名，不给整个网站排名。每个页面先选定一个关键词，再动手写。_
+
+- [ ] **从种子词扩展出 ≥ 50 个候选关键词，建成关键词表** — `P0` · ① 规划
+  - 为什么：一个好关键词就是一个新的流量入口；凭感觉选题，页面写完也可能没人搜。
+  - 检查标准：
+    - 关键词表 ≥ 50 行，每行有：月搜索量、KD、CPC、搜索意图、来源
+    - 来源至少覆盖 3 种：Google 下拉联想、SERP 底部「相关搜索」/ People Also Ask、AnswerThePublic / AlsoAsked、竞品排名词、LLM 扩展
+    - 按三层扩展：核心词（ai poster generator）→ 场景词（… for instagram ads）→ 问题 / 对比 / 教程词（best …、X vs Y、how to …）
+  - 怎么查：无痕窗口在 Google 输入种子词，记录下拉框和底部相关搜索；把种子词放进 AnswerThePublic / AlsoAsked 拿问题词；让 ChatGPT 按「场景 / 人群 / 问题」各列 20 个；最后在 Semrush / Ahrefs / Keyword Planner 批量补数据，没有搜索量的删掉。
+  - 工具 / 平台：[Google 搜索](https://www.google.com/) · [AnswerThePublic](https://answerthepublic.com/) · [AlsoAsked](https://alsoasked.com/) · [ChatGPT](https://chatgpt.com/) · [Semrush](https://www.semrush.com/) · [Ahrefs](https://ahrefs.com/) · [Google Keyword Planner](https://ads.google.com/home/tools/keyword-planner/)
+- [ ] **目标词过数据门槛：新站首批词 KD < 20 且月搜索量 > 500** — `P0` · ① 规划
+  - 为什么：新站外链少，高难度词基本排不上去；搜索量接近 0 的词意味着要自己教育市场，不适合独立开发者。
+  - 检查标准：
+    - 新站（DR < 20）首批目标词：Ahrefs KD < 20（Semrush KD% < 30）且月搜索量 > 500
+    - 核心词（3–6 个月后再冲）：月搜索量 ≥ 1,000 且 KD < 50（笔记中的 KD 阈值区间为 20–50，起步取保守值）
+    - 产品所在主题下有 > 100 个相关词，能做成一组页面，而不是只有一个词
+    - 搜索量至少 2 个来源交叉确认：Semrush / Ahrefs / Keyword Planner 区间 / Google Trends 对比基准词
+    - Ahrefs 的 Parent Topic 是另一个词时，并入父主题页面，不单独建页
+  - 怎么查：Ahrefs Keywords Explorer 或 Semrush Keyword Overview 查 Volume、KD、Parent Topic；Keyword Planner →「获取搜索量和预测」（只给区间，作参考够用）。Trends 估算法：和已知搜索量的基准词对比（如 tts ≈ 28 万/月），Trends 指数比值 × 基准搜索量 ≈ 估算值。
+  - 工具 / 平台：[Ahrefs](https://ahrefs.com/) · [Semrush](https://www.semrush.com/) · [Google Keyword Planner](https://ads.google.com/home/tools/keyword-planner/) · [Google Trends](https://trends.google.com/)
+- [ ] **动笔前人工看一遍 Top 10，判断新站能不能打进去** — `P0` · ① 规划
+  - 为什么：KD 只是外链数量的估算；真正决定能否排上去的是前 10 名是谁、页面是不是专门为这个词写的。
+  - 检查标准：
+    - 每个目标词有一行 SERP 分析记录：大站占比、页面类型、是否专门针对该词、是否有论坛结果
+    - 可做信号（满足 ≥ 2 条）：Top 10 有 ≥ 3 个 DR < 30 的小站；前 5 有 Reddit / Quora / 论坛结果；Top 3–5 的 title / H1 没有完整包含该词或只是顺带提到；有 2023 年后上线的站进入前 10
+    - 放弃信号：Top 10 全是 DR > 70 的品牌站或大站内页；标题清一色「Best XXX in 2026 | Top XX Tools」式模板（改做更长尾的词）
+  - 怎么查：无痕窗口按目标国家搜索（URL 加 &gl=us&hl=en）；用 Ahrefs SERP Overview 或 AITDK / Detailed SEO 插件看每个结果的 DR；逐个打开前 5 名，看 title、H1、目录是否围绕该词，正文有没有步骤、对比、结论。
+  - 工具 / 平台：[Google 搜索](https://www.google.com/) · [Ahrefs](https://ahrefs.com/) · [Semrush](https://www.semrush.com/)
+- [ ] **页面类型与 SERP 意图一致：工具页、教程、对比页还是清单** — `P0` · ① 规划
+  - 为什么：Top 10 都是教程和清单时产品页排不上去；Top 10 都是工具页时，博客文章同样排不上去。
+  - 检查标准：
+    - 每个关键词标注意图：信息型 / 商业调研型（best、vs、alternative）/ 交易型（tool、generator、online、free）/ 导航型
+    - 计划的页面类型 = Top 10 中占多数（≥ 6/10）的页面类型
+    - 交易型词 → 工具页 / 落地页；信息型 → 文章；对比型 → 对比页或清单页
+  - 怎么查：关键词表加三列：「意图」「Top 10 主流页面类型」「计划页面类型」，三列不一致的行标红重新规划。
+  - 工具 / 平台：[Google 搜索](https://www.google.com/) · [Semrush](https://www.semrush.com/)
+- [ ] **用 Trends 确认关键词在上升或稳定，不是一阵风** — `P1` · ① 规划
+  - 为什么：正在下降的词做完也没流量；刚开始上升的新词竞争小、机会大。
+  - 检查标准：
+    - 5 年视图不是单峰，近 12 个月持平或上升
+    - 新词机会：在词根（generator / maker / editor / tool）的 Related queries → Rising 中出现，且 7 天 / 30 天 / 90 天视图都在上升
+    - 中文词同时看百度指数（或 360 趋势 / 巨量算数），曲线不是持续下降
+  - 怎么查：Google Trends 输入候选词，依次切换 Past 5 years / 12 months / 90 days / 30 days / 7 days；输入词根看 Rising；中文词在百度指数里看趋势和需求图谱。
+  - 工具 / 平台：[Google Trends](https://trends.google.com/) · [Exploding Topics](https://explodingtopics.com/) · [百度指数](https://index.baidu.com/)
+- [ ] **拆解 3–5 个竞品的流量词和 Top Pages，列出内容缺口** — `P1` · ① 规划
+  - 为什么：竞品已经替你验证过哪些词能带来流量；最近流量暴涨的网站，往往刚吃到一个新词或容易的词。
+  - 检查标准：
+    - 竞品表：每个竞品的月访问量、主要渠道、Top 10 流量页面、Top 20 流量词
+    - 内容缺口：竞品有排名而你没有页面的词 ≥ 20 个，已并入关键词表
+    - 每月看一次 traffic.cv 等流量飙升榜，记录同领域流量突增的网站和它新增的关键词
+  - 怎么查：Semrush → Organic Research / Keyword Gap；Ahrefs → Site Explorer → Top pages / Content gap；Similarweb 看渠道构成。没有付费工具时，Semrush 免费额度（约 10 次 / 天）只查最重要的竞品。
+  - 工具 / 平台：[Semrush](https://www.semrush.com/) · [Ahrefs](https://ahrefs.com/) · [Similarweb](https://www.similarweb.com/) · [Traffic.cv](https://traffic.cv/)
+- [ ] **选定 5 个核心关键词，其中至少 1 个能较快冲进前 3** — `P1` · ① 规划
+  - 为什么：先拿到一个能带来流量的词，才有数据和动力继续优化；难度要搭配，不要全押大词。
+  - 检查标准：
+    - 核心词 5 个，每个都和产品高度相关
+    - 至少 1 个词的 SERP 分析结论为「弱竞争」（新站 3 个月内有望进前 3）
+    - 每个核心词在「关键词 → URL」映射表里对应唯一一个 URL
+  - 怎么查：关键词表按「相关性 × 搜索量 ÷ 难度」排序挑 5 个；给每个词指定落地 URL，并在排名跟踪里建项目。
+  - 工具 / 平台：[Ahrefs](https://ahrefs.com/) · [Semrush](https://www.semrush.com/) · [Google Search Console](https://search.google.com/search-console)
+- [ ] **中文市场按平台分别建关键词表：百度、小红书、抖音、微信、知乎、B站** — `P1` · ① 规划
+  - 为什么：中文用户的搜索分散在各个 App 里，每个平台的下拉联想就是它自己的需求清单；只看百度会漏掉大部分需求。
+  - 检查标准：
+    - 每个目标平台一张词表，每个词标注来源：该平台搜索框下拉联想 / 热门内容标题 / 评论区提问
+    - 每个平台 ≥ 20 个长尾词，且都属于同一个垂直领域
+    - 百度词在百度指数 / 爱站 / 站长之家有需求数据；小红书、抖音的词在输入种子词后确实出现在下拉框中
+  - 怎么查：依次在小红书、抖音、微信、知乎、B站搜索框输入种子词，截图下拉联想；百度端用百度指数看需求图谱；各平台放在同一张表的不同 sheet。
+  - 工具 / 平台：[百度指数](https://index.baidu.com/) · [小红书](https://www.xiaohongshu.com/) · [抖音](https://www.douyin.com/) · [微信公众平台](https://mp.weixin.qq.com/) · [知乎](https://www.zhihu.com/) · [哔哩哔哩](https://www.bilibili.com/)
+- [ ] **评估 SERP 的可点击空间：广告、AI 概览、精选摘要会抢走多少点击** — `P2` · ① 规划
+  - 为什么：搜索量相同的词，首屏被广告和 AI 概览占满时，自然结果能拿到的点击会少很多。
+  - 检查标准：
+    - 记录每个核心词首屏有无：搜索广告（条数）、AI 概览、精选摘要、视频 / 图片模块、论坛模块
+    - Ahrefs 的 CPS（每次搜索的点击数）明显偏低（经验值 < 0.5）或首屏 ≥ 3 条广告的词，降低优先级
+    - 信息型词出现 AI 概览时，同时加入 GEO 测试问题清单
+  - 怎么查：无痕窗口搜索并截图首屏；Ahrefs Keywords Explorer 看 Clicks 和 CPS；Semrush 关键词列表的 SERP Features 列。
+  - 工具 / 平台：[Google 搜索](https://www.google.com/) · [Ahrefs](https://ahrefs.com/) · [Semrush](https://www.semrush.com/)
+- [ ] **从 GSC 挖「差一点」的词：平均排名 8–30、已有展示的查询** — `P0` · ④ 增长
+  - 为什么：已经有排名的长尾词最容易提升；用一组文章做内链支撑，就能把它和产品页一起推上首页。
+  - 检查标准：
+    - 导出 GSC 近 3 个月数据：平均排名 8–30、展示 ≥ 100 的查询（笔记用 11–30，这里从 8 开始）
+    - 每月挑 1–3 个和产品强相关的长尾词，各安排一个 5 篇文章的主题集群或扩写现有页面
+    - 4–8 周后复查这些词的平均排名，有上升记录
+  - 怎么查：GSC → 效果 → 勾选「平均排名」→ 查询标签 → 过滤「排名 > 8」；Bing Webmaster → Search Performance 同样操作；导出后在关键词表打标签。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [Bing Webmaster Tools](https://www.bing.com/webmasters)
+- [ ] **每月复盘关键词：核心词排名、新出现的查询、关键词内耗** — `P1` · ⑤ 维护
+  - 为什么：需求和排名一直在变；不复盘就会错过新词，也发现不了两个页面在抢同一个词。
+  - 检查标准：
+    - 5 个核心词的排名每月记录一次
+    - 每个重要页面查看 GSC 查询列表：有展示但页面没回答的问题 → 补 FAQ 或新段落
+    - 内耗检查：同一查询对应 ≥ 2 个 URL 且排名来回跳 → 合并页面或调整其中一个的目标词
+    - 新发现的候选词进入关键词表并打上来源
+  - 怎么查：GSC → 效果 → 按网页筛选 → 查询；点某个查询再切到「网页」标签看对应 URL 数；Semrush Position Tracking 的 Cannibalization 报告（付费）。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [Semrush](https://www.semrush.com/) · [Ahrefs](https://ahrefs.com/)
+
+<a id="structure"></a>
+## 网站结构与内链 · Site structure & internal links
+
+_URL、目录层级、内链和主题集群，决定权重怎么在站内流动。_
+
+- [ ] **建立「关键词 → URL」映射：一页只主攻一个词，一个场景一个页面** — `P0` · ① 规划
+  - 为什么：Google 给页面排名，不给整个网站排名；一个页面想覆盖所有功能，结果哪个词都排不上，还会造成关键词内耗。
+  - 检查标准：
+    - 映射表里每个 URL 只有 1 个主关键词（可附带同义词和长尾）
+    - 同一个主关键词只对应 1 个 URL
+    - 每个用例 / 场景 / 功能有自己的页面，没有一个「什么都讲」的总览页去抢具体功能词
+    - URL slug 用该页主关键词的英文连字符形式，如 /tools/pdf-to-excel
+  - 怎么查：关键词表加一列「目标 URL」，用透视表找一词多页和一页多词；上线后用 GSC 查询 → 网页 交叉检查。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [Screaming Frog](https://www.screamingfrog.co.uk/seo-spider/)
+- [ ] **博客和文档放子目录（/blog、/docs），子域名只给真正独立的应用** — `P1` · ① 规划
+  - 为什么：子域名常被当作另一个网站，内容积累的权重分不到主站；子目录还能共用统计、证书、缓存和 GSC 资源。
+  - 检查标准：
+    - 博客在 example.com/blog，而不是 blog.example.com
+    - 子域名只用于业务或技术上隔离的部分：app.、api.、status. 等
+    - 需要 SEO 的文档 / 帮助中心放在 /docs，用静态文档生成器（Fumadocs、Docusaurus、Starlight、VitePress 等）输出可索引的 HTML，并出现在 sitemap 中
+  - 怎么查：规划阶段先画站点地图；已经用了子域名的，迁移时逐条 301 到子目录，并在 GSC 提交新 sitemap。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [Cloudflare](https://dash.cloudflare.com/)
+- [ ] **上线前写好 URL 规则，之后不随意改路径** — `P1` · ① 规划
+  - 为什么：每改一次路径，搜索引擎都要重新抓取、重新积累信号，外部链接也可能失效。
+  - 检查标准：
+    - URL 规则成文：目录层级（/blog/xxx、/tools/xxx、/vs/xxx）、全小写、连字符、是否带结尾斜杠
+    - 带 / 不带结尾斜杠只保留一种可访问，另一种 301 到它，canonical 一致
+    - 必须改版时，事先导出 GSC 中所有有展示的 URL，做完整的旧 → 新 301 对照表
+  - 怎么查：curl -I 分别请求带斜杠和不带斜杠的地址；改版前在 GSC → 效果 → 网页 导出全部 URL。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [Screaming Frog](https://www.screamingfrog.co.uk/seo-spider/)
+- [ ] **每个页面至少有 2 个指向其他页面的内链，没有孤立页面** — `P0` · ② 开发 · 🤖 `links-internal`
+  - 为什么：内链让爬虫发现页面并传递权重；孤立页面很难被收录。
+  - 检查标准：
+    - 每页 ≥2 个指向站内其他页面的链接
+    - 重要页面离首页 ≤3 次点击
+    - 主题集群：支撑文章链接到支柱页 / 产品页
+  - 怎么查：auditor 爬取；Screaming Frog 的 Crawl Depth 和 Inlinks。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [Screaming Frog](https://www.screamingfrog.co.uk/seo-spider/) · [Ahrefs Webmaster Tools（免费）](https://ahrefs.com/webmaster-tools)
+- [ ] **锚文本有描述性，不用"点击这里"** — `P1` · ② 开发 · 🤖 `links-anchor-text`
+  - 为什么：锚文本告诉搜索引擎目标页讲什么。
+  - 检查标准：
+    - 没有 click here / here / read more / 点击这里 这类锚文本
+    - 内链锚文本自然包含目标页关键词，但不要每条都完全一样
+  - 怎么查：auditor。
+  - 工具 / 平台：[seo-handbook auditor](../reports/)
+- [ ] **URL 干净：小写、连字符、无参数、有层级** — `P1` · ② 开发 · 🤖 `tech-clean-urls`
+  - 为什么：可读的 URL 本身就是相关性信号，也更容易被分享和点击。
+  - 检查标准：
+    - 例如 /guide/position-sizing-rules/，不要 /page.html?id=2&ref=home
+    - 全小写、用 - 不用 _
+    - 改版换 URL 时做 301 跳转
+  - 怎么查：auditor 检查站内链接。
+  - 工具 / 平台：[seo-handbook auditor](../reports/)
+- [ ] **导航、页脚和分类页把所有重要页面串起来** — `P1` · ② 开发
+  - 为什么：导航和分类页是爬虫发现新页面的主要路径，也决定站内权重往哪里流。
+  - 检查标准：
+    - 顶部导航包含：功能、用例、价格、FAQ、博客、主 CTA，使用 <nav> 和普通 <a href>
+    - 页脚有：隐私政策、服务条款、联系方式、About，以及主要功能页链接
+    - 首页直接链接最重要的子页面；每个分类 / 集合页链接到其下全部子页面
+    - 首页的功能区块、用例区块分别链接到对应详情页或文章
+  - 怎么查：人工检查导航和页脚；Screaming Frog → Internal 按 Inlinks 升序，确认排在最前面的不是重要页面。
+  - 工具 / 平台：[Screaming Frog](https://www.screamingfrog.co.uk/seo-spider/) · [Ahrefs Webmaster Tools（免费）](https://ahrefs.com/webmaster-tools)
+- [ ] **用「5 篇文章漏斗」做主题集群：文章 2–5 → 文章 1 → 产品页** — `P1` · ④ 增长
+  - 为什么：集群内的权重先汇集到文章 1 再传给产品页，比每篇都直链产品页更自然，也能让文章 1 和产品页同时排名。
+  - 检查标准：
+    - 每个目标长尾词有 5 篇相关文章
+    - 文章 1：开头和结尾各有一个以目标长尾词为锚文本、指向产品页的链接
+    - 文章 2–5：用同一长尾词（或近义写法）作锚文本链接到文章 1，而不是直接链产品页
+    - 集群内链都没有 rel=nofollow
+  - 怎么查：发布后用 Screaming Frog 爬取，查看产品页和文章 1 的 Inlinks 及锚文本；Ahrefs Webmaster Tools → Site Audit → Internal links 复核。
+  - 工具 / 平台：[Screaming Frog](https://www.screamingfrog.co.uk/seo-spider/) · [Ahrefs Webmaster Tools（免费）](https://ahrefs.com/webmaster-tools)
+- [ ] **程序化页面（每个功能 / 格式 / 场景一页）每页都要有独有内容** — `P1` · ④ 增长
+  - 为什么：一词一页的模板页能批量覆盖长尾，但只替换关键词的空模板属于 Google 2024 年起明确打击的「规模化内容滥用」。
+  - 检查标准：
+    - 每个程序化页面有该页独有的数据、示例、截图或工具输出，不只是替换关键词
+    - 每个 URL 对应关键词表中一个有搜索量的词，不为凑数量生成页面
+    - 先上 10–20 页观察：4–8 周后这批页面的「已抓取 - 尚未编入索引」占比 < 30% 再扩量（经验阈值）
+  - 怎么查：程序化页面单独放一个 sitemap，在 GSC → 网页索引编制 中按该 sitemap 筛选看收录率；抽查 5 个页面并排阅读，判断是否只是换了关键词。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [Screaming Frog](https://www.screamingfrog.co.uk/seo-spider/)
+
+<a id="onpage"></a>
+## 页面标签 On-page · On-page tags
+
+_Title、Description、H1、图片 alt、社交卡片：决定搜索结果长什么样。_
+
+- [ ] **每个页面有独立、含关键词的 <title>** — `P0` · ② 开发 · 🤖 `onpage-title`
+  - 为什么：标题是搜索结果里最显眼的蓝字，也是排名信号；"Home"这类通用标题会被 Google 改写。
+  - 检查标准：
+    - 存在且不是 Home / Untitled / React App 这类默认值
+    - 15–65 个字符（中文约 30 字以内），主关键词靠前
+    - 格式参考：主关键词 – 卖点 | 品牌
+  - 怎么查：浏览器标签页或 view-source 查看；批量用 Screaming Frog / auditor 爬取。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [Screaming Frog](https://www.screamingfrog.co.uk/seo-spider/) · [Google Search Console](https://search.google.com/search-console)
+- [ ] **每个页面有 meta description** — `P0` · ② 开发 · 🤖 `onpage-meta-description`
+  - 为什么：不直接影响排名，但影响点击率；缺失时 Google 会从正文随机截取一段。
+  - 检查标准：
+    - 50–165 个字符（中文约 80 字以内）
+    - 包含主关键词和一个行动号召 / 卖点
+    - 每页不同
+  - 怎么查：view-source 搜 name="description"。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [Screaming Frog](https://www.screamingfrog.co.uk/seo-spider/)
+- [ ] **每页恰好 1 个 H1，且在服务端 HTML 中** — `P0` · ② 开发 · 🤖 `onpage-h1`
+  - 为什么：H1 告诉搜索引擎这一页讲什么；由 JS 后插入的 H1 在首次抓取时看不到。
+  - 检查标准：
+    - 服务端返回的 HTML 中 <h1> 数量 = 1
+    - H1 包含主关键词，和 title 意思一致但可以不完全相同
+  - 怎么查：curl 页面后数 <h1>；或 auditor。
+  - 工具 / 平台：[seo-handbook auditor](../reports/)
+- [ ] **主关键词出现在 title、H1、description、首段、URL** — `P0` · ② 开发 · 🤖 `onpage-keyword-placement`
+  - 为什么：关键词位置比密度重要；不要堆砌（2–8% 密度、meta keywords 都是过时做法）。
+  - 检查标准：
+    - title / H1 / description / 正文前 100 词都包含主关键词或其近义写法
+    - URL slug 用关键词的英文连字符形式
+    - 图片 alt 自然包含相关词
+  - 怎么查：auditor --keyword "你的关键词"。
+  - 工具 / 平台：[seo-handbook auditor](../reports/)
+- [ ] **全站没有重复的 title** — `P1` · ② 开发 · 🤖 `onpage-title-unique`
+  - 为什么：重复标题会让 Google 分不清该给哪个页面排名（关键词内耗）。
+  - 检查标准：
+    - 所有可索引页面 title 两两不同
+    - 每个页面对应不同的关键词或意图
+  - 怎么查：auditor 或 Screaming Frog 的 Page Titles → Duplicate。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [Screaming Frog](https://www.screamingfrog.co.uk/seo-spider/)
+- [ ] **标题层级 H1→H2→H3 不跳级** — `P1` · ② 开发 · 🤖 `onpage-heading-hierarchy`
+  - 为什么：清晰的层级帮助搜索引擎和 AI 理解段落结构，也是无障碍要求。
+  - 检查标准：
+    - 没有从 H1 直接跳到 H3 的情况
+    - 不用标题标签做纯样式
+  - 怎么查：Detailed SEO / HeadingsMap 浏览器插件或 auditor。
+  - 工具 / 平台：[seo-handbook auditor](../reports/)
+- [ ] **Open Graph 社交卡片（og:title / description / image / url）** — `P1` · ② 开发 · 🤖 `social-open-graph`
+  - 为什么：在 X、微信、Slack、Discord、LinkedIn 分享时显示大图卡片，影响社交点击率。
+  - 检查标准：
+    - 4 个 og 标签齐全
+    - og:image 为 1200×630、小于 1MB 的绝对 URL
+    - 用 opengraph.xyz 预览正常
+  - 怎么查：粘贴 URL 到 opengraph.xyz 或 X 的发帖框预览。
+  - 工具 / 平台：[OpenGraph.xyz](https://www.opengraph.xyz/) · [seo-handbook auditor](../reports/)
+- [ ] **所有图片有描述性 alt** — `P1` · ② 开发 · 🤖 `img-alt`
+  - 为什么：图片搜索流量入口 + 无障碍；alt 是搜索引擎理解图片的主要依据。
+  - 检查标准：
+    - 渲染后的 DOM 中每个 <img> 都有非空 alt
+    - alt 描述图片内容，不堆关键词
+    - 纯装饰图用 alt="" 或 CSS 背景
+  - 怎么查：auditor 或 Lighthouse Accessibility。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [Lighthouse](https://developer.chrome.com/docs/lighthouse)
+- [ ] **Title、H1、Description、正文、锚文本、Schema 讲的是同一个主题** — `P1` · ② 开发
+  - 为什么：各处信号一致，搜索引擎才能稳定理解页面主题；标题和内容对不上时，Google 会自己改写标题。
+  - 检查标准：
+    - 抽 5 个页面：title、H1、description、首段、指向它的内链锚文本、JSON-LD 的 name / headline 意思一致
+    - H1 用大白话说清「做什么」，不用 redefine / empower / next-gen / 赋能 / 颠覆 这类空话
+    - 同一页关键词写法统一（缩写和全称不混用）；title 中同一个词不重复出现
+    - 不依赖 meta keywords（Google 忽略；只面向百度的站可选填 3–5 个本页词）
+  - 怎么查：Detailed SEO Extension 或 view-source 并排查看；Screaming Frog → Page Titles / H1 / Meta Description 导出后对照。
+  - 工具 / 平台：[Screaming Frog](https://www.screamingfrog.co.uk/seo-spider/)
+- [ ] **每篇文章 / 每个产品页有专属分享封面，修改后强制刷新平台缓存** — `P1` · ② 开发
+  - 为什么：用 Logo 当 og:image，分享出去就是一块白底小图；各平台会缓存旧卡片，不刷新就看不到修改。
+  - 检查标准：
+    - 文章和产品页的 og:image 是该页专属封面或 UI 截图，不是全站 Logo
+    - og:type 按模板区分：首页 website、文章 article、产品 product；og:url 等于该页 canonical（不带参数）
+    - og:image 对外部抓取返回 200，没有被防盗链或 Cloudflare 质询拦截
+    - 修改后用 Facebook Sharing Debugger 重新抓取，并在微信、Telegram、Slack、X 实际发一次看预览
+  - 怎么查：curl -I 请求 og:image 地址；Facebook Sharing Debugger → Scrape Again；X 发帖框粘贴链接预览。
+  - 工具 / 平台：[Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) · [OpenGraph.xyz](https://www.opengraph.xyz/) · [X (Twitter)](https://x.com/)
+- [ ] **Twitter / X card 标签** — `P2` · ② 开发 · 🤖 `social-twitter-card`
+  - 为什么：X 优先读取 twitter:* 标签，缺失时回退到 og。
+  - 检查标准：
+    - twitter:card = summary_large_image
+    - 可选 twitter:site 填官方账号
+  - 怎么查：X 发帖框粘贴链接预览。
+  - 工具 / 平台：[X (Twitter)](https://x.com/) · [seo-handbook auditor](../reports/)
+- [ ] **用语义化标签组织页面：步骤用 <ol>，对比用 <table>，评价用 <blockquote>** — `P2` · ② 开发
+  - 为什么：语义结构帮助搜索引擎和 AI 准确抽取步骤、对比和引用，也是无障碍的基础。
+  - 检查标准：
+    - 每页 1 个 <main>；导航在 <nav>，页脚在 <footer>，文章正文在 <article>
+    - 「怎么用」的步骤是 <ol> 列表；对比内容是带 <th> 的真实 <table>，不是图片
+    - 用户评价用 <blockquote> 加署名；日期用 <time datetime>
+  - 怎么查：DevTools → Elements 检查结构；Lighthouse Accessibility 或 axe DevTools 插件。
+  - 工具 / 平台：[Lighthouse](https://developer.chrome.com/docs/lighthouse)
+- [ ] **图片文件名有描述性，Logo 和产品截图的 alt 写清楚内容** — `P2` · ② 开发
+  - 为什么：文件名和 alt 是图片搜索的主要文本信号；IMG_1234.png 不提供任何信息。
+  - 检查标准：
+    - 文件名用连字符描述内容，例如 ai-poster-generator-instagram-example.webp；没有 IMG_1234、screenshot(3)、未命名
+    - Logo 的 alt = 品牌名 + 定位（如「Vexlora 仓位计算器 logo」），Logo 链接到首页
+    - 产品 UI 截图的 alt 说明截图里展示的功能；同一页没有两张图片用相同的 alt
+    - 纯装饰图片用 alt=""；alt 中同一关键词不重复堆砌
+  - 怎么查：Screaming Frog → Images 导出文件名和 alt 列表人工检查。
+  - 工具 / 平台：[Screaming Frog](https://www.screamingfrog.co.uk/seo-spider/)
+
+<a id="technical"></a>
+## 技术 SEO · Technical SEO
+
+_能抓取、能渲染、能索引：robots、sitemap、canonical、SSR、hreflang、404。_
+
+- [ ] **移动端 viewport 与响应式布局** — `P0` · ② 开发 · 🤖 `tech-viewport`
+  - 为什么：Google 采用移动优先索引：按手机版页面来抓取和排名。
+  - 检查标准：
+    - <meta name="viewport" content="width=device-width, initial-scale=1">
+    - 375px 宽度下无横向滚动、字号 ≥16px、点击区域 ≥48px
+  - 怎么查：Chrome DevTools 手机模式；Lighthouse。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [Lighthouse](https://developer.chrome.com/docs/lighthouse)
+- [ ] **每个可索引页面有自引用的绝对 canonical** — `P0` · ② 开发 · 🤖 `tech-canonical`
+  - 为什么：避免参数、大小写、http/https、带不带斜杠造成的重复内容。
+  - 检查标准：
+    - <link rel="canonical" href="https://完整地址">
+    - 指向自己（除非确实是重复页）
+    - canonical、sitemap、内链使用同一个 URL 版本
+  - 怎么查：GSC 网址检查 → "Google 选择的规范网址" 应与你声明的一致。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [Google Search Console](https://search.google.com/search-console)
+- [ ] **重要页面没有误加 noindex** — `P0` · ② 开发 · 🤖 `tech-indexable`
+  - 为什么：上线前忘了删 noindex 或 robots 全站禁止，是最常见的"为什么没收录"原因。
+  - 检查标准：
+    - 重要页面没有 <meta name="robots" content="noindex">，也没有 X-Robots-Tag: noindex
+    - 只有 404、站内搜索、后台等页面用 noindex
+  - 怎么查：auditor；GSC → 网页索引编制报告。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [Google Search Console](https://search.google.com/search-console)
+- [ ] **正文在不执行 JS 的 HTML 中就存在（SSR / SSG）** — `P0` · ② 开发 · 🤖 `tech-ssr-content`
+  - 为什么：Google 渲染 JS 要排队，可能延迟几天；大多数 AI 爬虫完全不执行 JS。纯客户端渲染的 SPA 对它们来说就是空白页。
+  - 检查标准：
+    - curl 拿到的 HTML 里有 ≥80 个词的正文
+    - 首屏 HTML 的词数 ≥ 渲染后的 70%
+    - Next.js / Nuxt / Astro 用 SSG 或 SSR；Vite SPA 需要预渲染
+  - 怎么查：auditor 对比原始 HTML 和渲染后 DOM；GSC 网址检查 → 查看已抓取的网页。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [Google Search Console](https://search.google.com/search-console)
+- [ ] **robots.txt 允许抓取并声明 Sitemap** — `P0` · ② 开发 · 🤖 `tech-robots-txt`
+  - 为什么：robots.txt 是爬虫访问的第一个文件。
+  - 检查标准：
+    - /robots.txt 返回 200
+    - 没有 Disallow: / 全站禁止
+    - 含 Sitemap: https://…/sitemap.xml
+  - 怎么查：浏览器打开 /robots.txt；GSC → 设置 → robots.txt。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [Google Search Console](https://search.google.com/search-console)
+- [ ] **XML sitemap：只含可索引的规范 URL，lastmod 真实** — `P0` · ② 开发 · 🤖 `tech-xml-sitemap`
+  - 为什么：帮助搜索引擎发现全部页面；priority 和 changefreq 基本被忽略，lastmod 要真实。
+  - 检查标准：
+    - /sitemap.xml 合法且返回 200
+    - 只列 200、可索引、自引用 canonical 的 URL
+    - 每条都有真实的 <lastmod>
+    - 超过 5 万条或 50MB 用 sitemap index
+    - 已在 GSC 和 Bing 提交
+  - 怎么查：auditor 会逐条请求 sitemap 里的 URL；GSC → 站点地图。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [Google Search Console](https://search.google.com/search-console) · [Bing Webmaster Tools](https://www.bing.com/webmasters)
+- [ ] **链接是真正的 <a href>，不用 # 路由，分页可被抓取** — `P0` · ② 开发
+  - 为什么：爬虫只跟随带 href 的 <a>；onClick 跳转、hash 路由和无限滚动后面的内容，爬虫都看不到。
+  - 检查标准：
+    - 导航、分页、卡片点击都用 <a href="/path">，不是 <div onClick> 或 <button>
+    - 不使用 /#/page 这类 hash 路由
+    - 无限滚动或「加载更多」同时提供可访问的分页 URL（?page=2 或 /page/2）
+    - GSC 网址检查 → 查看已抓取的网页：HTML 中能看到主要内链
+  - 怎么查：DevTools → Command Menu → Disable JavaScript 后浏览站点；Screaming Frog 用文本模式和 JS 渲染模式各爬一次，比较发现的页面数。
+  - 工具 / 平台：[Screaming Frog](https://www.screamingfrog.co.uk/seo-spider/) · [Google Search Console](https://search.google.com/search-console)
+- [ ] **预览 / 测试环境不被索引（*.vercel.app、*.pages.dev、staging.）** — `P0` · ② 开发
+  - 为什么：预览域名被收录会产生整站重复内容，甚至抢走正式站的排名。
+  - 检查标准：
+    - 预览和 staging 环境响应头有 X-Robots-Tag: noindex，或需要密码访问
+    - Google 搜索 site:vercel.app "你的品牌" 和 site:pages.dev "你的品牌" 没有结果
+    - 托管平台给的默认生产域名（如 xxx.vercel.app）301 到正式域名或设为 noindex
+  - 怎么查：curl -I 预览地址看 X-Robots-Tag；在 Vercel / Netlify / Cloudflare Pages 设置里给非生产环境加 noindex 响应头或访问保护。
+  - 工具 / 平台：[Google 搜索](https://www.google.com/) · [Cloudflare](https://dash.cloudflare.com/)
+- [ ] **<html lang> 声明页面语言** — `P1` · ② 开发 · 🤖 `tech-html-lang`
+  - 为什么：帮助搜索引擎判断语言和地区；读屏软件也依赖它。
+  - 检查标准：
+    - 每页 <html lang="en"> / "zh-CN" 等，和实际内容语言一致
+  - 怎么查：view-source。
+  - 工具 / 平台：[seo-handbook auditor](../reports/)
+- [ ] **不存在的 URL 返回真实 404 状态码，并有引导链接** — `P1` · ② 开发 · 🤖 `tech-404`
+  - 为什么：返回 200 的"软 404"会浪费抓取预算；好的 404 页能把用户留在站内。
+  - 检查标准：
+    - 随便输一个 URL，HTTP 状态码 = 404
+    - 404 页有返回首页 / 热门页的链接，并设 noindex
+  - 怎么查：curl -I 一个随机 URL。
+  - 工具 / 平台：[seo-handbook auditor](../reports/)
+- [ ] **跳转干净：服务端 301、最多一跳、站内链接不指向跳转地址** — `P1` · ② 开发
+  - 为什么：跳转链浪费抓取并可能损失信号；meta refresh 和 JS 跳转不可靠；站内链接指向 301 会白白多一次请求。
+  - 检查标准：
+    - 所有永久跳转都是服务端 301 / 308（临时才用 302 / 307），没有 <meta http-equiv=refresh> 和 JS 跳转
+    - 任意旧地址到最终地址 ≤ 1 跳（http → https → www → 去斜杠这类 3 跳要合并成 1 跳）
+    - 站内链接、canonical、sitemap 中指向 3xx 的 URL 数 = 0
+    - 删除且没有替代内容的页面返回 404 或 410，不批量 301 到首页
+  - 怎么查：curl -sIL 地址 查看跳转次数；Screaming Frog → Response Codes → Redirection (3xx)，以及 Reports → Redirect Chains。
+  - 工具 / 平台：[Screaming Frog](https://www.screamingfrog.co.uk/seo-spider/) · [Ahrefs Webmaster Tools（免费）](https://ahrefs.com/webmaster-tools)
+- [ ] **带参数的 URL（UTM、排序、筛选、A/B 测试）都 canonical 到干净 URL** — `P1` · ② 开发
+  - 为什么：分享链接、广告和筛选器带的参数会生成大量重复 URL，分散排名信号。
+  - 检查标准：
+    - 访问 /page?utm_source=test 时，canonical 指向 /page
+    - 排序 / 筛选参数页 canonical 指向主版本或设为 noindex,follow，且不出现在 sitemap 中
+    - A/B 测试变体和近似模板页 canonical 指向主版本
+    - canonical 目标返回 200、可索引、不跳转；每页只有 1 个 canonical 标签，没有循环
+  - 怎么查：给 3 个页面手动加 ?utm_source=test 后 view-source 检查；Screaming Frog → Canonicals → Non-Indexable Canonical / Multiple。
+  - 工具 / 平台：[Screaming Frog](https://www.screamingfrog.co.uk/seo-spider/) · [Google Search Console](https://search.google.com/search-console)
+- [ ] **favicon（Google 结果里显示的站点图标）** — `P2` · ② 开发 · 🤖 `tech-favicon`
+  - 为什么：Google 移动端和桌面端结果都显示站点图标，影响辨识度和点击率。
+  - 检查标准：
+    - <link rel="icon"> 指向 48×48 倍数尺寸的图标或 SVG
+    - apple-touch-icon 180×180
+  - 怎么查：Google 结果几周后才会更新图标。
+  - 工具 / 平台：[seo-handbook auditor](../reports/)
+- [ ] **每月扫一次死链：站内 4xx = 0，出站死链及时替换** — `P1` · ⑤ 维护
+  - 为什么：死链浪费抓取、伤害体验；引用的外部来源失效也会降低内容可信度。
+  - 检查标准：
+    - 站内链接返回 4xx / 5xx 的数量 = 0
+    - 出站链接 404 的数量 = 0（替换或删除）
+    - GSC「未找到 (404)」列表中，仍被站内链接或 sitemap 引用的 URL = 0
+  - 怎么查：每月跑一次 Screaming Frog（免费版 500 个 URL）或 Ahrefs Webmaster Tools 的 Site Audit（免费，可定时）；GSC 404 列表点开看「引荐页面」。
+  - 工具 / 平台：[Screaming Frog](https://www.screamingfrog.co.uk/seo-spider/) · [Ahrefs Webmaster Tools（免费）](https://ahrefs.com/webmaster-tools) · [Google Search Console](https://search.google.com/search-console)
+- [ ] **每月看 GSC 抓取统计：主机状态正常，5xx 和 403 接近 0** — `P2` · ⑤ 维护
+  - 为什么：服务器错误或防火墙误拦 Googlebot 时，收录会悄悄下降，前台访问不一定看得出来。
+  - 检查标准：
+    - GSC → 设置 → 抓取统计信息 → 主机状态：robots.txt 抓取、DNS 解析、服务器连接均无问题
+    - 按响应分类：5xx 占比 < 1%，没有成批的 403（多半是 WAF / Bot 规则误拦）
+    - 平均响应时间平稳、没有持续上升（经验值 < 500 ms）
+  - 怎么查：GSC → 设置 → 抓取统计信息 → 打开报告；出现 403 时去 Cloudflare → Security → Events 按 User-Agent 筛选 Googlebot，确认「已验证机器人」被放行。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [Cloudflare](https://dash.cloudflare.com/)
+
+<a id="performance"></a>
+## 速度与体验 · Performance & CWV
+
+_Core Web Vitals（LCP / INP / CLS）、图片、页面体积。_
+
+- [ ] **Core Web Vitals 达标：LCP ≤2.5s · INP ≤200ms · CLS ≤0.1** — `P0` · ② 开发 · 🤖 `perf-core-web-vitals`
+  - 为什么：Google 的页面体验排名信号，看真实用户数据（CrUX）第 75 百分位。
+  - 检查标准：
+    - 实验室：LCP ≤2.5s、TBT ≤200ms（INP 的代理指标）、CLS ≤0.1
+    - 上线后：GSC → 核心网页指标 报告全部"良好"
+    - 不在 <head> 里放同步阻塞的 JS
+  - 怎么查：auditor / PageSpeed（实验室数据）；GSC CWV 报告（真实用户数据）。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [PageSpeed Insights](https://pagespeed.web.dev/) · [Google Search Console](https://search.google.com/search-console)
+- [ ] **图片声明 width / height，避免布局偏移（CLS）** — `P1` · ② 开发 · 🤖 `img-dimensions`
+  - 为什么：没有尺寸的图片加载后会把内容往下挤，导致 CLS 超标。
+  - 检查标准：
+    - 每个 <img> 都有 width 和 height 属性（或 CSS aspect-ratio）
+    - CLS ≤ 0.1
+  - 怎么查：auditor；Lighthouse → Avoid large layout shifts。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [Lighthouse](https://developer.chrome.com/docs/lighthouse)
+- [ ] **图片压缩并使用 WebP / AVIF，首屏外懒加载** — `P1` · ② 开发 · 🤖 `img-optimized`
+  - 为什么：图片通常占页面体积的大头，直接影响 LCP。
+  - 检查标准：
+    - 单张图片 ≤200KB；PNG / JPEG 照片 ≤100KB，否则转 WebP / AVIF
+    - 首屏外图片 loading="lazy"；LCP 图片 fetchpriority="high" 且不懒加载
+    - 按显示尺寸输出（srcset）
+  - 怎么查：auditor 统计实际下载的图片；PageSpeed → Properly size images。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [PageSpeed Insights](https://pagespeed.web.dev/)
+- [ ] **Lighthouse 移动端：性能 ≥90，SEO / 无障碍 / 最佳实践 ≥90** — `P1` · ② 开发 · 🤖 `perf-lighthouse`
+  - 为什么：实验室分数是上线前最快的回归检查。
+  - 检查标准：
+    - Performance ≥ 90（移动端）
+    - SEO ≥ 90，Accessibility ≥ 90，Best Practices ≥ 90
+  - 怎么查：auditor 自动运行 Lighthouse；也可以用 PageSpeed Insights。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [PageSpeed Insights](https://pagespeed.web.dev/) · [Lighthouse](https://developer.chrome.com/docs/lighthouse)
+- [ ] **营销页 HTML 走 CDN 边缘缓存，海外 TTFB < 200 ms** — `P1` · ② 开发
+  - 为什么：只缓存图片和 JS、不缓存 HTML 时，海外用户的 TTFB 常在 800 ms 以上，直接拖慢 LCP。
+  - 检查标准：
+    - /、/blog/*、/pricing、/docs/* 第二次请求的响应头 cf-cache-status: HIT
+    - Cache Rule：Cache Everything，Edge TTL 6–24 小时，Browser TTL 1–4 小时；发布内容后清对应缓存
+    - 从美国、欧洲、东南亚至少 3 个测试点测 TTFB < 200 ms；≥ 800 ms 为不合格
+  - 怎么查：Cloudflare → Caching → Cache Rules 新建「营销页」规则（按 URI Path 匹配，排在 API 绕过规则之后）；curl -sI 查看 cf-cache-status；WebPageTest 选不同地区测试 TTFB。
+  - 工具 / 平台：[Cloudflare](https://dash.cloudflare.com/) · [WebPageTest](https://www.webpagetest.org/) · [PageSpeed Insights](https://pagespeed.web.dev/)
+- [ ] **第三方脚本（统计、客服、广告、A/B 测试）有预算，每加一个都复测** — `P1` · ② 开发
+  - 为什么：第三方脚本是 INP 和 CLS 退化最常见的原因，广告位和聊天插件尤其明显。
+  - 检查标准：
+    - 第三方脚本全部 async / defer 或在用户交互后加载；首页第三方域名 ≤ 5 个（经验值）
+    - 广告位、嵌入组件用 min-height 预留空间，加上后 CLS 仍 ≤ 0.1
+    - 每新增一个脚本，PageSpeed 前后对比：移动端性能分下降 ≤ 5、TBT 增加 ≤ 100 ms（经验阈值）
+  - 怎么查：PageSpeed Insights →「减少第三方代码的影响」；DevTools → Network 按域名分组；Performance 面板录制一次交互查看长任务。
+  - 工具 / 平台：[PageSpeed Insights](https://pagespeed.web.dev/) · [Lighthouse](https://developer.chrome.com/docs/lighthouse)
+- [ ] **首页总传输体积 ≤1MB** — `P2` · ② 开发 · 🤖 `perf-page-weight`
+  - 为什么：移动网络下体积直接决定首屏时间。
+  - 检查标准：
+    - Lighthouse total-byte-weight ≤ 1000KB
+    - 第三方脚本（聊天插件、多个统计）按需加载
+  - 怎么查：auditor；DevTools Network 面板。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [Lighthouse](https://developer.chrome.com/docs/lighthouse)
+- [ ] **开启 HTTP/3、Early Hints 和 Brotli；代码压缩在构建时完成** — `P2` · ② 开发
+  - 为什么：这些开关对 SaaS 没有副作用，对远距离用户收益最大。Cloudflare 的 Auto Minify 已在 2024 年下线，压缩要交给构建工具。
+  - 检查标准：
+    - Cloudflare → Speed → Optimization 中 HTTP/3、Early Hints 已开启
+    - HTML / CSS / JS 响应头 content-encoding 为 br 或 zstd
+    - 构建产物已压缩（Vite / Next.js / Astro 默认开启），不依赖 CDN 的 Auto Minify
+    - DevTools → Network 的 Protocol 列显示 h3 或 h2
+  - 怎么查：Cloudflare 后台检查开关；DevTools → Network 右键表头打开 Protocol 列；curl -sI -H 'Accept-Encoding: br' 查看编码。
+  - 工具 / 平台：[Cloudflare](https://dash.cloudflare.com/)
+- [ ] **每月复查真实用户数据（CrUX），流量不够时自己上报 Web Vitals** — `P1` · ⑤ 维护
+  - 为什么：排名用的是真实用户 28 天数据的第 75 百分位，实验室满分不代表真实体验好；INP 已于 2024 年 3 月取代 FID。
+  - 检查标准：
+    - GSC → 核心网页指标：移动端和桌面端「较差」网址数 = 0，「需要改进」逐月减少
+    - PageSpeed Insights 真实用户数据：LCP ≤ 2.5 s、INP ≤ 200 ms、CLS ≤ 0.1
+    - 流量不足、没有 CrUX 数据时，用 web-vitals 库把 INP / LCP / CLS 上报到 GA4 或 Plausible 自定义事件
+  - 怎么查：每月第一周打开 GSC 核心网页指标报告；INP 问题用 DevTools Performance 面板录制交互，找超过 50 ms 的长任务。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [PageSpeed Insights](https://pagespeed.web.dev/) · [Google Analytics 4](https://analytics.google.com/)
+
+<a id="infra"></a>
+## 域名 / HTTPS / CDN / 安全 · Domain, HTTPS, CDN & security
+
+_域名选择、Cloudflare、HTTPS、域名邮箱、防刷与防攻击。_
+
+- [ ] **选一个短、好记、好拼写的域名，优先 .com** — `P0` · ① 规划
+  - 为什么：域名不是直接排名因素，但影响点击率、信任和口碑传播；上线后再换域名代价很大。
+  - 检查标准：
+    - 主体 ≤ 15 个字符，无连字符、无数字，听一遍就能拼出来
+    - 优先 .com；.ai / .io / .co 被 Google 当作通用顶级域，可以用；.cn / .de 等国家域名会被地理定向
+    - 包含主关键词（如 HeadshotPro.com）或是独特好搜的品牌词：在 Google 和百度搜索该词，没有同名大站
+    - 在 USPTO / WIPO 商标库和应用商店搜过，没有明显冲突
+    - 开启自动续费、WHOIS 隐私保护，注册商账号开启 2FA
+  - 怎么查：在 Namecheap / Dynadot / Cloudflare Registrar 查可用性；oneword.domains、expireddomains.net 找短域名；商标查询用 tmsearch.uspto.gov 和 branddb.wipo.int。
+  - 工具 / 平台：[Namecheap](https://www.namecheap.com/) · [Dynadot](https://www.dynadot.com/) · [Cloudflare](https://dash.cloudflare.com/) · [Google 搜索](https://www.google.com/)
+- [ ] **买老域名或二手域名前查历史：没被惩罚、没有垃圾外链** — `P1` · ① 规划
+  - 为什么：曾被用作垃圾站或 PBN 的域名带着历史包袱，新内容很难获得排名。
+  - 检查标准：
+    - Wayback Machine 历次快照中没有成人、博彩、药品、仿牌或外语垃圾内容
+    - Ahrefs / Semrush 外链中没有大量垃圾锚文本，引用域名曲线没有异常暴涨后归零
+    - Google 搜索 site:该域名 不是完全没有结果（被完全清空可能是惩罚）
+    - ICANN Lookup 查到注册日期、到期日期和状态正常
+  - 怎么查：web.archive.org 查看最早、中间年份和最近的快照；Ahrefs 免费 Backlink Checker 看前 100 条外链；lookup.icann.org 查 WHOIS。
+  - 工具 / 平台：[Wayback Machine](https://web.archive.org/) · [Ahrefs](https://ahrefs.com/) · [ICANN Lookup（WHOIS）](https://lookup.icann.org/) · [Google 搜索](https://www.google.com/)
+- [ ] **www 和裸域只保留一个，另一个一跳 301 过去，并保留路径和参数** — `P0` · ② 开发
+  - 为什么：www.example.com 和 example.com 技术上是两个站，不统一就会产生重复内容、分散外链权重。
+  - 检查标准：
+    - curl -I https://www.example.com/blog/x 返回 301，Location 为 https://example.com/blog/x（路径和查询参数都保留）
+    - 两个主机名的 http:// 都一跳 301 到 https:// 主域名
+    - 站内链接、canonical、sitemap、og:url 全部使用主域名，从不混用
+  - 怎么查：Cloudflare → Rules → Redirect Rules 建一条 301 规则（www 的 DNS 记录保持橙云代理，规则才会生效）；或在 Nginx 里 return 301 https://example.com$request_uri。
+  - 工具 / 平台：[Cloudflare](https://dash.cloudflare.com/)
+- [ ] **全站 HTTPS：证书覆盖裸域和 www，自动续期，Cloudflare 用 Full (strict)** — `P0` · ② 开发
+  - 为什么：HTTPS 是基础信任信号；证书过期会让整站在浏览器里报错，流量瞬间归零。
+  - 检查标准：
+    - SSL Labs 评级 ≥ A，证书覆盖裸域、www 和正在使用的子域名
+    - 证书剩余有效期 > 30 天且配置了自动续期（Cloudflare 边缘证书、Let's Encrypt 或 AllinSSL）
+    - Cloudflare SSL/TLS 加密模式为 Full (strict)，不是 Flexible（Flexible 容易造成重定向循环，且回源是明文）
+    - 页面无混合内容警告；所有子域名都支持 HTTPS 之后再开启 HSTS
+  - 怎么查：ssllabs.com/ssltest 测试；Cloudflare → SSL/TLS → Overview；Chrome DevTools → Security 面板查看混合内容。
+  - 工具 / 平台：[SSL Labs](https://www.ssllabs.com/ssltest/) · [Cloudflare](https://dash.cloudflare.com/)
+- [ ] **按流量类型规划 Cloudflare 代理：人访问的走橙云，API 和 Webhook 走灰云** — `P0` · ② 开发
+  - 为什么：Cloudflare 保护的是「人的访问层」；Webhook 和 API 被 WAF / Bot 规则误拦，就会出现「付了钱却没开通」或 OAuth 登录失败。
+  - 检查标准：
+    - DNS 表：裸域、www、营销页、app.（控制台）为橙云；api.、hooks.（Webhook 接收）为灰云（仅 DNS）
+    - Stripe / Paddle / Creem 等支付平台的 Webhook 投递日志全部 2xx，没有 403 或质询页面
+    - OAuth 回调路径不缓存、不质询：无痕窗口完整走一遍 Google / GitHub 登录成功
+    - Bot Fight Mode 无法用 WAF 规则豁免，因此被程序调用的接口不放在开启它的橙云主机名下
+  - 怎么查：Cloudflare → DNS → Records 检查每条记录的代理状态；支付平台后台 → Webhooks 查看最近的投递记录和响应码。
+  - 工具 / 平台：[Cloudflare](https://dash.cloudflare.com/) · [Stripe](https://stripe.com/) · [Paddle](https://www.paddle.com/) · [Creem](https://www.creem.io/)
+- [ ] **API、登录、控制台、OAuth 回调绝不缓存** — `P0` · ② 开发
+  - 为什么：缓存规则写错时，用户 A 会看到用户 B 的数据，这是最严重的事故之一。
+  - 检查标准：
+    - /api/*、/auth/*、/dashboard/*、OAuth 回调的响应头 cf-cache-status 为 DYNAMIC 或 BYPASS
+    - 带 Set-Cookie 或 Authorization 的请求不会命中 Cache Everything 规则
+    - 用两个不同账号同时请求同一接口，返回的数据互不串号
+  - 怎么查：Cloudflare → Caching → Cache Rules：给这些路径加 Bypass cache 规则，并放在营销页缓存规则之前；curl -sI 检查响应头。
+  - 工具 / 平台：[Cloudflare](https://dash.cloudflare.com/)
+- [ ] **给昂贵接口加限流：/api、/auth、/generate、/chat** — `P0` · ② 开发
+  - 为什么：限流的目的不是完美防御，而是提高攻击成本、保护模型调用费用。
+  - 检查标准：
+    - 速率限制规则覆盖 /api/*、/auth/login、/auth/register、/generate、/chat
+    - 参考阈值：单 IP 60 秒内 > 100 次 → Challenge 或 Block（Cloudflare 免费版规则数和计数窗口有限，例如只能用 10 秒窗口时可换算为 10 秒 > 20 次，以当前套餐说明为准）
+    - 应用层另有按用户 / API Key 的额度和每日上限，防止多号白嫖
+    - 压测验证：同一 IP 超过阈值后的请求被拦截或质询
+  - 怎么查：Cloudflare → Security → WAF → Rate limiting rules；在测试环境用 k6 / autocannon / hey 发请求验证；应用层可用 Redis 计数或 Upstash Ratelimit。
+  - 工具 / 平台：[Cloudflare](https://dash.cloudflare.com/)
+- [ ] **开启 Bot Fight Mode，登录 / 注册 / 找回密码加 WAF 质询和人机验证** — `P1` · ② 开发
+  - 为什么：对 AI SaaS 来说，被刷意味着模型账单暴涨；批量注册脚本和撞库是最常见的攻击。
+  - 检查标准：
+    - Security → Bots：Bot Fight Mode 已开启（API 主机已改为灰云）
+    - WAF 自定义规则：/login、/register、/forgot-password 在 UA 异常或请求频率异常时 Managed Challenge，规则有命中日志
+    - 注册表单接入 Cloudflare Turnstile 或同类人机验证
+    - 平时 Under Attack 模式关闭，只在遭受攻击时临时开启
+  - 怎么查：Cloudflare → Security → Bots / WAF → Custom rules（免费版可建 5 条）；Security → Events 查看命中记录。
+  - 工具 / 平台：[Cloudflare](https://dash.cloudflare.com/)
+- [ ] **配置域名邮箱，并设置 MX / SPF / DKIM / DMARC** — `P1` · ③ 上线
+  - 为什么：用域名邮箱做客服、外联和发收据更可信；Gmail 和 Yahoo 自 2024 年起要求所有发件人至少配置 SPF 或 DKIM，每天发 5,000 封以上的发件人三者（SPF、DKIM、DMARC）必须齐全，否则容易进垃圾箱或被拒收。
+  - 检查标准：
+    - 至少有 hello@ 或 support@ 一个域名地址，出现在页脚、隐私政策和外联邮件中
+    - DNS 有 MX、SPF（只有一条 v=spf1 记录）、DKIM、DMARC（先用 p=none 并配置 rua 报告，2–4 周报告正常后改为 p=quarantine）
+    - mail-tester.com 评分 ≥ 9/10；MXToolbox 的 SPF / DKIM / DMARC 检查全部通过
+    - 只收不发可用 Cloudflare Email Routing（免费转发）；需要发信用 Zoho Mail（免费最多 5 个用户）、Google Workspace 或注册商赠送的邮箱
+  - 怎么查：在邮件服务商后台拿到 DNS 记录，填入 Cloudflare DNS；dig TXT _dmarc.example.com 验证；给 mail-tester 提供的地址发一封测试邮件。
+  - 工具 / 平台：[Cloudflare](https://dash.cloudflare.com/) · [MXToolbox](https://mxtoolbox.com/) · [mail-tester](https://www.mail-tester.com/) · [Dynadot](https://www.dynadot.com/)
+- [ ] **每月安全与可用性检查：GSC 安全问题、宕机监控、账号 2FA、域名到期** — `P1` · ⑤ 维护
+  - 为什么：被黑、被挂恶意代码、长时间宕机或域名过期，都会让排名和信任快速下降，而且往往不是自己最先发现。
+  - 检查标准：
+    - GSC → 安全问题和人工处置：两项都是「未检测到任何问题」
+    - 可用性监控每 5 分钟检测首页和关键 API，宕机即时通知（邮件 / Telegram）
+    - 注册商、Cloudflare、GSC、支付平台、GitHub 账号全部开启 2FA；域名开启注册商锁定
+    - 域名到期日 > 60 天且自动续费开启
+  - 怎么查：每月第一周检查；UptimeRobot 免费版做监控；在 ICANN Lookup 查看域名状态是否包含 clientTransferProhibited。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [UptimeRobot](https://uptimerobot.com/) · [ICANN Lookup（WHOIS）](https://lookup.icann.org/)
+
+<a id="indexing"></a>
+## 提交与收录 · Search engine submission
+
+_Google Search Console、Bing、IndexNow、百度、Yandex：让搜索引擎知道你的页面存在。_
+
+- [ ] **验证 Google Search Console 并提交 sitemap** — `P0` · ③ 上线 · 🤖 `indexing-gsc`
+  - 为什么：GSC 是唯一能看到 Google 真实收录、查询词、排名和点击的地方。
+  - 检查标准：
+    - 优先用域名资源（DNS TXT 验证），否则用网址前缀资源 + HTML 标记
+    - 已提交 sitemap.xml，状态为"成功"
+    - 核心页面用网址检查 → 请求编入索引
+    - "网页"报告里没有大量"已抓取 - 尚未编入索引"
+  - 怎么查：需要你的 Google 账号；本仓库构建时通过 GSC_VERIFICATION 环境变量注入验证标签。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console)
+- [ ] **GSC 用域名资源统一管理，至少 2 个所有者，开启邮件提醒** — `P0` · ③ 上线
+  - 为什么：域名资源一次覆盖 http / https、www / 裸域和所有子域名；只有一个所有者的账号一旦丢失，历史数据很难找回。
+  - 检查标准：
+    - GSC 中有「网域」类型资源（DNS TXT 验证），而不只是网址前缀资源
+    - 设置 → 用户和权限：至少 2 个所有者（另一个是备用账号）
+    - 邮件通知已开启，出现新的索引、安全或人工处置问题时能收到邮件
+  - 怎么查：GSC → 添加资源 → 网域 → 在 Cloudflare DNS 添加 TXT 记录。auditor 只能检测页面上的验证标签，这几项需要登录后台确认。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [Cloudflare](https://dash.cloudflare.com/)
+- [ ] **Bing Webmaster Tools 从 GSC 一键导入，确认 sitemap 和核心页面已收录** — `P0` · ③ 上线
+  - 为什么：Bing 本身有搜索份额，而且 ChatGPT 搜索、Copilot、DuckDuckGo 等都部分依赖 Bing 的索引。
+  - 检查标准：
+    - Bing Webmaster 中站点已验证（Import from Google Search Console 或 DNS 验证）
+    - Sitemaps 页面状态为 Success，发现的 URL 数 ≈ 可索引页面数
+    - URL Inspection 检查首页和 3 个核心页面，均已收录
+  - 怎么查：bing.com/webmasters → Add site → Import from GSC，授权后自动导入站点和 sitemap；未收录的页面在 URL Inspection 里点 Request indexing。
+  - 工具 / 平台：[Bing Webmaster Tools](https://www.bing.com/webmasters)
+- [ ] **接入 IndexNow，发布或更新页面时自动通知 Bing、Yandex 等** — `P1` · ③ 上线
+  - 为什么：IndexNow 能让 Bing、Yandex、Seznam、Naver 在几分钟内知道 URL 变化；Google 目前不使用 IndexNow，仍需 sitemap 和 GSC。
+  - 检查标准：
+    - 根目录有 IndexNow key 文件（/{key}.txt），返回 200
+    - 发布、更新、删除页面时自动推送（构建脚本、CMS 插件或 Cloudflare Crawler Hints）
+    - Bing Webmaster → IndexNow 报告中能看到最近提交的 URL
+  - 怎么查：Cloudflare → Caching → Configuration → Crawler Hints 开启即可自动推送；或在部署脚本里向 https://api.indexnow.org/indexnow 发 POST 请求。
+  - 工具 / 平台：[IndexNow](https://www.indexnow.org/) · [Bing Webmaster Tools](https://www.bing.com/webmasters) · [Cloudflare](https://dash.cloudflare.com/) · [Yandex Webmaster](https://webmaster.yandex.com/)
+- [ ] **上线 2–4 周后自查：搜品牌名首页排第一，site: 收录数与 sitemap 同一量级** — `P1` · ③ 上线
+  - 为什么：连品牌词都搜不到官网，说明收录或实体信号有问题，要先解决再做内容。
+  - 检查标准：
+    - Google 和 Bing 搜索品牌名，官网首页排第 1（品牌名与常见词重名时搜「品牌名 + 品类词」）
+    - site:域名 的结果数与 sitemap 中的 URL 数处于同一量级（site: 只是粗略估计）
+    - 首页结果显示正确的站点名称和 favicon
+  - 怎么查：无痕窗口分别在 Google、Bing（中文站加上百度）搜索；GSC 效果报告中筛选品牌查询，查看平均排名。
+  - 工具 / 平台：[Google 搜索](https://www.google.com/) · [Bing Webmaster Tools](https://www.bing.com/webmasters) · [Google Search Console](https://search.google.com/search-console)
+- [ ] **面向中文用户时，在百度、搜狗、360、头条站长平台验证并提交** — `P2` · ③ 上线
+  - 为什么：国内搜索引擎不会从 Google 获取信息；不主动提交，新站可能几个月都不被收录。
+  - 检查标准：
+    - 百度搜索资源平台、搜狗站长平台、360 站长平台、头条搜索站长平台均显示「已验证」
+    - 各平台提交 sitemap；百度另配置「普通收录」API 推送新 URL（每日有配额）
+    - 百度搜索 site:域名 能查到中文页面；境外服务器收录偏慢属正常，不为此做违规操作
+    - 中文站同时安装百度统计
+  - 怎么查：ziyuan.baidu.com → 用户中心 → 站点管理 → 添加网站，用文件、HTML 标签或 CNAME 验证；其余平台流程类似。
+  - 工具 / 平台：[百度搜索资源平台](https://ziyuan.baidu.com/) · [搜狗站长平台](https://zhanzhang.sogou.com/) · [360 站长平台](https://zhanzhang.so.com/) · [头条搜索站长平台](https://zhanzhang.toutiao.com/) · [百度统计](https://tongji.baidu.com/)
+- [ ] **每次发布新页面或重要更新，当天在 GSC 请求编入索引** — `P1` · ④ 增长
+  - 为什么：新站外链少、抓取频率低，主动提交能把收录从几周缩短到几天，也有助于确立首发。
+  - 检查标准：
+    - 每篇新文章 / 新落地页发布当天：GSC 网址检查 → 测试实际网址 → 请求编入索引
+    - 7 天内复查显示「网址在 Google 上」；14 天仍未收录的进入排查清单
+    - 请求编入索引有每日配额（经验值约 10 条），优先提交核心页面，其余依靠 sitemap
+  - 怎么查：GSC 顶部搜索框粘贴 URL → 测试实际网址 → 请求编入索引；Bing 侧依靠 IndexNow 或 URL Submission。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [Bing Webmaster Tools](https://www.bing.com/webmasters)
+- [ ] **每周检查「网页」索引报告，按原因分类处理未编入索引的页面** — `P0` · ⑤ 维护
+  - 为什么：收录是排名的前提；新站最常见的问题是「已抓取 - 尚未编入索引」，通常意味着内容价值不足或内链太少。
+  - 检查标准：
+    - 「已抓取 - 尚未编入索引」和「已发现 - 尚未编入索引」中的重要页面数逐周下降
+    - 「重复网页，Google 选择的规范网址与用户指定的不同」= 0；抽查核心页面，「Google 选择的规范网址」与声明的一致
+    - 「软 404」「被 robots.txt 屏蔽」「已排除 noindex」里没有本该收录的页面
+    - 每类原因都有处理动作：内容薄 → 扩写或合并；孤立页面 → 加内链；规范冲突 → 修 canonical
+  - 怎么查：GSC → 编制索引 → 网页，逐个点开原因查看示例 URL；修复后点击「验证修正」。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console)
+
+<a id="content"></a>
+## 内容与 E-E-A-T · Content & E-E-A-T
+
+_满足搜索意图、有第一手经验、有作者和日期、持续更新。_
+
+- [ ] **把每个产品功能翻译成用户会搜的问题，覆盖 4 类常青内容** — `P1` · ① 规划
+  - 为什么：用户搜的是问题，不是你的功能名；教程、对比、问题解决、场景方案这 4 类内容需求稳定、衰减慢，适合做内链矩阵。
+  - 检查标准：
+    - 「功能 → 搜索问题 → 文章 URL」映射表没有空行（例：批量生成 → how to generate posters in bulk；商用授权 → can AI-generated posters be used commercially）
+    - 内容计划同时包含：How-to 教程、X vs Y 对比、问题解决（why X doesn't work）、场景方案（X for 某人群 / 平台）
+    - 每个选题在 5 问中至少 3 个为「是」：有人搜？首页是内容页？能比前 3 更具体？产品能自然出现？6 个月后仍有效？
+    - 自测：这个标题我自己会输入搜索框吗？不会就删掉
+  - 怎么查：内容计划表增加「对应功能」「搜索问题」「内容类型」「5 问得分」四列；问题措辞用 AnswerThePublic 和 Google 下拉框校准。
+  - 工具 / 平台：[AnswerThePublic](https://answerthepublic.com/) · [Semrush](https://www.semrush.com/)
+- [ ] **落地页按用户思考路径排版：Hero → 痛点 → 方案 → 步骤 → 案例 → 对比 → FAQ → CTA** — `P0` · ② 开发
+  - 为什么：能排名的页面不是产品宣传册，而是一份「顺带转化的解决问题文档」：搜索引擎一眼看懂解决什么问题，用户一眼判断是否相关。
+  - 检查标准：
+    - Hero：H1 用大白话说「做什么」；副标题写清场景或目标人群；CTA 是低门槛动作（「免费生成第一版」而不是「立即购买」）
+    - 痛点区：H2「为什么需要 X」+ ≥ 3 个具体痛点
+    - 方案区：每个 H3 写「解决了什么问题」，而不是「支持多模型」式的功能罗列
+    - 「怎么用」：3 个编号步骤（你做什么 → 产品做什么 → 你得到什么），配截图或 GIF
+    - 有真实案例 / 前后对比 / 使用数据，有与传统方式或竞品的对比表，有 FAQ，结尾只放下一步 CTA
+    - 写明局限：适合谁、不适合谁、什么情况下效果最好
+  - 怎么查：拿页面逐段对照打勾；每个场景 / 用例单独做一页。上线后用 Clarity 热图看用户在哪一段离开。
+  - 工具 / 平台：[Microsoft Clarity](https://clarity.microsoft.com/)
+- [ ] **核心页面内容足够回答搜索意图（不是薄内容）** — `P1` · ② 开发 · 🤖 `content-depth`
+  - 为什么：工具站只有一个输入框会被判为薄内容；补充用法、公式、示例、FAQ，才能同时排名和转化。
+  - 检查标准：
+    - 工具 / 落地页可见正文 ≥400 词（按搜索意图和 Top 10 竞品调整）
+    - 包含：一句话答案、步骤 / 公式、示例、FAQ、相关链接
+  - 怎么查：auditor 统计正文词数；人工对比 Top 10 竞品。
+  - 工具 / 平台：[seo-handbook auditor](../reports/)
+- [ ] **E-E-A-T 信号：About 页、作者署名、更新日期、联系方式** — `P1` · ② 开发 · 🤖 `content-eeat-signals`
+  - 为什么：金融、健康等 YMYL 主题尤其看重"谁写的、凭什么可信"。
+  - 检查标准：
+    - 有 About / Contact 页面
+    - 文章有作者和可见的发布 / 更新日期（<time datetime>）
+    - YMYL 内容有免责声明
+    - 作者在 X、GitHub、LinkedIn 等平台可以被搜到
+  - 怎么查：auditor 检测 About 页和日期；人工检查作者页。
+  - 工具 / 平台：[seo-handbook auditor](../reports/)
+- [ ] **核心价值不登录就能用、能看到** — `P1` · ② 开发
+  - 为什么：先注册才能用会提高跳出率、缩短停留时间；爬虫也只能看到未登录的版本，免费可用的内容更容易被分享和引用。
+  - 检查标准：
+    - 无痕窗口打开落地页，不注册就能完成一次核心操作，或至少看到完整的示例结果
+    - 主要内容不被注册墙 / 付费墙遮挡；登录放在使用之后（如保存、导出高清、提高额度）
+    - 改动后 GA4 中落地页的平均互动时长上升、跳出率下降
+  - 怎么查：无痕窗口实测一遍；GSC 网址检查 → 查看已抓取的网页，确认爬虫拿到的是完整内容。
+  - 工具 / 平台：[Google Analytics 4](https://analytics.google.com/) · [Google Search Console](https://search.google.com/search-console)
+- [ ] **用户评价、案例和用户数都真实可追溯，不编造** — `P1` · ② 开发
+  - 为什么：虚假评价和虚构用户数会被用户和平台识破，违反 Google 结构化数据政策，美国 FTC 2024 年起也明确禁止虚假评价，风险远大于收益。
+  - 检查标准：
+    - 每条评价都有真实来源（截图，或链接到原帖、推文、Product Hunt 评论），并获得引用许可
+    - 「已有 N 名用户」之类的数字能在后台数据中核对
+    - Review / AggregateRating 只标注真实评价；LocalBusiness / Organization 类型的自我评价不会显示星级
+    - 没有用 AI 生成的人像冒充用户头像
+  - 怎么查：建一个评价素材库，记录来源 URL 和授权日期；结构化数据用 Rich Results Test 验证。
+  - 工具 / 平台：[Rich Results Test](https://search.google.com/test/rich-results) · [Product Hunt](https://www.producthunt.com/)
+- [ ] **引用权威外部来源** — `P2` · ② 开发 · 🤖 `links-external-citation`
+  - 为什么：引用数据来源能增加可信度，也是 AI 判断内容质量的信号。
+  - 检查标准：
+    - 关键数据或结论链接到原始出处（官方文档、论文、权威媒体）
+    - 外链 rel 设置得当（赞助链接用 sponsored，用户生成内容用 ugc）
+  - 怎么查：auditor。
+  - 工具 / 平台：[seo-handbook auditor](../reports/)
+- [ ] **每篇文章动笔前写一份「打败 SERP」简报** — `P0` · ④ 增长
+  - 为什么：搜索流量赢家通吃，前几名拿走大部分点击；只有能成为该主题最好的页面才值得写。
+  - 检查标准：
+    - 简报包含：目标词、搜索意图、Top 3 页面的不足（缺步骤、无实测截图、过时、空泛）、本文多出来的东西（数据、实测、工具、模板）
+    - 产品能自然出现：作为教程步骤、对比选项或实现方式；去掉产品文章反而更好读的选题不写
+    - 读完 Top 3 的反应是「就这？」才动笔
+  - 怎么查：逐段阅读 Top 3 并记录；可以用 Surfer SEO 等工具对比术语覆盖，但以人工判断为准。
+  - 工具 / 平台：[Google 搜索](https://www.google.com/) · [Surfer SEO](https://surferseo.com/)
+- [ ] **AI 可以起草，但发布前必须人工改写并加入第一手细节** — `P0` · ④ 增长
+  - 为什么：Google 不惩罚「AI 写的」，惩罚的是批量生产、没有增量价值的内容；读起来像模板的文章也很难被分享和引用。
+  - 检查标准：
+    - 不发布未修改的 AI 原稿；每篇至少加入 1 处只有你能写出的细节（实测截图、真实数字、踩过的坑）
+    - GPTZero 判定的 AI 概率 < 40%（笔记作者的阈值）；检测器会误判，只作参考信号，不为骗过检测器而改写
+    - 事实、数字、链接全部人工核对
+    - 段落短：中文约 100 字以内、英文 3–4 行一段，手机上好读
+  - 怎么查：发布前按清单逐项打勾，把 GPTZero 分数和改动说明记在内容表里；预算允许时可以「AI 初稿 → 自己改 1 小时 → 母语写手润色」（笔记参考价约 $200 / 篇）。
+  - 工具 / 平台：[GPTZero](https://gptzero.me/) · [ChatGPT](https://chatgpt.com/)
+- [ ] **为前 3 个竞品做「X vs Y」「X alternatives」页面，有搜索量再做「免费 / 优惠码」页** — `P1` · ④ 增长
+  - 为什么：对比和替代品词是转化率最高的商业调研流量，能把竞品的品牌流量分一部分过来。
+  - 检查标准：
+    - 每个主要竞品至少有 /vs/竞品 和 /alternatives/竞品 两个页面；coupon / free 页只在关键词有搜索量时做
+    - 对比表事实准确并注明核对日期，同时写出竞品的优点和你不适合的场景
+    - 不冒充竞品官方、不捏造竞品缺陷、不在标题中误导性使用对方商标
+    - 页面有明确 CTA 和迁移指南（如何从竞品切换过来）
+  - 怎么查：在 Ahrefs / Semrush 查「竞品名 alternative / vs / free / coupon」的搜索量；每季度核对一次对比表中的价格和功能。
+  - 工具 / 平台：[Ahrefs](https://ahrefs.com/) · [Semrush](https://www.semrush.com/)
+- [ ] **每篇核心文章至少有 1 个第一手证据：原创截图、真实数据或失败经历** — `P1` · ④ 增长
+  - 为什么：E-E-A-T 中的「经验」最难伪造，也是个人开发者对抗内容农场的最大优势。
+  - 检查标准：
+    - 每篇支柱文章 ≥ 1 个原创素材：自己操作的截图 / 录屏、自己的数据、遇到的具体限制或报错
+    - 写出具体场景（什么时候、什么条件下）和不完美的过程（调整、取舍、失败）
+    - 没有用图库图片冒充「案例」
+  - 怎么查：逐篇审查支柱文章，判断标准：这个细节别人能不能直接抄走？能抄走的不算。
+- [ ] **至少做 1 个可被引用的「工具型」资产：模板、提示词库、参数表或免费小工具** — `P1` · ④ 增长
+  - 为什么：这类内容不推销、方便引用，会自然吸引外链和 AI 引用，比再多写几篇文章更有效。
+  - 检查标准：
+    - 至少 1 个资产已上线：免费模板 / Prompt 库 / 规格参数表 / 行业标准汇总 / 计算器
+    - 资产页免登录可访问，有固定 URL 和方便引用的形式（可复制的表格、嵌入代码或引用格式）
+    - 在 Ahrefs Webmaster Tools 或 GSC 链接报告中单独跟踪该页面的引用域名数
+  - 怎么查：从用户最常问、需要反复查的信息里挑选；上线后在社区和外联中优先推广它。
+  - 工具 / 平台：[Ahrefs Webmaster Tools（免费）](https://ahrefs.com/webmaster-tools) · [Google Search Console](https://search.google.com/search-console)
+- [ ] **内容日历：固定节奏发布，前 3 个月完成约 10 篇深度文章** — `P1` · ④ 增长
+  - 为什么：10–20 篇内容看不出效果，在一个垂直领域持续输出几百篇才会稳定见效；没有固定节奏最容易半途而废。
+  - 检查标准：
+    - 选题库 ≥ 20 个，每个有目标词和来源
+    - 节奏写进日历并执行：至少每 2–3 周 1 篇深度文章（笔记作者的节奏），有余力每周 1 篇
+    - 前 3 个月完成约 10 篇深度文章，覆盖行业趋势、工具 / 竞品对比、客户案例
+    - 预期：新站通常要 3–6 个月才有稳定的 Google 流量，3 个月内不因没流量停更
+  - 怎么查：用 Notion 或飞书多维表格做内容日历，列：选题、关键词、状态、发布日期、URL、GSC 点击。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console)
+- [ ] **转载到 Dev.to、Hashnode、Medium 等平台：等原文收录后再发，并设置 canonical 指回原文** — `P1` · ④ 增长
+  - 为什么：转载能带来曝光和外链，但处理不好，高权重平台上的副本会抢走原文的排名。
+  - 检查标准：
+    - 原文在 GSC 网址检查中显示「网址在 Google 上」之后才转载
+    - 支持 canonical 的平台都设置指回原文：Dev.to（front matter 的 canonical_url）、Hashnode（Are you republishing 选项）、Medium（用 Import a story 导入会自动设置）
+    - 不支持 canonical 的平台只发前约 70%，文末放「阅读全文」链接回原站
+    - 每个平台链接的 rel 属性以页面源码实测为准并记入外链表（Medium、掘金、V2EX、知乎为 nofollow）
+  - 怎么查：发布后 view-source 搜索 rel="canonical"，确认指向原文 URL。
+  - 工具 / 平台：[DEV Community](https://dev.to/) · [Hashnode](https://hashnode.com/) · [Medium](https://medium.com/) · [Substack](https://substack.com/) · [Google Search Console](https://search.google.com/search-console)
+- [ ] **每个核心主题写一篇「常见误区 / 踩坑 / 排错」，问题来自真实用户** — `P2` · ④ 增长
+  - 为什么：误区和排错类内容需求稳定、细节多，最能体现经验，也最常被 AI 回答引用。
+  - 检查标准：
+    - 每个核心主题至少 1 篇：常见错误、为什么不起作用、怎么修
+    - 问题来自真实来源：客服邮件、评论区、Reddit / 知乎讨论、GSC 查询；每月至少新增 1 个
+    - 每个问题按「结论 → 原因 → 修复步骤」写
+  - 怎么查：把客服和评论里的问题截图收进素材库，按主题打标签，每月挑出现次数最多的写。
+  - 工具 / 平台：[Reddit](https://www.reddit.com/) · [知乎](https://www.zhihu.com/) · [Google Search Console](https://search.google.com/search-console)
+- [ ] **每季度刷新内容：点击下滑的页面更新，长期无流量的薄页面合并** — `P1` · ⑤ 维护
+  - 为什么：过时的数字、截图和年份会降低点击率和可信度；大量长期没流量的薄页面会拉低整站的质量判断。
+  - 检查标准：
+    - GSC 对比最近 3 个月与前 3 个月：点击下降 > 20% 的页面全部进入刷新清单（经验阈值）
+    - 刷新内容包括：数据、截图、年份、失效链接，以及 GSC 中出现的新查询；有实质修改才更新 dateModified 和页面上的「更新于」日期
+    - 12 个月内 0 点击且无外链的薄页面：合并到相关页面并 301，或补充改进；有外链的页面不直接删除
+  - 怎么查：GSC → 效果 → 日期 → 比较 → 网页标签，按点击差值排序；Ahrefs Webmaster Tools 查看哪些页面有外链。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [Ahrefs Webmaster Tools（免费）](https://ahrefs.com/webmaster-tools)
+
+<a id="serp"></a>
+## SERP 富结果与点击率 · SERP features & CTR
+
+_结构化数据、面包屑、站点名、图片/视频结果、精选摘要。_
+
+- [ ] **JSON-LD 结构化数据合法且与页面内容一致** — `P0` · ② 开发 · 🤖 `serp-structured-data`
+  - 为什么：结构化数据决定是否有资格出现富结果，也帮助 AI 理解实体。
+  - 检查标准：
+    - 每个可索引页面都有能解析的 JSON-LD
+    - 类型匹配页面：工具用 WebApplication / SoftwareApplication，文章用 Article，商品用 Product
+    - Rich Results Test 无错误
+    - 不编造评分 / 评论（aggregateRating 必须来自真实评价）
+  - 怎么查：auditor 检查 JSON 能否解析；Rich Results Test 和 Schema Validator 检查规范。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [Rich Results Test](https://search.google.com/test/rich-results) · [Schema Validator](https://validator.schema.org/)
+- [ ] **BreadcrumbList 面包屑** — `P1` · ② 开发 · 🤖 `serp-breadcrumbs`
+  - 为什么：搜索结果里显示路径而不是长 URL，层级更清楚。
+  - 检查标准：
+    - 页面有可见的面包屑导航
+    - 有对应的 BreadcrumbList JSON-LD，item 用绝对 URL
+  - 怎么查：Rich Results Test。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [Rich Results Test](https://search.google.com/test/rich-results)
+- [ ] **Organization + WebSite 实体（站点名、logo、sameAs）** — `P1` · ② 开发 · 🤖 `serp-entity-schema`
+  - 为什么：Google 用它决定结果里显示的站点名称和 logo，也是知识图谱和 AI 识别品牌实体的基础。
+  - 检查标准：
+    - 首页有 Organization（name、url、logo、sameAs 指向社交账号）
+    - 首页有 WebSite（name = 你希望显示的站点名）
+  - 怎么查：Rich Results Test；几周后在搜索结果中确认站点名。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [Rich Results Test](https://search.google.com/test/rich-results)
+- [ ] **只为仍然有效的富结果类型投入，不再为 FAQ / HowTo 富结果花时间** — `P1` · ② 开发
+  - 为什么：FAQ 富结果自 2023 年 8 月起只对政府和医疗权威站显示，HowTo 富结果已经下线，2025 年 Google 又停用了一批类型（如 Course Info、Claim Review、Estimated Salary）。
+  - 检查标准：
+    - 优先实现：Organization / WebSite（站点名、logo）、BreadcrumbList、Article、Product 或 SoftwareApplication（价格与页面一致）、VideoObject
+    - FAQPage 可以保留（帮助 AI 理解问答），但不期待 FAQ 富结果；不为富结果新增 HowTo 标记
+    - SoftwareApplication 只有在有真实评分时才写 aggregateRating，没有就不写
+    - 所用类型都能在 Google 搜索中心「结构化数据搜索结果库」文档中找到
+  - 怎么查：查阅 developers.google.com/search/docs/appearance/structured-data/search-gallery；Rich Results Test 只会报告当前支持的类型。
+  - 工具 / 平台：[Rich Results Test](https://search.google.com/test/rich-results) · [Schema Validator](https://validator.schema.org/)
+- [ ] **争取图片和视频结果：原创图片 + 嵌入页面的演示视频（VideoObject）** — `P2` · ② 开发
+  - 为什么：图片和视频结果是额外的流量入口，对设计类、工具类产品尤其明显。
+  - 检查标准：
+    - 关键图片原创；以图片为主的网站提供图片 sitemap（image:image）
+    - 每个核心落地页嵌入 1 个演示视频，放在页面主体位置而不是藏在页脚
+    - VideoObject 包含 name、description、thumbnailUrl、uploadDate、duration；YouTube 视频加章节
+    - GSC「视频网页」报告中有已编入索引的视频页
+  - 怎么查：Rich Results Test 验证 VideoObject；GSC → 视频网页 查看未编入索引的原因。
+  - 工具 / 平台：[YouTube](https://www.youtube.com/) · [Rich Results Test](https://search.google.com/test/rich-results) · [Google Search Console](https://search.google.com/search-console)
+- [ ] **品牌词搜索结果第一页尽量都是你自己的资产** — `P2` · ④ 增长
+  - 为什么：搜索品牌名的人意向最高；第一页被官网和自己的账号占满，能提高信任，也挡住仿冒和过时信息。
+  - 检查标准：
+    - 搜索品牌名，第一页 ≥ 5 个结果属于你：官网、X、GitHub、LinkedIn、YouTube、Product Hunt、Crunchbase 等
+    - 这些资料页的名称、简介、logo 一致并链接回官网，与 Organization 的 sameAs 列表一致
+    - 前 3 名没有仿冒站或过期信息
+  - 怎么查：无痕窗口搜索品牌名，以及「品牌名 review」「品牌名 pricing」；缺哪个资料页就补哪个。
+  - 工具 / 平台：[Google 搜索](https://www.google.com/) · [X (Twitter)](https://x.com/) · [GitHub](https://github.com/) · [LinkedIn](https://www.linkedin.com/) · [Product Hunt](https://www.producthunt.com/) · [Crunchbase](https://www.crunchbase.com/)
+- [ ] **每月找出「排名不错但点击率低」的页面，改写标题和描述** — `P1` · ⑤ 维护
+  - 为什么：点击率决定同样的排名能拿到多少流量；标题与页面不匹配时 Google 还会自行改写。
+  - 检查标准：
+    - GSC 中平均排名 ≤ 5、展示 ≥ 500、CTR < 3% 的页面进入改写清单（经验阈值；有 AI 概览的查询整体 CTR 会更低）
+    - 搜索目标词看实际展示：标题被改写的，调整 title 与 H1 保持一致、去掉冗长的品牌后缀
+    - 新标题用已验证的写法：数字 + 结果、年份、括号补充（如「（含实战案例）」），主关键词靠前
+    - 每次改写记录日期，4 周后对比 CTR
+  - 怎么查：GSC → 效果 → 勾选 CTR 和平均排名 → 网页标签，按展示排序；改写记录写在关键词表里。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [Google 搜索](https://www.google.com/)
+- [ ] **每月检查 GSC 增强功能报告，结构化数据错误保持为 0** — `P2` · ⑤ 维护
+  - 为什么：模板改版常会悄悄破坏结构化数据；不会有人通知你，富结果只是默默消失。
+  - 检查标准：
+    - GSC 中面包屑、商品摘要、视频、无法解析的结构化数据等报告的「无效」项 = 0
+    - 每次模板改动上线后，抽 3 个页面用 Rich Results Test 复测
+  - 怎么查：GSC 左侧栏下半部分的「购物」「增强功能」逐个打开；修复后点击「验证修正」。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [Rich Results Test](https://search.google.com/test/rich-results)
+
+<a id="geo"></a>
+## GEO · AI 搜索优化 · Generative engine optimization
+
+_让 ChatGPT、Perplexity、Claude、Gemini、Google AI Overviews 能读到并引用你。_
+
+- [ ] **答案先行：H1 后第一段直接给出定义 / 结论** — `P0` · ② 开发 · 🤖 `geo-answer-first`
+  - 为什么：AI 搜索和精选摘要都偏好引用简短、自成一体的答案段落。
+  - 检查标准：
+    - H1 后第一段 ≤80 词，直接回答核心问题（公式、定义、结论）
+    - 每个 H2 下第一句也能单独成立
+  - 怎么查：auditor 启发式检测；把页面丢给 ChatGPT / Perplexity 问目标问题，看是否引用。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [ChatGPT](https://chatgpt.com/) · [Perplexity](https://www.perplexity.ai/)
+- [ ] **FAQ / 问答式小标题** — `P1` · ② 开发 · 🤖 `geo-faq-blocks`
+  - 为什么：用户会把问题原话问给 AI；问答格式最容易被摘取。注意：Google 的 FAQ 富结果自 2023 年起只给政府和医疗类权威站点显示。
+  - 检查标准：
+    - ≥3 个用问句写的小标题，或 FAQPage 结构化数据
+    - 问题来自真实搜索：People Also Ask、Reddit、AnswerThePublic
+  - 怎么查：auditor。
+  - 工具 / 平台：[seo-handbook auditor](../reports/)
+- [ ] **robots.txt 没有屏蔽 AI 搜索爬虫** — `P1` · ② 开发 · 🤖 `geo-ai-crawlers`
+  - 为什么：想被 ChatGPT 搜索 / Perplexity / Claude 引用，就不能屏蔽 OAI-SearchBot、PerplexityBot、Claude-SearchBot。训练爬虫（GPTBot、Google-Extended）是否放行可以单独决定。
+  - 检查标准：
+    - 没有 Disallow 掉 OAI-SearchBot、ChatGPT-User、PerplexityBot、ClaudeBot / Claude-SearchBot
+    - Cloudflare 的 "Block AI bots" 开关和 robots 策略一致
+  - 怎么查：查看 robots.txt；Cloudflare → Security → Bots。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [Cloudflare](https://dash.cloudflare.com/)
+- [ ] **核心页面覆盖五类知识单元：是什么、为什么、怎么用、和谁比、常见错误** — `P1` · ② 开发
+  - 为什么：生成式引擎按问题检索段落再拼成答案；解释原因和用法的结构化内容最容易被拆成可复用的知识单元。
+  - 检查标准：
+    - 每个核心页面的 H2 / H3 大纲能对应到：定义、原理或原因、使用步骤、对比、常见错误或局限
+    - 对比信息用 HTML 表格，步骤用有序列表，定义用一句话单独成段
+    - 内容围绕真实问题组织，而不是围绕关键词堆段落
+  - 怎么查：用 HeadingsMap 插件导出大纲对照检查；把页面 URL 发给 ChatGPT 或 Perplexity，问「根据这个页面，X 和 Y 有什么区别」，看能否准确摘出答案。
+  - 工具 / 平台：[ChatGPT](https://chatgpt.com/) · [Perplexity](https://www.perplexity.ai/)
+- [ ] **根目录提供 /llms.txt** — `P2` · ② 开发 · 🤖 `geo-llms-txt`
+  - 为什么：给大模型的站点摘要和关键页面索引；成本很低，各家支持程度不一。
+  - 检查标准：
+    - /llms.txt 返回 200，Markdown 格式
+    - 包含 # 站点名、> 一句话简介、关键事实、## Pages 链接列表
+  - 怎么查：浏览器打开 /llms.txt。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [llms.txt 规范](https://llmstxt.org/)
+- [ ] **确认核心页面已被 Bing 收录：ChatGPT 搜索和 Copilot 都依赖它** — `P0` · ③ 上线
+  - 为什么：ChatGPT 搜索结合了 Bing 等第三方索引和自家爬虫，Copilot 直接使用 Bing；Bing 里没有你，这些 AI 就很难找到你。
+  - 检查标准：
+    - Bing Webmaster → URL Inspection：首页和全部核心页面显示已收录
+    - 上线 2 周内在 bing.com 搜索 site:域名 有结果；未收录的页面用 IndexNow 或 Submit URL 推送
+    - Bing Webmaster 中没有抓取错误或被阻止的核心 URL
+  - 怎么查：Bing Webmaster Tools → URL Inspection / Site Explorer；配合 IndexNow 条目一起做。
+  - 工具 / 平台：[Bing Webmaster Tools](https://www.bing.com/webmasters) · [IndexNow](https://www.indexnow.org/) · [ChatGPT](https://chatgpt.com/) · [Microsoft Copilot](https://copilot.microsoft.com/)
+- [ ] **从日志确认 AI 爬虫真的抓到了页面，而不只是 robots.txt 放行** — `P1` · ③ 上线
+  - 为什么：robots.txt 放行了，WAF、Bot Fight Mode 或 Cloudflare 的 AI 爬虫屏蔽设置仍可能返回 403；2025 年起 Cloudflare 会让新接入的域名默认屏蔽 AI 爬虫。
+  - 检查标准：
+    - Cloudflare AI Crawl Control（原 AI Audit）或服务器日志中，OAI-SearchBot、ChatGPT-User、PerplexityBot、Claude-SearchBot 的请求返回 200
+    - 这些 User-Agent 在 Security → Events 中没有被 Block 或 Challenge 的记录
+    - 训练类爬虫（GPTBot、ClaudeBot、Google-Extended、CCBot）是否放行已明确决定，并记录理由
+  - 怎么查：Cloudflare 后台按 User-Agent 筛选；不用 Cloudflare 时 grep 访问日志，例如 grep -E 'OAI-SearchBot|PerplexityBot|Claude-SearchBot' access.log，再统计状态码。
+  - 工具 / 平台：[Cloudflare](https://dash.cloudflare.com/)
+- [ ] **在 Reddit、Hacker News、知乎、V2EX、贴吧等讨论区长期真实参与** — `P1` · ④ 增长
+  - 为什么：多轮问答式的真实讨论是大模型高度依赖的语料；Reddit 帖子在 Google 和 AI 回答里都经常被引用。
+  - 检查标准：
+    - 每月 ≥ 4 次有实质内容的回答（解释原因、给出步骤），不是丢一个链接
+    - 只在问题确实相关时提到自己的产品，并说明你是开发者
+    - 记录获赞或被追问的帖子链接，观察它们是否出现在 AI 测试问题的引用来源里
+  - 怎么查：用 F5Bot 订阅品类关键词在 Reddit / Hacker News 上的新帖提醒；中文社区用站内搜索关注相关话题。
+  - 工具 / 平台：[Reddit](https://www.reddit.com/) · [Hacker News](https://news.ycombinator.com/) · [知乎](https://www.zhihu.com/) · [V2EX](https://www.v2ex.com/) · [F5Bot](https://f5bot.com/)
+- [ ] **品牌在全网的描述一致：名字、一句话定位、品类、价格、创始人** — `P1` · ④ 增长
+  - 为什么：AI 通过多个来源交叉确认「这个品牌是什么」；各处说法不一致，模型就不敢把你和品类关联起来。
+  - 检查标准：
+    - 有一份品牌事实卡：品牌名（固定写法）、一句话定位（≤ 20 词）、所属品类、定价、创始人、上线年份、官网
+    - 官网 About 页、导航站、Product Hunt、X / LinkedIn / GitHub 简介、Crunchbase 都使用事实卡上的说法
+    - 抽查 5 个第三方页面，描述与事实卡一致；过时描述已联系对方更新
+    - 不为了 GEO 去创建不符合收录标准的维基百科词条
+  - 怎么查：搜索「品牌名」「品牌名 是什么」「what is 品牌名」，逐个核对第三方描述。
+  - 工具 / 平台：[Crunchbase](https://www.crunchbase.com/) · [LinkedIn](https://www.linkedin.com/) · [Product Hunt](https://www.producthunt.com/) · [Google 搜索](https://www.google.com/)
+- [ ] **发布可被引用的原创数据：每个数字都有方法、样本和日期** — `P1` · ④ 增长
+  - 为什么：AI 回答和记者都偏爱带具体数字的来源，原创数据是最容易获得引用和外链的内容。
+  - 检查标准：
+    - 至少 1 份原创数据：用户调研、产品使用统计、基准测试或价格对比
+    - 每个关键数字写成一句可以单独引用的完整句子（如「在 1,200 次测试中，X 的平均耗时为 3.2 秒（2026 年 3 月）」）
+    - 写明方法、样本量、时间范围，提供可下载的原始数据或图表
+    - 数据每年更新一次，页面显示更新日期
+  - 怎么查：从产品后台匿名聚合数据；数据页单独一个 URL，标题含「报告 / 统计 / 基准」和年份。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [Ahrefs Webmaster Tools（免费）](https://ahrefs.com/webmaster-tools)
+- [ ] **争取进入 AI 经常引用的第三方榜单和评测页** — `P1` · ④ 增长
+  - 为什么：AI 回答「最好的 X 工具」时大量引用 best-of 清单、评测站和对比文章；你不在这些页面上，就很难被推荐。
+  - 检查标准：
+    - 列出测试问题中 AI 引用的前 10 个第三方来源（清单文章、G2、AlternativeTo、SaaSHub、Reddit 帖子等）
+    - 每个来源都有对应动作：提交收录、联系作者申请加入、完善 AlternativeTo / SaaSHub 资料
+    - 3 个月内至少进入其中 3 个
+  - 怎么查：Perplexity 的回答会直接列出引用来源；给清单作者发邮件时附上试用账号和一段可直接引用的描述。
+  - 工具 / 平台：[Perplexity](https://www.perplexity.ai/) · [G2](https://www.g2.com/) · [AlternativeTo](https://alternativeto.net/) · [SaaSHub](https://www.saashub.com/)
+- [ ] **每月用固定问题清单测试 AI 搜索：有没有提到你、有没有引用你** — `P0` · ⑤ 维护
+  - 为什么：GEO 衡量的不是排名而是「被采纳的概率」；不定期测试，就不知道自己有没有进入模型的证据池。
+  - 检查标准：
+    - 固定 10–20 个测试问题：品类问题（best X tool）、对比（X vs Y、X alternatives）、任务问题（how to do Y）、品牌问题（what is 品牌名）
+    - 每月在 ChatGPT（开启搜索）、Perplexity、Gemini、Claude、Copilot、Google AI 概览 / AI Mode 各跑一遍
+    - 记录：是否提到品牌、是否带你的链接、排第几、引用了哪些第三方来源、推荐了哪些竞品
+    - 3 个月内「被提到」的问题数上升；引用竞品的来源（榜单、Reddit 帖子、评测）加入外联计划
+  - 怎么查：在退出登录或无痕状态下测试以减少个性化影响；结果记在表格里按月对比。
+  - 工具 / 平台：[ChatGPT](https://chatgpt.com/) · [Perplexity](https://www.perplexity.ai/) · [Gemini](https://gemini.google.com/) · [Claude](https://claude.ai/) · [Microsoft Copilot](https://copilot.microsoft.com/)
+
+<a id="backlinks"></a>
+## 外链建设 · Backlinks
+
+_导航站、发布平台、内容外链、合作与被提及；外链就是信任票。_
+
+- [ ] **不买外链套餐、不做 PBN、不批量交换友链** — `P0` · ① 规划
+  - 为什么：Google 的链接垃圾政策会让操纵性链接失效甚至触发人工处置。笔记原话：放在 2015 年看起来合理的外链手法，到 2026 年大概率有毒。
+  - 检查标准：
+    - 没有购买「SEO 外链套餐」、PBN、站群链接、论坛签名和评论区外链
+    - 友链只与真正相关、有流量的站点小规模交换（个位数），不参与链接农场式互换
+    - 赞助或付费推广中的链接标 rel="sponsored" 或 nofollow
+    - GSC → 人工处置 显示「未检测到任何问题」；只有在出现人工处置或明显的负面 SEO 时才使用拒绝（disavow）工具
+  - 怎么查：每月外链复盘时检查新增的可疑域名（外语垃圾站、同 IP 群站、锚文本全是关键词的站点）。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [Ahrefs Webmaster Tools（免费）](https://ahrefs.com/webmaster-tools)
+- [ ] **拆竞品冷启动外链 ①：先确定它的冷启动时间窗口** — `P1` · ① 规划
+  - 为什么：竞品上线后 0–30 天的 5–20 个链接和提及带来了第一波流量，其中很多已经消失、Ahrefs 也抓不全，所以要先锁定时间范围再搜索。
+  - 检查标准：
+    - 每个重点竞品记录 3 个日期：域名注册日（WHOIS）、Wayback 最早快照日期、Product Hunt / BetaList 发布日
+    - 冷启动窗口 = 最早日期起 0–30 天（或 0–60 天）
+    - 打开最早 2–3 个 Wayback 快照，记录首页、页脚、About 中的「Featured on」「As seen on」徽章和媒体 logo
+  - 怎么查：lookup.icann.org 查注册日期；web.archive.org/web/*/竞品域名 查看最早快照；搜索 site:producthunt.com "竞品名"。
+  - 工具 / 平台：[ICANN Lookup（WHOIS）](https://lookup.icann.org/) · [Wayback Machine](https://web.archive.org/) · [Product Hunt](https://www.producthunt.com/) · [BetaList](https://betalist.com/)
+- [ ] **拆竞品冷启动外链 ②：用限时搜索找链接、提及和二次传播，整理成路径** — `P1` · ① 规划
+  - 为什么：冷启动期的信号大约是「直接外链 : 带网址的提及 : 只提名字」= 2 : 4 : 4，只用外链工具会漏掉大部分。
+  - 检查标准：
+    - Google 搜索 "competitor.com" -site:competitor.com，工具 → 时间 → 自定义为冷启动窗口，人工剔除聚合站、镜像站、WHOIS 缓存页
+    - 同样限定时间搜 "产品名"、"产品名" AI、"产品名" tool，找没有链接的提及
+    - 搜 site:producthunt.com | site:reddit.com | site:news.ycombinator.com | site:indiehackers.com | site:betalist.com "产品名"，找原帖和转述它的博客 / 榜单
+    - 相同查询在 Bing、DuckDuckGo 再跑一遍（通常能多找到 10–20%），最后才用 Ahrefs / Semrush 补充验证
+    - 整理成路径表（链接类型 | 来源平台 | 第几天 | 作用），≥ 5 条覆盖第 0–30 天，并改写成自己的发布计划
+  - 怎么查：满足以下 ≥ 2 条即为核心冷启动链接：30 天内出现、明显是人写的、首次系统介绍该产品、带主观评价、之后被他人引用。典型路径：Day 1 社区发布 → Day 7 博客评测 → Day 14 导航站 / 推荐清单。
+  - 工具 / 平台：[Google 搜索](https://www.google.com/) · [Bing Webmaster Tools](https://www.bing.com/webmasters) · [DuckDuckGo](https://duckduckgo.com/) · [Ahrefs](https://ahrefs.com/) · [Semrush](https://www.semrush.com/)
+- [ ] **建一张外链追踪表，所有提交和获得的链接都登记** — `P0` · ③ 上线
+  - 为什么：外链工作非常零碎，没有表格就会重复提交、忘记复查，也算不清投入产出。
+  - 检查标准：
+    - 列：站点、提交页 URL、DR、rel（dofollow / nofollow）、对方自然流量、价格、状态、提交日期、上线日期、上线链接、带来的访问
+    - 待提交清单由 2–3 个导航站合并去重而来（BacklinkDirs、Launchpointzero、1000UserGuide、91wink SEO 外链资源目录），同一域名只出现一次
+    - 每条「已上线」记录有复查日期，每季度复查一次链接是否还在
+  - 怎么查：Google Sheets 或飞书多维表格；DR 用 Ahrefs 免费 Website Authority Checker 查，rel 在上线页面用 DevTools 检查链接属性。
+  - 工具 / 平台：[BacklinkDirs](https://backlinkdirs.com/) · [Ahrefs](https://ahrefs.com/)
+- [ ] **每个外链机会先过 4 道门：DR、相关性、真实流量、dofollow** — `P0` · ③ 上线
+  - 为什么：一个 DR 70 却没有流量的链接农场，价值可能不如一个 DR 25 的同领域博客；只看 DR 很容易花冤枉钱。
+  - 检查标准：
+    - DR / Authority Score 记录在表（作为参考，不是唯一标准）
+    - 主题相关或受众相关：同领域站点、同类工具导航
+    - 有真实自然流量：Ahrefs / Similarweb 估算 > 0 且近 6 个月没有断崖下跌；流量接近 0 的高 DR 站直接拒绝
+    - 链接位于正文或产品详情中，而不是页脚、侧边栏、签名；rel 属性已实测记录
+  - 怎么查：在 Ahrefs Site Explorer 或 Similarweb 输入对方域名看流量曲线；打开对方已上线的同类页面，查看链接位置和 rel。
+  - 工具 / 平台：[Ahrefs](https://ahrefs.com/) · [Similarweb](https://www.similarweb.com/) · [Semrush](https://www.semrush.com/)
+- [ ] **上线第 1 个月：完成一轮免费目录和产品资料站提交，每个站描述不同** — `P1` · ③ 上线
+  - 为什么：目录的作用是让搜索引擎知道你存在、把你归入正确的品类，同时带来第一批来源多样的引用域名。
+  - 检查标准：
+    - 第 1 个月提交 ≥ 30 个免费目录 / 资料站，其中 ≥ 10 个为 dofollow 且 DR ≥ 50
+    - 必做：AlternativeTo、SaaSHub、Peerlist、StackShare（开发者工具）、相关的 GitHub Awesome 列表（如适用）
+    - 每个站的描述手写或改写，不复制同一段模板；分类选对
+    - 4–8 周后在 GSC → 链接 或 Ahrefs Webmaster Tools 中能看到其中大部分
+  - 怎么查：按追踪表顺序提交，DR 高的优先；记录每个站的审核时间。
+  - 工具 / 平台：[AlternativeTo](https://alternativeto.net/) · [SaaSHub](https://www.saashub.com/) · [Peerlist](https://peerlist.io/) · [StackShare](https://stackshare.io/) · [GitHub](https://github.com/) · [Ahrefs Webmaster Tools（免费）](https://ahrefs.com/webmaster-tools)
+- [ ] **锚文本以品牌名和网址为主，精确匹配关键词只占少数** — `P1` · ④ 增长
+  - 为什么：大量精确匹配锚文本是典型的操纵信号；自然链接通常用品牌名、网址或「这个工具」之类的说法。
+  - 检查标准：
+    - 品牌词 + 裸 URL + 泛称（this tool、官网）合计 ≥ 70%（经验值）
+    - 精确匹配关键词锚文本 ≤ 10%（经验值）；不要求合作方必须使用指定的关键词锚文本
+    - 每月在 Anchors 报告中复查一次
+  - 怎么查：Ahrefs Webmaster Tools（验证自己的站后免费）→ Backlinks → Anchors；或 Semrush Backlink Analytics → Anchors。
+  - 工具 / 平台：[Ahrefs Webmaster Tools（免费）](https://ahrefs.com/webmaster-tools) · [Semrush](https://www.semrush.com/)
+- [ ] **外链来源多样、增长自然：盯引用域名数，而不是外链总数** — `P1` · ④ 增长
+  - 为什么：DR 是结果，引用域名（RD）是过程；同一域名的重复链接收益递减，突然暴涨的链接会显得异常。
+  - 检查标准：
+    - 来源类型分布：目录、社区、发布平台、博客 / 文章、媒体，没有一类占比 > 50%
+    - 优先获取新的引用域名，而不是同一站点的更多链接
+    - RD 增长曲线没有无法解释的陡增（例如一周内突然多出几百个低质量域名）
+    - DR 里程碑 10 → 20 → 30–40；独立开发者做到 DR 20–40 已经很有竞争力，不把 DR 当成 KPI
+  - 怎么查：Ahrefs → Referring domains 图表；FrogDR 免费监控 3 个站的 DR，每月记录一次。
+  - 工具 / 平台：[Ahrefs](https://ahrefs.com/) · [Ahrefs Webmaster Tools（免费）](https://ahrefs.com/webmaster-tools) · [FrogDR](https://frogdr.com/)
+- [ ] **每月争取 1 个编辑型链接：客座文章、访谈、播客或合作案例** — `P1` · ④ 增长
+  - 为什么：在相关网站正文中被介绍，是质量最高、最难被模仿的外链，还能带来精准访问。
+  - 检查标准：
+    - 每月至少 1 次投稿、访谈、播客嘉宾或合作案例，目标站点通过 4 道门审核
+    - 内容为对方读者而写（经验、数据、教程），链接自然出现在正文中
+    - 不为「付费客座文章」付钱换 dofollow；存在赞助关系的链接应标 rel="sponsored"
+  - 怎么查：搜索「领域词 + write for us / guest post / submit a story」；Indie Hackers、独立开发播客和 newsletter 都接受创始人访谈。
+  - 工具 / 平台：[Indie Hackers](https://www.indiehackers.com/) · [Google 搜索](https://www.google.com/)
+- [ ] **对比竞品外链，找出「它有、你也拿得到」的来源** — `P1` · ④ 增长
+  - 为什么：竞品的目录、发布平台和评测文章大多可以复制，这是最快的外链来源清单。
+  - 检查标准：
+    - 至少 3 个竞品的引用域名清单已导出
+    - 筛出「链接了 ≥ 2 个竞品但没链接你」的域名，标注获取方式（提交、投稿、联系作者）
+    - 每月从中完成 ≥ 5 个
+  - 怎么查：Ahrefs → Link Intersect；没有付费工具时，用 Semrush 免费额度、Moz Link Explorer、Seobility 等免费外链查询分别导出后合并。
+  - 工具 / 平台：[Ahrefs](https://ahrefs.com/) · [Semrush](https://www.semrush.com/) · [Moz Link Explorer](https://moz.com/link-explorer)
+- [ ] **付费目录只买性价比高、有真实流量的，并设定预算上限** — `P2` · ④ 增长
+  - 为什么：$10–30 就能拿到 DR 70+ 的收录，性价比远高于 $299–599 的大站；但付费换 dofollow 链接属于灰色地带，只少量使用，不要规模化购买。
+  - 检查标准：
+    - 首轮预算上限约 $100，优先 ≤ $30 且 DR ≥ 70 的选项（笔记价格：Turbo0 76/$16.9、Toolfame 70/$9.9、Aistage 73/$9.9、Magicbox 72/$15.9、Startupfa.me 82/$19、Dang.ai 80/$29、Uneed 73/$29.99，以当时报价为准）
+    - 付款前确认：目录本身有自然流量、有人工审核；不为「dofollow 升级」额外付费
+    - 外包代提交服务（Submitdirs、SubmitAI 等）要求交付上线链接清单，并抽查 ≥ 20% 确认真实存在且链向你
+    - 追踪表中计算每美元带来的 DR 变化和访问量
+  - 怎么查：先用 Similarweb / Ahrefs 看目录的流量，再付款；上线后检查链接 rel 属性。
+  - 工具 / 平台：[Uneed](https://www.uneed.best/) · [Toolify](https://www.toolify.ai/) · [There's An AI For That](https://theresanaiforthat.com/) · [Similarweb](https://www.similarweb.com/) · [Ahrefs](https://ahrefs.com/)
+- [ ] **回复记者和作者的专家征集（HARO 类平台），用数据和经验换引用** — `P2` · ④ 增长
+  - 为什么：媒体引用带来高权威链接和品牌提及；个人开发者凭真实经验和数据同样能拿到。
+  - 检查标准：
+    - 注册 Qwoted、Featured 等平台，设置与自己领域相关的关键词提醒
+    - 每周至少回复 3 条相关征集；每条在几小时内回复、≤ 150 词、包含 1 个具体数据或经验
+    - 记录回复数和被引用数，被引用的文章加入外链追踪表
+  - 怎么查：回复结构：一句话身份 + 直接回答问题 + 一个数据或例子 + 署名和链接；不要群发同一段话。
+  - 工具 / 平台：[Qwoted](https://www.qwoted.com/) · [Featured](https://featured.com/)
+- [ ] **断链建设：找到同领域失效的资源页，提供你的替代内容** — `P2` · ④ 增长
+  - 为什么：帮对方修复死链，是少数对方有动力配合的外联方式，成功率高于直接求链接。
+  - 检查标准：
+    - 每月找出 ≥ 10 个同领域失效资源（被多个站点链接的 404 页面）
+    - 已有同主题且质量更好的替代内容后才发邮件
+    - 用域名邮箱发送，邮件中指出死链的具体位置；每个联系人最多跟进 1 次
+    - 记录发送数、回复数、成功数
+  - 怎么查：Ahrefs → Site Explorer → 同领域站点 → Best by links，筛选 404；或用 Check My Links 浏览器插件检查资源汇总页。
+  - 工具 / 平台：[Ahrefs](https://ahrefs.com/) · [Google 搜索](https://www.google.com/)
+- [ ] **监控品牌提及，把「提到了但没加链接」的变成链接** — `P2` · ④ 增长
+  - 为什么：已经提到你的作者最容易同意加链接；提及本身也是品牌和 GEO 信号。
+  - 检查标准：
+    - 提醒已设置：Google Alerts（品牌名、创始人名）、F5Bot（Reddit / Hacker News）
+    - 每月搜一次 "品牌名" -site:你的域名，记录新出现的提及
+    - 对没有链接的提及礼貌请求加链接（附准确网址和一句描述），记录结果
+  - 怎么查：google.com/alerts 新建提醒；f5bot.com 添加关键词。
+  - 工具 / 平台：[Google Alerts](https://www.google.com/alerts) · [F5Bot](https://f5bot.com/) · [Google 搜索](https://www.google.com/)
+- [ ] **每月外链复盘：引用域名、新增 / 丢失、DR、外链带来的访问** — `P1` · ⑤ 维护
+  - 为什么：外链是持续性工作；不复盘就不知道哪些渠道有效、哪些重要链接已经消失。
+  - 检查标准：
+    - 记录：引用域名数、本月新增 / 丢失、DR、来自外链的引荐访问和注册
+    - 上线 90 天后仍为 0 点击的外链来源类型降低优先级，精力放到带来访问和注册的渠道
+    - 丢失的重要链接（DR ≥ 50 或有访问）已联系对方恢复
+  - 怎么查：Ahrefs Webmaster Tools（免费）→ Backlinks → New / Lost；GSC → 链接；GA4 → 流量获取 → 会话来源 / 媒介。
+  - 工具 / 平台：[Ahrefs Webmaster Tools（免费）](https://ahrefs.com/webmaster-tools) · [Google Search Console](https://search.google.com/search-console) · [Google Analytics 4](https://analytics.google.com/) · [FrogDR](https://frogdr.com/)
+
+<a id="analytics"></a>
+## 数据与监测 · Analytics & monitoring
+
+_GA4 / Plausible / Clarity / GSC：没有数据就没法优化。_
+
+- [ ] **安装网站统计（GA4 / Plausible / Umami / Clarity）** — `P0` · ③ 上线 · 🤖 `analytics-installed`
+  - 为什么：没有数据就不知道流量从哪来、哪个页面转化。
+  - 检查标准：
+    - 每个页面都加载统计脚本
+    - 关键转化（注册、付费、点击 CTA）配置为事件
+    - Clarity 热图 / 录屏用于看用户行为
+    - 符合隐私要求（需要时加 Cookie 同意）
+  - 怎么查：打开页面后在统计后台看实时访客。auditor 只能检测脚本是否存在，账号需要你自己配置。
+  - 工具 / 平台：[Google Analytics 4](https://analytics.google.com/) · [Plausible](https://plausible.io/) · [Umami](https://umami.is/) · [Microsoft Clarity](https://clarity.microsoft.com/)
+- [ ] **关键转化设为「关键事件」，所有对外链接统一 UTM 规则** — `P0` · ③ 上线
+  - 为什么：只有浏览量没有转化事件，就无法判断哪个渠道、哪个页面带来了真正的用户。
+  - 检查标准：
+    - GA4 中 sign_up、核心操作（如 generate）、begin_checkout、purchase 已标为关键事件，DebugView 或实时报告中能看到测试事件
+    - UTM 规则成文并全部小写：utm_source（x、reddit、producthunt…）、utm_medium（social、community、launch、email、referral）、utm_campaign
+    - 社交简介、发布平台、邮件、视频描述中的链接全部带 UTM
+  - 怎么查：GA4 → 管理 → 事件 → 标记为关键事件；用 Google 的 Campaign URL Builder 生成链接并存进一张 UTM 表。
+  - 工具 / 平台：[Google Analytics 4](https://analytics.google.com/) · [Plausible](https://plausible.io/) · [Umami](https://umami.is/)
+- [ ] **GA4 基础配置：数据保留 14 个月、排除内部流量、关联 GSC；中文站加百度统计** — `P1` · ③ 上线
+  - 为什么：GA4 默认只保留 2 个月的明细数据，等到需要做同比时数据已经没了；早期样本小，自己的访问会严重污染数据。
+  - 检查标准：
+    - 管理 → 数据设置 → 数据保留 = 14 个月
+    - 已定义内部流量（自己的 IP）并启用过滤；支付域名（如 checkout.stripe.com）加入「不需要的引荐」
+    - GA4 已关联 Search Console，报告库中能看到 Search Console 集合
+    - 面向中文用户的站点同时安装百度统计
+  - 怎么查：GA4 管理后台逐项设置；关联在 管理 → 产品关联 → Search Console；不需要的引荐在 数据流 → 配置代码设置 中。
+  - 工具 / 平台：[Google Analytics 4](https://analytics.google.com/) · [Google Search Console](https://search.google.com/search-console) · [百度统计](https://tongji.baidu.com/)
+- [ ] **单独统计 AI 助手带来的流量（ChatGPT、Perplexity、Gemini、Claude、Copilot）** — `P1` · ③ 上线
+  - 为什么：AI 搜索带来的访问在快速增长，但默认被混在 Referral 里，不拆出来就看不到 GEO 的效果。
+  - 检查标准：
+    - GA4 自定义渠道组中有「AI 助手」渠道，来源匹配 chatgpt.com|perplexity.ai|gemini.google.com|copilot.microsoft.com|claude.ai
+    - 「AI 助手」渠道排在 Referral 之前
+    - 每月记录 AI 渠道的会话数、转化数和着陆页（ChatGPT 的引用链接通常带 utm_source=chatgpt.com）
+  - 怎么查：GA4 → 管理 → 数据显示 → 渠道组 → 新建渠道组；Plausible / Umami 直接查看来源列表。
+  - 工具 / 平台：[Google Analytics 4](https://analytics.google.com/) · [Plausible](https://plausible.io/) · [ChatGPT](https://chatgpt.com/) · [Perplexity](https://www.perplexity.ai/)
+- [ ] **为核心关键词建立排名跟踪，每周记录一次** — `P1` · ③ 上线
+  - 为什么：排名变化是最早的反馈信号；每次涨跌都有原因，记录下来才能复盘。
+  - 检查标准：
+    - 5 个核心词和主题集群目标词都在跟踪列表中
+    - 每周记录平均排名（GSC 按查询筛选），或使用 Semrush Position Tracking / Ahrefs Rank Tracker
+    - 同时跟踪 2–3 个竞品在这些词上的排名
+    - 排名变化超过 ±5 位时，在日志中记下可能原因（新内容、外链、算法更新）
+  - 怎么查：GSC → 效果 → 查询 → 过滤「包含」核心词 → 导出；付费工具设置每周邮件报告。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [Semrush](https://www.semrush.com/) · [Ahrefs](https://ahrefs.com/)
+- [ ] **先用留存和付费率验证产品，再放大流量（留存 4-2-1 原则）** — `P0` · ④ 增长
+  - 为什么：产品留不住人时，SEO 流量也积累不起来：跳出率高、停留时间短，排名最终会掉。先修产品，再买流量。
+  - 检查标准：
+    - 持续使用型产品：次日留存 ≥ 40%、7 日 ≥ 20%、30 日 ≥ 10%
+    - 一次性工具：看互动率、平均互动时长和直接访问占比（说明用户记住或收藏了网址）
+    - 付费率对比流量价值：月收入 ÷ 月自然访问 ≥ 核心词平均 CPC（例：CPC $0.5 × 每天 100 访问 = 每天 $50）
+    - 未达标前不启动付费推广和 KOL 合作
+  - 怎么查：GA4 → 探索 → 同类群组探索（或 PostHog、Mixpanel 留存报告）；CPC 用 Keyword Planner 查询。
+  - 工具 / 平台：[Google Analytics 4](https://analytics.google.com/) · [Google Keyword Planner](https://ads.google.com/home/tools/keyword-planner/)
+- [ ] **每月拆分品牌词和非品牌词流量，把品牌搜索量当作权威度指标** — `P2` · ④ 增长
+  - 为什么：品牌词搜索量上升说明用户记住了你，这也是 E-E-A-T 中「权威」的外部信号。
+  - 检查标准：
+    - GSC 用正则筛出品牌查询（含常见拼写错误），每月记录品牌展示和点击
+    - 品牌展示量连续 3 个月上升
+    - 非品牌点击单独统计，用于判断 SEO 内容本身的增长
+  - 怎么查：GSC → 效果 → 查询 → 过滤器 → 自定义（正则表达式），例如 (?i)vexlora|vex lora；再选「不匹配正则表达式」查看非品牌查询。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console)
+- [ ] **每周 15 分钟例行检查：GSC、访问来源、转化** — `P0` · ⑤ 维护
+  - 为什么：问题发现得越早越好修；固定节奏能避免「三个月后才发现收录掉了」。
+  - 检查标准：
+    - GSC：点击和展示的周环比，非节假日下降 > 20% 就排查；新收录的页面；人工处置和安全问题
+    - 统计工具：Top 5 访问来源的变化，新出现的引荐来源（新外链或社区帖子）
+    - 转化：注册数、付费数和转化率
+    - 结果写进周报表，一周一行
+  - 怎么查：可以用 Looker Studio 把 GSC 和 GA4 做成一个看板；每周固定时间打开。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [Google Analytics 4](https://analytics.google.com/) · [Looker Studio](https://lookerstudio.google.com/)
+
+<a id="launch"></a>
+## 发布与冷启动 · Launch & distribution
+
+_Product Hunt、Hacker News、Reddit、导航站、社区：第一波用户和外链。_
+
+- [ ] **按顺序执行上线 TodoList：先基础和追踪，再渠道和内容，付费流量放最后** — `P0` · ① 规划
+  - 为什么：顺序错了会浪费发布机会，例如统计还没装就上 Product Hunt，第一波流量无法归因；产品没验证就投广告则是在烧钱。
+  - 检查标准：
+    - 1–5 步全部完成后才对外发布：SEO 标签 → 页面结构 → GSC / GA4 / Bing → 域名邮箱 → 支付流程
+    - 6–9：宣传图文 → 选定 1 个主渠道 + 2 个辅助渠道 → 内容更新节奏 → Product Hunt / Hacker News 发布
+    - 10–19：外链 → 联盟计划 → 用户社群 → 按反馈迭代 → 长尾词新页面 → build in public → 产品视频 → 教程文章 → 访谈首个付费用户 → 调整定价
+    - 第 20 步：前面都完成后才开始付费投放
+  - 怎么查：把 20 步复制到项目管理工具，完成一步记一个日期；发布前最后确认 1–5 步全部打勾。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [Google Analytics 4](https://analytics.google.com/) · [Bing Webmaster Tools](https://www.bing.com/webmasters) · [Product Hunt](https://www.producthunt.com/) · [Hacker News](https://news.ycombinator.com/)
+- [ ] **内测阶段提交 BetaList，收集早期用户邮箱** — `P2` · ① 规划
+  - 为什么：BetaList 面向尝鲜用户（月访问约 19 万），适合在正式发布前收集反馈和候补名单。
+  - 检查标准：
+    - 产品有可访问的落地页和候补名单 / 内测入口
+    - 提前 4–8 周提交（免费排队时间较长，赶时间再考虑付费加速）
+    - 记录 BetaList 带来的访问和邮箱注册数
+  - 怎么查：betalist.com 提交创业项目；落地页放邮箱收集表单并接入邮件工具。
+  - 工具 / 平台：[BetaList](https://betalist.com/)
+- [ ] **准备发布素材包：一句话标语、Logo、宣传图、演示视频、FAQ、联系方式** — `P0` · ③ 上线
+  - 为什么：各发布平台需要的素材大同小异；提前准备一次，发布周就能在几十个平台快速复用。
+  - 检查标准：
+    - 标语 ≤ 60 字符（Product Hunt tagline 上限）；短描述 ≤ 260 字符，另有一版长描述
+    - 方形 Logo 240×240（PNG / GIF）；约 5 张宣传图 1270×760；演示视频 ≤ 2 分钟，已上传 YouTube
+    - 亮点、目标用户、FAQ、使用指南、联系方式（域名邮箱）齐全
+    - 中英文各一版；提交到每个平台时在此基础上改写，不原样复制
+  - 怎么查：放在一个共享文件夹里；宣传图用 Canva 的对应尺寸模板制作。
+  - 工具 / 平台：[Canva](https://www.canva.com/) · [Product Hunt](https://www.producthunt.com/) · [YouTube](https://www.youtube.com/)
+- [ ] **Product Hunt 发布：选好日期，准备 maker 首评，发布当天全程在线** — `P0` · ③ 上线
+  - 为什么：Product Hunt 是最大的英文产品发布平台（月访问约 300 万），能带来早期用户、反馈和高 DR 外链。
+  - 检查标准：
+    - 提前 ≥ 1 周用 maker 账号活跃（点赞、评论别人的产品）；可以自己 hunt，不必找 hunter
+    - 发布时间为太平洋时间 00:01（每日榜单从这时开始）；周二到周四流量大但竞争激烈，周末更容易排进前列
+    - 发布后立刻发 maker 首评：为什么做、解决什么问题、给 PH 用户的优惠
+    - 通知自己的用户和社群「来看看并给反馈」，不直接拉票、不刷票（PH 会检测并降权）
+    - 当天每条评论 1 小时内回复；记录排名、访问、注册和外链
+  - 怎么查：producthunt.com → Launch，按素材包填写；注意并非所有发布都会被 Featured 到首页，素材质量和描述清晰度会影响审核。
+  - 工具 / 平台：[Product Hunt](https://www.producthunt.com/) · [X (Twitter)](https://x.com/) · [Google Analytics 4](https://analytics.google.com/)
+- [ ] **Hacker News「Show HN」：必须是别人能直接上手试用的东西** — `P1` · ③ 上线
+  - 为什么：HN 读者是技术早期用户，一次成功的 Show HN 能带来大量高质量访问和后续报道；违反规则的帖子会被标记。
+  - 检查标准：
+    - 标题以「Show HN: 」开头，平实描述，不用营销词和感叹号
+    - 链接是能直接试用的产品或开源仓库，尽量不要求注册或留邮箱；博客文章、落地页、候补名单不能发 Show HN
+    - 作者本人发帖，正文写一段背景（为什么做、技术取舍），之后在评论区持续回答
+    - 不让朋友集中点赞（投票圈会被检测）；没有反响可以隔一段时间再发，但不频繁重发
+  - 怎么查：先读 news.ycombinator.com/showhn.html 的规则；发帖后前 2 小时保持在线回复。
+  - 工具 / 平台：[Hacker News](https://news.ycombinator.com/)
+- [ ] **Reddit 发布帖：先读版规，用故事和经验开头，产品放在合适的位置** — `P1` · ③ 上线
+  - 为什么：Reddit 用户反感广告，但会认真对待真实的创作故事；帖子在 Google 和 AI 回答中的可见度都很高。
+  - 检查标准：
+    - 账号 karma 已达标（见 Reddit 养号条目）；目标版块 3–5 个，如 r/SideProject、r/IndieDev、r/SaaS、r/NoCode 等 5k–50k 成员的垂直版块
+    - 发帖前读完 sidebar 规则：是否允许自我推广、是否只允许在每周推广帖里发、最低 karma 和账号年龄
+    - 正文讲为什么做、真实问题、踩过的坑，而不是功能清单；允许时链接放在正文末尾或评论中，并附完整说明
+    - 同一天不在多个版块发相同内容；被踩的帖子不删；所有评论 24 小时内回复
+  - 怎么查：发帖前在目标版块搜索同类帖子，参考高赞帖的格式；很多版块仍沿用「自我推广 ≤ 10%」的老规矩。
+  - 工具 / 平台：[Reddit](https://www.reddit.com/)
+- [ ] **发布后 2 周内，批量提交二线发布平台** — `P1` · ③ 上线
+  - 为什么：单个平台流量不大，但合起来是一批来源多样的引用域名和持续的长尾访问。
+  - 检查标准：
+    - 完成 ≥ 8 个：Fazier、Microlaunch、DevHunt（开发者工具）、Peerlist Launchpad、Tinylaunch、Open-Launch、Startupfa.me、SaaSHub
+    - 要求回链（放徽章）才给 dofollow 的平台，评估后再决定是否放，不在全站页脚堆满徽章
+    - 每个上线页面都登记到外链追踪表
+  - 怎么查：按素材包统一提交，每个平台的描述改写一次。
+  - 工具 / 平台：[Fazier](https://fazier.com/) · [Microlaunch](https://microlaunch.net/) · [DevHunt](https://devhunt.org/) · [Peerlist](https://peerlist.io/) · [SaaSHub](https://www.saashub.com/)
+- [ ] **AI 产品提交到 AI 工具导航站，分类选对** — `P1` · ③ 上线
+  - 为什么：AI 导航站流量大，同时帮搜索引擎和 AI 把你归到正确的 AI 工具品类。
+  - 检查标准：
+    - 提交 ≥ 8 个 AI 导航站，如 There's An AI For That、Toolify、Futurepedia、Future Tools、TopAI.tools、dang.ai、AI 工具集（ai-bot.cn）；免费和付费以各站当前政策为准
+    - 付费前看对方流量（笔记快照：TAAFT 月 UV 约 540 万 / $299，Toolify 约 230 万 / $99，TopAI.tools 约 130 万 / $47），按流量 / 价格比排序
+    - 分类和标签准确；描述包含品类词（如 AI poster generator），而不是空泛口号
+    - 30 天后在 GA4 查看每个导航站的引荐访问，0 访问的不续费
+  - 怎么查：统一使用素材包；在追踪表中记录价格、审核时间和上线链接。
+  - 工具 / 平台：[There's An AI For That](https://theresanaiforthat.com/) · [Toolify](https://www.toolify.ai/) · [Futurepedia](https://www.futurepedia.io/) · [Future Tools](https://www.futuretools.io/) · [AI 工具集](https://ai-bot.cn/)
+- [ ] **中文社区发布：V2EX 分享创造、掘金、少数派、linux.do、即刻、阮一峰周刊** — `P1` · ③ 上线
+  - 为什么：中文开发者社区流量大（V2EX 月 PV 约 720 万、linux.do 约 430 万）；链接多为 nofollow，但能带来第一批中文用户和反馈。
+  - 检查标准：
+    - V2EX 发在「分享创造」节点，讲清楚做了什么、为什么做，不重复发
+    - 掘金写技术实现文章，少数派投稿 Matrix 社区，linux.do 遵守版块规则，即刻发到独立开发相关圈子
+    - 阮一峰《科技爱好者周刊》：在 GitHub ruanyf/weekly 仓库按格式提交 issue
+    - GA4 或百度统计中能看到这些域名的引荐访问
+  - 怎么查：每个社区先看置顶规则和近期热门帖的写法；评论 24 小时内回复。
+  - 工具 / 平台：[V2EX](https://www.v2ex.com/) · [掘金](https://juejin.cn/) · [少数派](https://sspai.com/) · [LINUX DO](https://linux.do/) · [即刻](https://okjike.com/) · [科技爱好者周刊（阮一峰）](https://github.com/ruanyf/weekly)
+- [ ] **发布当天值守：回复评论、监控服务、预留额度，一周后复盘** — `P1` · ③ 上线
+  - 为什么：发布当天的流量峰值最容易暴露 bug、额度上限和支付问题；回复速度直接影响排名和口碑。
+  - 检查标准：
+    - 所有平台的评论和私信 24 小时内回复（Product Hunt 当天 1 小时内）
+    - 可用性监控和错误监控已开启；AI 调用额度、数据库连接数、速率限制按日常 5–10 倍流量预留
+    - 反馈集中记录在一张表里（来源、内容、处理状态）
+    - 发布 7 天后写复盘：各平台的访问、注册、付费和外链
+  - 怎么查：提前在 Cloudflare 和云服务商后台检查配额；用 UptimeRobot 做外部监控。
+  - 工具 / 平台：[UptimeRobot](https://uptimerobot.com/) · [Cloudflare](https://dash.cloudflare.com/) · [Google Analytics 4](https://analytics.google.com/)
+- [ ] **App 上架时做 ASO：名称、副标题、关键词字段、截图、评分** — `P1` · ③ 上线
+  - 为什么：应用商店搜索是 App 最主要的免费流量来源，名称和副标题中的关键词权重最高。
+  - 检查标准：
+    - iOS：名称 ≤ 30 字符、副标题 ≤ 30 字符、关键词字段 ≤ 100 字符，核心词放在名称或副标题中
+    - Google Play：标题 ≤ 30 字符、简短说明 ≤ 80 字符，完整说明自然包含中高热度关键词
+    - 前 2–3 张截图各传达 1 个核心卖点（截图上有大字标题）
+    - 在用户完成任务后的正向时刻请求评分（iOS 系统评分弹窗一年最多显示 3 次），评分数稳定增长
+  - 怎么查：用七麦数据（国内）或 Sensor Tower（全球）查竞品关键词和排名；在 App Store Connect / Play Console 填写。
+  - 工具 / 平台：[七麦数据](https://www.qimai.cn/) · [Sensor Tower](https://sensortower.com/) · [App Store Connect](https://appstoreconnect.apple.com/) · [Google Play Console](https://play.google.com/console/)
+- [ ] **在 Indie Hackers 建产品页，并发一篇「我为什么做它」的创作者故事** — `P2` · ③ 上线
+  - 为什么：Indie Hackers 鼓励公开收入和过程，帖子长期可见，适合讲构建故事、获得同行反馈。
+  - 检查标准：
+    - 产品资料完整：名称、一句话、网址、logo
+    - 发 1 篇构建故事：真实问题、做法、踩坑、真实数字，产品链接自然出现
+    - 之后每个里程碑（首个付费用户、MRR 节点）再发一篇更新
+  - 怎么查：indiehackers.com 注册后创建产品，并在相关分组发帖；每条评论都回复。
+  - 工具 / 平台：[Indie Hackers](https://www.indiehackers.com/)
+- [ ] **在 Uneed 发布，争取当日榜单徽章** — `P2` · ③ 上线
+  - 为什么：Uneed 是社区型发布平台，竞争比 Product Hunt 小，笔记中约 40–50 票常能拿到当日第一，徽章可以放在官网增加信任。
+  - 检查标准：
+    - 已排期发布（免费排队较久，付费可快速发布；笔记价格约 $29.99，DR 73）
+    - 发布当天在社群和 X 上告知，回复所有评论
+    - 获得的排名徽章放进官网页脚或「Featured on」区域
+  - 怎么查：uneed.best 提交；发布后在追踪表中记录排名和访问。
+  - 工具 / 平台：[Uneed](https://www.uneed.best/) · [X (Twitter)](https://x.com/)
+- [ ] **每个大版本、每个重要新功能都当作一次新发布** — `P2` · ④ 增长
+  - 为什么：每次发布都会留下新的提及记录和外链，也能让老用户回流；对新站来说这是持续的外链节奏。
+  - 检查标准：
+    - 公开的更新日志页面，每个大版本有一篇更新说明
+    - 每个大版本至少在 2 个渠道发布（X / 社区帖子 + 发布平台），并记录链接
+    - Product Hunt 再次发布需要有明显不同的新功能（间隔要求以官方当时规则为准）
+  - 怎么查：维护一张「版本 → 发布链接」表，与外链追踪表关联。
+  - 工具 / 平台：[Product Hunt](https://www.producthunt.com/) · [X (Twitter)](https://x.com/)
+
+<a id="social"></a>
+## 平台账号运营 · Social & platform accounts
+
+_X、YouTube、小红书、抖音 / TikTok、LinkedIn 等平台的账号定位、内容和涨粉。_
+
+- [ ] **Reddit 养号：前 7–14 天只评论，karma 达标后再发帖、再带链接** — `P0` · ① 规划
+  - 为什么：Reddit 反感营销，新账号发推广帖会被自动删除甚至封号；shadowban 基本无法恢复，只能换号重来。
+  - 检查标准：
+    - 注册后前 7–14 天只评论：每天 3–5 条真实评论（补充、经验、提问），不带链接、不提品牌
+    - 发帖门槛：karma ≥ 50（两篇笔记给出的区间为 30–50，取保守值），先在宽松版块发不带链接的帖子
+    - 带链接或自我推广的门槛：karma ≥ 100 起步，保守做法 ≥ 500（两篇笔记分别给出 100 和 500）
+    - 不去刷 karma 的版块、不互相点赞、不用脚本
+  - 怎么查：比发布日提前至少 2–4 周开始养号；在个人资料页查看 karma，在目标版块 sidebar 查看最低 karma 和账号年龄要求。
+  - 工具 / 平台：[Reddit](https://www.reddit.com/)
+- [ ] **小红书账号定位：一句话说清「给谁、提供什么、哪个细分角度」** — `P0` · ① 规划
+  - 为什么：小红书是搜索驱动的内容平台；定位越细分越好记，也越容易被算法打上准确标签。
+  - 检查标准：
+    - 定位句 = 目标人群 + 他们能得到什么 + 细分角度（如「程序员的高效饮食指南」）
+    - 可持续：已列出 ≥ 30 个选题；有差异：在小红书搜索该细分词，直接竞争的账号不多
+    - 定位九宫格已填写：你是谁、粉丝是谁及需求场景、记忆点、差异化优势、能提供的价值、准备卖什么
+    - 陌生人看完简介和 3 篇笔记，能说出这个账号发什么
+  - 怎么查：先在小红书搜索候选细分词，看头部账号和笔记数量；可以用简单设计的账号定位分析工具生成备选，再人工筛选。
+  - 工具 / 平台：[小红书](https://www.xiaohongshu.com/) · [简单设计](https://jiandan.link/)
+- [ ] **微信小程序 SEO：名称含核心需求词，简介首句含关键词，页面要有文字** — `P1` · ② 开发
+  - 为什么：小程序发布后默认没有流量，微信搜一搜是唯一长期稳定的免费来源，而名称是权重最高的因素。
+  - 检查标准：
+    - 名称包含用户搜索的完整需求词（如「图片压缩工具」，而不是只有品牌名、英文或缩写）；副标题放次要功能词
+    - 简介第一句用自然的句子包含核心词，不写成广告；服务类目与核心功能一致
+    - 每个核心页面有文字标题和「功能说明」文字块，结果页有解释文字，没有纯图标页面
+    - 任务完成后或第 2–3 次使用时提示「添加到我的小程序」；在公众号文章、视频号、社群中引导用户「搜索 关键词」进入
+  - 怎么查：在微信搜一搜 → 小程序 搜索目标词，对比前 10 名的名称和简介；类目在微信公众平台的小程序后台设置。
+  - 工具 / 平台：[微信公众平台](https://mp.weixin.qq.com/)
+- [ ] **完善 X 主页：头像、名字、简介、带 UTM 的链接、置顶帖** — `P0` · ③ 上线
+  - 为什么：主页是别人决定是否关注你的唯一依据；X 允许在简介和帖子里放可点击链接，是出海独立开发者最值得经营的社交平台。
+  - 检查标准：
+    - 清晰的真人头像（或风格统一的形象）；名字格式「名字 | 在做什么」
+    - 简介写清：你是谁、在做什么产品、关注你能得到什么，包含领域关键词
+    - 简介链接指向产品或个人主页，带 UTM（?utm_source=x&utm_medium=social）
+    - 置顶帖是当前最重要的产品介绍或成果，30 天内更新过
+  - 怎么查：用手机打开自己的主页，让一个陌生人看 5 秒，看他能否说出你在做什么。
+  - 工具 / 平台：[X (Twitter)](https://x.com/)
+- [ ] **小红书主页四件套：头像、昵称、简介、背景图** — `P0` · ③ 上线
+  - 为什么：用户点进主页前只看到头像和昵称；主页决定看完一篇笔记的人会不会关注你。
+  - 检查标准：
+    - 头像：清晰的单人半身照（自然光、干净背景）或风格统一的插画形象；不用合照、不用侵权图片
+    - 昵称 2–6 个字并包含领域关键词（如「阿柚穿搭」），没有数字、下划线、表情和生僻字；用另一个账号搜昵称能在前几位找到
+    - 简介包含 4 要素：背景（如 90 后程序员）、内容方向、关注理由、商务邮箱
+    - 背景图与内容调性、头像配色一致；主页封面网格风格统一
+  - 怎么查：用第二个账号搜索昵称测试；在手机上查看主页整体效果。
+  - 工具 / 平台：[小红书](https://www.xiaohongshu.com/) · [简单设计](https://jiandan.link/)
+- [ ] **在所有平台抢注同一个用户名，头像和一句话标签保持一致** — `P1` · ③ 上线
+  - 为什么：一致的名字和形象让用户跨平台认出你，也让搜索引擎和 AI 把这些账号识别为同一个实体。
+  - 检查标准：
+    - X、GitHub、YouTube、LinkedIn、Reddit、小红书、抖音、B站、知乎使用同一个或高度一致的用户名（如「名字_独立开发者」）
+    - 个人 / 品牌标签 ≤ 5 个词，在所有简介中一致
+    - 所有账号开启 2FA，密码存在密码管理器中；账号清单记录注册邮箱和手机号
+  - 怎么查：逐个平台查用户名是否可用并尽早注册；建一张账号清单表。
+  - 工具 / 平台：[X (Twitter)](https://x.com/) · [GitHub](https://github.com/) · [YouTube](https://www.youtube.com/) · [LinkedIn](https://www.linkedin.com/) · [Reddit](https://www.reddit.com/) · [小红书](https://www.xiaohongshu.com/)
+- [ ] **在 X 上 build in public：固定节奏分享进度、数据和踩坑** — `P0` · ④ 增长
+  - 为什么：真诚分享有用信息和开发进度，最容易获得独立开发者圈子的转发；笔记作者约 5 个月从 0 涨到约 7,000 粉。
+  - 检查标准：
+    - 至少每周 3 条并连续 4 周以上（笔记最低线），有余力每天 1–2 条
+    - 每条最多 2 个话题标签（如 #buildinpublic）；多数帖子配图（截图、数据图、演示 GIF）
+    - 内容比例约 80% 对用户有用、10% 产品、10% 个人生活
+    - 30 天后根据 X Analytics 调整发帖时间；每月把表现最好的帖子改写后再发
+  - 怎么查：每周提前写好草稿或用排程工具；每月看一次 Analytics 中的曝光、互动率和最佳帖子。
+  - 工具 / 平台：[X (Twitter)](https://x.com/)
+- [ ] **小红书选题来自搜索下拉框，而不是灵感** — `P0` · ④ 增长
+  - 为什么：下拉联想词就是平台给出的真实需求清单；写用户在搜的内容，而不是自己想写的。
+  - 检查标准：
+    - 选题库 ≥ 20 个，每个标注来源：搜索下拉、爆款笔记拆解、评论 / 私信提问、节日与购物节日历、跨平台热点（微博热搜、抖音、知乎）
+    - 每个选题的目标长尾词确实出现在小红书搜索下拉框中，并写进标题
+    - 通过 4 问：受众够大？痛点真实？站内有热搜或爆款？我有发言资格（经验 / 实测 / 案例）？
+    - 节日选题（520、618、七夕、双 11、圣诞、新年）提前 ≥ 1 周准备
+  - 怎么查：每周末花 30 分钟：在搜索框输入种子词记录联想词，打开前 10 篇高赞笔记，记录标题关键词、切入角度和形式（清单 / 避坑 / 教程 / 对比 / 故事）。
+  - 工具 / 平台：[小红书](https://www.xiaohongshu.com/) · [小红书创作服务平台](https://creator.xiaohongshu.com/)
+- [ ] **小红书封面点击率 ≥ 5%（8–15% 为优秀），低于 3% 立即换封面** — `P0` · ④ 增长
+  - 为什么：用户是否点开笔记，大约 80% 由封面决定：封面负责点击，内容负责留存。
+  - 检查标准：
+    - 画面有真人或真实场景（同一个包：平铺图 3.6% → 上身街拍 9%）
+    - 封面文字 6–10 个字、对比色、直接写价值（如「3 套小个子秋季通勤穿搭」），不满屏堆字
+    - 缩到手机信息流大小仍能看清重点，3 秒内能看懂
+    - 全账号封面使用统一模板和配色
+    - 创作者后台中每篇笔记封面点击率 ≥ 5%；< 3% 的笔记更换封面和标题
+  - 怎么查：每篇拍 3–5 张备选，挑最能表达主题的一张，用简单设计 / Canva / 美图秀秀加字；在小红书创作服务平台的笔记数据中查看点击率。
+  - 工具 / 平台：[小红书创作服务平台](https://creator.xiaohongshu.com/) · [简单设计](https://jiandan.link/) · [Canva](https://www.canva.com/)
+- [ ] **小红书标题套公式，正文开头讲痛点、中间给具体细节、结尾提问** — `P0` · ④ 增长
+  - 为什么：同一主题，具体化的标题阅读量可能相差几十倍：「小个子秋季穿搭分享」不到 800，「158cm 小个子，3 套秋季通勤穿搭，显高不踩雷」2.5 万+。
+  - 检查标准：
+    - 标题 ≤ 20 字（平台上限），套用一种公式：数字 + 结果 / 疑问 / 反差 / 情绪，包含下拉框中的长尾词原词
+    - 每篇写 2–3 个备选标题，找 3 个人投票
+    - 正文第一句点出痛点；至少 2 个具体个人细节（身高、时长、金额、前后数据）；短句、分点、总-分-总
+    - 结尾用一个问题或「要不要我整理一份…」引导评论；标题的承诺在正文兑现，评论区没有「标题党」反馈
+    - 标签 3–5 个：1 个核心关键词 + 1 个热门话题 + 1 个垂直领域标签
+  - 怎么查：发布前按清单逐项检查；把表现最好的标题词组记进「爆款词库」，每月更新。
+  - 工具 / 平台：[小红书](https://www.xiaohongshu.com/)
+- [ ] **每篇笔记发布前做敏感词和导流检查** — `P0` · ④ 增长
+  - 为什么：违规词和站外导流会让笔记被删或整个账号长期限流，处罚逐级升级（禁言 2 天 → 7 天 → 1 个月 → 封号）。
+  - 检查标准：
+    - 敏感词检测工具扫描标题、正文和图片文字，0 个高亮词
+    - 笔记、评论和图片里没有站外网址、微信号、二维码等导流信息，只通过主页等平台允许的方式引导
+    - 品牌合作通过蒲公英平台报备，不发未披露的软广
+    - 没有「最好」「第一」等绝对化用语和夸大功效的说法
+  - 怎么查：用简单设计的敏感词检测工具粘贴全文检查，图片上的文字单独检查。
+  - 工具 / 平台：[简单设计](https://jiandan.link/) · [小红书](https://www.xiaohongshu.com/)
+- [ ] **短视频前 3 秒给钩子：反常识、先给结果、冲突或痛点，不做自我介绍** — `P0` · ④ 增长
+  - 为什么：前 3 秒决定是否被划走，直接影响完播率，而完播率是抖音和 TikTok 推荐中权重最高的指标。
+  - 检查标准：
+    - 每条视频前 3 秒使用 4 种开头之一：反常识观点、结果先行、矛盾冲突、痛点（「我做了 3 个号，只有这个活下来」好过「大家好，我是…」）
+    - 最精彩的画面放在最前面；系列视频有固定、可识别的开场
+    - 创作者后台的 3 秒 / 5 秒留存持续提升
+  - 怎么查：发布前只看前 3 秒，问自己：用户凭什么不划走？在抖音创作者中心或 TikTok Studio 查看留存曲线。
+  - 工具 / 平台：[抖音创作者中心](https://creator.douyin.com/) · [抖音](https://www.douyin.com/) · [TikTok](https://www.tiktok.com/)
+- [ ] **完播率达标：10 秒视频看完 8 秒以上，30 秒视频平均观看 ≥ 25 秒** — `P0` · ④ 增长
+  - 为什么：抖音按流量池逐级放量，完播率、停留时长、评论、转发和收藏决定视频能否进入下一级流量池。
+  - 检查标准：
+    - 约 10 秒的视频完播率 ≥ 80%；30 秒视频平均播放时长 ≥ 25 秒
+    - 用于获取新用户的视频 < 60 秒；1–2 秒切换一个画面，没有废话（必要时剪辑加速到 ≥ 1.2 倍）
+    - 真人出镜（平台对真人内容有额外推荐），语气自然，不使用全模板或 AI 配音
+    - 低于账号中位数的视频，下一条缩短时长、加快节奏
+  - 怎么查：抖音创作者中心 → 作品数据，查看完播率和平均播放时长，逐条记录对比；剪辑用剪映。
+  - 工具 / 平台：[抖音创作者中心](https://creator.douyin.com/) · [剪映 / CapCut](https://www.capcut.com/)
+- [ ] **每天做回复：在同领域大号下写有价值的评论，用 Lists 管理关注对象** — `P1` · ④ 增长
+  - 为什么：新账号的帖子很少有人看，但在大号下的优质评论能被大量看到，是早期涨粉最快的方式。
+  - 检查标准：
+    - 每天 20–30 分钟互动：≥ 10 条有内容的回复（补充经验、数据或提问），不是「Great post!」
+    - 建 ≥ 3 个 Lists：同领域创作者、潜在用户 / 客户、竞品和行业资讯
+    - 提到你的帖子和私信 24 小时内回复
+    - 不买粉、不刷互关：粉丝曲线没有无法解释的陡增
+  - 怎么查：每天固定时间打开 Lists 时间线逐条看；回复时带上自己的真实经验。
+  - 工具 / 平台：[X (Twitter)](https://x.com/)
+- [ ] **选 3–5 个 5k–50k 成员的垂直版块，先融入、再推广** — `P1` · ④ 增长
+  - 为什么：大版块（r/Entrepreneur、r/Startups、r/Marketing）对新账号非常严格；小而垂直的版块更容易被接受，转化也更精准。
+  - 检查标准：
+    - 目标版块清单 3–5 个，每个记录成员数、规则要点、是否允许自我推广
+    - 每个版块先留 ≥ 10 条评论、加入 ≥ 7 天后才发与产品有关的内容
+    - 产品只在有人问到时，在评论里自然提到（如「我做了一个小工具解决这个问题，需要的话可以分享」）
+  - 怎么查：用 Reddit 搜索按领域词找版块，查看成员数和最近 30 天的帖子类型。
+  - 工具 / 平台：[Reddit](https://www.reddit.com/)
+- [ ] **小红书发布节奏：新号每周 3–4 篇坚持 3 个月，固定在高峰时段发** — `P1` · ④ 增长
+  - 为什么：持续比爆发重要；笔记中同一篇内容早上 7:30 发不到 200 阅读，周五晚 9 点发有 5,000+。
+  - 检查标准：
+    - 前 3 个月每周 3–4 篇（每月 ≥ 12 篇），3 个月内不因数据差放弃
+    - 稳定期每周 2 篇深度 + 1 篇轻量
+    - 发布时间：工作日 12:00 或 20:00–22:00；周末 10:00 或 21:00 左右
+    - 图文（清单、教程，容易被收藏）和视频（场景、效果）交替发布
+  - 怎么查：内容日历里排好一个月；用发布时间记录核对是否落在高峰时段。
+  - 工具 / 平台：[小红书](https://www.xiaohongshu.com/) · [小红书创作服务平台](https://creator.xiaohongshu.com/)
+- [ ] **内容比例：账号层面 50/30/20，推广层面 80/10/10** — `P1` · ④ 增长
+  - 为什么：只发产品更新等于发广告，平台不会推荐；全是干货又缺少真人感，用户记不住你。
+  - 检查标准：
+    - 50/30/20：50% 紧扣定位的垂直内容、30% 相邻的拓展内容、20% 展示真人的生活内容（月度比例误差 ±10%）
+    - 80/10/10：80% 对用户有用的内容、10% 产品推广、10% 个人生活（抽查最近 20 篇）
+    - 每周至少 1 篇资源 / 清单类「收藏型」内容；有 1 个固定编号的系列（如「宝藏网站 #N」）
+    - 产品介绍帖在各平台主页置顶
+  - 怎么查：在内容日历里给每篇打两个标签（垂直 / 拓展 / 生活，有用 / 产品 / 个人），月底统计比例。适用于小红书、抖音、B站、公众号和 X。
+  - 工具 / 平台：[小红书](https://www.xiaohongshu.com/) · [抖音](https://www.douyin.com/) · [X (Twitter)](https://x.com/)
+- [ ] **抖音 / TikTok 搜索 SEO：一条视频一个关键词，标题、口播、字幕三处都出现** — `P1` · ④ 增长
+  - 为什么：搜索流量是长尾、持久的；平台会做语音识别和画面文字识别，关键词「说出来 + 写出来」双重确认。
+  - 检查标准：
+    - 每条视频只对应 1 个关键词，来源于搜索下拉、结果页前 10 条的标题或评论区提问
+    - 标题包含关键词原词（不拆开、不换同义词）+ 场景 / 人群 / 结果
+    - 前 5 秒口播说出关键词；封面、前 3 秒字幕、中段总结卡片上都有关键词文字
+    - 话题标签 3–5 个：1 个核心词 + 1–2 个长尾词 + 1 个人群 / 场景，不蹭无关热点，绝不 ≥ 10 个
+    - 昵称和简介含领域关键词，≥ 80% 的视频属于同一主题
+  - 怎么查：查看自动字幕确认关键词被识别；创作者中心 → 流量来源 查看「搜索」占比，按月观察（搜索流量往往几个月后才起来）。
+  - 工具 / 平台：[抖音](https://www.douyin.com/) · [TikTok](https://www.tiktok.com/) · [抖音创作者中心](https://creator.douyin.com/)
+- [ ] **短视频发布节奏与账号健康：新号每天 1 条，原创、垂直、无违规** — `P1` · ④ 增长
+  - 为什么：账号权重类似信用分：违规、频繁删除、搬运、重复发布、内容跳来跳去都会让起号变慢。
+  - 检查标准：
+    - 新号每天 1 条，稳定期保持固定频率；常用时段 11:30–13:00、18:00–20:00、21:00–23:00
+    - 0 违规记录；不删除重发、不搬运、不重复上传同一视频
+    - 画面中不出现外部网址（拍屏而不是录屏可以避免露出网址），引导用户看主页
+    - 发布前自查：没有贩卖焦虑、极端对立、引战、灰色赚钱和擦边内容
+  - 怎么查：每周查看一次创作者中心的账号状态和违规通知。
+  - 工具 / 平台：[抖音创作者中心](https://creator.douyin.com/) · [TikTok](https://www.tiktok.com/)
+- [ ] **YouTube：演示视频用关键词标题，描述前两行放链接，加章节** — `P1` · ④ 增长
+  - 为什么：YouTube 是第二大搜索引擎，视频还会出现在 Google 视频结果里；同一个演示视频还能用于官网和各发布平台。
+  - 检查标准：
+    - 标题以目标关键词开头（如「How to … with 产品名」），控制在约 70 个字符以内避免截断
+    - 描述前 2 行包含关键词和带 UTM 的官网链接
+    - 章节：描述中的时间戳从 0:00 开始，至少 3 个，每段 ≥ 10 秒
+    - 自定义缩略图 1280×720；Shorts 用于引流，并关联到对应的长视频
+    - 视频已嵌入对应的官网落地页
+  - 怎么查：YouTube Studio → 内容 → 编辑详情；Analytics → 流量来源 查看 YouTube 搜索占比。
+  - 工具 / 平台：[YouTube](https://www.youtube.com/)
+- [ ] **微信公众号：名称和标题带搜索词，固定节奏更新，用「阅读原文」导回网站** — `P1` · ④ 增长
+  - 为什么：微信搜一搜会检索公众号名称和文章标题；正文不能放外链，「阅读原文」是导回网站的主要入口。笔记案例：日更 60 天，涨粉 9,000+、收入过万。
+  - 检查标准：
+    - 公众号名称或简介含领域关键词；文章标题包含用户会搜的词
+    - 固定更新节奏（日更或每周 2–3 篇）并坚持 ≥ 60 天，记录粉丝、阅读和收入
+    - 每篇文章设置带 UTM 的「阅读原文」链接；自定义菜单链接到产品或小程序
+    - 文章内嵌小程序卡片或二维码，引导到私域
+  - 怎么查：微信公众平台 → 内容管理，发表时填写原文链接；用微信搜一搜搜索目标词，检查账号和文章排名。
+  - 工具 / 平台：[微信公众平台](https://mp.weixin.qq.com/)
+- [ ] **一份内容改成 ≥ 3 种形式分发，每个渠道都留转化入口** — `P1` · ④ 增长
+  - 为什么：内容是成本最低、寿命最长的获客渠道；每篇内容都是一个触点，触点足够多才会汇聚到产品上。
+  - 检查标准：
+    - 每篇核心内容至少分发到 3 个渠道 / 形式：短帖（X、即刻）、图文（小红书、公众号）、视频（抖音、B站、YouTube）
+    - 每个渠道都有转化入口：带 UTM 的链接、主页链接、「阅读原文」，或加微信 / 邮件订阅的钩子
+    - 每个平台账号只做一个垂直主题
+    - 私域（微信、邮件列表、Telegram）人数和转化率每月记录（笔记基准：私域转化约 1%）
+  - 怎么查：用一张分发表记录：原文、各平台链接、发布日期、带来的访问和留资。
+  - 工具 / 平台：[X (Twitter)](https://x.com/) · [即刻](https://okjike.com/) · [小红书](https://www.xiaohongshu.com/) · [微信公众平台](https://mp.weixin.qq.com/) · [哔哩哔哩](https://www.bilibili.com/) · [YouTube](https://www.youtube.com/)
+- [ ] **测试外链帖子的写法：主帖讲完内容，链接放回复或简介** — `P2` · ④ 增长
+  - 为什么：带外链的帖子曝光普遍偏低（近几年被大量创作者观察到）；让内容本身先有价值，再给出链接。
+  - 检查标准：
+    - 对比测试：同类内容「正文带链接」和「链接放第一条回复」各发 ≥ 3 次，记录曝光差异
+    - 长内容用 Thread（1/6、2/6 编号）或长文，第一条单独成立
+    - 所有链接带 UTM，GA4 中能看到 x.com / t.co 来源的访问
+  - 怎么查：X Analytics 对比曝光；GA4 按会话来源 / 媒介筛选 x / social。
+  - 工具 / 平台：[X (Twitter)](https://x.com/) · [Google Analytics 4](https://analytics.google.com/)
+- [ ] **LinkedIn（B2B 产品）：标题写清角色和产品，每周发 2–3 条经验帖** — `P2` · ④ 增长
+  - 为什么：B2B 买家和合作方会在 LinkedIn 判断你是否可信；创始人个人账号的触达通常高于公司主页。
+  - 检查标准：
+    - 个人标题格式「角色 @ 产品 | 帮谁解决什么问题」；Featured 区放产品链接和最好的帖子
+    - 公司主页已创建，名称、logo、简介与品牌事实卡一致
+    - 每周 2–3 条：经验、数据、案例（文字 + 图片或 PDF 轮播）；外链放正文末尾或评论中，对比测试曝光
+    - 每条评论 24 小时内回复
+  - 怎么查：在 LinkedIn 后台查看帖子曝光和主页访问来源。
+  - 工具 / 平台：[LinkedIn](https://www.linkedin.com/)
+- [ ] **Reddit 账号安全：一人一号、私信克制、推广前检查 shadowban** — `P1` · ⑤ 维护
+  - 为什么：多账号、批量私信和重复发帖是封号的主要原因，而 shadowban 本人登录时看不出来。
+  - 检查标准：
+    - 一人一个账号，不在同一 IP 用多个账号做相似操作
+    - 私信每天 ≤ 5 条，每条内容不同，对方确实是目标用户
+    - 每次推广前退出登录查看自己的主页和帖子是否可见
+    - 不在同一天把相同内容发到多个版块；被踩的帖子不删除
+  - 怎么查：无痕窗口打开 reddit.com/user/你的用户名，看不到即可能被 shadowban。
+  - 工具 / 平台：[Reddit](https://www.reddit.com/)
+- [ ] **小红书限流自检：24 小时阅读 < 50 或远低于账号平均时立即排查** — `P1` · ⑤ 维护
+  - 为什么：平台称之为「流量异常」，只能和自己的历史基线比较；越早发现越容易恢复。
+  - 检查标准：
+    - 判定：发布 24 小时阅读 < 50，或低于账号平均阅读的 10%
+    - 分享测试：转发到微信后打开，出现「笔记正在审核」「无法展示」即未通过审核
+    - 搜索测试：用另一个账号搜完整标题（切换「最新」排序）和小红书号，能搜到笔记和主页卡片
+    - 处理：知道违规点就修改（会重新审核）；不知道就删除，不反复修改；账号级异常时停止导流等行为、正常发布，一般 7 天左右恢复
+    - 一部手机只登录一个账号，不在同一设备上来回切换
+  - 怎么查：每篇笔记发布次日检查一次阅读量；异常时依次做分享测试和搜索测试。
+  - 工具 / 平台：[小红书](https://www.xiaohongshu.com/) · [小红书创作服务平台](https://creator.xiaohongshu.com/)
+- [ ] **每周复盘小红书数据，按「曝光 / 点击率 / 互动」诊断该改哪里** — `P1` · ⑤ 维护
+  - 为什么：数据会明确告诉你该改封面、改内容还是做系列，避免凭感觉调整。
+  - 检查标准：
+    - 每篇记录：曝光、封面点击率、阅读、点赞、收藏、评论、涨粉、搜索流量占比
+    - 曝光高 + 点击率低 → 改封面和标题；点击率高 + 互动低 → 改内容；曝光低 → 检查关键词、标签以及是否限流
+    - 收藏率明显高于账号平均（如 2,000 曝光、400+ 收藏）→ 扩展成系列
+    - 每篇发布 7 天后写一句结论：什么有效、什么拖后腿、下一篇改什么
+  - 怎么查：小红书创作服务平台 → 笔记数据导出到表格，每周固定时间复盘。
+  - 工具 / 平台：[小红书创作服务平台](https://creator.xiaohongshu.com/)
+
+<a id="i18n"></a>
+## 多语言与本地化 · International & local
+
+_hreflang、本地化关键词、分地区运营。_
+
+- [ ] **每种目标语言单独做关键词研究，不直接翻译关键词** — `P0` · ① 规划
+  - 为什么：不同语言的用户用不同说法搜索同一个需求，直译出来的关键词常常没人搜。
+  - 检查标准：
+    - 每种语言有独立的关键词表，搜索量按目标国家查询（Keyword Planner / Semrush 的地区设置）
+    - 核心词经过母语者或当地 Google 下拉联想确认
+    - 每种语言的 Top 10 SERP 单独分析（各国的竞争对手不同）
+  - 怎么查：Google Trends 切换国家对比；Google 搜索 URL 加 &hl=ja&gl=jp 等参数查看当地的下拉联想和结果。
+  - 工具 / 平台：[Google Keyword Planner](https://ads.google.com/home/tools/keyword-planner/) · [Semrush](https://www.semrush.com/) · [Google Trends](https://trends.google.com/) · [Google 搜索](https://www.google.com/)
+- [ ] **多语言用子目录（/en/、/ja/），不按 IP 或浏览器语言强制跳转** — `P1` · ① 规划
+  - 为什么：Googlebot 主要从美国抓取、不带语言偏好；强制跳转会让其他语言版本无法被抓取。
+  - 检查标准：
+    - 语言版本使用子目录（example.com/ja/）或独立域名，不用 ?lang=ja 参数或 Cookie 切换
+    - 不根据 IP 或 Accept-Language 自动跳转；改为页面顶部提示 + 语言切换器
+    - 语言切换器是普通 <a href> 链接，指向当前页面的对应语言版本，而不是首页
+  - 怎么查：用 curl -I -H 'Accept-Language: ja' 测试是否被跳转；hreflang 由 auditor 自动检查。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console) · [Screaming Frog](https://www.screamingfrog.co.uk/seo-spider/)
+- [ ] **中文市场单独规划：品牌词策略 + 各平台站内搜索，不只押百度 SEO** — `P1` · ① 规划
+  - 为什么：百度首页大量被广告和自家产品占据，新站很难做通用词；境外服务器在国内访问和收录都偏慢，而使用大陆服务器又需要 ICP 备案。
+  - 检查标准：
+    - 选用独特、国内没有同名网站的品牌名，目标：百度搜索品牌名排前 3
+    - 部署方案二选一并写进计划：境外站点（无需备案，国内访问较慢）或大陆服务器 + ICP 备案
+    - 中文获客主要放在小红书、知乎、B站、抖音、公众号的站内搜索，每个平台有关键词表
+    - 国内用户的收款方式已考虑（微信支付 / 支付宝，或小报童、爱发电等平台）
+  - 怎么查：百度搜索品牌名检查重名；用国内网络或多地测速工具测试官网打开速度。
+  - 工具 / 平台：[百度搜索资源平台](https://ziyuan.baidu.com/) · [小红书](https://www.xiaohongshu.com/) · [知乎](https://www.zhihu.com/)
+- [ ] **多语言页面 hreflang 互相指向并带 x-default** — `P1` · ② 开发 · 🤖 `tech-hreflang`
+  - 为什么：让不同语言 / 地区的用户看到对应版本，避免多语言页面被当作重复内容。
+  - 检查标准：
+    - 每个语言版本都列出全部语言（含自己）
+    - A 指向 B 时 B 也要指回 A
+    - 有 x-default
+    - 语言代码正确，例如 zh-CN 而不是 cn
+  - 怎么查：auditor；Ahrefs / Screaming Frog hreflang 报告。
+  - 工具 / 平台：[seo-handbook auditor](../reports/) · [Screaming Frog](https://www.screamingfrog.co.uk/seo-spider/)
+- [ ] **本地化而不只是翻译：标题描述、示例、货币、日期、截图都换成当地版本** — `P1` · ② 开发
+  - 为什么：机翻页面质量低、转化差；当地用户看到不对的货币、日期格式和例子会直接离开。
+  - 检查标准：
+    - 每种语言的 title、description、og 标签单独撰写，包含当地关键词
+    - 价格显示当地货币（或明确标注 USD），日期和数字格式符合当地习惯
+    - 机器翻译后至少经过一轮母语者或专业校对；关键页面没有残留的源语言文字
+    - 截图和示例使用对应语言的界面
+  - 怎么查：每种语言抽查 5 个页面；GSC → 效果 → 按国家筛选，比较各语言页面的展示和 CTR。
+  - 工具 / 平台：[Google Search Console](https://search.google.com/search-console)
+
+<a id="monetize"></a>
+## 变现 · Monetization
+
+_广告、订阅、联盟营销：流量最后要变成收入。_
+
+- [ ] **开发前定好收入模式：订阅、一次性付费、广告、联盟或付费收录** — `P0` · ① 规划
+  - 为什么：先有流量再想变现，常常发现用户群根本不付费；收入模式还决定了定位、免费边界和页面设计。
+  - 检查标准：
+    - 写下收入模式、目标用户、价值主张（如「AI 婚纱照」而不是泛泛的「AI 文生图」）
+    - 免费 / 付费边界清楚：核心体验免费可用，PRO 提供更高额度、高清导出、去水印、优先支持、集成等
+    - 用竞品定价页和公开收入数据（如 whoismaking.money、Indie Hackers）确认这个品类有人付费
+  - 怎么查：用一页纸写清：谁付钱、为什么付、付多少、多久付一次；对照 3 个竞品的定价。
+  - 工具 / 平台：[Indie Hackers](https://www.indiehackers.com/)
+- [ ] **按自己的主体选收款平台：个人可用的 vs 需要海外公司的** — `P0` · ① 规划
+  - 为什么：很多开发者做完产品才发现 Stripe 开不了户；先确认 KYC 要求，再写结账代码。
+  - 检查标准：
+    - 笔记整理的个人可申请平台：Creem、Paddle、PayPal（商业账户）、Waffo；Lemon Squeezy（2024 年被 Stripe 收购）和 Polar 以官网当前政策为准
+    - 需要公司或特定国家身份：Stripe（需在其支持的国家 / 地区有主体，不支持中国大陆）、PayPro Global、Paydify
+    - 优先考虑「记录商家（MoR）」模式的平台（如 Paddle、Lemon Squeezy、Polar、Creem），由平台代缴各国增值税 / 销售税
+    - 费率、提现方式（如 Wise 或国内银行卡）、拒付处理已写进成本模型
+  - 怎么查：在各平台注册页查看支持的国家和主体类型；先用测试模式跑通一笔订单。
+  - 工具 / 平台：[Creem](https://www.creem.io/) · [Paddle](https://www.paddle.com/) · [Lemon Squeezy](https://www.lemonsqueezy.com/) · [Polar](https://polar.sh/) · [Stripe](https://stripe.com/) · [PayPal](https://www.paypal.com/)
+- [ ] **定价页：2–3 个档位、年付优惠、限制写清楚，附真实评价和 FAQ** — `P1` · ② 开发
+  - 为什么：定价页是转化最关键的一页；额度和退款政策含糊，会直接导致放弃购买。
+  - 检查标准：
+    - 免费档 + 2–3 个付费档；每档的额度和限制写成具体数字
+    - 年付有明确优惠（如相当于 2 个月免费）；「限时」「即将涨价」等紧迫感只在真实时使用
+    - 有真实用户评价和 FAQ（退款、取消、发票、额度用完怎么办）
+    - 结构化数据中的价格与页面显示一致
+  - 怎么查：请 3 个没看过产品的人看定价页 30 秒，说出自己会选哪一档；用 Clarity 热图看用户停在哪里。
+  - 工具 / 平台：[Microsoft Clarity](https://clarity.microsoft.com/) · [Rich Results Test](https://search.google.com/test/rich-results)
+- [ ] **上线前端到端测试支付：购买、开通、退款、取消、续费失败** — `P0` · ③ 上线
+  - 为什么：支付链路任何一环出错（尤其是 Webhook 被拦截），都会变成「付了钱却没开通」的投诉和退款。
+  - 检查标准：
+    - 用真实卡完成 1 笔小额购买：Webhook 返回 2xx，账户权限即时开通，收据从域名邮箱发出
+    - 退款、取消订阅、续费失败（测试卡）三种情况都有正确的权限变化和通知邮件
+    - GA4 中 begin_checkout → purchase 漏斗可见，并记录流失率
+  - 怎么查：支付平台测试模式 + 一笔真实小额交易；在 Cloudflare 确认 Webhook 主机为灰云或已放行。
+  - 工具 / 平台：[Stripe](https://stripe.com/) · [Paddle](https://www.paddle.com/) · [Creem](https://www.creem.io/) · [Google Analytics 4](https://analytics.google.com/)
+- [ ] **用免费资源（清单、模板、额度）换邮箱或私域好友，再转化付费** — `P1` · ④ 增长
+  - 为什么：多数访客第一次不会付费；留下联系方式才能持续触达，私域转化率通常远高于公域。
+  - 检查标准：
+    - 至少 1 个免费资源换邮箱或加微信，放在高流量文章和落地页上
+    - 漏斗每一步都有数据：资源页访问 → 留资 → 打开 / 回复 → 付费
+    - 新订阅者收到 3–5 封自动欢迎邮件：交付资源、讲故事、展示案例、给出付费理由
+    - 私域按约 1% 转化做测算（笔记示例：2 万好友 × 1% × ¥200 = ¥4 万），每月用真实数据更新
+  - 怎么查：邮件可用 Substack 或其他邮件营销工具，中文私域用企业微信；在 GA4 中把留资设为关键事件。
+  - 工具 / 平台：[Substack](https://substack.com/) · [Google Analytics 4](https://analytics.google.com/) · [微信公众平台](https://mp.weixin.qq.com/)
+- [ ] **访谈首批付费用户再调整定价；考虑买断（LTD）前先算清毛利** — `P1` · ④ 增长
+  - 为什么：第一批付费用户最清楚「为什么值得付钱」，他们的原话就是最好的定价页文案和下一个功能。
+  - 检查标准：
+    - 访谈前 5–10 位付费用户：为什么付费、对比过哪些产品、差点没买的原因
+    - 访谈后 30 天内更新定价页文案或档位，并记入定价变更日志
+    - 考虑 AppSumo 等买断平台时：计算平台分成后的单用户收入，对比长期服务成本（尤其 AI 调用费），算不过来就不做
+    - 每月记录：免费 → 付费转化率、MRR、流失率
+  - 怎么查：付费后自动发一封创始人邮件，邀请 15 分钟通话；把用户原话整理进表格。
+  - 工具 / 平台：[AppSumo](https://appsumo.com/) · [Google Analytics 4](https://analytics.google.com/)
+- [ ] **申请 AdSense 前自查：原创内容、政策页面、导航清晰；获批后配置 ads.txt** — `P2` · ④ 增长
+  - 为什么：AdSense 常以「低价值内容」拒绝新站；准备不足就反复申请只会浪费时间。
+  - 检查标准：
+    - 有足够多原创且有实质内容的页面（官方没有篇数门槛，经验上 ≥ 20–30 篇再申请）
+    - 有隐私政策（说明使用 Google 广告和 Cookie）、About、Contact 页面；导航清晰，没有大量空页面
+    - 面向欧洲经济区、英国、瑞士用户时使用 Google 认证的 CMP 同意弹窗（2024 年起强制）
+    - 获批后 /ads.txt 返回 200 并包含正确的发布商 ID；开启广告后 CLS 仍 ≤ 0.1
+    - 被拒或以中文流量为主时的备选：Ezoic、Adsterra、Monetag；中文站可用万维广告（Adwork）
+  - 怎么查：AdSense → 网站 → 添加网站并按提示放置代码；用 PageSpeed Insights 对比开启广告前后的 CLS 和性能分。
+  - 工具 / 平台：[Google AdSense](https://adsense.google.com/) · [Ezoic](https://www.ezoic.com/) · [PageSpeed Insights](https://pagespeed.web.dev/)
+- [ ] **开设自己的联盟计划，让用户和创作者帮你推广** — `P2` · ④ 增长
+  - 为什么：联盟按成交付佣金，是笔记中与目录、SEO 并列的三个低成本渠道之一。
+  - 检查标准：
+    - 联盟计划已上线：Lemon Squeezy 自带联盟功能，或使用 Rewardful、impact.com、Awin（ShareASale 已并入 Awin）
+    - 佣金规则写清楚（SaaS 常见为首年 20–30% 的循环佣金，按自己的毛利决定）、Cookie 有效期、结算周期
+    - 条款禁止：竞价投放品牌词、垃圾邮件推广、虚假优惠码站
+    - 官网页脚有「Affiliates」入口；每个推广者有独立追踪链接，后台能看到点击和转化
+  - 怎么查：先邀请 5–10 个真实用户或创作者加入，跑通一次结算后再公开招募。
+  - 工具 / 平台：[Lemon Squeezy](https://www.lemonsqueezy.com/) · [Rewardful](https://www.rewardful.com/) · [impact.com](https://impact.com/) · [Awin](https://www.awin.com/)

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vexlora 仓位计算器 – 按风险计算买入股数（免费）</title>
+<meta name="description" content="Vexlora 免费仓位计算器：输入账户资金、单笔风险百分比、入场价和止损价，一秒算出应买入多少股。附计算公式、示例和常见问题。">
+<link rel="canonical" href="{{BASE}}/zh/">
+<link rel="alternate" hreflang="en" href="{{BASE}}/">
+<link rel="alternate" hreflang="zh-CN" href="{{BASE}}/zh/">
+<link rel="alternate" hreflang="x-default" href="{{BASE}}/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="icon" href="{{PATH}}/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vexlora 仓位计算器 – 按风险计算买入股数">
+<meta property="og:description" content="输入资金、风险%、入场与止损，一秒得出买入股数。">
+<meta property="og:url" content="{{BASE}}/zh/">
+<meta property="og:image" content="{{BASE}}/assets/og-image.png">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--ink:#0f172a;--muted:#475569;--line:#e2e8f0;--brand:#0f766e;--bg:#f8fafc}
+*{box-sizing:border-box}body{margin:0;font:16px/1.75 system-ui,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--brand)}header,main,footer{max-width:900px;margin:0 auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;padding-top:16px;padding-bottom:16px}
+header nav a{margin-left:14px;color:var(--muted);text-decoration:none}.logo{font-weight:700;color:var(--ink);text-decoration:none}
+.crumbs{font-size:14px;color:var(--muted)}.crumbs a{color:var(--muted)}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin:22px 0}
+form.calc{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+form.calc label{font-size:14px;font-weight:600;display:block}
+form.calc input{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px}
+form.calc button{grid-column:1/-1;background:var(--brand);color:#fff;border:0;border-radius:8px;padding:12px;font-size:16px;cursor:pointer}
+output{display:block;grid-column:1/-1;background:#f0fdfa;border:1px solid #99f6e4;border-radius:8px;padding:14px;min-height:56px}
+pre{background:#0f172a;color:#e2e8f0;padding:14px;border-radius:8px;overflow:auto}
+details{border-bottom:1px solid var(--line);padding:10px 0}summary{font-weight:600;cursor:pointer}
+footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);margin-top:40px;padding-top:24px;padding-bottom:40px}
+@media(max-width:720px){form.calc{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "WebApplication", "name": "Vexlora 仓位计算器", "url": "{{BASE}}/zh/", "inLanguage": "zh-CN",
+     "applicationCategory": "FinanceApplication", "operatingSystem": "Any (web browser)",
+     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}},
+    {"@type": "FAQPage", "inLanguage": "zh-CN", "mainEntity": [
+      {"@type": "Question", "name": "仓位怎么计算？", "acceptedAnswer": {"@type": "Answer", "text": "用账户资金乘以愿意承担的风险百分比，得到风险金额；再除以入场价与止损价之差，结果向下取整就是应买入的股数。"}},
+      {"@type": "Question", "name": "每笔交易应该承担账户多少风险？", "acceptedAnswer": {"@type": "Answer", "text": "常见的风险管理框架把单笔亏损控制在账户的 0.5%–2%，这样连续亏损也不会造成过大的回撤。"}}
+    ]}
+  ]
+}
+</script>
+</head>
+<body>
+<header>
+  <a class="logo" href="{{PATH}}/zh/">Vexlora</a>
+  <nav aria-label="主导航"><a href="{{PATH}}/guide/position-sizing-rules/" hreflang="en">仓位规则指南（英文）</a><a href="{{PATH}}/" hreflang="en" lang="en">English</a></nav>
+</header>
+<main>
+  <nav class="crumbs" aria-label="面包屑"><a href="{{PATH}}/zh/">Vexlora</a> › 仓位计算器</nav>
+  <h1>Vexlora 仓位计算器</h1>
+  <p><strong>买入股数 =（账户资金 × 风险%）÷（入场价 − 止损价）。</strong>输入下面四个数字，计算器会告诉你该买多少股，保证触发止损时的亏损不超过你设定的风险。</p>
+  <section class="card" aria-labelledby="calc-h">
+    <h2 id="calc-h">计算你的仓位</h2>
+    <form class="calc" id="calc">
+      <div><label for="acct">账户资金（$）</label><input id="acct" name="acct" type="number" value="10000" step="any"></div>
+      <div><label for="risk">单笔风险（%）</label><input id="risk" name="risk" type="number" value="1" step="any"></div>
+      <div><label for="entry">入场价（$）</label><input id="entry" name="entry" type="number" value="50" step="any"></div>
+      <div><label for="stop">止损价（$）</label><input id="stop" name="stop" type="number" value="48" step="any"></div>
+      <button type="submit">计算仓位</button>
+      <output id="out" aria-live="polite">风险金额 $100 · 买入 <strong>50 股</strong> · 持仓市值 $2,500（占账户 25%）</output>
+    </form>
+  </section>
+  <h2>计算公式</h2>
+  <pre>风险金额 = 账户资金 × 风险%
+每股风险 = |入场价 − 止损价|
+买入股数 = 风险金额 ÷ 每股风险（向下取整）</pre>
+  <h2>常见问题</h2>
+  <details open><summary>仓位怎么计算？</summary><p>用账户资金乘以愿意承担的风险百分比，得到风险金额；再除以入场价与止损价之差，结果向下取整就是应买入的股数。</p></details>
+  <details><summary>每笔交易应该承担账户多少风险？</summary><p>常见的风险管理框架把单笔亏损控制在账户的 0.5%–2%，这样连续亏损也不会造成过大的回撤。</p></details>
+  <p>本页为教育工具，不构成投资建议。</p>
+</main>
+<footer><a href="{{PATH}}/zh/">仓位计算器</a> · <a href="{{PATH}}/about/" hreflang="en">关于 Vexlora</a></footer>
+<script src="{{PATH}}/assets/calc.js" defer></script>
+</body>
+</html>

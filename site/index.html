@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO Handbook：SEO / GEO / 外链 / 账号运营 Checklist 与工具</title>
+<meta name="description" content="独立开发者的 SEO 手册：从关键词、技术 SEO、GEO（AI 搜索）、SERP 富结果到外链、冷启动发布和小红书 / X / Reddit 运营的完整 checklist、自动审计脚本和 before/after 实测对比。">
+<link rel="canonical" href="{{SITE_URL}}/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+{{GSC_META}}
+<link rel="icon" href="{{PATH}}/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SEO Handbook">
+<meta property="og:title" content="SEO Handbook：SEO / GEO / 外链 / 账号运营 Checklist 与工具">
+<meta property="og:description" content="完整 checklist + 自动审计脚本 + before/after 实测对比。">
+<meta property="og:url" content="{{SITE_URL}}/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"WebSite","name":"SEO Handbook","url":"{{SITE_URL}}/","inLanguage":"zh-CN"},
+ {"@type":"Organization","name":"SEO Handbook","url":"{{SITE_URL}}/","sameAs":["https://github.com/ArcueidShiki/seo-handbook"]}
+]}
+</script>
+<style>
+:root{--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--brand:#4f46e5}
+*{box-sizing:border-box}body{margin:0;font:16px/1.7 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:#f6f7fb}
+a{color:var(--brand)}main{max-width:1080px;margin:0 auto;padding:40px 20px 70px}
+h1{font-size:clamp(30px,4.4vw,44px);line-height:1.2;margin:0 0 12px}
+.lead{font-size:18px;color:#374151;max-width:780px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px;text-decoration:none;color:inherit;display:block;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--brand);transform:translateY(-2px)}
+.card h2{font-size:19px;margin:6px 0}.card p{margin:0;color:var(--muted);font-size:15px}
+.emoji{font-size:26px}
+.demo{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.demo .card{border-width:2px}.demo .a{border-color:#fecaca}.demo .b{border-color:#a7f3d0}
+ol.hb{columns:2;gap:30px;padding-left:22px}ol.hb li{margin:4px 0;break-inside:avoid}
+code{background:#eef0f4;padding:1px 6px;border-radius:5px;font-size:.92em}
+pre{background:#111827;color:#e5e7eb;padding:16px;border-radius:12px;overflow:auto;font-size:14px}
+footer{color:var(--muted);font-size:14px;margin-top:40px}
+@media(max-width:820px){.cards,.demo{grid-template-columns:1fr}ol.hb{columns:1}}
+</style>
+</head>
+<body>
+<main>
+  <p style="color:var(--muted);margin:0 0 6px">独立开发 · 出海 · SEO 从 0 到 100</p>
+  <h1>SEO Handbook：一套可以逐条打勾的 SEO / GEO / 增长 Checklist</h1>
+  <p class="lead">每次优化产品时都可以照着用。内容覆盖关键词、技术 SEO、页面标签、Core Web Vitals、GEO（让 AI 搜索引用你）、SERP 富结果、外链、冷启动发布，以及 X、Reddit、小红书等平台的账号运营。每一条都写明<strong>检查标准</strong>、<strong>怎么检查</strong>和<strong>用什么工具</strong>。能自动检测的条目，可以用仓库里的 auditor 脚本直接给网站打分。</p>
+
+  <div class="cards">
+    <a class="card" href="{{PATH}}/tool/"><span class="emoji">✅</span><h2>Checklist 工具</h2><p>可筛选、可勾选、可导出，带平台和工具图标；还能叠加 Demo 的审计结果查看。</p></a>
+    <a class="card" href="{{PATH}}/handbook/00-overview/"><span class="emoji">📘</span><h2>知识手册</h2><p>整理自"独立开发前线｜SEO 从 0 到 100"知识库的 91 篇文档，按主题重新编排，并补充了 2026 年的最新做法。</p></a>
+    <a class="card" href="{{PATH}}/reports/"><span class="emoji">📊</span><h2>Before / After 报告</h2><p>同一个产品，优化前和优化后：逐条审计、Lighthouse 分数、搜索结果片段预览，以及 Google 排名实验的步骤。</p></a>
+  </div>
+
+  <h2>两个对照 demo</h2>
+  <p>同一个虚构的仓位计算器产品，放在同一个域名下，唯一的变量是 SEO 实现方式。</p>
+  <div class="demo">
+    <a class="card a" href="{{PATH}}/demos/before/"><span class="emoji">🚫</span><h2>Demo A · 优化前</h2><p>典型的"AI 生成单页应用"：标题是 Home，正文由 JS 渲染，配一张 3 MB 大图，没有 sitemap 和结构化数据。</p></a>
+    <a class="card b" href="{{PATH}}/demos/after/"><span class="emoji">🚀</span><h2>Demo B · 优化后</h2><p>按 checklist 实现：静态生成、结构化数据、hreflang、llms.txt、内容集群；Lighthouse 四项都是 100 分。</p></a>
+  </div>
+
+  <h2>手册目录</h2>
+  <ol class="hb">{{HANDBOOK_NAV}}</ol>
+
+  <h2>用 auditor 审计你自己的网站</h2>
+  <pre>git clone https://github.com/ArcueidShiki/seo-handbook && cd seo-handbook && npm ci
+node auditor/audit.mjs --url https://你的网站/ --name mysite --keyword "你的主关键词"
+# 输出 reports/mysite.json：逐条 pass/fail + Lighthouse + 搜索结果片段预览</pre>
+
+  <footer>开源仓库：<a href="https://github.com/ArcueidShiki/seo-handbook">github.com/ArcueidShiki/seo-handbook</a> · 知识来源见手册各章末尾 · 最后构建 {{UPDATED}}</footer>
+</main>
+</body>
+</html>

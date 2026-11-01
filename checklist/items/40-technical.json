@@ -1,0 +1,70 @@
+[
+  {"id": "tech-redirect-hygiene", "cat": "technical", "phase": "build", "priority": "P1",
+   "title": "跳转干净：服务端 301、最多一跳、站内链接不指向跳转地址",
+   "why": "跳转链浪费抓取并可能损失信号；meta refresh 和 JS 跳转不可靠；站内链接指向 301 会白白多一次请求。",
+   "checkAgainst": [
+     "所有永久跳转都是服务端 301 / 308（临时才用 302 / 307），没有 <meta http-equiv=refresh> 和 JS 跳转",
+     "任意旧地址到最终地址 ≤ 1 跳（http → https → www → 去斜杠这类 3 跳要合并成 1 跳）",
+     "站内链接、canonical、sitemap 中指向 3xx 的 URL 数 = 0",
+     "删除且没有替代内容的页面返回 404 或 410，不批量 301 到首页"
+   ],
+   "how": "curl -sIL 地址 查看跳转次数；Screaming Frog → Response Codes → Redirection (3xx)，以及 Reports → Redirect Chains。",
+   "tools": ["screamingfrog", "ahrefs-awt"]},
+
+  {"id": "tech-param-canonical", "cat": "technical", "phase": "build", "priority": "P1",
+   "title": "带参数的 URL（UTM、排序、筛选、A/B 测试）都 canonical 到干净 URL",
+   "why": "分享链接、广告和筛选器带的参数会生成大量重复 URL，分散排名信号。",
+   "checkAgainst": [
+     "访问 /page?utm_source=test 时，canonical 指向 /page",
+     "排序 / 筛选参数页 canonical 指向主版本或设为 noindex,follow，且不出现在 sitemap 中",
+     "A/B 测试变体和近似模板页 canonical 指向主版本",
+     "canonical 目标返回 200、可索引、不跳转；每页只有 1 个 canonical 标签，没有循环"
+   ],
+   "how": "给 3 个页面手动加 ?utm_source=test 后 view-source 检查；Screaming Frog → Canonicals → Non-Indexable Canonical / Multiple。",
+   "tools": ["screamingfrog", "gsc"]},
+
+  {"id": "tech-crawlable-links", "cat": "technical", "phase": "build", "priority": "P0",
+   "title": "链接是真正的 <a href>，不用 # 路由，分页可被抓取",
+   "why": "爬虫只跟随带 href 的 <a>；onClick 跳转、hash 路由和无限滚动后面的内容，爬虫都看不到。",
+   "checkAgainst": [
+     "导航、分页、卡片点击都用 <a href=\"/path\">，不是 <div onClick> 或 <button>",
+     "不使用 /#/page 这类 hash 路由",
+     "无限滚动或「加载更多」同时提供可访问的分页 URL（?page=2 或 /page/2）",
+     "GSC 网址检查 → 查看已抓取的网页：HTML 中能看到主要内链"
+   ],
+   "how": "DevTools → Command Menu → Disable JavaScript 后浏览站点；Screaming Frog 用文本模式和 JS 渲染模式各爬一次，比较发现的页面数。",
+   "tools": ["screamingfrog", "gsc"]},
+
+  {"id": "tech-preview-noindex", "cat": "technical", "phase": "build", "priority": "P0",
+   "title": "预览 / 测试环境不被索引（*.vercel.app、*.pages.dev、staging.）",
+   "why": "预览域名被收录会产生整站重复内容，甚至抢走正式站的排名。",
+   "checkAgainst": [
+     "预览和 staging 环境响应头有 X-Robots-Tag: noindex，或需要密码访问",
+     "Google 搜索 site:vercel.app \"你的品牌\" 和 site:pages.dev \"你的品牌\" 没有结果",
+     "托管平台给的默认生产域名（如 xxx.vercel.app）301 到正式域名或设为 noindex"
+   ],
+   "how": "curl -I 预览地址看 X-Robots-Tag；在 Vercel / Netlify / Cloudflare Pages 设置里给非生产环境加 noindex 响应头或访问保护。",
+   "tools": ["google", "cloudflare"]},
+
+  {"id": "tech-broken-links-scan", "cat": "technical", "phase": "maintain", "priority": "P1",
+   "title": "每月扫一次死链：站内 4xx = 0，出站死链及时替换",
+   "why": "死链浪费抓取、伤害体验；引用的外部来源失效也会降低内容可信度。",
+   "checkAgainst": [
+     "站内链接返回 4xx / 5xx 的数量 = 0",
+     "出站链接 404 的数量 = 0（替换或删除）",
+     "GSC「未找到 (404)」列表中，仍被站内链接或 sitemap 引用的 URL = 0"
+   ],
+   "how": "每月跑一次 Screaming Frog（免费版 500 个 URL）或 Ahrefs Webmaster Tools 的 Site Audit（免费，可定时）；GSC 404 列表点开看「引荐页面」。",
+   "tools": ["screamingfrog", "ahrefs-awt", "gsc"]},
+
+  {"id": "tech-crawl-stats", "cat": "technical", "phase": "maintain", "priority": "P2",
+   "title": "每月看 GSC 抓取统计：主机状态正常，5xx 和 403 接近 0",
+   "why": "服务器错误或防火墙误拦 Googlebot 时，收录会悄悄下降，前台访问不一定看得出来。",
+   "checkAgainst": [
+     "GSC → 设置 → 抓取统计信息 → 主机状态：robots.txt 抓取、DNS 解析、服务器连接均无问题",
+     "按响应分类：5xx 占比 < 1%，没有成批的 403（多半是 WAF / Bot 规则误拦）",
+     "平均响应时间平稳、没有持续上升（经验值 < 500 ms）"
+   ],
+   "how": "GSC → 设置 → 抓取统计信息 → 打开报告；出现 403 时去 Cloudflare → Security → Events 按 User-Agent 筛选 Googlebot，确认「已验证机器人」被放行。",
+   "tools": ["gsc", "cloudflare"]}
+]

@@ -1,0 +1,125 @@
+[
+  {"id": "kw-seed-expansion", "cat": "keyword", "phase": "plan", "priority": "P0",
+   "title": "从种子词扩展出 ≥ 50 个候选关键词，建成关键词表",
+   "why": "一个好关键词就是一个新的流量入口；凭感觉选题，页面写完也可能没人搜。",
+   "checkAgainst": [
+     "关键词表 ≥ 50 行，每行有：月搜索量、KD、CPC、搜索意图、来源",
+     "来源至少覆盖 3 种：Google 下拉联想、SERP 底部「相关搜索」/ People Also Ask、AnswerThePublic / AlsoAsked、竞品排名词、LLM 扩展",
+     "按三层扩展：核心词（ai poster generator）→ 场景词（… for instagram ads）→ 问题 / 对比 / 教程词（best …、X vs Y、how to …）"
+   ],
+   "how": "无痕窗口在 Google 输入种子词，记录下拉框和底部相关搜索；把种子词放进 AnswerThePublic / AlsoAsked 拿问题词；让 ChatGPT 按「场景 / 人群 / 问题」各列 20 个；最后在 Semrush / Ahrefs / Keyword Planner 批量补数据，没有搜索量的删掉。",
+   "tools": ["google", "answerthepublic", "alsoasked", "chatgpt", "semrush", "ahrefs", "keywordplanner"]},
+
+  {"id": "kw-volume-kd-threshold", "cat": "keyword", "phase": "plan", "priority": "P0",
+   "title": "目标词过数据门槛：新站首批词 KD < 20 且月搜索量 > 500",
+   "why": "新站外链少，高难度词基本排不上去；搜索量接近 0 的词意味着要自己教育市场，不适合独立开发者。",
+   "checkAgainst": [
+     "新站（DR < 20）首批目标词：Ahrefs KD < 20（Semrush KD% < 30）且月搜索量 > 500",
+     "核心词（3–6 个月后再冲）：月搜索量 ≥ 1,000 且 KD < 50（笔记中的 KD 阈值区间为 20–50，起步取保守值）",
+     "产品所在主题下有 > 100 个相关词，能做成一组页面，而不是只有一个词",
+     "搜索量至少 2 个来源交叉确认：Semrush / Ahrefs / Keyword Planner 区间 / Google Trends 对比基准词",
+     "Ahrefs 的 Parent Topic 是另一个词时，并入父主题页面，不单独建页"
+   ],
+   "how": "Ahrefs Keywords Explorer 或 Semrush Keyword Overview 查 Volume、KD、Parent Topic；Keyword Planner →「获取搜索量和预测」（只给区间，作参考够用）。Trends 估算法：和已知搜索量的基准词对比（如 tts ≈ 28 万/月），Trends 指数比值 × 基准搜索量 ≈ 估算值。",
+   "tools": ["ahrefs", "semrush", "keywordplanner", "gtrends"]},
+
+  {"id": "kw-serp-feasibility", "cat": "keyword", "phase": "plan", "priority": "P0",
+   "title": "动笔前人工看一遍 Top 10，判断新站能不能打进去",
+   "why": "KD 只是外链数量的估算；真正决定能否排上去的是前 10 名是谁、页面是不是专门为这个词写的。",
+   "checkAgainst": [
+     "每个目标词有一行 SERP 分析记录：大站占比、页面类型、是否专门针对该词、是否有论坛结果",
+     "可做信号（满足 ≥ 2 条）：Top 10 有 ≥ 3 个 DR < 30 的小站；前 5 有 Reddit / Quora / 论坛结果；Top 3–5 的 title / H1 没有完整包含该词或只是顺带提到；有 2023 年后上线的站进入前 10",
+     "放弃信号：Top 10 全是 DR > 70 的品牌站或大站内页；标题清一色「Best XXX in 2026 | Top XX Tools」式模板（改做更长尾的词）"
+   ],
+   "how": "无痕窗口按目标国家搜索（URL 加 &gl=us&hl=en）；用 Ahrefs SERP Overview 或 AITDK / Detailed SEO 插件看每个结果的 DR；逐个打开前 5 名，看 title、H1、目录是否围绕该词，正文有没有步骤、对比、结论。",
+   "tools": ["google", "ahrefs", "semrush"]},
+
+  {"id": "kw-intent-page-type", "cat": "keyword", "phase": "plan", "priority": "P0",
+   "title": "页面类型与 SERP 意图一致：工具页、教程、对比页还是清单",
+   "why": "Top 10 都是教程和清单时产品页排不上去；Top 10 都是工具页时，博客文章同样排不上去。",
+   "checkAgainst": [
+     "每个关键词标注意图：信息型 / 商业调研型（best、vs、alternative）/ 交易型（tool、generator、online、free）/ 导航型",
+     "计划的页面类型 = Top 10 中占多数（≥ 6/10）的页面类型",
+     "交易型词 → 工具页 / 落地页；信息型 → 文章；对比型 → 对比页或清单页"
+   ],
+   "how": "关键词表加三列：「意图」「Top 10 主流页面类型」「计划页面类型」，三列不一致的行标红重新规划。",
+   "tools": ["google", "semrush"]},
+
+  {"id": "kw-trend-direction", "cat": "keyword", "phase": "plan", "priority": "P1",
+   "title": "用 Trends 确认关键词在上升或稳定，不是一阵风",
+   "why": "正在下降的词做完也没流量；刚开始上升的新词竞争小、机会大。",
+   "checkAgainst": [
+     "5 年视图不是单峰，近 12 个月持平或上升",
+     "新词机会：在词根（generator / maker / editor / tool）的 Related queries → Rising 中出现，且 7 天 / 30 天 / 90 天视图都在上升",
+     "中文词同时看百度指数（或 360 趋势 / 巨量算数），曲线不是持续下降"
+   ],
+   "how": "Google Trends 输入候选词，依次切换 Past 5 years / 12 months / 90 days / 30 days / 7 days；输入词根看 Rising；中文词在百度指数里看趋势和需求图谱。",
+   "tools": ["gtrends", "explodingtopics", "baidu-index"]},
+
+  {"id": "kw-competitor-gap", "cat": "keyword", "phase": "plan", "priority": "P1",
+   "title": "拆解 3–5 个竞品的流量词和 Top Pages，列出内容缺口",
+   "why": "竞品已经替你验证过哪些词能带来流量；最近流量暴涨的网站，往往刚吃到一个新词或容易的词。",
+   "checkAgainst": [
+     "竞品表：每个竞品的月访问量、主要渠道、Top 10 流量页面、Top 20 流量词",
+     "内容缺口：竞品有排名而你没有页面的词 ≥ 20 个，已并入关键词表",
+     "每月看一次 traffic.cv 等流量飙升榜，记录同领域流量突增的网站和它新增的关键词"
+   ],
+   "how": "Semrush → Organic Research / Keyword Gap；Ahrefs → Site Explorer → Top pages / Content gap；Similarweb 看渠道构成。没有付费工具时，Semrush 免费额度（约 10 次 / 天）只查最重要的竞品。",
+   "tools": ["semrush", "ahrefs", "similarweb", "trafficcv"]},
+
+  {"id": "kw-core-five", "cat": "keyword", "phase": "plan", "priority": "P1",
+   "title": "选定 5 个核心关键词，其中至少 1 个能较快冲进前 3",
+   "why": "先拿到一个能带来流量的词，才有数据和动力继续优化；难度要搭配，不要全押大词。",
+   "checkAgainst": [
+     "核心词 5 个，每个都和产品高度相关",
+     "至少 1 个词的 SERP 分析结论为「弱竞争」（新站 3 个月内有望进前 3）",
+     "每个核心词在「关键词 → URL」映射表里对应唯一一个 URL"
+   ],
+   "how": "关键词表按「相关性 × 搜索量 ÷ 难度」排序挑 5 个；给每个词指定落地 URL，并在排名跟踪里建项目。",
+   "tools": ["ahrefs", "semrush", "gsc"]},
+
+  {"id": "kw-serp-click-share", "cat": "keyword", "phase": "plan", "priority": "P2",
+   "title": "评估 SERP 的可点击空间：广告、AI 概览、精选摘要会抢走多少点击",
+   "why": "搜索量相同的词，首屏被广告和 AI 概览占满时，自然结果能拿到的点击会少很多。",
+   "checkAgainst": [
+     "记录每个核心词首屏有无：搜索广告（条数）、AI 概览、精选摘要、视频 / 图片模块、论坛模块",
+     "Ahrefs 的 CPS（每次搜索的点击数）明显偏低（经验值 < 0.5）或首屏 ≥ 3 条广告的词，降低优先级",
+     "信息型词出现 AI 概览时，同时加入 GEO 测试问题清单"
+   ],
+   "how": "无痕窗口搜索并截图首屏；Ahrefs Keywords Explorer 看 Clicks 和 CPS；Semrush 关键词列表的 SERP Features 列。",
+   "tools": ["google", "ahrefs", "semrush"]},
+
+  {"id": "kw-cn-platform-keywords", "cat": "keyword", "phase": "plan", "priority": "P1",
+   "title": "中文市场按平台分别建关键词表：百度、小红书、抖音、微信、知乎、B站",
+   "why": "中文用户的搜索分散在各个 App 里，每个平台的下拉联想就是它自己的需求清单；只看百度会漏掉大部分需求。",
+   "checkAgainst": [
+     "每个目标平台一张词表，每个词标注来源：该平台搜索框下拉联想 / 热门内容标题 / 评论区提问",
+     "每个平台 ≥ 20 个长尾词，且都属于同一个垂直领域",
+     "百度词在百度指数 / 爱站 / 站长之家有需求数据；小红书、抖音的词在输入种子词后确实出现在下拉框中"
+   ],
+   "how": "依次在小红书、抖音、微信、知乎、B站搜索框输入种子词，截图下拉联想；百度端用百度指数看需求图谱；各平台放在同一张表的不同 sheet。",
+   "tools": ["baidu-index", "xiaohongshu", "douyin", "wechat-mp", "zhihu", "bilibili"]},
+
+  {"id": "kw-striking-distance", "cat": "keyword", "phase": "grow", "priority": "P0",
+   "title": "从 GSC 挖「差一点」的词：平均排名 8–30、已有展示的查询",
+   "why": "已经有排名的长尾词最容易提升；用一组文章做内链支撑，就能把它和产品页一起推上首页。",
+   "checkAgainst": [
+     "导出 GSC 近 3 个月数据：平均排名 8–30、展示 ≥ 100 的查询（笔记用 11–30，这里从 8 开始）",
+     "每月挑 1–3 个和产品强相关的长尾词，各安排一个 5 篇文章的主题集群或扩写现有页面",
+     "4–8 周后复查这些词的平均排名，有上升记录"
+   ],
+   "how": "GSC → 效果 → 勾选「平均排名」→ 查询标签 → 过滤「排名 > 8」；Bing Webmaster → Search Performance 同样操作；导出后在关键词表打标签。",
+   "tools": ["gsc", "bing"]},
+
+  {"id": "kw-monthly-review", "cat": "keyword", "phase": "maintain", "priority": "P1",
+   "title": "每月复盘关键词：核心词排名、新出现的查询、关键词内耗",
+   "why": "需求和排名一直在变；不复盘就会错过新词，也发现不了两个页面在抢同一个词。",
+   "checkAgainst": [
+     "5 个核心词的排名每月记录一次",
+     "每个重要页面查看 GSC 查询列表：有展示但页面没回答的问题 → 补 FAQ 或新段落",
+     "内耗检查：同一查询对应 ≥ 2 个 URL 且排名来回跳 → 合并页面或调整其中一个的目标词",
+     "新发现的候选词进入关键词表并打上来源"
+   ],
+   "how": "GSC → 效果 → 按网页筛选 → 查询；点某个查询再切到「网页」标签看对应 URL 数；Semrush Position Tracking 的 Cannibalization 报告（付费）。",
+   "tools": ["gsc", "semrush", "ahrefs"]}
+]

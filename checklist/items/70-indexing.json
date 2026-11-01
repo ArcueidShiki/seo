@@ -1,0 +1,80 @@
+[
+  {"id": "indexing-gsc-setup", "cat": "indexing", "phase": "launch", "priority": "P0",
+   "title": "GSC 用域名资源统一管理，至少 2 个所有者，开启邮件提醒",
+   "why": "域名资源一次覆盖 http / https、www / 裸域和所有子域名；只有一个所有者的账号一旦丢失，历史数据很难找回。",
+   "checkAgainst": [
+     "GSC 中有「网域」类型资源（DNS TXT 验证），而不只是网址前缀资源",
+     "设置 → 用户和权限：至少 2 个所有者（另一个是备用账号）",
+     "邮件通知已开启，出现新的索引、安全或人工处置问题时能收到邮件"
+   ],
+   "how": "GSC → 添加资源 → 网域 → 在 Cloudflare DNS 添加 TXT 记录。auditor 只能检测页面上的验证标签，这几项需要登录后台确认。",
+   "tools": ["gsc", "cloudflare"]},
+
+  {"id": "indexing-bing-import", "cat": "indexing", "phase": "launch", "priority": "P0",
+   "title": "Bing Webmaster Tools 从 GSC 一键导入，确认 sitemap 和核心页面已收录",
+   "why": "Bing 本身有搜索份额，而且 ChatGPT 搜索、Copilot、DuckDuckGo 等都部分依赖 Bing 的索引。",
+   "checkAgainst": [
+     "Bing Webmaster 中站点已验证（Import from Google Search Console 或 DNS 验证）",
+     "Sitemaps 页面状态为 Success，发现的 URL 数 ≈ 可索引页面数",
+     "URL Inspection 检查首页和 3 个核心页面，均已收录"
+   ],
+   "how": "bing.com/webmasters → Add site → Import from GSC，授权后自动导入站点和 sitemap；未收录的页面在 URL Inspection 里点 Request indexing。",
+   "tools": ["bing"]},
+
+  {"id": "indexing-indexnow", "cat": "indexing", "phase": "launch", "priority": "P1",
+   "title": "接入 IndexNow，发布或更新页面时自动通知 Bing、Yandex 等",
+   "why": "IndexNow 能让 Bing、Yandex、Seznam、Naver 在几分钟内知道 URL 变化；Google 目前不使用 IndexNow，仍需 sitemap 和 GSC。",
+   "checkAgainst": [
+     "根目录有 IndexNow key 文件（/{key}.txt），返回 200",
+     "发布、更新、删除页面时自动推送（构建脚本、CMS 插件或 Cloudflare Crawler Hints）",
+     "Bing Webmaster → IndexNow 报告中能看到最近提交的 URL"
+   ],
+   "how": "Cloudflare → Caching → Configuration → Crawler Hints 开启即可自动推送；或在部署脚本里向 https://api.indexnow.org/indexnow 发 POST 请求。",
+   "tools": ["indexnow", "bing", "cloudflare", "yandex"]},
+
+  {"id": "indexing-cn-engines", "cat": "indexing", "phase": "launch", "priority": "P2",
+   "title": "面向中文用户时，在百度、搜狗、360、头条站长平台验证并提交",
+   "why": "国内搜索引擎不会从 Google 获取信息；不主动提交，新站可能几个月都不被收录。",
+   "checkAgainst": [
+     "百度搜索资源平台、搜狗站长平台、360 站长平台、头条搜索站长平台均显示「已验证」",
+     "各平台提交 sitemap；百度另配置「普通收录」API 推送新 URL（每日有配额）",
+     "百度搜索 site:域名 能查到中文页面；境外服务器收录偏慢属正常，不为此做违规操作",
+     "中文站同时安装百度统计"
+   ],
+   "how": "ziyuan.baidu.com → 用户中心 → 站点管理 → 添加网站，用文件、HTML 标签或 CNAME 验证；其余平台流程类似。",
+   "tools": ["baidu", "sogou", "so360", "toutiao", "baidu-tongji"]},
+
+  {"id": "indexing-request-on-publish", "cat": "indexing", "phase": "grow", "priority": "P1",
+   "title": "每次发布新页面或重要更新，当天在 GSC 请求编入索引",
+   "why": "新站外链少、抓取频率低，主动提交能把收录从几周缩短到几天，也有助于确立首发。",
+   "checkAgainst": [
+     "每篇新文章 / 新落地页发布当天：GSC 网址检查 → 测试实际网址 → 请求编入索引",
+     "7 天内复查显示「网址在 Google 上」；14 天仍未收录的进入排查清单",
+     "请求编入索引有每日配额（经验值约 10 条），优先提交核心页面，其余依靠 sitemap"
+   ],
+   "how": "GSC 顶部搜索框粘贴 URL → 测试实际网址 → 请求编入索引；Bing 侧依靠 IndexNow 或 URL Submission。",
+   "tools": ["gsc", "bing"]},
+
+  {"id": "indexing-coverage-triage", "cat": "indexing", "phase": "maintain", "priority": "P0",
+   "title": "每周检查「网页」索引报告，按原因分类处理未编入索引的页面",
+   "why": "收录是排名的前提；新站最常见的问题是「已抓取 - 尚未编入索引」，通常意味着内容价值不足或内链太少。",
+   "checkAgainst": [
+     "「已抓取 - 尚未编入索引」和「已发现 - 尚未编入索引」中的重要页面数逐周下降",
+     "「重复网页，Google 选择的规范网址与用户指定的不同」= 0；抽查核心页面，「Google 选择的规范网址」与声明的一致",
+     "「软 404」「被 robots.txt 屏蔽」「已排除 noindex」里没有本该收录的页面",
+     "每类原因都有处理动作：内容薄 → 扩写或合并；孤立页面 → 加内链；规范冲突 → 修 canonical"
+   ],
+   "how": "GSC → 编制索引 → 网页，逐个点开原因查看示例 URL；修复后点击「验证修正」。",
+   "tools": ["gsc"]},
+
+  {"id": "indexing-brand-site-check", "cat": "indexing", "phase": "launch", "priority": "P1",
+   "title": "上线 2–4 周后自查：搜品牌名首页排第一，site: 收录数与 sitemap 同一量级",
+   "why": "连品牌词都搜不到官网，说明收录或实体信号有问题，要先解决再做内容。",
+   "checkAgainst": [
+     "Google 和 Bing 搜索品牌名，官网首页排第 1（品牌名与常见词重名时搜「品牌名 + 品类词」）",
+     "site:域名 的结果数与 sitemap 中的 URL 数处于同一量级（site: 只是粗略估计）",
+     "首页结果显示正确的站点名称和 favicon"
+   ],
+   "how": "无痕窗口分别在 Google、Bing（中文站加上百度）搜索；GSC 效果报告中筛选品牌查询，查看平均排名。",
+   "tools": ["google", "bing", "gsc"]}
+]

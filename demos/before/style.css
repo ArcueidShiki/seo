@@ -1,0 +1,11 @@
+body{font-family:Arial,sans-serif;margin:0;width:1100px;background:#f4f4f4}
+.top{background:#222;color:#aaa;padding:14px 20px;font-size:13px}
+.big{font-size:30px;font-weight:bold;padding:30px 20px 10px;color:#333}
+.box{background:#fff;margin:20px;padding:20px;border:1px solid #ddd}
+.box input{width:200px;padding:6px;margin:4px 0}
+.lbl{color:#bbb;font-size:12px}
+.btn{background:#ccc;color:#fff;padding:8px 14px;display:inline-block;cursor:pointer;margin-top:10px}
+.res{margin-top:12px;color:#999}
+.foot{padding:20px;color:#bbb;font-size:12px}
+.spinner{padding:40px}
+img.hero{display:block}
