@@ -15,6 +15,14 @@
 
 zip 包里的 `_preview/` 是已构建好的站点（相对链接），直接用浏览器打开 `_preview/index.html` 就能浏览 Checklist 工具、手册、两个 demo 和对比报告，不需要安装任何东西。
 
+## 🧠 Claude Skills（31 个）
+
+`.claude/skills/` 下有 31 个 skill。在这个仓库里用 Claude Code 时会自动加载；也可以单独复制到其他项目的 `.claude/skills/` 目录使用。
+
+- **`seo-growth-skills-index`**：总索引，列出下面 30 个子 skill，并给出常见任务该按什么顺序调用哪些 skill。
+- **16 个 checklist skill（`seo-checklist-*`）**：每个对应 checklist 的一个类别，按阶段列出全部条目和通过标准，并规定执行流程和交付表格。由 `node scripts/make-skills.mjs` 从 `checklist.json` 自动生成，checklist 更新后重跑这条命令即可。
+- **14 个手册 skill（`seo-guide-*` / `growth-guide-*`）**：每个对应手册的一章（01–13 + 术语表），内容包括核心原则、操作流程、数字门槛、模板和常见错误。
+
 ## 快速开始
 
 ```bash
